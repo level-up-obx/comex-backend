@@ -9,3 +9,8 @@ e.Spring MVC;
 f.Spring Security;
 g.Spring Boot;
 h.MySQL.
+
+Desenvolvedor do projeto
+a.Nome: Gustavo Imbernon Nogueira;
+b.Email: gustavo.nogueira@onebox.one;
+c.Github: https://github.com/GustavoNogueiraOneBox;
