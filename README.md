@@ -11,3 +11,7 @@ Lista das tecnologias que serão utilizadas no projeto Comex:
 -   Spring Security
 -   Spring Boot
 -   MySQL
+
+a.Nome: Daniel Laurindo;
+b.Email: daniel.laurindo@onebox.one;
+c.Github: https://github.com/danielaurindo/
