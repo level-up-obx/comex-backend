@@ -17,3 +17,9 @@ f - Spring Security;
 g - Spring Boot;
 
 h - MySQL.
+
+Desenvolvedor
+
+Nome; Tiago Augusto Seixas e Silva
+Email; tiago.silva@onebox.one
+Tel; 12 98823-3542
