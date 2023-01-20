@@ -12,4 +12,8 @@ Spring Security;
 Spring Boot;
 MySQL.
 
+Informações do desenvolvedor: 
 
+Nome: Marina Lira Silva
+email: marina.silva@dne.com.br
+Cargo: analista de operações migrando para are de tecnologia.
