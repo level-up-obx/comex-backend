@@ -12,3 +12,9 @@ Spring MVC;
 Spring Security;
 Spring Boot;
 MySQL.
+
+INFORMAÇÕES DESENVOLVEDOR
+
+Fernanda de Melo;
+fernanda.silva@onebox.one
+Estagiaria de Back-end.
