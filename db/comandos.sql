@@ -78,3 +78,5 @@ id, categoria, produto, preco, quantidade, data, cliente) VALUES (
 UPDATE pedido SET categoria = 'INFORMÁTICA' WHERE categoria = 'INFO';
 
 SELECT * FROM pedido;
+
+SELECT * FROM pedido WHERE categoria = 'CELULARES';
