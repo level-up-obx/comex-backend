@@ -1,5 +1,8 @@
-﻿CREATE TABLE pedido(
+﻿CREATE DATABASE comex;
+
+CREATE TABLE pedido(
 id BIGINT,
+descricao VARCHAR(255),
 produto VARCHAR(255),
 preco DECIMAL(10,2),
 quantidade INTEGER,
