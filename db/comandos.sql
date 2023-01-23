@@ -84,3 +84,6 @@ SELECT * FROM pedido WHERE categoria = 'CELULARES';
 SELECT * FROM pedido WHERE preco BETWEEN 3000.00 AND 10000.00;
 
 SELECT * FROM pedido WHERE cliente = 'ANA' OR cliente = 'DANI';
+
+SELECT * FROM pedido WHERE (categoria = 'LIVROS' and quantidade > 1) OR
+(categoria = 'INFORMÁTICA' and preco > 5000.00);
