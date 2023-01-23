@@ -80,3 +80,5 @@ UPDATE pedido SET categoria = 'INFORMÁTICA' WHERE categoria = 'INFO';
 SELECT * FROM pedido;
 
 SELECT * FROM pedido WHERE categoria = 'CELULARES';
+
+SELECT * FROM pedido WHERE preco BETWEEN 3000.00 AND 10000.00;
