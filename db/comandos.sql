@@ -76,3 +76,5 @@ id, categoria, produto, preco, quantidade, data, cliente) VALUES (
 16, 'INFO', 'Galaxy Tab S8', 5939.10, 4, '2022-01-02', 'BIA');
 
 UPDATE pedido SET categoria = 'INFORMÁTICA' WHERE categoria = 'INFO';
+
+SELECT * FROM pedido;
