@@ -14,6 +14,7 @@ quantidade INT(150),
 dataPedido DATE,
 cliente VARCHAR(60))
 
+
 //Inserindo dados na tabela pedidos
 
 USE comex;
@@ -79,5 +80,10 @@ SELECT * FROM pedido WHERE cliente = 'ANA' OR cliente = 'DANI';
 //Listando pedidos em relacao a categoria, preco e quantidade
 
 SELECT * FROM pedido WHERE (categoria = 'LIVROS'AND quantidade > 1) OR (categoria = 'INFORMATICA' AND preco > 5000.00);
+
+
+//Removendo pedidos quantidade 1 e cliente BIA
+
+DELETE FROM pedido WHERE quantidade = 1 AND cliente = 'BIA';
 
 
