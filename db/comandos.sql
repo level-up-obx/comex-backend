@@ -60,8 +60,14 @@ UPDATE pedido SET categoria = 'INFORMATICA' WHERE categoria = 'INFO';
 
 SELECT produto FROM pedido;
 
+
 //Selecionando todos os pedidos da categoria CELULARES
 
 SELECT * FROM pedido WHERE categoria = 'CELULARES';
+
+
+//Listando preços entre 3000.00 e 10000.00
+
+SELECT * FROM pedido WHERE preco BETWEEN 3000.00 AND 10000.00;
 
 
