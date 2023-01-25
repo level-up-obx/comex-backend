@@ -53,3 +53,5 @@ SELECT * FROM tb_pedidos WHERE cliente IN ('ANA','DANI');
 SELECT * FROM tb_pedidos WHERE (categoria = 'LIVROS' AND quantidade > 1) 
 OR (categoria = 'INFORMÁTICA' AND preco> 5000.00);
 
+#Tarefa 08 - Remover pedidos que tem quantidade igual a 1 e pedidos que foram feitos pela BIA
+DELETE FROM tb_pedidos WHERE quantidade = 1 OR cliente = 'BIA';
