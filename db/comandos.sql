@@ -32,3 +32,6 @@ INSERT INTO pedido(id,categoria,produto,preco,quantidade,data_pedido,cliente) VA
 //Dando update na tabela pedido trocando info por informática
 update pedido set categoria = 'INFORMÁTICA'
 where categoria = 'INFO';
+
+//Fazendo select de todos os pedidos
+select produto from pedido;
