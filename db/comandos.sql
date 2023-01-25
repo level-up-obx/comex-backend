@@ -39,4 +39,7 @@ SELECT * FROM tb_pedidos;
 
 SELECT produto, quantidade FROM tb_pedidos;
 
+#Tarefa 05 - Lista de pedidos filtrada pela categoria "CELULARES"
+SELECT * FROM tb_pedidos WHERE categoria = 'CELULARES';
+
 
