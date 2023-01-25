@@ -32,3 +32,11 @@ VALUES
 
 #Tarefa 03 -  Corrigindo a coluna 'INFO' para 'INFORMÁTICA'
 UPDATE tb_pedidos SET categoria= 'INFORMÁTICA' WHERE categoria = 'INFO';
+
+#Tarefa 04 - Listando todos os pedidos (nesta tarefa não ficou claro se é a lista literal de todos os pedidos ou
+# se só os produtos dos pedidos, portanto entregarei o script de ambos)
+SELECT * FROM tb_pedidos;
+
+SELECT produto, quantidade FROM tb_pedidos;
+
+
