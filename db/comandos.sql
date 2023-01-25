@@ -35,3 +35,6 @@ where categoria = 'INFO';
 
 //Fazendo select de todos os pedidos
 select produto from pedido;
+
+//Fazendo select de todos que estão na categoria CELULARES
+select * from pedido where categoria = 'CELULARES';
