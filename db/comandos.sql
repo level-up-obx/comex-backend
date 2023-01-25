@@ -50,3 +50,6 @@ INSERT INTO pedido(ID,CATEGORIA,PRODUTO,PRECO,QUANTIDADE,DATAPEDIDO,CLIENTE) VAL
 
 INSERT INTO pedido(ID,CATEGORIA,PRODUTO,PRECO,QUANTIDADE,DATAPEDIDO,CLIENTE) VALUES (16,'INFO','Galaxy Tab S8',5939.10,4,  date_format(str_to_date('02/01/2022', '%d/%m/%Y'), '%Y-%m-%d'),'BIA');
 
+//Corrigindo categoria Informatica
+
+UPDATE pedido SET categoria = 'INFORMATICA' WHERE categoria = 'INFO'; 
