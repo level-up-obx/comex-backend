@@ -45,4 +45,7 @@ SELECT * FROM tb_pedidos WHERE categoria = 'CELULARES';
 #Tarefa 06 - Lista de pedidos filtrada pelos preços entre 3000 e 10000
 SELECT * FROM tb_pedidos WHERE preco BETWEEN 3000.00 AND 10000.00;
 
+#Tarefa 07 - Lista do cliente que mais fez pedidos
+SELECT cliente, COUNT(*) AS quantidade FROM tb_pedidos GROUP BY cliente ORDER BY quantidade DESC;
+SELECT * FROM tb_pedidos WHERE cliente IN ('ANA','DANI');
 
