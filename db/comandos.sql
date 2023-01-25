@@ -28,3 +28,7 @@ INSERT INTO pedido(id,categoria,produto,preco,quantidade,data_pedido,cliente) VA
 INSERT INTO pedido(id,categoria,produto,preco,quantidade,data_pedido,cliente) VALUES (14,'AUTOMOTIVA','Central multimidia',711.18,1,date_format(str_to_date('16/01/2022', '%d/%m/%Y'), '%Y-%m-%d'),'CAIO');
 INSERT INTO pedido(id,categoria,produto,preco,quantidade,data_pedido,cliente) VALUES (15,'LIVROS','Building Microservices',300.28,2,date_format(str_to_date('11/01/2022', '%d/%m/%Y'), '%Y-%m-%d'),'CAIO');
 INSERT INTO pedido(id,categoria,produto,preco,quantidade,data_pedido,cliente) VALUES (16,'INFO','Galaxy Tab S8',5939.10,4,date_format(str_to_date('02/01/2022', '%d/%m/%Y'), '%Y-%m-%d'),'BIA');
+
+//Dando update na tabela pedido trocando info por informática
+update pedido set categoria = 'INFORMÁTICA'
+where categoria = 'INFO';
