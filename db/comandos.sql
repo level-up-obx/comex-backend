@@ -49,3 +49,7 @@ SELECT * FROM tb_pedidos WHERE preco BETWEEN 3000.00 AND 10000.00;
 SELECT cliente, COUNT(*) AS quantidade FROM tb_pedidos GROUP BY cliente ORDER BY quantidade DESC;
 SELECT * FROM tb_pedidos WHERE cliente IN ('ANA','DANI');
 
+#Tarefa 08 - Relatório de categoria, preço e quantidade
+SELECT * FROM tb_pedidos WHERE (categoria = 'LIVROS' AND quantidade > 1) 
+OR (categoria = 'INFORMÁTICA' AND preco> 5000.00);
+
