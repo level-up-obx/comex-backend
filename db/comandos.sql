@@ -58,6 +58,10 @@ UPDATE pedido SET categoria = 'INFORMATICA' WHERE categoria = 'INFO';
 
 //Selecionando todos os pedidos da tabela pedido
 
-select produto from pedido;
+SELECT produto FROM pedido;
+
+//Selecionando todos os pedidos da categoria CELULARES
+
+SELECT * FROM pedido WHERE categoria = 'CELULARES';
 
 
