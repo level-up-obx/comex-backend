@@ -42,4 +42,7 @@ SELECT produto, quantidade FROM tb_pedidos;
 #Tarefa 05 - Lista de pedidos filtrada pela categoria "CELULARES"
 SELECT * FROM tb_pedidos WHERE categoria = 'CELULARES';
 
+#Tarefa 06 - Lista de pedidos filtrada pelos preços entre 3000 e 10000
+SELECT * FROM tb_pedidos WHERE preco BETWEEN 3000.00 AND 10000.00;
+
 
