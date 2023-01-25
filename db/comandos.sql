@@ -48,3 +48,5 @@ select * from pedido where cliente = 'ANA' OR cliente = 'DANI';
 //Fazendo select de todos os livros que a quantidade seja maior que 1 e aparelhos de informática maior que 5000.00
 select * from pedido where (categoria = 'LIVROS' and quantidade > 1) OR (categoria = 'INFORMÁTICA' and preco > 5000.00);
 
+//Removendo pedidos da Bia que tenha quantidade = 1
+delete from pedido where cliente = 'BIA' and quantidade = 1;
