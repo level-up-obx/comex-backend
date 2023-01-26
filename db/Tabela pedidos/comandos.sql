@@ -1,4 +1,8 @@
-﻿CREATE DATABASE comex;
+﻿#Criando a database
+
+CREATE DATABASE comex;
+----------------------------------------------------
+#Criando a tabela pedidos
 
 CREATE TABLE pedidos(
 id BIGINT,
@@ -8,8 +12,12 @@ preco DECIMAL(10,2),
 quantidade INTEGER,
 data DATE,
 cliente VARCHAR(60));
+----------------------------------------------------
+#Alterando a tabela pedidos, adicionando chave primária
 
 ALTER TABLE pedidos ADD PRIMARY KEY (id);
+----------------------------------------------------
+#Inserindo os 16 registros na tabela pedidos
 
 INSERT INTO pedidos (
 id, categoria, produto, preco, quantidade, data, cliente) VALUES (
@@ -74,8 +82,12 @@ id, categoria, produto, preco, quantidade, data, cliente) VALUES (
 INSERT INTO pedidos (
 id, categoria, produto, preco, quantidade, data, cliente) VALUES (
 16, 'INFO', 'Galaxy Tab S8', 5939.10, 4, '2022-01-02', 'BIA');
+----------------------------------------------------
+Atualiazando a tabela pedidos, renomeando "info" para "informática"
 
 UPDATE pedidos SET categoria = 'INFORMÁTICA' WHERE categoria = 'INFO';
+----------------------------------------------------
+Realizando as consultas na tabela pedidos
 
 SELECT * FROM pedidos;
 
@@ -87,5 +99,7 @@ SELECT * FROM pedidos WHERE cliente = 'ANA' OR cliente = 'DANI';
 
 SELECT * FROM pedidos WHERE (categoria = 'LIVROS' and quantidade > 1) OR
 (categoria = 'INFORMÁTICA' and preco > 5000.00);
+----------------------------------------------------
+Realizando o delete da tabela pedidos onde o cliente é a bia e a quantidade é 1
 
 DELETE FROM pedidos WHERE quantidade = 1 AND cliente = 'BIA';
