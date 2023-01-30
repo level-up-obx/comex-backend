@@ -48,6 +48,11 @@ select * from pedidos;
 
 select * from pedidos where produto = "CELULARES";
 
--- 7) Listando todos os pedidos  onde o preço esteja entre R$ 3.000,00 e R$ 10.000,00;
+-- 7) Listando todos os pedidos  onde o preço esteja entre R$ 3.000,00 e R$ 10.000,00
 
 select * from pedidos where preco between "3000.00" and "10000.00";
+
+-- 8) Listando todos os pedidos da tabela pedido quer pertençam à ANA ou DANI
+
+select * from pedidos where cliente = 'ANA' or cliente = 'DANI';
+-- -> select * from pedidos where cliente in ('ANA', 'DANI');
