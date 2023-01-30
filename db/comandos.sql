@@ -64,3 +64,7 @@ select * from pedidos where cliente = 'ANA' or cliente = 'DANI';
 select * from pedidos
 where (produto = "LIVROS" and quantidade > 1)
 or ( produto = "LIVROS" and preco > '5000.00');
+
+-- 10) Removendo os pedidos que: têm quantidade igual a 1 e foram feitos pela BIA
+
+delete from pedidos where quantidade = 1 and cliente = "BIA";
