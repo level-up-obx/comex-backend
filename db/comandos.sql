@@ -97,4 +97,10 @@ select * from pedido where preco  >= 3000.00 and preco <= 10000.00;
 
 select * from pedido where cliente between 'ANA' and 'DANI';
 
+-- Pesquisa de Informática e livros
+
+
+select * FROM pedido where categoria = 'LIVROS' and quantidade > 1 or
+ categoria = 'INFORMATICA' and preco > 5000.00;
+
 
