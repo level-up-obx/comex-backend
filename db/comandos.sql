@@ -84,3 +84,8 @@ select * from  pedido;
 
 select * from;
 
+
+-- Selcionando celulares
+
+select * from pedido where categoria = 'CELULARES' ;
+
