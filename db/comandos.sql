@@ -46,4 +46,8 @@ select * from pedidos;
 
 -- 6) Listando todos os pedidos da categoria CELULARES
 
-select * from pedidos where categoria = "CELULARES";
+select * from pedidos where produto = "CELULARES";
+
+-- 7) Listando todos os pedidos  onde o preço esteja entre R$ 3.000,00 e R$ 10.000,00;
+
+select * from pedidos where preco between "3000.00" and "10000.00";
