@@ -43,3 +43,7 @@ update pedidos set produto = "INFORMÁTICA" where produto = "INFO";
 -- 5) Listando todos os pedidos
 
 select * from pedidos;
+
+-- 6) Listando todos os pedidos da categoria CELULARES
+
+select * from pedidos where categoria = "CELULARES";
