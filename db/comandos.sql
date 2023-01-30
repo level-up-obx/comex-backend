@@ -35,3 +35,7 @@ insert into pedidos (`produto`, `categoria`, `preco`, `quantidade`, `data`, `cli
 insert into pedidos (`produto`, `categoria`, `preco`, `quantidade`, `data`, `cliente`) values ('AUTOMOTIVA', 'Central multimidia', '711.18', '1', '2022-01-16','CAIO');
 insert into pedidos (`produto`, `categoria`, `preco`, `quantidade`, `data`, `cliente`) values ('LIVROS', 'Building Microservices', '300.28', '2', '2022-01-11','CAIO');
 insert into pedidos (`produto`, `categoria`, `preco`, `quantidade`, `data`, `cliente`) values ('INFO', 'Galaxy Tab S8', '5939.10', '4','2022-01-02', 'BIA');
+
+-- 4) Alterando INFO por INFORMÁTICA
+
+update pedidos set produto = "INFORMÁTICA" where produto = "INFO"
