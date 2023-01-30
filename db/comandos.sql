@@ -103,4 +103,8 @@ select * from pedido where cliente between 'ANA' and 'DANI';
 select * FROM pedido where categoria = 'LIVROS' and quantidade > 1 or
  categoria = 'INFORMATICA' and preco > 5000.00;
 
+ -- deletando registro
+
+ delete from pedido where quantidade = 1 and cliente = 'ANA' ;
+
 
