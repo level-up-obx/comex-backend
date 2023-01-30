@@ -56,3 +56,11 @@ select * from pedidos where preco between "3000.00" and "10000.00";
 
 select * from pedidos where cliente = 'ANA' or cliente = 'DANI';
 -- -> select * from pedidos where cliente in ('ANA', 'DANI');
+
+-- 9) Listando todos os pedidos da tabela pedido que:
+-- a)são da categoria LIVROS com quantidade maior que 1,
+-- b)são da categoria INFORMÁTICA com preço maior que R$ 5.000,00;
+
+select * from pedidos
+where (produto = "LIVROS" and quantidade > 1)
+or ( produto = "LIVROS" and preco > '5000.00');
