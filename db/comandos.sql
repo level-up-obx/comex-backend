@@ -66,3 +66,18 @@ insert into pedido(categoria, produto, preco, quantidade, data, cliente) VALUES
 
 select * from pedido;
 
+--alteração do nome da categoria
+
+use comex;
+
+update pedido set categoria = 'INFORMATICA' where id = 1;
+
+update pedido set categoria = 'INFORMATICA' where id = 6;
+
+update pedido set categoria = 'INFORMATICA'where id  =11;
+
+update pedido set categoria = 'INFORMATICA' where id = 16;
+
+select * from  pedido;
+
+
