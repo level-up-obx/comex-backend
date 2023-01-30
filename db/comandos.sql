@@ -93,3 +93,8 @@ select * from pedido where categoria = 'CELULARES' ;
 
 select * from pedido where preco  >= 3000.00 and preco <= 10000.00;
 
+---- PEDIDOS ENTRE ANA E DANI
+
+select * from pedido where cliente between 'ANA' and 'DANI';
+
+
