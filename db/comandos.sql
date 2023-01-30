@@ -38,4 +38,8 @@ insert into pedidos (`produto`, `categoria`, `preco`, `quantidade`, `data`, `cli
 
 -- 4) Alterando INFO por INFORMÁTICA
 
-update pedidos set produto = "INFORMÁTICA" where produto = "INFO"
+update pedidos set produto = "INFORMÁTICA" where produto = "INFO";
+
+-- 5) Listando todos os pedidos
+
+select * from pedidos;
