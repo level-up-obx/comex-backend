@@ -80,4 +80,7 @@ update pedido set categoria = 'INFORMATICA' where id = 16;
 
 select * from  pedido;
 
+-- organizando pedidos
+
+select * from;
 
