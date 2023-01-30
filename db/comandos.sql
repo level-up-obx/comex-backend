@@ -89,3 +89,7 @@ select * from;
 
 select * from pedido where categoria = 'CELULARES' ;
 
+-- Mostrando preço com limite entre 3000 e 10000
+
+select * from pedido where preco  >= 3000.00 and preco <= 10000.00;
+
