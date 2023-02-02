@@ -28,4 +28,8 @@ FROM pedido LEFT JOIN item_pedido ON pedido.id = item_pedido.pedido_id;
 #Tarefa 07 - Relatório analítico de pedidos
 SELECT cliente.nome, COUNT(pedido.id) AS numero_de_pedidos
 FROM cliente LEFT JOIN pedido ON cliente.id = pedido.cliente_id
-GROUP BY cliente.nome;
+GROUP BY cliente.nome
+HAVING numero_de_pedidos >= (SELECT MAX(numero_de_pedidos)
+FROM (SELECT COUNT(pedido.id) AS numero_de_pedidos FROM cliente
+LEFT JOIN pedido ON cliente.id = pedido.cliente_id GROUP BY cliente.nome
+ORDER BY numero_de_pedidos DESC) AS clientes_fieis);
