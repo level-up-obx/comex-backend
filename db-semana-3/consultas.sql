@@ -24,3 +24,8 @@ MIN(item_pedido.preco_unitario * item_pedido.quantidade) AS pedido_mais_barato,
 MAX(item_pedido.preco_unitario * item_pedido.quantidade) AS pedido_mais_caro,
 SUM(item_pedido.preco_unitario * item_pedido.quantidade) AS montante_vendido
 FROM pedido LEFT JOIN item_pedido ON pedido.id = item_pedido.pedido_id;
+
+#Tarefa 07 - Relatório analítico de pedidos
+SELECT cliente.nome, COUNT(pedido.id) AS numero_de_pedidos
+FROM cliente LEFT JOIN pedido ON cliente.id = pedido.cliente_id
+GROUP BY cliente.nome;
