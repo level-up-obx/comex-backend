@@ -36,4 +36,21 @@ left join cliente c on pd.cliente_id = c.id
 left join categoria ct on pt.categoria_id = ct.id
 order by c.nome, ct.nome asc;
 
+-- Crie uma consulta que liste:
+-- quantidade de pedidos realizados;
+-- quantidade de produtos (itens) vendidos;
+-- valor do pedido mais barato;
+-- valor do pedido mais caro;
+-- montante vendido.
 
+select 
+    count(pd.id) as pedidos_realizados,
+    sum(ip.quantidade) as pedidos_vendidos,
+    min( ip.quantidade * ip.preco_unitario) as pedido_mais_barato,
+    max( ip.quantidade * ip.preco_unitario) as pedido_mais_caro,
+    sum(ip.quantidade * ip.preco_unitario) as montante_vendido
+from item_pedido ip
+left join pedido pd on ip.pedido_id = pd.id
+left join produto pt on ip.produto_id = pt.id
+left join cliente c on pd.cliente_id = c.id
+left join categoria ct on pt.categoria_id = ct.id
