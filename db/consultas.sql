@@ -25,3 +25,13 @@ from categoria
 inner join produtos on categoria.id = produtos.categoria_id
 inner join itens_pedidos on itens_pedidos.produto_id = produtos.id
 group by categoria.nome;
+
+//Relatório Analítico de vendas
+
+SELECT COUNT(DISTINCT pedidos.id) AS 'TOTAL DE PEDIDOS',
+SUM(itens_pedidos.quantidade) AS 'SOMA DE PEDIDOS',
+MIN(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'PEDIDO MAIS BARATO',
+MAX(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'PEDIDO MAIS CARO',
+SUM(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'MONTANTE'
+FROM pedidos 
+LEFT JOIN itens_pedidos ON pedidos.id = itens_pedidos.pedido_id;
