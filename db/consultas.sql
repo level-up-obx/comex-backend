@@ -54,3 +54,15 @@ left join pedido pd on ip.pedido_id = pd.id
 left join produto pt on ip.produto_id = pt.id
 left join cliente c on pd.cliente_id = c.id
 left join categoria ct on pt.categoria_id = ct.id
+
+
+-- Relatório de clientes mais fiéis
+
+select 
+		c.nome,
+		count(ip.quantidade) as quantidade
+	from item_pedido ip
+		left join pedido pd on ip.pedido_id = pd.id
+		left join cliente c on pd.cliente_id = c.id
+	group by c.nome
+    order by count(ip.quantidade) desc , c.nome
