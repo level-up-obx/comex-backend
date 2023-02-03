@@ -29,4 +29,11 @@ JOIN produtos ON categoria.id = produtos.categoria_id
 JOIN itens_pedidos ON produtos.id = itens_pedidos.produtos_id
 GROUP BY categoria.nome;
 
+
+SELECT COUNT(DISTINCT pedidos.id) AS 'PEDIDOS',
+SUM(itens_pedidos.quantidade) AS 'QUANTIDADE PEDIDA',
+MIN(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'PEDIDO MAIS BARATO',
+MAX(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'PEDIDO MAIS CARO',
+SUM(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'TOTAL DE VENDAS'
+FROM pedidoS LEFT JOIN itens_pedidos ON pedidos.id = itens_pedidos.pedidos_id;
  
