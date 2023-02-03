@@ -20,4 +20,13 @@ INNER JOIN produtos ON itens_pedidos.produtos_id = produtos.id
 INNER JOIN categoria ON produtos.categoria_id = categoria.id
 ORDER BY clientes.nome, categoria.nome ASC;
 
+
+use comex;
+SELECT categoria.nome AS 'CATEGORIA', 
+SUM(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'TOTAL DE VENDAS'
+FROM categoria
+JOIN produtos ON categoria.id = produtos.categoria_id
+JOIN itens_pedidos ON produtos.id = itens_pedidos.produtos_id
+GROUP BY categoria.nome;
+
  
