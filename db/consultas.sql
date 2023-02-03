@@ -35,3 +35,12 @@ MAX(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'PEDIDO MAIS CAR
 SUM(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'MONTANTE'
 FROM pedidos 
 LEFT JOIN itens_pedidos ON pedidos.id = itens_pedidos.pedido_id;
+
+//Relatório de clientes mais fiéis
+
+SELECT clientes.nome, COUNT(pedidos.id) AS TOTAL_PEDIDO
+FROM clientes
+JOIN pedidos ON clientes.id = pedidos.cliente_id
+GROUP BY clientes.nome
+ORDER BY TOTAL_PEDIDO DESC
+LIMIT 2;
