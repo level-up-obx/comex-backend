@@ -66,3 +66,26 @@ select
 		left join cliente c on pd.cliente_id = c.id
 	group by c.nome
     order by count(ip.quantidade) desc , c.nome
+
+    -- ou 
+
+select 
+    c.nome, count(ip.quantidade)
+from item_pedido ip
+    inner join pedido pd on ip.pedido_id = pd.id
+    inner join cliente c on pd.cliente_id = c.id
+
+group by c.nome
+having count(ip.quantidade) =
+(
+select max(r.quantidade) from (
+    select 
+        count(ip.quantidade) as quantidade
+    from item_pedido ip
+        inner join pedido pd on ip.pedido_id = pd.id
+        inner join cliente c on pd.cliente_id = c.id
+    group by c.nome
+    having max(ip.quantidade)
+    order by count(ip.quantidade) desc , c.nome
+    ) as r
+)
