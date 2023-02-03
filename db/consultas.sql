@@ -37,3 +37,11 @@ MAX(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'PEDIDO MAIS CAR
 SUM(itens_pedidos.preco_unitario * itens_pedidos.quantidade) AS 'TOTAL DE VENDAS'
 FROM pedidoS LEFT JOIN itens_pedidos ON pedidos.id = itens_pedidos.pedidos_id;
  
+ 
+use comex;
+SELECT clientes.nome, COUNT(pedidos.id) AS quantidade_pedidos
+FROM clientes
+JOIN pedidos ON clientes.id = pedidos.clientes_id
+GROUP BY clientes.nome
+ORDER BY quantidade_pedidos DESC
+LIMIT 2;
