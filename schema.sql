@@ -83,3 +83,12 @@ value ('Notebook Samsung',3523.00), ('Sofá 3 lugares', 2500.00), ('Clean Archit
 
 
 select * from item_pedido;
+
+-- Select dos produtos e preços----
+
+use comex;
+
+select * from categoria;
+select * from produto;
+
+select distinct A.id as id_categoria, A.nome, B.id as id_produto, B.nome, B.preco from produto B left join categoria A on A.id = B.id is not null;
