@@ -104,3 +104,14 @@ select
         left join pedido C on B.id = C.id
 		left join produto D on C.id = D.id
         left join categoria E on E.id = D.id;
+		
+		-----SOMA DE ITENS-----
+		
+		use comex;
+
+select * from categoria;
+select * from item_pedido;
+
+select distinct A.nome as categoria,sum(B.preco_unitario * B.quantidade) as total 
+from categoria A 
+left join item_pedido B on A.id = B.id  group by A.nome   ;
