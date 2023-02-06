@@ -86,3 +86,21 @@ select * from categoria;
 select * from produto;
 
 select distinct A.id as id_categoria, A.nome, B.id as id_produto, B.nome, B.preco from produto B left join categoria A on A.id = B.id is not null;
+
+------Pesquisa ____
+
+use comex;
+select * from produto;
+select * from item_pedido;
+select * from pedido;
+select * from cliente;
+select * from categoria;
+
+select 
+        A.nome,  D.nome as produto, 
+        B.preco_unitario, B.quantidade, C.data, E.nome as categoria
+    from cliente A 
+        left join item_pedido B on A.id = B.id
+        left join pedido C on B.id = C.id
+		left join produto D on C.id = D.id
+        left join categoria E on E.id = D.id;

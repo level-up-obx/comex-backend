@@ -10,10 +10,8 @@ create table produto (
 id bigint auto_increment primary key,
  nome varchar(255),
  preco decimal(10,2),
- categoria_id bigint
-  	);
-alter table produto 
-	add constraint fk_produto foreign key(categoria_id) references produto (id);
+ categoria_id bigint,
+ foreign key (categoria_id) references categoria(id) 	);
  
 
  create table cliente (
@@ -27,10 +25,9 @@ create table pedido (
 
 id bigint auto_increment primary key,
  data datetime,
- cliente_id bigint
- );
-alter table pedido 
-	add constraint fk_pedido foreign key(cliente_id) references produto (id);
+ cliente_id bigint,
+foreign key (cliente_id) references categoria(id) );
+
 
 
 create table item_pedido(
@@ -38,12 +35,9 @@ id bigint auto_increment primary key,
  pedido_id bigint,
  produto_id bigint,
  preco_unitario decimal(10,2),
- quantidade integer
-);
-alter table item_pedido 
-	add constraint fk_item_pedido foreign key(pedido_id) references produto (id);
-    alter table item_pedido 
-	add constraint fk_item_pedido_produto foreign key(produto_id) references produto (id);
+ quantidade integer,
+ foreign key (pedido_id) references categoria(id),
+ foreign key (produto_id) references categoria(id));
 	
 	
 	----- INSERINDO ITENS NAS TABELAS-------------
@@ -92,3 +86,21 @@ select * from categoria;
 select * from produto;
 
 select distinct A.id as id_categoria, A.nome, B.id as id_produto, B.nome, B.preco from produto B left join categoria A on A.id = B.id is not null;
+
+-----------Pesquisa _____
+
+use comex;
+select * from produto;
+select * from item_pedido;
+select * from pedido;
+select * from cliente;
+select * from categoria;
+
+select 
+        A.nome,  D.nome as produto, 
+        B.preco_unitario, B.quantidade, C.data, E.nome as categoria
+    from cliente A 
+        left join item_pedido B on A.id = B.id
+        left join pedido C on B.id = C.id
+		left join produto D on C.id = D.id
+        left join categoria E on E.id = D.id;
