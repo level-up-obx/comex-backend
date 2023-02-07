@@ -115,3 +115,18 @@ select * from item_pedido;
 select distinct A.nome as categoria,sum(B.preco_unitario * B.quantidade) as total 
 from categoria A 
 left join item_pedido B on A.id = B.id  group by A.nome   ;
+
+------------RELATÓRIO ANALITICO DE PEDIDOS------------
+
+use comex;
+
+select * from pedido;
+select * from produto;
+select * from item_pedido;
+
+
+
+	select count(quantidade) as pedidos_realizados, sum(quantidade) as produtos_vendidos,
+    min(preco_unitario) as pedido_mais_barato, max(preco_unitario) as pedido_mais_caro, 
+	(sum(preco_unitario) * sum(quantidade)) as montante_vendido
+	from item_pedido;
