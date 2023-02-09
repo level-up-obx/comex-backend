@@ -8,18 +8,15 @@ public class Categoria {
         return id;
     }
 
-    public void setId(Long id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNome()
-    {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome)
-    {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -31,4 +28,15 @@ public class Categoria {
 
         this.status = status;
     }
+
+    public Categoria(Long id, String nome, String status) {
+        this.id = GeradorDeId.proximoId();
+        this.nome = nome;
+        this.status = status;
+    }
+    public Categoria(){
+        this.id = GeradorDeId.proximoId();
+
+    }
+
 }

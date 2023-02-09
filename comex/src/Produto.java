@@ -6,6 +6,7 @@ public class Produto {
     private Integer quantidadeEmEstoque;
     private Categoria categoria;
 
+    //Getters e Setters
     public Long getId() {
         return id;
     }
@@ -54,6 +55,7 @@ public class Produto {
         this.categoria = categoria;
     }
 
+    //Métodos adicionais
     public String calculaValorTotalEmEstoque() {
         double valorTotalEmEstoque = this.quantidadeEmEstoque * this.precoUnitario;
         return "O valor total em estoque é: " + valorTotalEmEstoque;
@@ -64,6 +66,8 @@ public class Produto {
         return "O valor do imposto é: " + Math.round(imposto * 100.0) / 100.0;
     }
 
+
+    //Método toString
     @Override
     public String toString() {
         return  "id = " + id +
@@ -80,8 +84,9 @@ public class Produto {
                 ", quantidadeEmEstoque: " + quantidadeEmEstoque;
     }
 
+    //Construtor com parâmetros
     public Produto(Long id, String nome, String descricao, double precoUnitario, Integer quantidadeEmEstoque, Categoria categoria) {
-        this.id = id;
+        this.id = GeradorDeId.proximoId();
         this.nome = nome;
         this.descricao = descricao;
         this.precoUnitario = precoUnitario;
@@ -89,7 +94,8 @@ public class Produto {
         this.categoria = categoria;
     }
 
+    //Construtor vazio
     public Produto(){
-
+        this.id = GeradorDeId.proximoId();
     }
 }

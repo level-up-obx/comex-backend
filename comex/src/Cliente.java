@@ -13,7 +13,7 @@ public class Cliente {
 
     //Criando construtor com todos os parâmetros
     public Cliente(Long id, String primeiroNome, String sobrenome, String cpf, String telefone, String rua, String numero, String complemento, String bairro, String cidade, String estado) {
-        this.id = id;
+        this.id = GeradorDeId.proximoId();
         this.primeiroNome = primeiroNome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -28,6 +28,7 @@ public class Cliente {
 
     //Criando construtor vazio
     public Cliente() {
+        this.id = GeradorDeId.proximoId();
 
     }
 
