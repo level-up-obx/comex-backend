@@ -100,11 +100,31 @@ public class Cliente {
         this.estado = estado;
     }
 
+    public Cliente(Long id, String primeiroNome, String sobrenome, String cpf, String telefone, String rua, String numero, String complemento, String bairro, String cidade, String estado) {
+        this.id = id;
+        this.primeiroNome = primeiroNome;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
+
     public String nomeCompleto(){
-       return primeiroNome + " " + sobrenome + ".";
+       return primeiroNome + " " + sobrenome;
     }
 
     public String enderecoCompleto(){
-        return rua + " " + numero + " " + bairro + " " + complemento + " " + cidade + " " + estado + ".";
+        return rua + " " + numero + " " + bairro + " " + complemento + " " + cidade + " " + estado;
+    }
+
+    @Override
+    public String toString() {
+        return  "Nome completo: " + nomeCompleto() + ", CPF: " + cpf + ", telefone: " + telefone +
+                " e endereço completo: " + enderecoCompleto();
     }
 }
