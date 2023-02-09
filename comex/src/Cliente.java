@@ -27,7 +27,7 @@ public class Cliente {
     }
 
     //Criando construtor vazio
-    public Cliente(){
+    public Cliente() {
 
     }
 
@@ -77,11 +77,12 @@ public class Cliente {
     }
 
     //Métodos adicionais
-    public String nomeCompleto(){
+    public String nomeCompleto() {
         return primeiroNome + " " + sobrenome;
     }
-    public String enderecoCompleto(){
-        return rua + ", " + numero + ", " + complemento + " - " +bairro + " - " + cidade + " - " + estado;
+
+    public String enderecoCompleto() {
+        return rua + ", " + numero + ", " + complemento + " - " + bairro + " - " + cidade + " - " + estado;
     }
 
     //Método toString para facilitar a impressão
@@ -100,5 +101,14 @@ public class Cliente {
                 ", cidade='" + cidade + '\'' +
                 ", estado='" + estado + '\'' +
                 '}';
+    }
+
+    public String toStringComEnderecoConcatenado() {
+        return "Cliente " + id + ": " +
+                "id = " + id +
+                ", Nome Completo = '" + nomeCompleto() + '\'' +
+                ", cpf = '" + cpf + '\'' +
+                ", telefone = '" + telefone + '\'' +
+                ", endereco = '" + enderecoCompleto() + '\'';
     }
 }
