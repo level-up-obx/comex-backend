@@ -66,14 +66,18 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", precoUnitario=" + precoUnitario +
-                ", quantidadeEmEstoque=" + quantidadeEmEstoque +
-                ", categoria=" + categoria +
-                '}';
+        return  "id = " + id +
+                ", nome = '" + nome + '\'' +
+                ", descricao = '" + descricao + '\'' +
+                ", precoUnitario = " + precoUnitario +
+                ", quantidadeEmEstoque = " + quantidadeEmEstoque;
+    }
+
+    public String toStringSemDescricao() {
+        return  "id: " + id +
+                ", nome: '" + nome + '\'' +
+                ", precoUnitario: " + precoUnitario +
+                ", quantidadeEmEstoque: " + quantidadeEmEstoque;
     }
 
     public Produto(Long id, String nome, String descricao, double precoUnitario, Integer quantidadeEmEstoque, Categoria categoria) {
@@ -83,5 +87,9 @@ public class Produto {
         this.precoUnitario = precoUnitario;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
         this.categoria = categoria;
+    }
+
+    public Produto(){
+
     }
 }
