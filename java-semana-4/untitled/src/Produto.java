@@ -68,4 +68,12 @@ public class Produto {
     public static BigDecimal calculaImposto(BigDecimal precoUnitario){
         return precoUnitario.multiply(BigDecimal.valueOf(0.4));
     }
+
+    @Override
+    public String toString() {
+        return  "Produto " + id + " - " + nome + ", Preço unitário: " + precoUnitario +
+                ", quantidade em estoque: " + quantidadeEmEstoque +
+                ", valor total em estoque: " + calculaValorEstoque(precoUnitario, quantidadeEmEstoque) +
+                ", valor do imposto: " + calculaImposto(precoUnitario);
+    }
 }
