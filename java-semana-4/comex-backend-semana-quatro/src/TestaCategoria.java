@@ -9,7 +9,7 @@ public class TestaCategoria {
         categoria1.setNome("INFORMÁTICA");
 
         categoria2.setNome("MÓVEIS");
-        categoria2.setStatus("INATIVA");
+        categoria2.setStatus(false);
 
         categoria3.setNome("LIVROS");
 

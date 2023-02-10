@@ -4,7 +4,7 @@ public class Categoria {
 
     Long id;
     String nome;
-    String status = "ATIVA";
+    boolean status = true;
 
     public Categoria() {
         this.id = ++idAutoIncrementado;
@@ -26,16 +26,16 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
     @Override
     public String toString() {
-        return  nome + " (" + id + " - " + status + ")";
+        return  nome + " (" + id + " - " + (status ? "ATIVO" : "INATIVO") + ")";
     }
 }
