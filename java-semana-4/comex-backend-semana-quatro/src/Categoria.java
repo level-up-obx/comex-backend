@@ -1,8 +1,14 @@
 public class Categoria {
 
+    private static Long idAutoIncrementado = 0L;
+
     Long id;
     String nome;
     String status = "ATIVA";
+
+    public Categoria() {
+        this.id = ++idAutoIncrementado;
+    }
 
     public Long getId() {
         return id;

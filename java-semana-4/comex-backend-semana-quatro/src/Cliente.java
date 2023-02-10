@@ -1,5 +1,6 @@
 public class Cliente {
 
+    public static Long idAutoIncrementado = 0L;
     Long id;
     String primeiroNome;
     String sobrenome;
@@ -12,6 +13,9 @@ public class Cliente {
     String cidade;
     String estado;
 
+    public Cliente() {
+        this.id = ++idAutoIncrementado;
+    }
     public Long getId() {
         return id;
     }
@@ -100,8 +104,8 @@ public class Cliente {
         this.estado = estado;
     }
 
-    public Cliente(Long id, String primeiroNome, String sobrenome, String cpf, String telefone, String rua, String numero, String complemento, String bairro, String cidade, String estado) {
-        this.id = id;
+    public Cliente(String primeiroNome, String sobrenome, String cpf, String telefone, String rua, String numero, String complemento, String bairro, String cidade, String estado) {
+        this();
         this.primeiroNome = primeiroNome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -125,6 +129,6 @@ public class Cliente {
     @Override
     public String toString() {
         return  "Nome completo: " + nomeCompleto() + ", CPF: " + cpf + ", telefone: " + telefone +
-                " e endereço completo: " + enderecoCompleto();
+                " e endereço completo: " + enderecoCompleto() + id;
     }
 }

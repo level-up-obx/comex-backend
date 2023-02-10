@@ -9,19 +9,14 @@ public class TestaProduto {
         Categoria categoria4 = new Categoria();
         Categoria categoria5 = new Categoria();
 
-        produto1.setId(1L);
         produto1.setNome("Notebook Samsung");
         produto1.setPrecoUnitario(new BigDecimal("3523.00"));
         produto1.setQuantidadeEmEstoque(1);
 
-
-        produto2.setId(2L);
         produto2.setNome("Clean Architeture");
         produto2.setPrecoUnitario(new BigDecimal("102.90"));
         produto2.setQuantidadeEmEstoque(2);
 
-
-        produto3.setId(3L);
         produto3.setNome("Monitor Dell 27");
         produto3.setPrecoUnitario(new BigDecimal("1889.00"));
         produto3.setQuantidadeEmEstoque(3);

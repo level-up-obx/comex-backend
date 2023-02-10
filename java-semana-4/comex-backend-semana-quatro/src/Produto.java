@@ -1,17 +1,16 @@
 import java.math.BigDecimal;
 public class Produto {
-
+    public static Long idAutoIncrementado = 0L;
     Long id;
-
     String nome;
-
     String descricao;
-
     BigDecimal precoUnitario;
-
     int quantidadeEmEstoque;
-
     Categoria categoria;
+
+    public Produto(){
+        this.id = ++idAutoIncrementado;
+    }
 
     public Long getId() {
         return id;
