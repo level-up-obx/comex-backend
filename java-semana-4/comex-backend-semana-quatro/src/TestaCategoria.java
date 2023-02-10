@@ -8,7 +8,6 @@ public class TestaCategoria {
 
         categoria1.setId(1L);
         categoria1.setNome("INFORMÁTICA");
-        categoria1.setStatus("ATIVA");
 
         categoria2.setId(2L);
         categoria2.setNome("MÓVEIS");
@@ -16,7 +15,6 @@ public class TestaCategoria {
 
         categoria3.setId(3L);
         categoria3.setNome("LIVROS");
-        categoria3.setStatus("ATIVA");
 
         System.out.println(categoria1);
         System.out.println(categoria2);

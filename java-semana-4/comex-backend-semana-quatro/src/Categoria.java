@@ -2,7 +2,7 @@ public class Categoria {
 
     Long id;
     String nome;
-    String status;
+    String status = "ATIVA";
 
     public Long getId() {
         return id;
