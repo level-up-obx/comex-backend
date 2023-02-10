@@ -30,11 +30,12 @@ select
     ip.quantidade as quantidade,
     pd.`data` as `data`
 from item_pedido ip
-left join pedido pd on ip.pedido_id = pd.id
-left join produto pt on ip.produto_id = pt.id
-left join cliente c on pd.cliente_id = c.id
-left join categoria ct on pt.categoria_id = ct.id
-order by c.nome, ct.nome asc;
+    left join pedido pd on ip.pedido_id = pd.id
+    left join produto pt on ip.produto_id = pt.id
+    left join cliente c on pd.cliente_id = c.id
+    left join categoria ct on pt.categoria_id = ct.id
+order by 
+    c.nome, ct.nome asc;
 
 -- Crie uma consulta que liste:
 -- quantidade de pedidos realizados;
