@@ -35,5 +35,9 @@ public class Categoria {
 		public void setStatus(Boolean status) {
 			this.status = status;
 		}
-
+		
+		@Override
+		public String toString() {
+	        return nome + " (" + id + " - " + (status ? "ATIVA" : "INATIVA") + ")";
+		}
 }
