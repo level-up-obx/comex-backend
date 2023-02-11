@@ -1,13 +1,13 @@
 
 public class Categoria {
 	   
-	    private int id;
+	    private int id = 0;
 	    private String nome;
 	    private Boolean status;
 	    
 	    public Categoria(int id, String nome, Boolean status) 
 	    {
-	        this.id = id;
+	        this.id = ++id;
 	        this.nome = nome;
 	        this.status = status;
         }
@@ -40,4 +40,6 @@ public class Categoria {
 		public String toString() {
 	        return nome + " (" + id + " - " + (status ? "ATIVA" : "INATIVA") + ")";
 		}
+
+		
 }

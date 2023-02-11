@@ -16,7 +16,7 @@ public class Cliente {
 	public Cliente (int id, String primeiroNome, String sobrenome, String cpf, String telefone, String rua, 
 			String numero,String complemento, String bairro, String cidade, String estado	)
 	{
-		this.id = id;
+		this.id = ++id;
 		this.primeiroNome = primeiroNome;
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;
