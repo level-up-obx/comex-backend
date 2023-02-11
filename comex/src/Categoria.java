@@ -1,7 +1,7 @@
 public class Categoria {
     private Long id;
     private String nome;
-    private String status = "ATIVA";
+    private Boolean status = Boolean.TRUE;
 
     public Long getId() {
 
@@ -21,15 +21,19 @@ public class Categoria {
     }
 
     public String getStatus() {
-        return status;
+        if (status){
+            return "ATIVA";
+        } else {
+            return "INATIVA";
+        }
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
 
         this.status = status;
     }
 
-    public Categoria(Long id, String nome, String status) {
+    public Categoria(Long id, String nome, Boolean status) {
         this.id = GeradorDeId.proximoId();
         this.nome = nome;
         this.status = status;
@@ -38,5 +42,4 @@ public class Categoria {
         this.id = GeradorDeId.proximoId();
 
     }
-
 }
