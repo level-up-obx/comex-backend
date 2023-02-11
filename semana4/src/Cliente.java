@@ -74,7 +74,7 @@ public class Cliente {
 		return estado;
 	}
 	
-	public String nomeCompleto(String primeiroNome, String sobrenome)
+	public String nomeCompleto()
 	{
 		return primeiroNome + " " + sobrenome;
 	}
