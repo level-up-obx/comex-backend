@@ -9,7 +9,7 @@ public class Produto {
     private String categoria;
 
     public Produto(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, String categoria) {
-        this.id = id;
+        this.id = ++id;
         this.nome = nome;
         this.descricao = descricao;
         this.precoUnitario = precoUnitario;
@@ -64,6 +64,7 @@ public class Produto {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
 
     public BigDecimal calculaValorTotalEstoque(BigDecimal precoUnitario, int quantidadeEstoque) {
        return precoUnitario.multiply(BigDecimal.valueOf(quantidadeEstoque));

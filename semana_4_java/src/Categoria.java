@@ -1,10 +1,11 @@
 public class Categoria {
+
     private int id;
     private String nome;
     private Boolean status;
 
     public Categoria(int id, String nome, Boolean status) {
-        this.id = id;
+        this.id = ++id;
         this.nome = nome;
         this.status = status;
     }

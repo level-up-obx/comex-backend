@@ -22,7 +22,7 @@ public class Cliente {
                    String bairro,
                    String cidade,
                    String estado) {
-        this.id = id;
+        this.id = ++id;
         this.primeiroNome = primeiroNome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
