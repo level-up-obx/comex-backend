@@ -1,11 +1,15 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Produto {
-    public static Long idAutoIncrementado = 0L;
-    Long id;
-    String nome;
-    String descricao;
-    BigDecimal precoUnitario;
-    int quantidadeEmEstoque;
+
+    private static final BigDecimal VALOR_DO_IMPOSTO = new BigDecimal("0.40");
+    private static Long idAutoIncrementado = 0L;
+    private Long id;
+    private String nome;
+    private String descricao;
+    private BigDecimal precoUnitario = BigDecimal.ZERO;
+    private int quantidadeEmEstoque;
     Categoria categoria;
 
     public Produto(){
@@ -60,19 +64,19 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public static BigDecimal calculaValorEstoque(BigDecimal precoUnitario, int quantidadeEmEstoque){
-        return precoUnitario.multiply(BigDecimal.valueOf(quantidadeEmEstoque));
+    public BigDecimal calculaValorEstoque(){
+        return this.precoUnitario.multiply(new BigDecimal(this.quantidadeEmEstoque).setScale(2, RoundingMode.HALF_UP));
     }
 
-    public static BigDecimal calculaImposto(BigDecimal precoUnitario){
-        return precoUnitario.multiply(BigDecimal.valueOf(0.4));
+    public BigDecimal calculaImposto(){
+        return this.precoUnitario.multiply(new BigDecimal("0.4").setScale(2, RoundingMode.HALF_UP));
     }
 
     @Override
     public String toString() {
         return  "Produto " + id + " - " + nome + ", Preço unitário: " + precoUnitario +
                 ", quantidade em estoque: " + quantidadeEmEstoque +
-                ", valor total em estoque: " + calculaValorEstoque(precoUnitario, quantidadeEmEstoque) +
-                ", valor do imposto: " + calculaImposto(precoUnitario);
+                ", valor total em estoque: " + calculaValorEstoque() +
+                ", valor do imposto: " + calculaImposto();
     }
 }
