@@ -1,17 +1,17 @@
 public class Cliente {
 
-    public static Long idAutoIncrementado = 0L;
-    Long id;
-    String primeiroNome;
-    String sobrenome;
-    String cpf;
-    String telefone;
-    String rua;
-    String numero;
-    String complemento;
-    String bairro;
-    String cidade;
-    String estado;
+    private static Long idAutoIncrementado = 0L;
+    private Long id;
+    private String primeiroNome;
+    private String sobrenome;
+    private String cpf;
+    private String telefone;
+    private String rua;
+    private String numero;
+    private String complemento;
+    private String bairro;
+    private String cidade;
+    private String estado;
 
     public Cliente() {
         this.id = ++idAutoIncrementado;

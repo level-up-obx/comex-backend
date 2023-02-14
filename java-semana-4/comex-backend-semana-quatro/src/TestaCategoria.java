@@ -7,10 +7,8 @@ public class TestaCategoria {
         Categoria categoria3 = new Categoria();
 
         categoria1.setNome("INFORMÁTICA");
-
         categoria2.setNome("MÓVEIS");
         categoria2.setStatus(false);
-
         categoria3.setNome("LIVROS");
 
         System.out.println(categoria1);

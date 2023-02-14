@@ -1,10 +1,9 @@
 public class Categoria {
 
     private static Long idAutoIncrementado = 0L;
-
-    Long id;
-    String nome;
-    boolean status = true;
+    private Long id;
+    private String nome;
+    private boolean status = true;
 
     public Categoria() {
         this.id = ++idAutoIncrementado;
