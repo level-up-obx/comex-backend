@@ -1,30 +1,26 @@
 public class Categoria {
 
-    private double id;
-    private String nome;
-    private boolean status;
+     int id;
+     String nome;
+     boolean status;
 
-    public double getId() {
-        return id;
+    boolean status2;
+
+
+    public void categoriaid(int meuid){
+         this.id = this.id + meuid++;
+
+     }
+
+    public boolean ATIVA(boolean status){
+
+        if(this.status == true){
+              this.status = this.status  == true ;
+          }
+        return false;
+
     }
 
-    public void setId(double id) {
-        this.id = id;
-    }
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
 }
