@@ -11,7 +11,6 @@ public class Cliente {
     private String cidade;
     private String estado;
 
-    //Criando construtor com todos os parâmetros
     public Cliente(Long id, String primeiroNome, String sobrenome, String cpf, String telefone, String rua, String numero, String complemento, String bairro, String cidade, String estado) {
         this.id = GeradorDeId.proximoId();
         this.primeiroNome = primeiroNome;
@@ -26,13 +25,11 @@ public class Cliente {
         this.estado = estado;
     }
 
-    //Criando construtor vazio
     public Cliente() {
         this.id = GeradorDeId.proximoId();
 
     }
 
-    //Getters
     public Long getId() {
         return id;
     }
@@ -77,7 +74,6 @@ public class Cliente {
         return estado;
     }
 
-    //Métodos adicionais
     public String nomeCompleto() {
         return primeiroNome + " " + sobrenome;
     }
@@ -86,7 +82,6 @@ public class Cliente {
         return rua + ", " + numero + ", " + complemento + " - " + bairro + " - " + cidade + " - " + estado;
     }
 
-    //Método toString para facilitar a impressão
     @Override
     public String toString() {
         return "Cliente{" +

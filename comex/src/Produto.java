@@ -1,12 +1,14 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Produto {
     private Long id;
     private String nome;
     private String descricao;
-    private double precoUnitario;
+    private BigDecimal precoUnitario;
     private Integer quantidadeEmEstoque;
     private Categoria categoria;
 
-    //Getters e Setters
     public Long getId() {
         return id;
     }
@@ -31,11 +33,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public double getPrecoUnitario() {
+    public BigDecimal getPrecoUnitario() {
         return precoUnitario;
     }
 
-    public void setPrecoUnitario(double precoUnitario) {
+    public void setPrecoUnitario(BigDecimal precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
 
@@ -55,19 +57,14 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    //Métodos adicionais
-    public String calculaValorTotalEmEstoque() {
-        double valorTotalEmEstoque = this.quantidadeEmEstoque * this.precoUnitario;
-        return "O valor total em estoque é: " + valorTotalEmEstoque;
+    public BigDecimal calculaValorTotalEmEstoque() {
+        return this.precoUnitario.multiply(new BigDecimal(this.quantidadeEmEstoque)).setScale(2, RoundingMode.HALF_UP);
     }
 
-    public String calculaImposto() {
-        double imposto = this.precoUnitario * .4;
-        return "O valor do imposto é: " + Math.round(imposto * 100.0) / 100.0;
+    public BigDecimal calculaImposto() {
+        return this.precoUnitario.multiply(new BigDecimal("0.4")).setScale(2, RoundingMode.HALF_UP);
     }
 
-
-    //Método toString
     @Override
     public String toString() {
         return  "id = " + id +
@@ -84,8 +81,7 @@ public class Produto {
                 ", quantidadeEmEstoque: " + quantidadeEmEstoque;
     }
 
-    //Construtor com parâmetros
-    public Produto(Long id, String nome, String descricao, double precoUnitario, Integer quantidadeEmEstoque, Categoria categoria) {
+    public Produto(Long id, String nome, String descricao, BigDecimal precoUnitario, Integer quantidadeEmEstoque, Categoria categoria) {
         this.id = GeradorDeId.proximoId();
         this.nome = nome;
         this.descricao = descricao;
@@ -94,7 +90,6 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    //Construtor vazio
     public Produto(){
         this.id = GeradorDeId.proximoId();
     }
