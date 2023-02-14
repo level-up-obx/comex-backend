@@ -10,7 +10,15 @@ public class Produto {
     private String descricao;
     private BigDecimal precoUnitario = BigDecimal.ZERO;
     private int quantidadeEmEstoque;
-    Categoria categoria;
+    private Categoria categoria;
+
+    public Produto(String nome, BigDecimal precoUnitario, int quantidadeEmEstoque, Categoria categoria) {
+        this.id = ++idAutoIncrementado;
+        this.nome = nome;
+        this.precoUnitario = precoUnitario;
+        this.quantidadeEmEstoque = quantidadeEmEstoque;
+        this.categoria = categoria;
+    }
 
     public Produto(){
         this.id = ++idAutoIncrementado;
@@ -69,7 +77,9 @@ public class Produto {
     }
 
     public BigDecimal calculaImposto(){
-        return this.precoUnitario.multiply(new BigDecimal("0.4").setScale(2, RoundingMode.HALF_UP));
+        BigDecimal valorEstoque = calculaValorEstoque();
+        BigDecimal imposto = valorEstoque.multiply(VALOR_DO_IMPOSTO).setScale(2, RoundingMode.HALF_UP);
+        return imposto;
     }
 
     @Override

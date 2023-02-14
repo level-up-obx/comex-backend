@@ -1,20 +1,20 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
-public class ProdutoIsento {
-    public static Long idAutoIncrementado = 0L;
-    Long id;
-    String nome;
-    String descricao;
-    BigDecimal precoUnitario;
-    int quantidadeEmEstoque;
-    Categoria categoria;
-
-    public static BigDecimal calculaValorEstoque(BigDecimal precoUnitario, int quantidadeEmEstoque){
-        return precoUnitario.multiply(BigDecimal.valueOf(quantidadeEmEstoque));
+public class ProdutoIsento extends Produto {
+    public ProdutoIsento(String nome, BigDecimal precoUnitario, int quantidadeEmEstoque, Categoria categoria) {
+        super(nome, precoUnitario, quantidadeEmEstoque, categoria);
+    }
+    public BigDecimal isentaImposto() {
+        return BigDecimal.ZERO;
     }
 
-    public static BigDecimal isentaImposto(BigDecimal precoUnitario){
-        return precoUnitario.multiply(BigDecimal.valueOf(0));
+    public void produtoIsento() {
+        System.out.println("Produto " + getId() + " - " + getNome() + ", Preço unitário: " + getPrecoUnitario() +
+                ", quantidade em estoque: " + getQuantidadeEmEstoque() +
+                ", valor total em estoque: " + calculaValorEstoque() +
+                ", valor do imposto: " + isentaImposto());
     }
 
-    }
+
+}

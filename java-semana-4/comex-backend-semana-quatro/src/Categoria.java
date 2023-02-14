@@ -5,6 +5,10 @@ public class Categoria {
     private String nome;
     private boolean status = true;
 
+    public Categoria(String nome) {
+        this.nome = nome;
+    }
+
     public Categoria() {
         this.id = ++idAutoIncrementado;
     }
