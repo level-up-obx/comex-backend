@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Produto {
     private int id;
@@ -6,9 +7,9 @@ public class Produto {
     private String descricao;
     private BigDecimal precoUnitario;
     private int quantidadeEstoque;
-    private String categoria;
+    private Categoria categoria;
 
-    public Produto(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, String categoria) {
+    public Produto(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, Categoria categoria) {
         this.id = ++id;
         this.nome = nome;
         this.descricao = descricao;
@@ -57,20 +58,22 @@ public class Produto {
         this.quantidadeEstoque = quantidadeEstoque;
     }
 
-    public String getCategoria() {
+
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
-
-    public BigDecimal calculaValorTotalEstoque(BigDecimal precoUnitario, int quantidadeEstoque) {
-       return precoUnitario.multiply(BigDecimal.valueOf(quantidadeEstoque));
+    public BigDecimal calculaValorTotalEstoque() {
+        return this.precoUnitario.multiply(new BigDecimal(this.quantidadeEstoque).setScale(2, RoundingMode.HALF_UP));
     }
 
     public BigDecimal calculaImposto(BigDecimal precoUnitario) {
-        return precoUnitario.multiply(BigDecimal.valueOf(0.4));
+        return precoUnitario.multiply(BigDecimal.valueOf(0.4)).setScale(2, RoundingMode.HALF_UP);
     }
+
+
 }

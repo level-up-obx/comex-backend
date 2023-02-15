@@ -6,17 +6,16 @@ public class ProdutoIsento extends Produto {
                          String descricao,
                          BigDecimal precoUnitario,
                          int quantidadeEstoque,
-                         String categoria) {
+                         Categoria categoria) {
         super(id, nome, descricao, precoUnitario, quantidadeEstoque, categoria);
     }
 
-    public BigDecimal calculaImposto() {
+
+    public BigDecimal impostoIsento() {
         return BigDecimal.ZERO;
     }
 
-    @Override
-    public BigDecimal calculaValorTotalEstoque(BigDecimal precoUnitario,
-                                               int quantidadeEstoque) {
-        return super.calculaValorTotalEstoque(precoUnitario, quantidadeEstoque);
+    public void produtoIsento() {
+        System.out.println("Imposto: R$" + impostoIsento());
     }
 }
