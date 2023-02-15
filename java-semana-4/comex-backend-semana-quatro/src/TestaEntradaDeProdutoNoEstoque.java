@@ -20,7 +20,7 @@ public class TestaEntradaDeProdutoNoEstoque {
         System.out.println("Capacidade do estoque: " + estoque.getCapacidade());
         System.out.println("Ocupação do estoque: " + estoque.getOcupacao());
         System.out.println("Montante financeiro do estoque: " + estoque.getMontante());
-        
+
     }
 
 }
