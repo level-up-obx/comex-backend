@@ -3,18 +3,17 @@ public class Produto {
     int id;
     String nome;
     String descricao;
-    double precoUnitario = 12.50;
-    int quantidadeEstoque = 13;
+    double precoUnitario ;
+    int quantidadeEstoque ;
     String categotia;
 
-    public Produto(double precoUnitario, int quantidadeEstoque){
-        double estoque = quantidadeEstoque * precoUnitario;
-        this.precoUnitario = precoUnitario;
-        this.quantidadeEstoque = quantidadeEstoque;
+
+
+    public void produtoid(int meuid){
+        this.id = this.id + meuid++;
 
     }
-
-    public int getId() {
+            public int getId() {
         return id;
     }
 
@@ -42,16 +41,16 @@ public class Produto {
     public double getPrecoUnitario() {
         double imposto = 0.40;
 
-       return imposto * this.precoUnitario;
+       return (double) (imposto * precoUnitario);
     }
 
     public void setPrecoUnitario(double precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
 
-    public int getQuantidadeEstoque() {
+    public double getQuantidadeEstoque() {
 
-        return quantidadeEstoque;
+        return (double) (quantidadeEstoque * precoUnitario) ;
     }
 
     public void setQuantidadeEstoque(int quantidadeEstoque) {

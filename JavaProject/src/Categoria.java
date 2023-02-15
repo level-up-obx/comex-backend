@@ -4,7 +4,7 @@ public class Categoria {
      String nome;
      boolean status;
 
-    boolean status2;
+
 
 
     public void categoriaid(int meuid){
