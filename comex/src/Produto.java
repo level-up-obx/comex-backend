@@ -70,14 +70,14 @@ public class Produto {
         return  "id = " + id +
                 ", nome = '" + nome + '\'' +
                 ", descricao = '" + descricao + '\'' +
-                ", precoUnitario = " + precoUnitario +
+                ", precoUnitario = R$" + precoUnitario +
                 ", quantidadeEmEstoque = " + quantidadeEmEstoque;
     }
 
     public String toStringSemDescricao() {
         return  "id: " + id +
                 ", nome: '" + nome + '\'' +
-                ", precoUnitario: " + precoUnitario +
+                ", precoUnitario: R$" + precoUnitario +
                 ", quantidadeEmEstoque: " + quantidadeEmEstoque;
     }
 
@@ -85,6 +85,14 @@ public class Produto {
         this.id = GeradorDeId.proximoId();
         this.nome = nome;
         this.descricao = descricao;
+        this.precoUnitario = precoUnitario;
+        this.quantidadeEmEstoque = quantidadeEmEstoque;
+        this.categoria = categoria;
+    }
+
+    public Produto(Long id, String nome, BigDecimal precoUnitario, Integer quantidadeEmEstoque, Categoria categoria) {
+        this.id = id;
+        this.nome = nome;
         this.precoUnitario = precoUnitario;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
         this.categoria = categoria;

@@ -42,4 +42,7 @@ public class Categoria {
         this.id = GeradorDeId.proximoId();
 
     }
+    public Categoria(String nome){
+        this.nome = nome;
+    }
 }
