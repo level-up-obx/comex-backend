@@ -1,6 +1,6 @@
 public class Cliente {
 
-    int id;
+    static int id ;
     String primeiroNome;
     String segundoNome;
 
@@ -13,19 +13,91 @@ public class Cliente {
     String cidade;
     String estado;
 
-    public void produtoid(int meuid) {
-        this.id = this.id + meuid++;
+    public int getId() {
+        return id;
     }
 
-    public String nomeCompleto(String nomeCompleto) {
-        nomeCompleto = primeiroNome + segundoNome;
+    public String getPrimeiroNome() {
+        return primeiroNome;
+    }
+
+    public String getSegundoNome() {
+        return segundoNome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public String getNumeroCasa() {
+        return numeroCasa;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public int getclienteid() {
+        this.id = ++id;
+        return id;
+    }
+
+    public String getnomeCompleto() {
+        String nomeCompleto = primeiroNome + segundoNome;
         return nomeCompleto;
 
 
     }
-    public String enderecoCompleto(String enderecoCompleto){
-        enderecoCompleto = rua + numeroCasa + complemento + bairro + cidade + estado;
+    public String getenderecoCompleto(){
+        String enderecoCompleto = rua + numeroCasa + complemento + bairro + cidade + estado;
         return enderecoCompleto;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + ",id='"
+                 + getclienteid() +
+                ", nomeCompleto='" + getnomeCompleto() + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", Endereço ='" + getenderecoCompleto() +
+                '}';
+    }
+
+    public Cliente(String primeiroNome, String segundoNome, String cpf, String telefone, String rua, String numeroCasa, String complemento, String bairro, String cidade, String estado) {
+
+        this.primeiroNome = primeiroNome;
+        this.segundoNome = segundoNome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.rua = rua;
+        this.numeroCasa = numeroCasa;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+
 
     }
 }
