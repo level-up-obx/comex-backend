@@ -1,5 +1,9 @@
 package app;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+
 public class Produto {
 
 	private static Long produtoId = 0L;
@@ -7,7 +11,7 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private Double precoUnitario;
-	private static Double imposto = 0.40;
+	private static BigDecimal imposto = new BigDecimal(0.40);
 	private Long quantidadeEstoque;
 	private Categoria categoria;
 	
@@ -31,8 +35,8 @@ public class Produto {
 		return this.precoUnitario * this.quantidadeEstoque;
 	}
 	
-	public Double calculaImposto() {
-		return this.precoUnitario * imposto;
+	public BigDecimal calculaImposto() {
+		return new BigDecimal(this.precoUnitario).multiply(imposto).setScale(2, RoundingMode.HALF_UP);
 	}
 }
 
