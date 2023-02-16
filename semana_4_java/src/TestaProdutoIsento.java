@@ -11,7 +11,7 @@ public class TestaProdutoIsento {
 
         ProdutoIsento produto1 = new ProdutoIsento(1, "Vacina", "Vacina covid", new BigDecimal("250.00"), 1000, categoria1);
         ProdutoIsento produto2 = new ProdutoIsento(2, "Use a Cabeça: Java", "Livro: Use a Cabeça: Java", new BigDecimal("112.90"), 5, categoria2);
-        Produto produto3 = new ProdutoIsento(3, "Macbook Pro", "MacbookPro-computador", new BigDecimal("20000.00"), 11, categoria3);
+        Produto produto3 = new Produto(3, "Macbook Pro", "MacbookPro-computador", new BigDecimal("20000.00"), 11, categoria3);
 
 
         System.out.println("--------- PRODUTO - 1 ----------");
@@ -20,7 +20,7 @@ public class TestaProdutoIsento {
         System.out.println("Preço Unitário: R$" + produto1.getPrecoUnitario());
         System.out.println("Quantidade em Estoque: " + produto1.getQuantidadeEstoque());
         System.out.println("Valor Total em Estoque: R$" + produto1.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
-        produto1.produtoIsento();
+        System.out.println("Imposto: R$" + produto1.calculaImposto(produto1.getPrecoUnitario()));
 
         System.out.println("--------- PRODUTO - 2 ----------");
         System.out.println("Nome: " + produto2.getNome());
@@ -28,7 +28,7 @@ public class TestaProdutoIsento {
         System.out.println("Preço Unitário: R$" + produto2.getPrecoUnitario());
         System.out.println("Quantidade em Estoque: " + produto2.getQuantidadeEstoque());
         System.out.println("Valor Total em Estoque: R$" + produto2.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
-        produto2.produtoIsento();
+        System.out.println("Imposto: R$" + produto2.calculaImposto(produto2.getPrecoUnitario()));
 
         System.out.println("--------- PRODUTO - 3 ----------");
         System.out.println("Nome: " + produto3.getNome());

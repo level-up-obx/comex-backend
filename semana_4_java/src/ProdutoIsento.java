@@ -1,4 +1,6 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class ProdutoIsento extends Produto {
 
     public ProdutoIsento(int id,
@@ -15,7 +17,9 @@ public class ProdutoIsento extends Produto {
         return BigDecimal.ZERO;
     }
 
-    public void produtoIsento() {
-        System.out.println("Imposto: R$" + impostoIsento());
+    @Override
+    public BigDecimal calculaImposto(BigDecimal precoUnitario) {
+        return impostoIsento();
     }
+
 }
