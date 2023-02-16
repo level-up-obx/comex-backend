@@ -9,12 +9,4 @@ public class ProdutoIsento extends Produto {
         return BigDecimal.ZERO;
     }
 
-    @Override
-    public String toString() {
-        return  "Produto " + getId() + " - " + getNome() + ", Preço unitário: " + getPrecoUnitario() +
-                ", quantidade em estoque: " + getQuantidadeEmEstoque() +
-                ", valor total em estoque: " + calculaValorEstoque() +
-                ", valor do imposto: " + calculaImposto();
-    }
-
 }

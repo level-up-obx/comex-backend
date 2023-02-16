@@ -13,6 +13,7 @@ public class TestaSaidaDeProdutoNoEstoque {
         estoque.registrarSaida(produto1);
         System.out.println("Dados após saída do estoque: ");
         System.out.println(estoque);
+
     }
 
 }
