@@ -2,12 +2,14 @@ package app;
 
 public class Produto {
 
-	Long id;
-	String nome;
-	String descricao;
-	Double precoUnitario;
-	Long quantidadeEstoque;
-	Categoria categoria;
+	private static Long produtoId = 0L;
+	private Long id = produtoId++;
+	private String nome;
+	private String descricao;
+	private Double precoUnitario;
+	private static Double imposto = 0.40;
+	private Long quantidadeEstoque;
+	private Categoria categoria;
 	
 	public Long getId() { return this.id;}
 	public String getNome() { return this.nome;}
@@ -23,12 +25,14 @@ public class Produto {
 	public Long setQuantidadeEstoque(Long quantidadeEstoque) { return this.quantidadeEstoque = quantidadeEstoque;}
 	public Categoria setCategoria(Categoria categoria) { return this.categoria = categoria;}
 	
-	public Double calculaValorTotalEstoque() {
+	
+
+	public Double valorTotalEstoque() {
 		return this.precoUnitario * this.quantidadeEstoque;
 	}
 	
 	public Double calculaImposto() {
-		return (Double) (this.precoUnitario * 0.4);
+		return this.precoUnitario * imposto;
 	}
 }
 

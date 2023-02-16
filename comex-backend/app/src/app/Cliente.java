@@ -1,6 +1,8 @@
 package app;
 
 public class Cliente{
+	
+	private static Long idCliente = 1L;
 
 	private Long id;
 	private String primeiroNome;
@@ -15,11 +17,13 @@ public class Cliente{
 	private String estado;
 	
 	
-	public Cliente(Long id,String primeiroNome,String sobrenome,String cpf,
-					String telefone,String rua,String numero,String complemento,
-					String bairro,String cidade,String estado
+	public Cliente(String primeiroNome,
+					String sobrenome,String cpf,
+					String telefone,String rua,
+					String numero,String complemento,
+					String bairro,String cidade,
+					String estado
 			) {
-		this.setId(id);
 		this.setPrimeiroNome(primeiroNome);
 		this.setSobrenome(sobrenome);
 		this.setCpf(cpf);
@@ -31,6 +35,8 @@ public class Cliente{
 		this.setCidade(cidade);
 		this.setEstado(estado);
 		
+		this.setId(Cliente.idCliente++);
+		
 	}
 
 	public String enderecoCompleto() {
@@ -38,6 +44,8 @@ public class Cliente{
 				+ this.getComplemento() + " " + this.getBairro() + " "
 				+ this.getCidade() + "/" + this.getEstado() ;
 	}
+	
+
 	
 	public String nomeCompleto() {
 		return this.getPrimeiroNome() + " " + this.getSobrenome();
