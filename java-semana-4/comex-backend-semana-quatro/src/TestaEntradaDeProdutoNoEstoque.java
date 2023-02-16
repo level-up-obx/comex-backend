@@ -9,7 +9,7 @@ public class TestaEntradaDeProdutoNoEstoque {
         Categoria categoria3 = new Categoria("Informática");
         ProdutoIsento produtoIsento1 = new ProdutoIsento("Vacina", new BigDecimal("250.00"), 500, categoria1 );
         ProdutoIsento produtoIsento2 = new ProdutoIsento("Use a Cabeça: Java", new BigDecimal("112.90"), 5, categoria2);
-        ProdutoIsento produto3 = new ProdutoIsento("Macbook Pro", new BigDecimal("20000.00"), 15, categoria3);
+        Produto produto3 = new Produto("Macbook Pro", new BigDecimal("20000.00"), 15, categoria3);
 
         Estoque estoque = new Estoque();
 

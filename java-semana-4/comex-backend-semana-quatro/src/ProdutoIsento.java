@@ -4,16 +4,17 @@ public class ProdutoIsento extends Produto {
     public ProdutoIsento(String nome, BigDecimal precoUnitario, int quantidadeEmEstoque, Categoria categoria) {
         super(nome, precoUnitario, quantidadeEmEstoque, categoria);
     }
-    public BigDecimal isentaImposto() {
+    @Override
+    public BigDecimal calculaImposto() {
         return BigDecimal.ZERO;
     }
 
-    public void produtoIsento() {
-        System.out.println("Produto " + getId() + " - " + getNome() + ", Preço unitário: " + getPrecoUnitario() +
+    @Override
+    public String toString() {
+        return  "Produto " + getId() + " - " + getNome() + ", Preço unitário: " + getPrecoUnitario() +
                 ", quantidade em estoque: " + getQuantidadeEmEstoque() +
                 ", valor total em estoque: " + calculaValorEstoque() +
-                ", valor do imposto: " + isentaImposto());
+                ", valor do imposto: " + calculaImposto();
     }
-
 
 }
