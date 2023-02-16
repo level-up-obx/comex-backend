@@ -3,18 +3,12 @@ package app;
 public class TesteProduto {
 	public static void main(String[] args) {
 		
-		Categoria informatica =  new Categoria();
-		informatica.setId(1L);
-		informatica.setNome("INFORMÁTICA");
+		Categoria informatica =  new Categoria(1L, "INFORMÁTICA");
 		
-		Categoria moveis =  new Categoria();
-		moveis.setId(2L);
-		moveis.setNome("MÓVEIS");
-		moveis.setStatus("INVATIVA");
+		Categoria moveis =  new Categoria(2L, "MÓVEIS");
+		moveis.setStatus(Boolean.FALSE);
 		
-		Categoria livros =  new Categoria();
-		livros.setId(3L);
-		livros.setNome("LIVROS");
+		Categoria livros =  new Categoria(3L, "LIVROS");
 		
 		Produto notebookSamsung = new Produto();
 		notebookSamsung.setId(1L);
@@ -22,12 +16,7 @@ public class TesteProduto {
 		notebookSamsung.setPrecoUnitario(3523.00);
 		notebookSamsung.setQuantidadeEstoque(1L);
 		notebookSamsung.setCategoria(informatica);
-		System.out.println(notebookSamsung.getId() + " " 
-				+ notebookSamsung.getNome() + " "
-				+ notebookSamsung.getPrecoUnitario() + " "
-				+ notebookSamsung.getQuantidadeEstoque() + " "
-				+ notebookSamsung.getCategoria().getNome() + " "
-				);
+		mostraResultado(notebookSamsung);
 		
 		Produto cleanArchitecture = new Produto();
 		cleanArchitecture.setId(2L);
@@ -35,12 +24,7 @@ public class TesteProduto {
 		cleanArchitecture.setPrecoUnitario(102.90);
 		cleanArchitecture.setQuantidadeEstoque(2L);
 		cleanArchitecture.setCategoria(livros);
-		System.out.println(cleanArchitecture.getId() + " " 
-				+ cleanArchitecture.getNome() + " "
-				+ cleanArchitecture.getPrecoUnitario() + " "
-				+ cleanArchitecture.getQuantidadeEstoque() + " "
-				+ cleanArchitecture.getCategoria().getNome() + " "
-				);
+		mostraResultado(cleanArchitecture);
 		
 		Produto monitorDell = new Produto();
 		monitorDell.setId(3L);
@@ -48,11 +32,15 @@ public class TesteProduto {
 		monitorDell.setPrecoUnitario(1889.00);
 		monitorDell.setQuantidadeEstoque(3L);
 		monitorDell.setCategoria(informatica);
-		System.out.println(monitorDell.getId() + " " 
-				+ monitorDell.getNome() + " "
-				+ monitorDell.getPrecoUnitario() + " "
-				+ monitorDell.getQuantidadeEstoque() + " "
-				+ monitorDell.getCategoria().getNome() + " "
+		mostraResultado(monitorDell);
+	}
+	
+	public static void mostraResultado(Produto produto) {
+		System.out.println(produto.getId() + " " 
+				+ produto.getNome() + " "
+				+ produto.getPrecoUnitario() + " "
+				+ produto.getQuantidadeEstoque() + " "
+				+ produto.getCategoria().getNome() + " "
 				);
 	}
 }

@@ -2,9 +2,15 @@ package app;
 
 public class Categoria {
 
-	Long id;
-	String nome;
-	String status = "ATIVA";
+	private Long id;
+	private String nome;
+	private Boolean status = Boolean.TRUE;
+	
+	public Categoria(Long id,
+					String nome) {
+		setId(id);
+		setNome(nome);
+	}
 	
 	
 	public Long getId() {
@@ -23,12 +29,12 @@ public class Categoria {
 		return this.nome = nome;
 	}
 	
-	public String getStatus() {
+	public Boolean getStatus() {
 		return this.status;
 	}
 	
-	public String setStatus(String status) {
-		return this.status = status;
+	public Boolean setStatus(Boolean bol) {
+		return this.status = bol;
 	}
 	
 }
