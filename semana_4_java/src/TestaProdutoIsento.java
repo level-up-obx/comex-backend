@@ -16,7 +16,7 @@ public class TestaProdutoIsento {
 
         System.out.println("--------- PRODUTO - 1 ----------");
         System.out.println("Nome: " + produto1.getNome());
-        System.out.println("Categoria: " + produto1.getCategoria());
+        System.out.println("Categoria: " + categoria1.getNome());
         System.out.println("Preço Unitário: R$" + produto1.getPrecoUnitario());
         System.out.println("Quantidade em Estoque: " + produto1.getQuantidadeEstoque());
         System.out.println("Valor Total em Estoque: R$" + produto1.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
@@ -24,7 +24,7 @@ public class TestaProdutoIsento {
 
         System.out.println("--------- PRODUTO - 2 ----------");
         System.out.println("Nome: " + produto2.getNome());
-        System.out.println("Categoria: " + produto2.getCategoria());
+        System.out.println("Categoria: " + categoria2.getNome());
         System.out.println("Preço Unitário: R$" + produto2.getPrecoUnitario());
         System.out.println("Quantidade em Estoque: " + produto2.getQuantidadeEstoque());
         System.out.println("Valor Total em Estoque: R$" + produto2.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
@@ -32,7 +32,7 @@ public class TestaProdutoIsento {
 
         System.out.println("--------- PRODUTO - 3 ----------");
         System.out.println("Nome: " + produto3.getNome());
-        System.out.println("Categoria: " + produto3.getCategoria());
+        System.out.println("Categoria: " + categoria3.getNome());
         System.out.println("Preço Unitário: R$" + produto3.getPrecoUnitario());
         System.out.println("Quantidade em Estoque: " + produto3.getQuantidadeEstoque());
         System.out.println("Valor Total em Estoque: R$" + produto3.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
