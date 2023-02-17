@@ -1,6 +1,6 @@
 public class Categoria {
 
-     int id;
+    int id;
      String nome;
      boolean status;
 
