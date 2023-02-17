@@ -1,19 +1,16 @@
 public class Produto {
 
-    private int id;
+    static int id;
     private String nome;
     private String descricao;
-    private double precoUnitario ;
-    private int quantidadeEstoque ;
+    private double precoUnitario;
+    private int quantidadeEstoque;
     private String categotia;
 
 
 
-    public void produtoid(int meuid){
-        this.id = this.id + meuid++;
 
-    }
-            public int getId() {
+    public int getId() {
         return id;
     }
 
@@ -41,7 +38,7 @@ public class Produto {
     public double getPrecoUnitario() {
         double imposto = 0.40;
 
-       return (double) (imposto * precoUnitario);
+        return (double) (imposto * precoUnitario);
     }
 
     public void setPrecoUnitario(double precoUnitario) {
@@ -50,7 +47,7 @@ public class Produto {
 
     public double getQuantidadeEstoque() {
 
-        return (double) (quantidadeEstoque * precoUnitario) ;
+        return (double) (quantidadeEstoque * precoUnitario);
     }
 
     public void setQuantidadeEstoque(int quantidadeEstoque) {
@@ -64,4 +61,29 @@ public class Produto {
     public void setCategotia(String categotia) {
         this.categotia = categotia;
     }
+
+    public int getprodutoid() {
+        this.id = ++id;
+        return id;
+    }
+
+    public Produto( String nome, String descricao, double precoUnitario, int quantidadeEstoque, String categotia) {
+
+        this.nome = nome;
+        this.descricao = descricao;
+        this.precoUnitario = precoUnitario;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.categotia = categotia;
+    }
+
+    @Override
+    public String toString() {
+        return                 "id=" + getprodutoid() +", nome ='" + nome + '\'' +
+                ", descricao ='" + descricao + '\'' +
+                ", precoUnitario =" + precoUnitario +
+                ", quantidadeEstoque =" + quantidadeEstoque +
+                ", categotia ='" + categotia + '\'';
+    }
 }
+
+
