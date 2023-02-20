@@ -2,6 +2,7 @@ import java.math.BigDecimal;
 
 public class Produto {
 	
+	private int id;
 	private String nome;
     private String descricao;
     private BigDecimal precoUnitario;
@@ -10,7 +11,7 @@ public class Produto {
 
     public Produto(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, String categoria) 
     {
-        this.id = id;
+        this.id = ++id;
         this.nome = nome;
         this.descricao = descricao;
         this.precoUnitario = precoUnitario;
@@ -18,7 +19,7 @@ public class Produto {
         this.categoria = categoria;
     }
     
-    private int id;
+    
 	public int getId() {
 		return id;
 	}
