@@ -67,7 +67,7 @@ public class Produto {
         return id;
     }
 
-    public Produto( String nome, String descricao, double precoUnitario, int quantidadeEstoque, String categotia) {
+    public Produto() {
 
         this.nome = nome;
         this.descricao = descricao;
