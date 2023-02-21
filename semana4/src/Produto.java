@@ -7,9 +7,9 @@ public class Produto {
     private String descricao;
     private BigDecimal precoUnitario;
     private int quantidadeEstoque;
-    private String categoria;
+    private Categoria categoria;
 
-    public Produto(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, String categoria) 
+    public Produto(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, Categoria categoria) 
     {
         this.id = ++id;
         this.nome = nome;
@@ -60,11 +60,11 @@ public class Produto {
 		this.quantidadeEstoque = quantidadeEstoque;
 	}
 
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 

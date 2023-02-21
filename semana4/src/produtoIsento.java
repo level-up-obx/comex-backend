@@ -1,9 +1,9 @@
 import java.math.BigDecimal;
 
-public class ProdutoIsento extends Produto {
+public class produtoIsento extends Produto {
 
-	public ProdutoIsento(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque,
-			String categoria) 
+	public produtoIsento(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque,
+			Categoria categoria) 
 	{
 		
 		super(id, nome, descricao, precoUnitario, quantidadeEstoque, categoria);
@@ -16,7 +16,7 @@ public class ProdutoIsento extends Produto {
 		return super.ValorTotalEstoque(precoUnitario, quantidadeEstoque);
 	}
 	
-	public BigDecimal calculaImposto()
+	public BigDecimal ImpostoIsento()
 	{
 		return BigDecimal.ZERO;
 	}
