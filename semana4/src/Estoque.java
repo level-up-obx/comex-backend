@@ -36,13 +36,15 @@ public class Estoque {
 	
 	public void registraSaida(Produto produto)
 	{
+		
 		if (produto.getQuantidadeEstoque() > 0) {
             int quantidade = produto.getQuantidadeEstoque();
-            if (ocupacao - quantidade < 0) {
+            ocupacao = ocupacao + quantidade;
+            if (ocupacao - quantidade < capacidade) {
                 System.out.println("Estoque insuficiente");
                 return;
             }
-            ocupacao = ocupacao + quantidade;
+            
             montante = montante.subtract(produto.ValorTotalEstoque(montante, quantidade));
         }
     }
