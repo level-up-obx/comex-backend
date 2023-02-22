@@ -7,6 +7,9 @@ public class Estoque {
 	private BigDecimal montante = BigDecimal.ZERO;
 
 	
+	public Estoque(int capacidade) {
+		this.capacidade = capacidade;
+	}
 	public int getCapacidade() {
 		return capacidade;
 	}
