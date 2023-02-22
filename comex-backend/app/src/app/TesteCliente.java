@@ -4,7 +4,7 @@ public class TesteCliente {
 	
 	public static void main(String[] args) {
 		
-		Cliente jose = new Cliente("Jose", "Da Silva", "340.320.258-10", "13 12584-0045", "Rua dos pinos", "155B", "Casa 1", "Ocian", "Praia Grande", "São Paulo");
+		Cliente jose = new Cliente("Jose", "Carlos", "305.315.254-10", "11 97854-9845", "Av. Medeiros", "155B", "", "Caiçara", "Praia Grande", "São Paulo");
 		clienteResumo(jose);
 		Cliente maria = new Cliente("Maria", "Ruth", "305.315.254-10", "11 97854-9845", "Av. Medeiros", "155B", "", "Caiçara", "Praia Grande", "São Paulo");
 		clienteResumo(maria);
