@@ -11,7 +11,14 @@ public class Estoque {
 
 
     }
-    
+    public void registrSaida(Produto produto1) {
+        this.capacidade = capacidade + produto1.getQuantidadeEstoque();
+        this.ocupacao = ocupacao - produto1.getQuantidadeEstoque();
+        this.montante = montante - produto1.getValorEstoque();
+
+
+    }
+
 
 
 
