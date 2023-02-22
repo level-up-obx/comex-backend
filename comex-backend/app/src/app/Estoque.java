@@ -13,28 +13,15 @@ public class Estoque {
 		System.out.println("montatnede:: inicial=R$  " + this.montante + "  A capacidade:: inicial   " + this.capacidade + " tal do estoque:" + this.ocupacao);
 		
 		
-		setOcupacao(produto.getQuantidadeEstoque());
-		setCapacidade(produto.getQuantidadeEstoque());
-		setMontante(produto.valorTotalEstoque());
+		this.capacidade -= produto.getQuantidadeEstoque();
+		this.ocupacao += produto.getQuantidadeEstoque();
+		this.montante = this.montante.add(produto.valorTotalEstoque());
 	}
 	
 	public void registraSaida(Produto produto) {
-		setCapacidade(produto.getQuantidadeEstoque());
-		setOcupacao(this.ocupacao - produto.getQuantidadeEstoque());
-		setMontante(produto.getPrecoUnitario()
-				.multiply(new BigDecimal(produto.getQuantidadeEstoque())));
-	}
-	
-	private void setCapacidade(Long produtoEmEstoque) {
-		this.capacidade -= produtoEmEstoque;
-	}
-
-	private void setOcupacao(Long ocupacaoIncremento) {
-		this.ocupacao += ocupacaoIncremento;
-	}
-
-	private void setMontante(BigDecimal montantes) {
-		this.montante = this.montante.add(montantes);
+		this.capacidade += produto.getQuantidadeEstoque();
+		this.ocupacao -= produto.getQuantidadeEstoque();
+		this.montante = this.montante.subtract(produto.valorTotalEstoque());
 	}
 	
 
