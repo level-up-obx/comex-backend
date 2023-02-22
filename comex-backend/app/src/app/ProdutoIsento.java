@@ -3,21 +3,22 @@ package app;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class ProdutoIsento {
-
-	private Long id;
-	private String nome;
-	private String descricao;
-	private BigDecimal preco_unitario;
-	private Long quantidade_estoque;
-	private String categoria;
+public class ProdutoIsento extends Produto {
 	
-	public BigDecimal calculaValorTotalEmEstoque() {
-		return new BigDecimal(quantidade_estoque).multiply(preco_unitario.setScale(0, RoundingMode.HALF_UP));
+
+	public ProdutoIsento(
+			String nome,
+			BigDecimal precoUnitario,
+			Long quantidadeEstoque,
+			Categoria categoria) {
+		
+		
+		super( 
+				nome,
+				precoUnitario,
+				quantidadeEstoque,
+				categoria);
+		super.setIsento(Boolean.TRUE);
 	}
 	
-	public BigDecimal calculaImpostoo() {
-		return BigDecimal.ZERO;
-	}
-
 }

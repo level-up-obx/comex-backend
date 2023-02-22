@@ -2,9 +2,9 @@ package app;
 
 import java.math.BigDecimal;
 
-public class TesteProduto {
+public class TestaProdutoIsento {
+
 	public static void main(String[] args) {
-		
 		Categoria informatica =  new Categoria(1L, "INFORMÁTICA");
 		
 		Categoria moveis =  new Categoria(2L, "MÓVEIS");
@@ -12,18 +12,19 @@ public class TesteProduto {
 		
 		Categoria livros =  new Categoria(3L, "LIVROS");
 		
-		Produto notebookSamsung = new Produto("Notebook Samsung", new BigDecimal(3523.00), 1L, informatica);
-		mostraResultado(notebookSamsung);
+		Categoria saude =  new Categoria(3L, "SAUDE");
 		
-		Produto cleanArchitecture = new Produto("Clean Architecture", new BigDecimal(102.90), 2L, livros);
-		mostraResultado(cleanArchitecture);
+		Produto vacina = new ProdutoIsento("Vacina",new BigDecimal(250.00), 1000L, saude);
+		mostraResultadoIsento(vacina);
 		
-		Produto monitorDell = new Produto("Monitor Dell 27", new BigDecimal(1889.00), 3L, informatica);
-
-		mostraResultado(monitorDell);
+		Produto java = new ProdutoIsento("Java",new BigDecimal(112.90), 5L, livros);
+		mostraResultadoIsento(java);
+		
+		Produto macBookPro = new Produto("Java",new BigDecimal(20000.00), 11L, informatica);
+		mostraResultadoIsento(macBookPro);
 	}
 	
-	public static void mostraResultado(Produto produto) {
+	public static void mostraResultadoIsento(Produto produto) {
 		System.out.println("");
 		System.out.println("Buscando...");
 		System.out.println("----------------");
@@ -36,4 +37,5 @@ public class TesteProduto {
 		System.out.println("----------------");
 
 	}
+
 }
