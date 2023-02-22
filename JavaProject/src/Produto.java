@@ -45,7 +45,11 @@ public class Produto {
         this.precoUnitario = precoUnitario;
     }
 
-    public double getQuantidadeEstoque() {
+    public int getQuantidadeEstoque() {
+        return quantidadeEstoque;
+    }
+
+       public double getValorEstoque() {
 
         return (double) (quantidadeEstoque * precoUnitario);
     }
@@ -63,12 +67,12 @@ public class Produto {
     }
 
     public int getprodutoid() {
-        this.id = ++id;
         return id;
     }
 
-    public Produto() {
+    public Produto(int id, String nome, String descricao, double precoUnitario, int quantidadeEstoque, String categotia ) {
 
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.precoUnitario = precoUnitario;
@@ -78,11 +82,12 @@ public class Produto {
 
     @Override
     public String toString() {
-        return                 "id=" + getprodutoid() +", nome ='" + nome + '\'' +
+        return                 "id=" + id +", nome ='" + nome + '\'' +
                 ", descricao ='" + descricao + '\'' +
                 ", precoUnitario =" + precoUnitario +
                 ", quantidadeEstoque =" + quantidadeEstoque +
-                ", categotia ='" + categotia + '\'';
+                ", categotia ='" + categotia + '\'' +"\n"+ "Valor total em estoque = " + getQuantidadeEstoque() +"\n" +"Valor do imposto = "
+                +getPrecoUnitario() ;
     }
 }
 

@@ -1,34 +1,38 @@
-public class Estoque extends Produto{
+public class Estoque {
 
-    int capacidade = 1000;
-    int ocupacao;
-    double montante = getQuantidadeEstoque() * getPrecoUnitario();
+    private int capacidade = 1000;
+    private int ocupacao;
+    private double montante ;
 
-    public double RegistraEntrada(Produto decr){
-        int decrementa = decr.getQuantidadeEstoque(){
-            return capacidade - decrementa;
-        }
+     public void registraEntrada(Produto produto) {
+         this.capacidade = capacidade - produto.getQuantidadeEstoque();
+         this.ocupacao = ocupacao + produto.getQuantidadeEstoque();
+         this.montante = montante + produto.getValorEstoque();
+
+
     }
-    public double RegistraEntrada(Produto acres){
-        int incrementa = acres.getQuantidadeEstoque(){
-            return capacidade + incrementa;
-        }
-    }
-
     
 
 
-    public boolean getCapacidade() {
-        return capacidade <= 1000;
+
+        public int getCapacidade() {
+        return capacidade ;
     }
 
     public int getOcupacao() {
-        return ocupacao = (int) getQuantidadeEstoque();
+        return ocupacao ;
     }
 
     public double getMontante() {
         return montante ;
     }
 
-
+    @Override
+    public String toString() {
+        return "Estoque{" +
+                "capacidade=" + capacidade +
+                ", ocupacao=" + ocupacao +
+                ", montante=" + montante +
+                '}';
+    }
 }

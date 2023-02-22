@@ -1,26 +1,28 @@
 public class Categoria {
 
-    int id;
+    static int id;
      String nome;
-     boolean status;
+     boolean status = true;
 
+     @Override
+    public String toString() {
+        return "Categoria{" +
+                "id=" + ++id+
+                ", nome='" + nome + '\'' +
+                ", status=" + status +
+                '}';
+    }
 
-
-
-    public void categoriaid(int meuid){
-         this.id = this.id + meuid++;
-
-     }
-
-    public boolean ATIVA(boolean status){
-
-        if(this.status == true){
-              this.status = this.status  == true ;
-          }
-        return false;
+    public Categoria(String nome, boolean status) {
+        this.nome = nome;
+        this.status = status;
 
     }
 
+    public static int categoriaid(){
+        id = ++id;
+        return ++id;
 
+     }
 
-}
+ }
