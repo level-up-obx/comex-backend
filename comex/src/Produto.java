@@ -38,6 +38,9 @@ public class Produto {
     }
 
     public void setPrecoUnitario(BigDecimal precoUnitario) {
+        if (precoUnitario.compareTo(BigDecimal.ZERO) <= 0){
+            throw new PrecoInvalidoException("O preço do produto não pode ser menor ou igual a zero");
+        }
         this.precoUnitario = precoUnitario;
     }
 
@@ -85,6 +88,9 @@ public class Produto {
         this.id = GeradorDeId.proximoId();
         this.nome = nome;
         this.descricao = descricao;
+        if (precoUnitario.compareTo(BigDecimal.ZERO) <= 0){
+            throw new PrecoInvalidoException("O preço do produto não pode ser menor ou igual a zero");
+        }
         this.precoUnitario = precoUnitario;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
         this.categoria = categoria;
@@ -93,6 +99,9 @@ public class Produto {
     public Produto(Long id, String nome, BigDecimal precoUnitario, Integer quantidadeEmEstoque, Categoria categoria) {
         this.id = id;
         this.nome = nome;
+        if (precoUnitario.compareTo(BigDecimal.ZERO) <= 0){
+            throw new PrecoInvalidoException("O preço do produto não pode ser menor ou igual a zero");
+        }
         this.precoUnitario = precoUnitario;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
         this.categoria = categoria;
@@ -100,5 +109,8 @@ public class Produto {
 
     public Produto(){
         this.id = GeradorDeId.proximoId();
+        if (precoUnitario.compareTo(BigDecimal.ZERO) <= 0){
+            throw new PrecoInvalidoException("O preço do produto não pode ser menor ou igual a zero");
+        }
     }
 }
