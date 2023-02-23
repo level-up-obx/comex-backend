@@ -18,7 +18,7 @@ public class Categoria {
 
     public void setNome(String nome) {
         if (nome == null || nome.equals("")) {
-            throw new IllegalStateException("O nome não pode ser vazio ou nulo");
+            throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
         }
         this.nome = nome;
     }
