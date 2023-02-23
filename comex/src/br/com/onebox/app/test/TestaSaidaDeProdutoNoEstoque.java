@@ -1,3 +1,9 @@
+package br.com.onebox.app.test;
+
+import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.domain.Estoque;
+import br.com.onebox.app.domain.ProdutoIsento;
+
 import java.math.BigDecimal;
 
 public class TestaSaidaDeProdutoNoEstoque {

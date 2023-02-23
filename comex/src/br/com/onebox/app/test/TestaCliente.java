@@ -1,3 +1,7 @@
+package br.com.onebox.app.test;
+
+import br.com.onebox.app.domain.Cliente;
+
 public class TestaCliente {
     public static void main(String[] args) {
         Cliente cliente1 = new Cliente(1L, "Marcelo", "Almeida", "455.655.288-62", "(11) 9 9999-1111", "Rua Coroados", "599","","Centro", "São Paulo", "SP");

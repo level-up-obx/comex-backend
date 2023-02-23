@@ -1,3 +1,8 @@
+package br.com.onebox.app.test;
+
+import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.domain.Produto;
+
 import java.math.BigDecimal;
 
 public class TestaProduto {
@@ -34,11 +39,11 @@ public class TestaProduto {
         produto3.setQuantidadeEmEstoque(3);
         produto3.setCategoria(informatica);
 
-        System.out.println("Informações do produto 1:\n" + produto1.toStringSemDescricao() + "\nCategoria: " + produto1.getCategoria().getNome() + "\n" + "O valor total em estoque é: " + produto1.calculaValorTotalEmEstoque() + "\n" + "O valor do imposto é: " + produto1.calculaImposto());
+        System.out.println("Informações do produto 1:\n" + produto1.toStringSemDescricao() + "\nbr.com.onebox.app.domain.Categoria: " + produto1.getCategoria().getNome() + "\n" + "O valor total em estoque é: " + produto1.calculaValorTotalEmEstoque() + "\n" + "O valor do imposto é: " + produto1.calculaImposto());
         quebraLinha();
-        System.out.println("Informações do produto 2:\n" + produto2.toStringSemDescricao() + "\nCategoria: " + produto2.getCategoria().getNome() + "\n" + "O valor total em estoque é: " + produto2.calculaValorTotalEmEstoque() + "\n" + "O valor do imposto é: " + produto2.calculaImposto());
+        System.out.println("Informações do produto 2:\n" + produto2.toStringSemDescricao() + "\nbr.com.onebox.app.domain.Categoria: " + produto2.getCategoria().getNome() + "\n" + "O valor total em estoque é: " + produto2.calculaValorTotalEmEstoque() + "\n" + "O valor do imposto é: " + produto2.calculaImposto());
         quebraLinha();
-        System.out.println("Informações do produto 3:\n" + produto3.toStringSemDescricao() + "\nCategoria: " + produto3.getCategoria().getNome() + "\n" + "O valor total em estoque é: " + produto3.calculaValorTotalEmEstoque() + "\n" + "O valor do imposto é: " + produto3.calculaImposto());
+        System.out.println("Informações do produto 3:\n" + produto3.toStringSemDescricao() + "\nbr.com.onebox.app.domain.Categoria: " + produto3.getCategoria().getNome() + "\n" + "O valor total em estoque é: " + produto3.calculaValorTotalEmEstoque() + "\n" + "O valor do imposto é: " + produto3.calculaImposto());
         quebraLinha();
     }
 }

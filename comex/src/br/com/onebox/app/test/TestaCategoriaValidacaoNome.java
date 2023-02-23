@@ -1,3 +1,7 @@
+package br.com.onebox.app.test;
+
+import br.com.onebox.app.domain.Categoria;
+
 public class TestaCategoriaValidacaoNome {
     public static void main(String[] args) {
         Categoria categoria1 = new Categoria("INFORMÁTICA");

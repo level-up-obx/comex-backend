@@ -1,3 +1,7 @@
+package br.com.onebox.app.domain;
+
+import br.com.onebox.app.domain.Produto;
+
 import java.math.BigDecimal;
 
 public class Estoque {
@@ -32,7 +36,7 @@ public class Estoque {
 
     @Override
     public String toString() {
-        return "Relatório de Estoque: " +
+        return "Relatório de br.com.onebox.app.domain.Estoque: " +
                 "Capacidade: " + capacidade +
                 ", Ocupacao: " + ocupacao +
                 ", Montante: R$" + montante;

@@ -1,3 +1,5 @@
+package br.com.onebox.app.domain;
+
 public class Categoria {
     private Long id;
     private String nome;
