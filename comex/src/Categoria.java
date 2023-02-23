@@ -17,11 +17,14 @@ public class Categoria {
     }
 
     public void setNome(String nome) {
+        if (nome == null || nome.equals("")) {
+            throw new IllegalStateException("O nome não pode ser vazio ou nulo");
+        }
         this.nome = nome;
     }
 
     public String getStatus() {
-        if (status){
+        if (status) {
             return "ATIVA";
         } else {
             return "INATIVA";
@@ -35,14 +38,26 @@ public class Categoria {
 
     public Categoria(Long id, String nome, Boolean status) {
         this.id = GeradorDeId.proximoId();
+        if (nome == null || nome.equals("")) {
+            throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
+        }
         this.nome = nome;
         this.status = status;
     }
-    public Categoria(){
+
+    public Categoria() {
         this.id = GeradorDeId.proximoId();
+        if (nome == null || nome.equals("")) {
+            throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
+        }
 
     }
-    public Categoria(String nome){
+
+    public Categoria(String nome) {
+        this.id = GeradorDeId.proximoId();
+        if (nome == null || nome.equals("")) {
+            throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
+        }
         this.nome = nome;
     }
 }
