@@ -4,9 +4,9 @@ import br.com.onebox.app.domain.Categoria;
 
 public class TestaCategoria {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Categoria categoria1 = new Categoria("Informática");
+        Categoria categoria1 = new Categoria ("Informática");
         Categoria categoria2 = new Categoria("Móveis", false);
         Categoria categoria3 = new Categoria("Livros");
 

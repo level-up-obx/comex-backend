@@ -7,37 +7,39 @@ public class Estoque {
     private int ocupacao;
     private BigDecimal montante = BigDecimal.ZERO;
 
-    private void tratamentoErroQuantidade(int quantidade){
+    private void tratamentoErroQuantidade(int quantidade) throws Exception {
         try{
             if (quantidade < 0){
-                throw new RuntimeException("Valores negativos são inválidos para este negócio.");
+                throw new Exception("Valores negativos são inválidos para este negócio.");
             }
             if (quantidade == 0){
-                throw new RuntimeException("Não há produtos para realizar a movimentação.");
+                throw new Exception("Não há produtos para realizar a movimentação.");
             }
-        } catch (RuntimeException e){
+        } catch (Exception e){
             System.out.println("Ocorreu o seguinte erro: " + e.getMessage());
+            throw e;
         }
     }
 
-    public void registrarEntrada(Produto produto){
+    public void registrarEntrada(Produto produto) throws Exception {
         int quantidade = produto.getQuantidadeEmEstoque();
         BigDecimal valorTotal = produto.getPrecoUnitario().multiply(new BigDecimal(quantidade));
         tratamentoErroQuantidade(quantidade);
         try{
             if (this.capacidade - quantidade < 0){
-                throw new RuntimeException("Capacidade máxima do estoque atingida, não é possível adicionar mais produtos");
+                throw new Exception("Capacidade máxima do estoque atingida, não é possível adicionar mais produtos");
             }
             this.capacidade -= quantidade;
             this.ocupacao += quantidade;
             this.montante = this.montante.add(valorTotal);
-        } catch (RuntimeException e){
+        } catch (Exception e){
             System.out.println("Ocorreu o seguinte erro: " + e.getMessage());
+            throw e;
         }
 
     }
 
-   public void registrarSaida(Produto produto){
+   public void registrarSaida(Produto produto) throws Exception {
        int quantidade = produto.getQuantidadeEmEstoque();
        BigDecimal valorTotal = produto.getPrecoUnitario().multiply(new BigDecimal(quantidade));
        tratamentoErroQuantidade(quantidade);

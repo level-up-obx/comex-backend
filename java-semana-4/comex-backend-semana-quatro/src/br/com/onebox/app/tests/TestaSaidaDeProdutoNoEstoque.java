@@ -7,7 +7,7 @@ import br.com.onebox.app.domain.ProdutoIsento;
 import java.math.BigDecimal;
 
 public class TestaSaidaDeProdutoNoEstoque {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Categoria categoria1 = new Categoria("Saúde");
         ProdutoIsento produto1 = new ProdutoIsento("Vacina", new BigDecimal("250.00"), 500, categoria1);
 

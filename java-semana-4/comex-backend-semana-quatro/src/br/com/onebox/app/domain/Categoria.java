@@ -7,30 +7,31 @@ public class Categoria {
     private String nome;
     private boolean status = true;
 
-    private void tratamentoDeErroNomeCategoria(){
+    private void tratamentoDeErroNomeCategoria(String nome) throws Exception {
             try {
                 if (nome == null) {
-                    throw new RuntimeException("Nome da categoria nulo.");
+                    throw new Exception("Nome da categoria nulo.");
                 }
-                if (nome.trim().isEmpty()){
-                    throw new RuntimeException("Nome da categoria vazio.");
+                if (nome.isBlank()){
+                    throw new Exception("Nome da categoria vazio.");
                 }
-            } catch (RuntimeException e){
+            } catch (Exception e){
                 System.out.println("Ocorreu o seguinte erro: " + e.getMessage());
+                throw e;
             }
         }
 
-    public Categoria(String nome){
+    public Categoria(String nome) throws Exception{
+        tratamentoDeErroNomeCategoria(nome);
         this.nome = nome;
         this.id = ++idAutoIncrementado;
-        tratamentoDeErroNomeCategoria();
     }
 
-    public Categoria(String nome, boolean status){
+    public Categoria(String nome, boolean status) throws Exception {
+        tratamentoDeErroNomeCategoria(nome);
         this.nome = nome;
         this.status = status;
         this.id = ++idAutoIncrementado;
-        tratamentoDeErroNomeCategoria();
     }
 
     public Long getId() {
@@ -45,9 +46,9 @@ public class Categoria {
         return status;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws Exception {
+        tratamentoDeErroNomeCategoria(nome);
         this.nome = nome;
-        tratamentoDeErroNomeCategoria();
     }
 
     public void setStatus(boolean status) {

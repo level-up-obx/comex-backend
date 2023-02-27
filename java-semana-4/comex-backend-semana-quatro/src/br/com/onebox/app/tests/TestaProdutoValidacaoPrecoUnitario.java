@@ -6,7 +6,7 @@ import br.com.onebox.app.domain.Produto;
 import java.math.BigDecimal;
 
 public class TestaProdutoValidacaoPrecoUnitario {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Categoria categoria4 = new Categoria("Saúde");
         Categoria categoria5 = new Categoria("Informática");
         Produto produto1 = new Produto("Vacina", new BigDecimal("250.00"), 1000, categoria4);
