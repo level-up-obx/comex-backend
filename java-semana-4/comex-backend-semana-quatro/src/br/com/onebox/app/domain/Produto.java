@@ -17,13 +17,13 @@ public class Produto {
     private void tratamentoDeErroPrecoUnitario(){
         try{
             if (precoUnitario.compareTo(BigDecimal.ZERO) == 0){
-                throw new RuntimeException("O produto está com valor zerado. Tente novamente.");
+                throw new RuntimeException("O produto está com valor zerado.");
             }
             if(precoUnitario.compareTo(BigDecimal.ZERO) < 0){
-                throw new RuntimeException("O produto está com valor negativo. Tente novamente.");
+                throw new RuntimeException("O produto está com valor negativo.");
             }
-        } catch (Exception e){
-            throw new RuntimeException(e);
+        } catch (RuntimeException e){
+            System.out.println("Ocorreu o seguinte erro: " + e.getMessage());
         }
     }
     public Produto(String nome, BigDecimal precoUnitario, int quantidadeEmEstoque, Categoria categoria) {

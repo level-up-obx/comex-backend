@@ -8,25 +8,34 @@ public class Estoque {
     private BigDecimal montante = BigDecimal.ZERO;
 
     private void tratamentoErroQuantidade(int quantidade){
-        if (quantidade < 0){
-            throw new RuntimeException("Valores negativos são inválidos para este negócio. Tente novamente.");
-        }
-        if (quantidade == 0){
-            throw new RuntimeException("Não há produtos para realizar a movimentação.");
+        try{
+            if (quantidade < 0){
+                throw new RuntimeException("Valores negativos são inválidos para este negócio.");
+            }
+            if (quantidade == 0){
+                throw new RuntimeException("Não há produtos para realizar a movimentação.");
+            }
+        } catch (RuntimeException e){
+            System.out.println("Ocorreu o seguinte erro: " + e.getMessage());
         }
     }
 
-   public void registrarEntrada(Produto produto){
-       int quantidade = produto.getQuantidadeEmEstoque();
-       BigDecimal valorTotal = produto.getPrecoUnitario().multiply(new BigDecimal(quantidade));
-       tratamentoErroQuantidade(quantidade);
-       if (this.capacidade - quantidade < 0){
-           throw new RuntimeException("Capacidade máxima do estoque atingida, não é possível adicionar mais produtos");
-       }
-       this.capacidade -= quantidade;
-       this.ocupacao += quantidade;
-       this.montante = this.montante.add(valorTotal);
-   }
+    public void registrarEntrada(Produto produto){
+        int quantidade = produto.getQuantidadeEmEstoque();
+        BigDecimal valorTotal = produto.getPrecoUnitario().multiply(new BigDecimal(quantidade));
+        tratamentoErroQuantidade(quantidade);
+        try{
+            if (this.capacidade - quantidade < 0){
+                throw new RuntimeException("Capacidade máxima do estoque atingida, não é possível adicionar mais produtos");
+            }
+            this.capacidade -= quantidade;
+            this.ocupacao += quantidade;
+            this.montante = this.montante.add(valorTotal);
+        } catch (RuntimeException e){
+            System.out.println("Ocorreu o seguinte erro: " + e.getMessage());
+        }
+
+    }
 
    public void registrarSaida(Produto produto){
        int quantidade = produto.getQuantidadeEmEstoque();

@@ -10,13 +10,13 @@ public class Categoria {
     private void tratamentoDeErroNomeCategoria(){
             try {
                 if (nome == null) {
-                    throw new RuntimeException("Nome da categoria nulo, tente novamente.");
+                    throw new RuntimeException("Nome da categoria nulo.");
                 }
                 if (nome.trim().isEmpty()){
-                    throw new RuntimeException("Nome da categoria vazio, tente novamente.");
+                    throw new RuntimeException("Nome da categoria vazio.");
                 }
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+            } catch (RuntimeException e){
+                System.out.println("Ocorreu o seguinte erro: " + e.getMessage());
             }
         }
 
