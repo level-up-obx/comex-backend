@@ -6,8 +6,8 @@ public class TestaProduto {
         Produto produto1 = new Produto();
         Produto produto2 = new Produto();
         Produto produto3 = new Produto();
-        Categoria categoria4 = new Categoria();
-        Categoria categoria5 = new Categoria();
+        Categoria categoria4 = new Categoria("INFORMÁTICA");
+        Categoria categoria5 = new Categoria("LIVROS");
 
         produto1.setNome("Notebook Samsung");
         produto1.setPrecoUnitario(new BigDecimal("3523.00"));
@@ -21,8 +21,7 @@ public class TestaProduto {
         produto3.setPrecoUnitario(new BigDecimal("1889.00"));
         produto3.setQuantidadeEmEstoque(3);
 
-        categoria4.setNome("INFORMÁTICA");
-        categoria5.setNome("LIVROS");
+
 
         System.out.println(produto1 + "\n" + " e categoria: " + categoria4.getNome() + "." + "\n");
         System.out.println(produto2 + "\n" + " e categoria: " + categoria5.getNome() + "." + "\n");

@@ -2,14 +2,9 @@ public class TestaCategoria {
 
     public static void main(String[] args) {
 
-        Categoria categoria1 = new Categoria();
-        Categoria categoria2 = new Categoria();
-        Categoria categoria3 = new Categoria();
-
-        categoria1.setNome("INFORMÁTICA");
-        categoria2.setNome("MÓVEIS");
-        categoria2.setStatus(false);
-        categoria3.setNome("LIVROS");
+        Categoria categoria1 = new Categoria("Informática");
+        Categoria categoria2 = new Categoria("Móveis", false);
+        Categoria categoria3 = new Categoria("Livros");
 
         System.out.println(categoria1);
         System.out.println(categoria2);

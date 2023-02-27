@@ -5,36 +5,39 @@ public class Categoria {
     private String nome;
     private boolean status = true;
 
-    public Categoria(String nome) {
-        this.nome = nome;
+    private void tratamentoDeErroNomeCategoria(){
+        if (nome == null || nome.trim().isEmpty()){
+            try {
+                throw new Exception("Nome da categoria inválido, tente novamente.");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
-    public Categoria() {
+    public Categoria(String nome){
+        this.nome = nome;
         this.id = ++idAutoIncrementado;
+        tratamentoDeErroNomeCategoria();
+    }
+
+    public Categoria(String nome, boolean status){
+        this.nome = nome;
+        this.status = status;
+        this.id = ++idAutoIncrementado;
+        tratamentoDeErroNomeCategoria();
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public boolean getStatus() {
         return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     @Override
