@@ -6,14 +6,17 @@ public class Categoria {
     private boolean status = true;
 
     private void tratamentoDeErroNomeCategoria(){
-        if (nome == null || nome.trim().isEmpty()){
             try {
-                throw new Exception("Nome da categoria inválido, tente novamente.");
+                if (nome == null) {
+                    throw new Exception("Nome da categoria nulo, tente novamente.");
+                }
+                if (nome.trim().isEmpty()){
+                    throw new Exception("Nome da categoria vazio, tente novamente.");
+                }
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
-    }
 
     public Categoria(String nome){
         this.nome = nome;
@@ -38,6 +41,15 @@ public class Categoria {
 
     public boolean getStatus() {
         return status;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+        tratamentoDeErroNomeCategoria();
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override
