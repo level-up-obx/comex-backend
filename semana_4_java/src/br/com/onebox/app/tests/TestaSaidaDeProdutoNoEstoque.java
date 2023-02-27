@@ -17,20 +17,15 @@ public class TestaSaidaDeProdutoNoEstoque {
         estoque.registraEntrada(produto1);
 
         System.out.println("╔═══════════════════════════╗");
-        System.out.println("║  Dados do Estoque (ENTRADA)║");
-        System.out.printf("║ Capacidade     │ %8d  ║\n", estoque.getCapacidade());
-        System.out.printf("║ Ocupação       │ %8d  ║\n", estoque.getOcupacao());
-        System.out.println("╟────────────────┼────────-─-╢");
+        System.out.println("║                  (ENTRADA)║");
+        System.out.println(estoque);
         System.out.println();
 
         estoque.registraSaida(produto1);
 
         System.out.println("╔═══════════════════════════╗");
-        System.out.println("║  Dados do Estoque (SAIDA) ║");
-        System.out.println("╟────────────────┬─────────-─╢");
-        System.out.printf("║ Capacidade     │ %8d  ║\n", estoque.getCapacidade());
-        System.out.printf("║ Ocupação       │ %8d  ║\n", estoque.getOcupacao());
-        System.out.println("╟────────────────┼────────-─-╢");
+        System.out.println("║                   (SAIDA) ║");
+        System.out.println(estoque);
 
 
     }

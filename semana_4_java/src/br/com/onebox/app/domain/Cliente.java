@@ -87,9 +87,22 @@ public class Cliente {
         return "NOME COMPLETO: " + primeiroNome + " " + sobrenome;
     }
 
-    public String mostraEnderecoCompleto() {
-        return "ENDEREÇO: " + rua + ", " + numero + " - " + complemento + " - "
-                + bairro + " - " + cidade + " - " + estado;
+
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "\n" +"Id:" + id +
+                "\n" +" PrimeiroNome='" + primeiroNome + '\'' +
+                "\n" +" Sobrenome:'" + sobrenome + '\'' +
+                "\n" +" Cpf:'" + cpf + '\'' +
+                "\n" +" Telefone:'" + telefone + '\'' +
+                "\n" +" Rua:'" + rua + '\'' +
+                "\n" +" Numero:'" + numero + '\'' +
+                "\n" +" Complemento:'" + complemento + '\'' +
+                "\n" +" Bairro:'" + bairro + '\'' +
+                "\n" +" Cidade:'" + cidade + '\'' +
+                "\n" +" Estado:'" + estado;
     }
 
 }

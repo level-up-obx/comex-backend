@@ -20,27 +20,20 @@ public class TestaProdutoIsento {
         Produto produto3 = new Produto(3, "Macbook Pro", "MacbookPro-computador", new BigDecimal("20000.00"), 11, categoria3);
 
 
-        System.out.println("--------- PRODUTO - 1 ----------");
-        System.out.println("Nome: " + produto1.getNome());
-        System.out.println("Categoria: " + categoria1.getNome());
-        System.out.println("Preço Unitário: R$" + produto1.getPrecoUnitario());
-        System.out.println("Quantidade em Estoque: " + produto1.getQuantidadeEstoque());
+        System.out.println("--------- PRODUTO - 1 VACINA ----------");
+        System.out.println(produto1);
         System.out.println("Valor Total em Estoque: R$" + produto1.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
         System.out.println("Imposto: R$" + produto1.calculaImposto(produto1.getPrecoUnitario()));
+        System.out.println();
 
-        System.out.println("--------- PRODUTO - 2 ----------");
-        System.out.println("Nome: " + produto2.getNome());
-        System.out.println("Categoria: " + categoria2.getNome());
-        System.out.println("Preço Unitário: R$" + produto2.getPrecoUnitario());
-        System.out.println("Quantidade em br.com.onebox.app.domain.Estoque: " + produto2.getQuantidadeEstoque());
+        System.out.println("--------- PRODUTO - 2 LIVRO JAVA----------");
+        System.out.println(produto2);
         System.out.println("Valor Total em br.com.onebox.app.domain.Estoque: R$" + produto2.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
         System.out.println("Imposto: R$" + produto2.calculaImposto(produto2.getPrecoUnitario()));
+        System.out.println();
 
-        System.out.println("--------- PRODUTO - 3 ----------");
-        System.out.println("Nome: " + produto3.getNome());
-        System.out.println("Categoria: " + categoria3.getNome());
-        System.out.println("Preço Unitário: R$" + produto3.getPrecoUnitario());
-        System.out.println("Quantidade em Estoque: " + produto3.getQuantidadeEstoque());
+        System.out.println("--------- PRODUTO - 3 MACBOOK ----------");
+        System.out.println(produto3);
         System.out.println("Valor Total em Estoque: R$" + produto3.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
         System.out.println("Imposto: R$" + produto3.calculaImposto(produto3.getPrecoUnitario()));
         ;
