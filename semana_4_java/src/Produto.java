@@ -46,7 +46,10 @@ public class Produto {
         return precoUnitario;
     }
 
-    public void setPrecoUnitario(BigDecimal precoUnitario) {
+    public void setPrecoUnitario(BigDecimal precoUnitario) throws PrecoInvalidoException {
+        if (precoUnitario.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new PrecoInvalidoException("Preço inválido! O Preço deve ser maior que zero.");
+        }
         this.precoUnitario = precoUnitario;
     }
 
