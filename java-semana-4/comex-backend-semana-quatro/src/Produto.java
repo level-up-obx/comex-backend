@@ -12,16 +12,30 @@ public class Produto {
     private int quantidadeEmEstoque;
     private Categoria categoria;
 
+    private void tratamentoDeErroPrecoUnitario(){
+        try{
+            if (precoUnitario.compareTo(BigDecimal.ZERO) == 0){
+                throw new Exception("O produto está com valor zerado. Tente novamente.");
+            }
+            if(precoUnitario.compareTo(BigDecimal.ZERO) < 0){
+                throw new Exception("O produto está com valor negativo. Tente novamente.");
+            }
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
     public Produto(String nome, BigDecimal precoUnitario, int quantidadeEmEstoque, Categoria categoria) {
         this.id = ++idAutoIncrementado;
         this.nome = nome;
         this.precoUnitario = precoUnitario;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
         this.categoria = categoria;
+        tratamentoDeErroPrecoUnitario();
     }
 
     public Produto(){
         this.id = ++idAutoIncrementado;
+        tratamentoDeErroPrecoUnitario();
     }
 
     public Long getId() {
@@ -54,6 +68,7 @@ public class Produto {
 
     public void setPrecoUnitario(BigDecimal precoUnitario) {
         this.precoUnitario = precoUnitario;
+        tratamentoDeErroPrecoUnitario();
     }
 
     public int getQuantidadeEmEstoque() {
