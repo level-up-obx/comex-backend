@@ -1,3 +1,9 @@
+package br.com.onebox.app.tests;
+
+import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.domain.Produto;
+import br.com.onebox.app.domain.ProdutoIsento;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -26,8 +32,8 @@ public class TestaProdutoIsento {
         System.out.println("Nome: " + produto2.getNome());
         System.out.println("Categoria: " + categoria2.getNome());
         System.out.println("Preço Unitário: R$" + produto2.getPrecoUnitario());
-        System.out.println("Quantidade em Estoque: " + produto2.getQuantidadeEstoque());
-        System.out.println("Valor Total em Estoque: R$" + produto2.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
+        System.out.println("Quantidade em br.com.onebox.app.domain.Estoque: " + produto2.getQuantidadeEstoque());
+        System.out.println("Valor Total em br.com.onebox.app.domain.Estoque: R$" + produto2.calculaValorTotalEstoque().setScale(2, RoundingMode.HALF_UP).toString());
         System.out.println("Imposto: R$" + produto2.calculaImposto(produto2.getPrecoUnitario()));
 
         System.out.println("--------- PRODUTO - 3 ----------");

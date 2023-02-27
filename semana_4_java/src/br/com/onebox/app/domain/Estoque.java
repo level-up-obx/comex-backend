@@ -1,3 +1,5 @@
+package br.com.onebox.app.domain;
+
 import java.math.BigDecimal;
 
 public class Estoque {
@@ -28,7 +30,7 @@ public class Estoque {
         if (produto.getQuantidadeEstoque() > 0) {
             int quantidade = produto.getQuantidadeEstoque();
             if (ocupacao + quantidade > capacidade) {
-                System.out.println("Estoque cheio");
+                System.out.println("br.com.onebox.app.domain.Estoque cheio");
                 return;
             }
             ocupacao += quantidade;
@@ -40,7 +42,7 @@ public class Estoque {
         if (produto.getQuantidadeEstoque() > 0) {
             int quantidade = produto.getQuantidadeEstoque();
             if (ocupacao - quantidade < 0) {
-                System.out.println("Estoque insuficiente");
+                System.out.println("br.com.onebox.app.domain.Estoque insuficiente");
                 return;
             }
             ocupacao -= quantidade;

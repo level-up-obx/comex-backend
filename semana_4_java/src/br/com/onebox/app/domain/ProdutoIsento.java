@@ -1,5 +1,6 @@
+package br.com.onebox.app.domain;
+
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class ProdutoIsento extends Produto {
 

@@ -1,10 +1,12 @@
+package br.com.onebox.app.domain;
+import br.com.onebox.app.CategoriaInvalidaException;
 public class Categoria {
 
     private int id;
     private String nome;
     private Boolean status;
 
-    public Categoria(int id, String nome, Boolean status) throws CategoriaInvalidaException{
+    public Categoria(int id, String nome, Boolean status) throws CategoriaInvalidaException {
         this.id = ++id;
         setNome(nome);
         this.status = status;

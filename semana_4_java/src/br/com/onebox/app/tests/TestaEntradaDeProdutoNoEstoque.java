@@ -1,3 +1,10 @@
+package br.com.onebox.app.tests;
+
+import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.domain.Estoque;
+import br.com.onebox.app.domain.Produto;
+import br.com.onebox.app.domain.ProdutoIsento;
+
 import java.math.BigDecimal;
 
 public class TestaEntradaDeProdutoNoEstoque {
@@ -18,7 +25,7 @@ public class TestaEntradaDeProdutoNoEstoque {
         estoque.registraEntrada(produto3);
 
         System.out.println("╔═══════════════════════════╗");
-        System.out.println("║  Dados do Estoque         ║");
+        System.out.println("║  Dados do br.com.onebox.app.domain.Estoque         ║");
         System.out.println("╟────────────────┬─────────-─╢");
         System.out.printf("║ Capacidade     │ %8d  ║\n", estoque.getCapacidade());
         System.out.printf("║ Ocupação       │ %8d  ║\n", estoque.getOcupacao());

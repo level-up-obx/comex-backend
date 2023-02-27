@@ -1,3 +1,9 @@
+package br.com.onebox.app.tests;
+
+import br.com.onebox.app.CategoriaInvalidaException;
+import br.com.onebox.app.domain.Categoria;
+
+
 public class TestaCategoriaValidacaoNome {
     public static void main(String[] args) {
         Categoria categoria1 = new Categoria(1, "INFORMATICA", Boolean.TRUE);

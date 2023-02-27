@@ -1,3 +1,8 @@
+package br.com.onebox.app.tests;
+
+import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.domain.Produto;
+
 import java.math.BigDecimal;
 
     public class TestaProduto {
@@ -13,28 +18,28 @@ import java.math.BigDecimal;
 
             System.out.println("--------- PRODUTO - 1 ----------");
             System.out.println("Nome: " + produto1.getNome());
-            System.out.println("Categoria: " + produto1.getCategoria());
+            System.out.println("br.com.onebox.app.domain.Categoria: " + produto1.getCategoria());
             System.out.println("Preço Unitário: R$" + produto1.getPrecoUnitario());
-            System.out.println("Quantidade em Estoque: " + produto1.getQuantidadeEstoque());
-            System.out.println("Valor Total em Estoque: R$" + produto1.calculaValorTotalEstoque());
+            System.out.println("Quantidade em br.com.onebox.app.domain.Estoque: " + produto1.getQuantidadeEstoque());
+            System.out.println("Valor Total em br.com.onebox.app.domain.Estoque: R$" + produto1.calculaValorTotalEstoque());
             System.out.println("Imposto: R$" + produto1.calculaImposto(produto1.getPrecoUnitario()));
 
 
-           System.out.println("--------- Produto - 2 CLEAN ARCHITECTURE ----------");
+           System.out.println("--------- br.com.onebox.app.domain.Produto - 2 CLEAN ARCHITECTURE ----------");
             System.out.println("Nome: " + produto2.getNome());
-            System.out.println("Categoria: " + produto2.getCategoria());
+            System.out.println("br.com.onebox.app.domain.Categoria: " + produto2.getCategoria());
             System.out.println("Preço Unitário: R$" + produto2.getPrecoUnitario());
-            System.out.println("Quantidade em Estoque: " + produto2.getQuantidadeEstoque());
-            System.out.println("Valor Total em Estoque: R$" + produto2.calculaValorTotalEstoque());
+            System.out.println("Quantidade em br.com.onebox.app.domain.Estoque: " + produto2.getQuantidadeEstoque());
+            System.out.println("Valor Total em br.com.onebox.app.domain.Estoque: R$" + produto2.calculaValorTotalEstoque());
             System.out.println("Imposto: R$" + produto2.calculaImposto(produto2.getPrecoUnitario()));
 
 
-            System.out.println("--------- Produto - 3 MONITOR DELL ----------");
+            System.out.println("--------- br.com.onebox.app.domain.Produto - 3 MONITOR DELL ----------");
             System.out.println("Nome: " + produto3.getNome());
-            System.out.println("Categoria: " + produto3.getCategoria());
+            System.out.println("br.com.onebox.app.domain.Categoria: " + produto3.getCategoria());
             System.out.println("Preço Unitário: R$" + produto3.getPrecoUnitario());
-            System.out.println("Quantidade em Estoque: " + produto3.getQuantidadeEstoque());
-            System.out.println("Valor Total em Estoque: R$" + produto3.calculaValorTotalEstoque());
+            System.out.println("Quantidade em br.com.onebox.app.domain.Estoque: " + produto3.getQuantidadeEstoque());
+            System.out.println("Valor Total em br.com.onebox.app.domain.Estoque: R$" + produto3.calculaValorTotalEstoque());
             System.out.println("Imposto: R$" + produto3.calculaImposto(produto3.getPrecoUnitario()));
         }
     }
