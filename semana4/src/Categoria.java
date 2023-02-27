@@ -5,13 +5,14 @@ public class Categoria {
 	    private String nome;
 	    private Boolean status;
 	    
-	    public Categoria(int id, String nome, Boolean status) 
+	    public Categoria(int id, String nome, Boolean status)throws CategoriaInvalidaException
 	    {
 	        this.id = ++id;
-	        this.nome = nome;
+	        setNome(nome);
 	        this.status = status;
         }
 
+	    
 		public int getId() {
 			return id;
 		}
@@ -24,7 +25,10 @@ public class Categoria {
 			return nome;
 		}
 
-		public void setNome(String nome) {
+		public void setNome(String nome) throws CategoriaInvalidaException {
+			if(nome == null || nome.trim().isEmpty()) {
+				 throw new CategoriaInvalidaException("O nome da categoria não pode ser vazio ou nulo.");
+			}
 			this.nome = nome;
 		}
 
