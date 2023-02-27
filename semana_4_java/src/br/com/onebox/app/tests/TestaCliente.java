@@ -10,13 +10,13 @@ public class TestaCliente {
 
 
         System.out.println("--------- CLIENTE 1 ----------");
-        System.out.println("CPF: " + cliente1.getCpf() +"\n" + cliente1.mostraNomeCompleto() +"\n" + "TELEFONE: " + cliente1.getTelefone()+"\n" + cliente1.mostraEnderecoCompleto());
+        System.out.println(cliente1.toString());
 
         System.out.println("--------- CLIENTE 2 ----------");
-        System.out.println("CPF: " + cliente2.getCpf() +"\n" + cliente2.mostraNomeCompleto() +"\n" + "TELEFONE: " + cliente2.getTelefone()+"\n" + cliente2.mostraEnderecoCompleto());
+        System.out.println(cliente2.toString());
 
         System.out.println("--------- CLIENTE 3 ----------");
-        System.out.println("CPF: " + cliente3.getCpf() +"\n" + cliente3.mostraNomeCompleto() +"\n" + "TELEFONE: " + cliente3.getTelefone()+"\n" + cliente3.mostraEnderecoCompleto());
+        System.out.println(cliente3.toString());
 
     }
 

@@ -23,4 +23,6 @@ public class ProdutoIsento extends Produto {
         return impostoIsento();
     }
 
+
+
 }

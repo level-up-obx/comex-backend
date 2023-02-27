@@ -82,5 +82,15 @@ public class Produto {
         return precoUnitario.multiply(BigDecimal.valueOf(0.4)).setScale(2, RoundingMode.HALF_UP);
     }
 
+    @Override
+    public String toString() {
+        return "Produto" +
+                "\n" +"Id:" + id +
+                "\n" +" Nome:'" + nome  +
+                "\n" +" Descricao='" + descricao  +
+                "\n" +" Preco Unitario=" + precoUnitario +
+                "\n" +" Quantidade em Estoque=" + quantidadeEstoque +
+                "\n" +" Categoria=" + categoria;
 
+    }
 }

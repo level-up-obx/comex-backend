@@ -25,12 +25,9 @@ public class TestaEntradaDeProdutoNoEstoque {
         estoque.registraEntrada(produto3);
 
         System.out.println("╔═══════════════════════════╗");
-        System.out.println("║  Dados do br.com.onebox.app.domain.Estoque         ║");
-        System.out.println("╟────────────────┬─────────-─╢");
-        System.out.printf("║ Capacidade     │ %8d  ║\n", estoque.getCapacidade());
-        System.out.printf("║ Ocupação       │ %8d  ║\n", estoque.getOcupacao());
-        System.out.printf("║ Montante total │ %8.2f ║\n", estoque.getMontante());
-        System.out.println("╟────────────────┼────────-─-╢");
+        System.out.println("║  Dados do                 ║");
+        System.out.println(estoque);
+
 
 
 

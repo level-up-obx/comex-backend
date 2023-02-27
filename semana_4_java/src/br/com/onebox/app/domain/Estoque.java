@@ -22,6 +22,7 @@ public class Estoque {
         return ocupacao;
     }
 
+
     public BigDecimal getMontante() {
         return montante;
     }
@@ -30,7 +31,7 @@ public class Estoque {
         if (produto.getQuantidadeEstoque() > 0) {
             int quantidade = produto.getQuantidadeEstoque();
             if (ocupacao + quantidade > capacidade) {
-                System.out.println("br.com.onebox.app.domain.Estoque cheio");
+                System.out.println("Estoque cheio");
                 return;
             }
             ocupacao += quantidade;
@@ -42,11 +43,21 @@ public class Estoque {
         if (produto.getQuantidadeEstoque() > 0) {
             int quantidade = produto.getQuantidadeEstoque();
             if (ocupacao - quantidade < 0) {
-                System.out.println("br.com.onebox.app.domain.Estoque insuficiente");
+                System.out.println("Estoque insuficiente");
                 return;
             }
             ocupacao -= quantidade;
             montante = montante.subtract(produto.calculaValorTotalEstoque());
         }
     }
+
+    @Override
+    public String toString() {
+        return "Estoque" +
+                "\n" +" Capacidade:" + capacidade +
+                "\n" +" Ocupacao:" + ocupacao +
+                "\n" +" Montante:" + montante;
+    }
+
+
 }
