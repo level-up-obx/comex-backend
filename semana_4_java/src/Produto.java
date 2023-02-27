@@ -13,7 +13,7 @@ public class Produto {
         this.id = ++id;
         this.nome = nome;
         this.descricao = descricao;
-        this.precoUnitario = precoUnitario;
+        setPrecoUnitario(precoUnitario);
         this.quantidadeEstoque = quantidadeEstoque;
         this.categoria = categoria;
     }
