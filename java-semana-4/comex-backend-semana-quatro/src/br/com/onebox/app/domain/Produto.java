@@ -14,30 +14,31 @@ public class Produto {
     private int quantidadeEmEstoque;
     private Categoria categoria;
 
-    private void tratamentoDeErroPrecoUnitario(){
+    private void tratamentoDeErroPrecoUnitario(BigDecimal precoUnitario) throws Exception{
         try{
             if (precoUnitario.compareTo(BigDecimal.ZERO) == 0){
-                throw new RuntimeException("O produto está com valor zerado.");
+                throw new Exception("O produto está com valor zerado.");
             }
             if(precoUnitario.compareTo(BigDecimal.ZERO) < 0){
-                throw new RuntimeException("O produto está com valor negativo.");
+                throw new Exception("O produto está com valor negativo.");
             }
-        } catch (RuntimeException e){
+        } catch (Exception e){
             System.out.println("Ocorreu o seguinte erro: " + e.getMessage());
+            throw e;
         }
     }
-    public Produto(String nome, BigDecimal precoUnitario, int quantidadeEmEstoque, Categoria categoria) {
+    public Produto(String nome, BigDecimal precoUnitario, int quantidadeEmEstoque, Categoria categoria) throws Exception {
+        tratamentoDeErroPrecoUnitario(precoUnitario);
         this.id = ++idAutoIncrementado;
         this.nome = nome;
         this.precoUnitario = precoUnitario;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
         this.categoria = categoria;
-        tratamentoDeErroPrecoUnitario();
     }
 
-    public Produto(){
+    public Produto() throws Exception {
+        tratamentoDeErroPrecoUnitario(precoUnitario);
         this.id = ++idAutoIncrementado;
-        tratamentoDeErroPrecoUnitario();
     }
 
     public Long getId() {
@@ -68,9 +69,9 @@ public class Produto {
         return precoUnitario;
     }
 
-    public void setPrecoUnitario(BigDecimal precoUnitario) {
+    public void setPrecoUnitario(BigDecimal precoUnitario) throws Exception {
+        tratamentoDeErroPrecoUnitario(precoUnitario);
         this.precoUnitario = precoUnitario;
-        tratamentoDeErroPrecoUnitario();
     }
 
     public int getQuantidadeEmEstoque() {

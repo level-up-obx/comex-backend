@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public class TestaProduto {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Categoria categoria4 = new Categoria("INFORMÁTICA");
         Categoria categoria5 = new Categoria("LIVROS");
         Produto produto1 = new Produto("Notebook Samsung", new BigDecimal("3523.00"), 1, categoria4);
