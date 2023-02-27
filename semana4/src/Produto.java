@@ -14,7 +14,7 @@ public class Produto {
         this.id = ++id;
         this.nome = nome;
         this.descricao = descricao;
-        this.precoUnitario = precoUnitario;
+        setPrecoUnitario(precoUnitario);
         this.quantidadeEstoque = quantidadeEstoque;
         this.categoria = categoria;
     }
@@ -51,7 +51,7 @@ public class Produto {
 	public void setPrecoUnitario(BigDecimal precoUnitario)throws PrecoInvalidoException{
 		
 		if(precoUnitario.compareTo(BigDecimal.ZERO)<= 0) {
-			throw new PrecoInvalidoException("Preco inválido! O preço unitário não pode ser igual ou menor que zero.");
+			throw new PrecoInvalidoException("Preco invalido! O preco unitario nao pode ser igual ou menor que zero.");
 		}else {
 			this.precoUnitario = precoUnitario;
 		}
