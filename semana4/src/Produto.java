@@ -48,8 +48,14 @@ public class Produto {
 		return precoUnitario;
 	}
 
-	public void setPrecoUnitario(BigDecimal precoUnitario) {
-		this.precoUnitario = precoUnitario;
+	public void setPrecoUnitario(BigDecimal precoUnitario)throws PrecoInvalidoException{
+		
+		if(precoUnitario.compareTo(BigDecimal.ZERO)<= 0) {
+			throw new PrecoInvalidoException("Preco inválido! O preço unitário não pode ser igual ou menor que zero.");
+		}else {
+			this.precoUnitario = precoUnitario;
+		}
+		
 	}
 
 	public int getQuantidadeEstoque() {
