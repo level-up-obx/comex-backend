@@ -42,7 +42,7 @@ public class Categoria {
 
     public Categoria(Long id, String nome, Boolean status) {
         this.id = GeradorDeId.proximoId();
-        if (nome == null || nome.equals("")) {
+        if (nome == null || nome.trim().equals("")) {
             throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
         }
         this.nome = nome;
@@ -51,7 +51,7 @@ public class Categoria {
 
     public Categoria() {
         this.id = GeradorDeId.proximoId();
-        if (nome == null || nome.equals("")) {
+        if (nome == null || nome.trim().equals("")) {
             throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
         }
 
@@ -59,7 +59,7 @@ public class Categoria {
 
     public Categoria(String nome) {
         this.id = GeradorDeId.proximoId();
-        if (nome == null || nome.equals("")) {
+        if (nome == null || nome.trim().equals("")) {
             throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
         }
         this.nome = nome;
