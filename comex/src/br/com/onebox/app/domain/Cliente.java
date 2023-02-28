@@ -86,7 +86,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "br.com.onebox.app.domain.Cliente{" +
+        return "Cliente{" +
                 "id=" + id +
                 ", primeiroNome='" + primeiroNome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
@@ -102,7 +102,7 @@ public class Cliente {
     }
 
     public String toStringComEnderecoConcatenado() {
-        return "br.com.onebox.app.domain.Cliente " + id + ": " +
+        return "Cliente " + id + ": " +
                 "id = " + id +
                 ", Nome Completo = '" + nomeCompleto() + '\'' +
                 ", cpf = '" + cpf + '\'' +

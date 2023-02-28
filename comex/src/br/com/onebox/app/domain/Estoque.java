@@ -36,7 +36,7 @@ public class Estoque {
 
     @Override
     public String toString() {
-        return "Relatório de br.com.onebox.app.domain.Estoque: " +
+        return "Relatório de Estoque: " +
                 "Capacidade: " + capacidade +
                 ", Ocupacao: " + ocupacao +
                 ", Montante: R$" + montante;

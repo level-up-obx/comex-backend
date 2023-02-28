@@ -1,5 +1,7 @@
 package br.com.onebox.app.domain;
 
+import br.com.onebox.app.exceptions.NomeInvalidoException;
+
 public class Categoria {
     private Long id;
     private String nome;
@@ -61,5 +63,14 @@ public class Categoria {
             throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
         }
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", status=" + status +
+                '}';
     }
 }
