@@ -21,7 +21,7 @@ public class Categoria {
     }
 
     public void setNome(String nome) {
-        if (nome == null || nome.equals("")) {
+        if (nome == null || nome.trim().equals("")) {
             throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
         }
         this.nome = nome;
