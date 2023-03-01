@@ -1,3 +1,7 @@
+package br.com.onebox.app.tests;
+
+import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.domain.Produto;
 import java.math.BigDecimal;
 
 public class TestaProduto {
