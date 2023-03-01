@@ -14,22 +14,18 @@ public class TestaCliente {
 		
 		
 		System.out.println("-------Cliente 1-------");
-        System.out.println("CPF: " + cliente1.getCpf());
-        System.out.println("Nome completo: " + cliente1.nomeCompleto());
-        System.out.println("Telefone: " + cliente1.getTelefone());
-        System.out.println("Endereco: " + cliente1.mostraEndereco());
+        System.out.println(cliente1.toString());
         
         System.out.println("-------Cliente 2-------");
-        System.out.println("CPF: " + cliente2.getCpf());
-        System.out.println("Nome completo: " + cliente2.nomeCompleto());
-        System.out.println("Telefone: " + cliente2.getTelefone());
-        System.out.println("Endereco: " + cliente2.mostraEndereco());
+        System.out.println(cliente2.toString());
         
         System.out.println("-------Cliente 3-------");
-        System.out.println("CPF: " + cliente3.getCpf());
-        System.out.println("Nome completo: " + cliente3.nomeCompleto());
-        System.out.println("Telefone: " + cliente3.getTelefone());
-        System.out.println("Endereco: " + cliente3.mostraEndereco());
+        System.out.println(cliente3.toString());
+        
+        
+        
+        
+       
         
 	}
 

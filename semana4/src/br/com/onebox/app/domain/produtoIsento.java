@@ -24,6 +24,16 @@ public class produtoIsento extends Produto {
 		return BigDecimal.ZERO;
 	}
 	
+	@Override
+	public String toString() 
+	{
+		 return  "Nome: " + this.getNome() + "\n" +
+				 "Categoria: " + this.getCategoria() + "\n" +
+				 "Preco unitario: R$ " + this.getPrecoUnitario() + "\n" +
+				 "Valor Total em Estoque: R$ " + ValorTotalEstoque(this.getPrecoUnitario(), this.getQuantidadeEstoque())+ "\n" +
+				 "Valor imposto: R$ " + CalculaImposto(this.getPrecoUnitario()) + "\n";
+	}
+	
 	
 
 }

@@ -85,4 +85,14 @@ public class Produto {
 	{
 		return precoUnitario.multiply(BigDecimal.valueOf(0.4));
 	}
+	@Override
+	public String toString() 
+	{
+		 return  "Nome: " + nome + "\n" +
+				 "Categoria: " + categoria + "\n" +
+				 "Preco unitario: R$ " + precoUnitario + "\n" +
+				 "Valor Total em Estoque: R$ " + ValorTotalEstoque(precoUnitario, quantidadeEstoque)+ "\n" +
+				 "Valor imposto: R$ " + CalculaImposto(precoUnitario) + "\n";
+	}
+	
 }

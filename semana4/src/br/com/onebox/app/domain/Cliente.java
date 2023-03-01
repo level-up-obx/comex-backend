@@ -1,7 +1,7 @@
 package br.com.onebox.app.domain;
 
 
-public class Cliente {
+public  class Cliente {
 
 	private int id;
 	private String primeiroNome;
@@ -85,4 +85,14 @@ public class Cliente {
 	{
 		return rua + " " + numero + ", " + complemento + ", " + bairro + ", " + cidade + ", " + estado;
 	}
+	
+	@Override
+	public String toString() 
+	{
+		 return  "CPF: " + this.cpf + "\n" +
+	             "Nome Completo: " + this.nomeCompleto()+ "\n" +
+	             "Telefone: " + this.telefone + "\n" +
+	             "Endereco: " + this.mostraEndereco()+ "\n" ;
+	}
+	
 }
