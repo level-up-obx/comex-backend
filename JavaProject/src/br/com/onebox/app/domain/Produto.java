@@ -1,4 +1,6 @@
-public class Produto implements ValidacaoPrecoUnitarioException{
+package br.com.onebox.app.domain;
+
+public class Produto implements ValidacaoPrecoUnitarioException {
 
     static int id;
     private String nome;

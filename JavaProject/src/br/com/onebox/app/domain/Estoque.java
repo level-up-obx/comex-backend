@@ -1,3 +1,5 @@
+package br.com.onebox.app.domain;
+
 public class Estoque {
 
     private int capacidade = 1000;
@@ -36,7 +38,7 @@ public class Estoque {
 
     @Override
     public String toString() {
-        return "Estoque{" +
+        return "br.com.onebox.app.domain.Estoque{" +
                 "capacidade=" + capacidade +
                 ", ocupacao=" + ocupacao +
                 ", montante=" + montante +

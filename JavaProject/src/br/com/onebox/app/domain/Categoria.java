@@ -1,3 +1,5 @@
+package br.com.onebox.app.domain;
+
 public class Categoria {
 
     static int id;
@@ -45,7 +47,7 @@ public class Categoria {
 
         @Override
         public String toString () {
-            return "Categoria{" +
+            return "br.com.onebox.app.domain.Categoria{" +
                     "id=" + ++id +
                     ", nome='" + nome + '\'' +
                     ", status=" + status +

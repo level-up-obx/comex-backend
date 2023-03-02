@@ -1,4 +1,6 @@
+package br.com.onebox.app.tests;
 
+import br.com.onebox.app.domain.Produto;
 
 public class TestaProdutoValidacaoPrecoUnitario  {
 

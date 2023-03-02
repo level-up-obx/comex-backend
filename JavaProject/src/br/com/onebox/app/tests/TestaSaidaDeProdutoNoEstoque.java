@@ -1,3 +1,8 @@
+package br.com.onebox.app.tests;
+
+import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.domain.Estoque;
+import br.com.onebox.app.domain.ProdutoIsento;
 
 public class TestaSaidaDeProdutoNoEstoque {
 

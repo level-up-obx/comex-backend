@@ -1,3 +1,7 @@
+package br.com.onebox.app.tests;
+
+import br.com.onebox.app.domain.Produto;
+
 public class TestaProduto {
 
     public static void main(String[] args) throws Exception {

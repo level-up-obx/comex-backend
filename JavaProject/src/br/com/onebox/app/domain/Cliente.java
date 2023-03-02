@@ -1,3 +1,5 @@
+package br.com.onebox.app.domain;
+
 public class Cliente {
 
     static int id ;
@@ -76,7 +78,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" + ",id='"
+        return "br.com.onebox.app.domain.Cliente{" + ",id='"
                  + getclienteid() +
                 ", nomeCompleto='" + getnomeCompleto() + '\'' +
                 ", cpf='" + cpf + '\'' +

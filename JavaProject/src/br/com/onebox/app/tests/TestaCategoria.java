@@ -1,4 +1,6 @@
-import javax.swing.plaf.synth.SynthOptionPaneUI;
+package br.com.onebox.app.tests;
+
+import br.com.onebox.app.domain.Categoria;
 
 public class TestaCategoria {
 

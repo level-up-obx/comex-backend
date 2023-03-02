@@ -1,3 +1,7 @@
+package br.com.onebox.app.tests;
+
+import br.com.onebox.app.domain.Cliente;
+
 public class TestaCliente {
 
     public static void main(String[] args) {
