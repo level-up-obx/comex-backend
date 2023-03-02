@@ -2,7 +2,7 @@ import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public class TestaCategoria {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CategoriaValidacaoNomeException {
 
 
         Categoria categoria1 = new Categoria("INFORMÁTICA", true);

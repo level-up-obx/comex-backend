@@ -1,8 +1,13 @@
 public class TestaProdutoIsento {
 
 
-    public static void main(String[] args) {
-        ProdutoIsento produtoIsento1 = new ProdutoIsento(1, "Vacina", "1 dose", 250.0, 1000, "Saúde");
+    public static void main(String[] args) throws Exception {
+        ProdutoIsento produtoIsento1 = null;
+        try {
+            produtoIsento1 = new ProdutoIsento(1, "Vacina", "1 dose", 250.0, 1000, "Saúde");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         System.out.println(produtoIsento1 + "\n"+ "Imposto do produto é: "+produtoIsento1.getPrecoUnitario());
         System.out.println("---------------------PRODUTO 1----------------------");
 

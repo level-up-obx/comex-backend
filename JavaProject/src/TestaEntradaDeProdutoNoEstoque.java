@@ -1,7 +1,7 @@
 
 public class TestaEntradaDeProdutoNoEstoque {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Categoria categoria1 = new Categoria("SAÚDE", true);
         Categoria categoria2 = new Categoria("LIVROS", false);

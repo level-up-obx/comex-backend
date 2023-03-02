@@ -1,6 +1,6 @@
 public class TestaProduto {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Produto produto1 = new Produto(1, "Notebook Samsung", "Tela 14 pol", 3523.0, 1, "INFORMÁTICA" );
 

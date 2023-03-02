@@ -1,4 +1,4 @@
-public class CategoriaValidacaoNomeException extends RuntimeException{
+public class CategoriaValidacaoNomeException extends Exception{
 
     public CategoriaValidacaoNomeException(String msg){
         super(msg);
