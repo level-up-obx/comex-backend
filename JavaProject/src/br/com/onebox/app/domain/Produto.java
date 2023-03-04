@@ -1,5 +1,7 @@
 package br.com.onebox.app.domain;
 
+import br.com.onebox.app.interfaces.ValidacaoPrecoUnitarioException;
+
 public class Produto implements ValidacaoPrecoUnitarioException {
 
     static int id;

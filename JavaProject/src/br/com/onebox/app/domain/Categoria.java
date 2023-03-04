@@ -1,5 +1,7 @@
 package br.com.onebox.app.domain;
 
+import br.com.onebox.app.tests.CategoriaValidacaoNomeException;
+
 public class Categoria {
 
     static int id;
@@ -9,7 +11,7 @@ public class Categoria {
     public Categoria(String nome, boolean status) throws CategoriaValidacaoNomeException {
         if (nome == null || nome.equals("")) {
 
-            throw new CategoriaValidacaoNomeException("Não pode ser nulo");
+            throw new CategoriaValidacaoNomeException();
         } else {
             this.nome = nome;
             this.status = status;
@@ -30,7 +32,7 @@ public class Categoria {
 
         public void setNome (String nome) throws CategoriaValidacaoNomeException {
             if (nome == null || nome.equals("")) {
-                throw new CategoriaValidacaoNomeException("Não pode ser vazio");
+                throw new CategoriaValidacaoNomeException();
             } else {
                 this.nome = nome;
             }

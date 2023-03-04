@@ -4,7 +4,7 @@ import br.com.onebox.app.domain.Categoria;
 
 public class TestaCategoria {
 
-    public static void main(String[] args) throws CategoriaValidacaoNomeException {
+    public static void main(String[] args) throws CategoriaValidacaoNomeException, CategoriaValidacaoNomeException {
 
 
         Categoria categoria1 = new Categoria("INFORMÁTICA", true);
