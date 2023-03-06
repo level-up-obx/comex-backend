@@ -62,4 +62,12 @@ public class Pedido {
                 ", Preco = " + getValorTotal() +
                 ", Data = " + data;
     }
+
+    public boolean isMaisBaratoQue(Pedido outroPedido){
+        return this.getValorTotal().compareTo(outroPedido.getValorTotal()) < 0;
+    }
+
+    public boolean isMaisCaroQue(Pedido outroPedido){
+        return this.getValorTotal().compareTo(outroPedido.getValorTotal()) > 0;
+    }
 }
