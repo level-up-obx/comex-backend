@@ -1,7 +1,5 @@
 package br.com.onebox.app.domain;
 
-import br.com.onebox.app.domain.Produto;
-
 import java.math.BigDecimal;
 
 public class Estoque {
