@@ -34,17 +34,15 @@ public class TestaPedidoOrdenado {
         pedidos.add(new Pedido(cliente1, new BigDecimal("5000.00"), 20, LocalDate.of(2023, 2, 23)));
 
 
-//        System.out.println(pedidos);
         System.out.println("------------------------------- ORDEM CRESCENTE ------------------------------------------------------");
-        Collections.sort(pedidos, new PedidoComparator());
-        for (Pedido pedido : pedidos) {
-            System.out.println(pedido);
-        }
+
+        pedidos.sort(new PedidoComparator());
+        pedidos.forEach(pedido -> System.out.println(pedido));
+
         System.out.println("------------------------------- ORDEM DECRESCENTE ----------------------------------------------------");
-        Collections.sort(pedidos, new PedidoComparator().reversed());
-        for (Pedido pedido : pedidos) {
-            System.out.println(pedido);
-        }
+
+        pedidos.sort(new PedidoComparator().reversed());
+        pedidos.forEach(pedido -> System.out.println(pedido));
 
         System.out.println("-----------------------------------------------------------------------------------------");
 
