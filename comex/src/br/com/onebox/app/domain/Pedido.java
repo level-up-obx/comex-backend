@@ -1,6 +1,7 @@
 package br.com.onebox.app.domain;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 
 public class Pedido {
@@ -49,5 +50,16 @@ public class Pedido {
 
     public void setData(LocalDateTime data) {
         this.data = data;
+    }
+
+    public BigDecimal getValorTotal(){
+        return this.preco.multiply(new BigDecimal(this.quantidade)).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente = " + cliente.getPrimeiroNome() +
+                ", Preco = " + getValorTotal() +
+                ", Data = " + data;
     }
 }

@@ -32,6 +32,9 @@ public class Cliente {
 
     }
 
+    public Cliente(String nome){
+        this.primeiroNome = nome;
+    }
     public Long getId() {
         return id;
     }
