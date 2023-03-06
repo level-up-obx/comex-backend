@@ -39,6 +39,14 @@ public class Pedido {
     public BigDecimal getValorTotal(){
         return preco.multiply(BigDecimal.valueOf(quantidade));
     }
+
+    public boolean isMaisBaratoQue(Pedido outroPedido){
+        return preco.compareTo(outroPedido.getPreco()) < 0;
+    }
+
+    public boolean isMaisCaroQue(Pedido outroPedido){
+        return preco.compareTo(outroPedido.getPreco()) > 0;
+    }
     @Override
     public String toString() {
         return "Cliente: " + cliente.getPrimeiroNome() +
