@@ -27,11 +27,11 @@ public class TestaPedidoOrdenado {
 
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
-        pedidos.add(new Pedido(produto1, cliente1, new BigDecimal("3000.00"), 1, LocalDate.of(2021, 10, 28)));
-        pedidos.add(new Pedido(produto2, cliente2, new BigDecimal("4000.00"), 2, LocalDate.of(2020, 11, 25)));
-        pedidos.add(new Pedido(produto3, cliente2, new BigDecimal("200.00"), 5, LocalDate.of(2022, 12, 25)));
-        pedidos.add(new Pedido(produto4, cliente3, new BigDecimal("1000.00"), 10, LocalDate.of(2023, 1, 8)));
-        pedidos.add(new Pedido(produto5, cliente1, new BigDecimal("5000.00"), 20, LocalDate.of(2023, 2, 23)));
+        pedidos.add(new Pedido(cliente1, new BigDecimal("3000.00"), 1, LocalDate.of(2021, 10, 28)));
+        pedidos.add(new Pedido(cliente2, new BigDecimal("4000.00"), 2, LocalDate.of(2020, 11, 25)));
+        pedidos.add(new Pedido(cliente2, new BigDecimal("200.00"), 5, LocalDate.of(2022, 12, 25)));
+        pedidos.add(new Pedido(cliente3, new BigDecimal("1000.00"), 10, LocalDate.of(2023, 1, 8)));
+        pedidos.add(new Pedido(cliente1, new BigDecimal("5000.00"), 20, LocalDate.of(2023, 2, 23)));
 
 
 //        System.out.println(pedidos);
