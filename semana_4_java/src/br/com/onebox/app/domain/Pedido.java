@@ -11,7 +11,7 @@ public class Pedido {
     private int quantidade;
     private LocalDate data;
 
-    public Pedido(Categoria categoria, Produto produto, Cliente cliente, BigDecimal preco, int quantidade, LocalDate data) {
+    public Pedido (Produto produto, Cliente cliente, BigDecimal preco, int quantidade, LocalDate data) {
         this.categoria = categoria;
         this.produto = produto;
         this.cliente = cliente;
@@ -67,4 +67,14 @@ public class Pedido {
     public void setData(LocalDate data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "Pedido :" +
+                "\n"+ "Produto:" + produto.getNome() +
+                "\n"+" Cliente:" + cliente.getPrimeiroNome() +
+                "\n"+" Preco:" + preco +
+                "\n"+" Data:" + data ;
+    }
+
 }
