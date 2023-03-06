@@ -4,9 +4,7 @@ import br.com.onebox.app.domain.Pedido;
 import br.com.onebox.app.domain.Produto;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class TestaPedidoOrdenado {
     public static void main(String[] args) throws Exception {
@@ -27,30 +25,22 @@ public class TestaPedidoOrdenado {
         Cliente cliente3 = new Cliente("Fernando", "Junior");
 
 
-        ArrayList<Pedido> pedidos = new ArrayList<>();
-        pedidos.add(new Pedido(cliente, produto.getPrecoUnitario(),1, LocalDate.of(2023, 03, 06)));
+        List<Pedido> pedidos = Arrays.asList(
+        new Pedido(cliente, produto.getPrecoUnitario(),1, LocalDate.of(2023, 03, 06)),
+        new Pedido(cliente2, produto2.getPrecoUnitario(),2, LocalDate.of(2023, 03, 06)),
+        new Pedido(cliente3, produto3.getPrecoUnitario(),3, LocalDate.of(2023, 03, 06)),
+        new Pedido(cliente3, produto4.getPrecoUnitario(),3, LocalDate.of(2023, 03, 06)),
+        new Pedido(cliente2, produto5.getPrecoUnitario(),3, LocalDate.of(2023, 03, 06)));
 
-        pedidos.add(new Pedido(cliente2, produto2.getPrecoUnitario(),2, LocalDate.of(2023, 03, 06)));
+        System.out.println("Ordem crescente de pedidos por valor total: ");
+        pedidos.stream()
+                .sorted((pedido1, pedido2) -> pedido1.isMaisBaratoQue(pedido2) ? -1 : 1)
+                .forEach(System.out::println);
 
-        pedidos.add(new Pedido(cliente3, produto3.getPrecoUnitario(),3, LocalDate.of(2023, 03, 06)));
-
-        pedidos.add(new Pedido(cliente3, produto4.getPrecoUnitario(),3, LocalDate.of(2023, 03, 06)));
-
-        pedidos.add(new Pedido(cliente2, produto5.getPrecoUnitario(),3, LocalDate.of(2023, 03, 06)));
-
-        Comparator<Pedido> maisBarato = (pA, pB) -> pA.isMaisBaratoQue(pB) ? -1 : 1;
-        Collections.sort(pedidos, maisBarato);
-        System.out.println("Pedidos por valor total crescente:");
-        for (Pedido pedido : pedidos) {
-            System.out.println(pedido);
-        }
-
-        Comparator<Pedido> maisCaro = (pA, pB) -> pA.isMaisCaroQue(pB) ? -1 : 1;
-        Collections.sort(pedidos, maisCaro);
-        System.out.println("Pedidos por valor total decrescente:");
-        for (Pedido pedido : pedidos) {
-            System.out.println(pedido);
-        }
+        System.out.println("Ordem decrescente de pedidos por valor total: ");
+        pedidos.stream()
+                .sorted((pedido1, pedido2) -> pedido1.isMaisCaroQue(pedido2) ? -1 : 1)
+                .forEach(System.out::println);
 
     }
 }
