@@ -81,12 +81,12 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido :" +
+        return "Pedido" +
                 "\n"+ "Produto:" + produto.getNome() +
                 "\n"+" Cliente:" + cliente.getPrimeiroNome() +
                 "\n"+" Preco:" + preco +
                 "\n"+" Valor Total:" + getValorTotal() +
-                "\n"+" Data:" + data ;
+                "\n"+" Data:" + data + "\n";
     }
 
 }
