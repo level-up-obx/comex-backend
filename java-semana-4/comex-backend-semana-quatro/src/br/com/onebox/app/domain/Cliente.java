@@ -18,6 +18,12 @@ public class Cliente {
     public Cliente() {
         this.id = ++idAutoIncrementado;
     }
+
+    public Cliente(String primeiroNome, String sobrenome) {
+        this.id = ++idAutoIncrementado;
+        this.primeiroNome = primeiroNome;
+        this.sobrenome = sobrenome;
+    }
     public Long getId() {
         return id;
     }

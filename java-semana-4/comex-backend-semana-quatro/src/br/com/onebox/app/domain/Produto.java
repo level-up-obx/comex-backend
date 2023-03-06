@@ -36,9 +36,11 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public Produto() throws Exception {
+    public Produto(String nome, BigDecimal precoUnitario) throws Exception {
         tratamentoDeErroPrecoUnitario(precoUnitario);
         this.id = ++idAutoIncrementado;
+        this.nome = nome;
+        this.precoUnitario = precoUnitario;
     }
 
     public Long getId() {
