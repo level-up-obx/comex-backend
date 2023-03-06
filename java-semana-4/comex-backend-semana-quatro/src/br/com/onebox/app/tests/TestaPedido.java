@@ -1,9 +1,7 @@
 package br.com.onebox.app.tests;
-
 import br.com.onebox.app.domain.Cliente;
 import br.com.onebox.app.domain.Pedido;
 import br.com.onebox.app.domain.Produto;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -14,10 +12,6 @@ public class TestaPedido {
         Produto produto2 = new Produto("Clean Architeture", new BigDecimal("102.90"));
 
         Produto produto3 = new Produto("Monitor Dell 27", new BigDecimal("1889.00"));
-
-        Produto produto4 = new Produto("Vacina", new BigDecimal("250.00"));
-
-        Produto produto5 = new Produto("Use a Cabeça: Java", new BigDecimal("112.90"));
 
         Cliente cliente = new Cliente("João", "Orlando");
 
@@ -34,10 +28,6 @@ public class TestaPedido {
         System.out.println("Produto: " + produto.getNome() + pedido);
         System.out.println("Produto: " + produto2.getNome() + pedido2);
         System.out.println("Produto: " + produto3.getNome() + pedido3);
-//        Pedido[] pedidos = {pedido, pedido2, pedido3};
-//
-//        for(Pedido iteraPedido : pedidos){
-//            System.out.println(iteraPedido.toString());
-//        }
+
     }
 }

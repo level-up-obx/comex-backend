@@ -1,9 +1,6 @@
 package br.com.onebox.app.domain;
-
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.util.List;
 
 public class Pedido {
     private static Long idAutoIncrementado = 0L;
@@ -41,11 +38,15 @@ public class Pedido {
     }
 
     public boolean isMaisBaratoQue(Pedido outroPedido){
-        return preco.compareTo(outroPedido.getPreco()) < 0;
+        BigDecimal valorTotal = this.getValorTotal();
+        BigDecimal valorTotal2 = outroPedido.getValorTotal();
+        return valorTotal.compareTo(valorTotal2) < 0;
     }
 
     public boolean isMaisCaroQue(Pedido outroPedido){
-        return preco.compareTo(outroPedido.getPreco()) > 0;
+        BigDecimal valorTotal = this.getValorTotal();
+        BigDecimal valorTotal2 = outroPedido.getValorTotal();
+        return valorTotal.compareTo(valorTotal2) > 0;
     }
     @Override
     public String toString() {
