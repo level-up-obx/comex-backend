@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class TestaPedidoOrdenado {
     public static void main(String[] args) {
@@ -36,13 +37,13 @@ public class TestaPedidoOrdenado {
 
         System.out.println("------------------------------- ORDEM CRESCENTE ------------------------------------------------------");
 
-        pedidos.sort(new PedidoComparator());
-        pedidos.forEach(pedido -> System.out.println(pedido));
+        pedidos.sort(Comparator.comparing(Pedido::getValorTotal));
+        pedidos.forEach(System.out::println);;
 
         System.out.println("------------------------------- ORDEM DECRESCENTE ----------------------------------------------------");
 
-        pedidos.sort(new PedidoComparator().reversed());
-        pedidos.forEach(pedido -> System.out.println(pedido));
+        pedidos.sort(Comparator.comparing(Pedido::getValorTotal).reversed());
+        pedidos.forEach(System.out::println);
 
         System.out.println("-----------------------------------------------------------------------------------------");
 
