@@ -1,5 +1,7 @@
 package br.com.onebox.app.domain;
 
+import java.math.BigDecimal;
+
 public class Pedido {
 
     private static int id ;
@@ -60,5 +62,19 @@ public class Pedido {
         id = ++id;
         return ++id;
 
+    }
+
+    public boolean isMaisBaratoQue(Pedido outroPedido) {
+
+    }
+
+    public boolean isMaisCaroQue(Pedido outroPedido) {
+
+        return false;
+    }
+
+    public BigDecimal getValorTotal() {
+
+        return null;
     }
 }
