@@ -1,4 +1,4 @@
-package app;
+package br.com.comex.entidades;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -19,7 +19,7 @@ public class Produto {
 			String nome,
 			BigDecimal precoUnitario,
 			Long quantidadeEstoque,
-			Categoria categoria) {
+			Categoria categoria) throws Exception {
 		
 		setId();
 		setNome(nome);
@@ -39,7 +39,14 @@ public class Produto {
 	public Long setId() { return this.id =+ produtoId;}
 	public String setNome(String nome) { return this.nome = nome;}
 	public String setDescricao(String descricao) { return this.descricao = descricao;}
-	public BigDecimal setPrecoUnitario(BigDecimal precoUnitario) { return this.precoUnitario = precoUnitario;}
+	public BigDecimal setPrecoUnitario(BigDecimal precoUnitario) throws Exception {
+		
+		if(nuloOuIgualAZero(precoUnitario))
+			throw new Exception("Valor não pode ser nulo ou igual a 0");
+		
+			return this.precoUnitario = precoUnitario;
+		}
+	
 	public Long setQuantidadeEstoque(Long quantidadeEstoque) { return this.quantidadeEstoque = quantidadeEstoque;}
 	public Categoria setCategoria(Categoria categoria) { return this.categoria = categoria;}
 	
@@ -58,6 +65,10 @@ public class Produto {
 	
 	protected Boolean setIsento(Boolean isento) {
 		return this.isento = isento;
+	}
+	
+	private Boolean nuloOuIgualAZero(BigDecimal valorMonetario) {
+		return (valorMonetario == null | valorMonetario.equals(new BigDecimal(0L)));
 	}
 }
 

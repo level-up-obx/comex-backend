@@ -1,4 +1,4 @@
-package app;
+package br.com.comex.entidades;
 
 import java.math.BigDecimal;
 

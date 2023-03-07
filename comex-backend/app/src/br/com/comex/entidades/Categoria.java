@@ -1,4 +1,6 @@
-package app;
+package br.com.comex.entidades;
+
+import br.com.comex.exceptions.CampoObrigatorioException;
 
 public class Categoria {
 
@@ -7,7 +9,7 @@ public class Categoria {
 	private Boolean status = Boolean.TRUE;
 	
 	public Categoria(Long id,
-					String nome) {
+					String nome) throws CampoObrigatorioException{
 		setId(id);
 		setNome(nome);
 	}
@@ -17,7 +19,7 @@ public class Categoria {
 		return this.id;
 	}
 	
-	public Long setId(Long id) {
+	private Long setId(Long id) {
 		return this.id = id;
 	}
 	
@@ -25,7 +27,11 @@ public class Categoria {
 		return this.nome;
 	}
 	
-	public String setNome(String nome) {
+	private String setNome(String nome) throws CampoObrigatorioException{
+		if( nome == null || nome.isEmpty()) {
+			throw new CampoObrigatorioException("Categoria precisa ter um nome");
+//			throw new CampoObrigatorioRuntimeException("Categoria precisa ter um nome");
+		}
 		return this.nome = nome;
 	}
 	

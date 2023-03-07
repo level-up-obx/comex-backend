@@ -1,8 +1,10 @@
-package app;
+package br.com.comex.testes;
+
+import br.com.comex.entidades.Categoria;
 
 public class TesteCategoria {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Categoria informatica =  new Categoria(1L, "INFORMÁTICA");
 		mostraResultadoCategoria(informatica);
 		

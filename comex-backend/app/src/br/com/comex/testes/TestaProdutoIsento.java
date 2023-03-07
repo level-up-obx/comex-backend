@@ -1,10 +1,14 @@
-package app;
+package br.com.comex.testes;
 
 import java.math.BigDecimal;
 
+import br.com.comex.entidades.Categoria;
+import br.com.comex.entidades.Produto;
+import br.com.comex.entidades.ProdutoIsento;
+
 public class TestaProdutoIsento {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Categoria informatica =  new Categoria(1L, "INFORMÁTICA");
 		
 		Categoria moveis =  new Categoria(2L, "MÓVEIS");

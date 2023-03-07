@@ -1,4 +1,4 @@
-package app;
+package br.com.comex.entidades;
 
 public class Cliente{
 	

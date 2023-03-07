@@ -1,10 +1,18 @@
-package app;
-
+package br.com.comex.testes;
 import java.math.BigDecimal;
+import br.com.comex.util.*;
+
+
+import br.com.comex.entidades.Categoria;
+import br.com.comex.entidades.Estoque;
+import br.com.comex.entidades.Produto;
+import br.com.comex.entidades.ProdutoIsento;
 
 public class TestaEntradaDeProdutoNoEstoque {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		
+		
 		Categoria informatica =  new Categoria(1L, "INFORMÁTICA");
 		Categoria moveis =  new Categoria(2L, "MÓVEIS");
 		Categoria livros =  new Categoria(3L, "LIVROS");
@@ -17,26 +25,16 @@ public class TestaEntradaDeProdutoNoEstoque {
 		
 		Estoque estoque = new Estoque();
 		
-		printaPraMim(estoque);
+		Utils.printaPraMim(estoque);
 		estoque.registraEntrada(vacina);
-		printaPraMim(estoque);
+		Utils.printaPraMim(estoque);
 		estoque.registraEntrada(java);
-		printaPraMim(estoque);
+		Utils.printaPraMim(estoque);
 		estoque.registraEntrada(macBookPro);
-		printaPraMim(estoque);
+		Utils.printaPraMim(estoque);
 		
 	}
-	
-	public static void printaPraMim(Estoque estoque) {
-		System.out.println("");
-		System.out.println("Buscando estoque...");
-		System.out.println("----------------");
-		System.out.println("Capacidade atual: " + estoque.getCapacidade());
-		System.out.println("Ocupacao atual: " + estoque.getOcupacao());
-		System.out.println("Montante atual: " + estoque.getMontante());
-		System.out.println("----------------");
 
-	}
 	
 	
 
