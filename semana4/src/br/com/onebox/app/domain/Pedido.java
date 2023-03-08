@@ -51,11 +51,28 @@ public class Pedido {
 	public void setData(LocalDate data) {
 		this.data = data;
 	}
+	
+	public boolean isMaisBaratoQue(Pedido outroPedido) {
+        
+		return preco.compareTo(outroPedido.getPreco()) < 0;
+		
+	}
+
+	public boolean isMaisCaroQue(Pedido outroPedido) {
+       
+		return preco.compareTo(outroPedido.getPreco()) > 0;
+	}
+
+	public BigDecimal getValorTotal() {
+
+		return preco.multiply(BigDecimal.valueOf(quantidade));
+	}
 
 	@Override
     public String toString() {
         return  "\n" + "Cliente: " + cliente.nomeCompleto() +"\n"
-                +"Preco: R$" + preco + "\n"
+                +"Preco: R$" + preco + "\n" +
+        		"Valor total: R$" + getValorTotal() + "\n"
                 + "Data: " + data + "\n";
     }
 }
