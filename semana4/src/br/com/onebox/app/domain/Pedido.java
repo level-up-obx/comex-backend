@@ -2,9 +2,10 @@ package br.com.onebox.app.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Comparator;
 
 
-public class Pedido {
+public class Pedido  {
 
 	private Cliente cliente;
 	private BigDecimal preco;

@@ -15,7 +15,7 @@ public class TestaProduto {
 		
 		Produto produto1 = new Produto (1, "Notebook Samsung", "Informatica", new BigDecimal("3523.00"), 1,categoria1);
 		Produto produto2 = new Produto (2, "Clean Architecture", "Livros", new BigDecimal("102.90"), 2, categoria3);
-		Produto produto3 = new Produto (3, "Monitor Dell 27","Informatica", new BigDecimal("1889.00"), 3, categoria1);
+		Produto produto3 = new Produto (3, "Monitor Dell 27","Informatica", new BigDecimal("1889.00"), 2, categoria1);
 
 		System.out.println("-------Produto 1-------");
         System.out.println(produto1.toString());

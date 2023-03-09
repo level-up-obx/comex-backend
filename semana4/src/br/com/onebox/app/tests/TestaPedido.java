@@ -29,8 +29,8 @@ public class TestaPedido {
 				"1500", "Mansao", "Brooklyn", "Nova York", "Nova York");
 		
 		Pedido pedido1 = new Pedido(cliente1, new BigDecimal("3523.00"), 1, LocalDate.now());
-		Pedido pedido2 = new Pedido(cliente2, new BigDecimal("102.90"), 3, LocalDate.now());
-		Pedido pedido3 = new Pedido(cliente3, new BigDecimal("1889"), 1, LocalDate.now());
+		Pedido pedido2 = new Pedido(cliente2, new BigDecimal("102.90"), 2, LocalDate.now());
+		Pedido pedido3 = new Pedido(cliente3, new BigDecimal("1889"), 2, LocalDate.now());
 		
 		System.out.println("Retorno dos pedidos: \n");
 		
