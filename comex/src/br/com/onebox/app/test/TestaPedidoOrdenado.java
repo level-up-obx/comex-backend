@@ -41,6 +41,5 @@ public class TestaPedidoOrdenado {
         pedidos.forEach(System.out::println);
 
 
-
     }
 }
