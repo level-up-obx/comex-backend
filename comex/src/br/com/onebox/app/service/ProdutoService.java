@@ -23,5 +23,5 @@ public class ProdutoService {
         } return produtos.stream()
                 .findAny()
                 .get();
-    }  
+    }
 }
