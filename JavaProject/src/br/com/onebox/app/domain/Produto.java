@@ -93,6 +93,7 @@ public class Produto implements ValidacaoPrecoUnitarioException {
         erroPreco();
         this.categotia = categotia;
         erroPreco();
+
     }
 
     @Override

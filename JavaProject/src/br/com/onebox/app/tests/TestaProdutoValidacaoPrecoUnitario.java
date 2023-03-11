@@ -6,7 +6,7 @@ public class TestaProdutoValidacaoPrecoUnitario  {
 
     public static void main(String[] args) throws Exception {
         try {
-            Produto precounitario1 = new Produto(1, "Notebook Samsung", "Tela 14 pol", 0,
+            Produto precounitario1 = new Produto(1, "Notebook Samsung", "Tela 14 pol", 20.0,
                     3, "INFORMÁTICA");
 
             }catch (Exception e) {

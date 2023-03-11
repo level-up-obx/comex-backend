@@ -1,6 +1,7 @@
 package br.com.onebox.app.domain;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class Pedido {
 
@@ -11,7 +12,7 @@ public class Pedido {
     private String cliente;
     private double preco;
     private int quantidade;
-    private String data;
+   private LocalDate data;
 
     public int getId() {
         return id;
@@ -34,21 +35,23 @@ public class Pedido {
         return quantidade;
     }
 
-    public String getData() {
-        return data;
-    }
+//    public LocalDate getData() {
+//        return data;
+//    }
 
     @Override
     public String toString() {
         return " ---------- Pedido------------- "+ "\n" + ++id + " - " +
-                "produto ='" + produto + '\'' +
-                ", cliente ='" + cliente + '\'' +
-                ", preco =" + preco +
-                ", quantidade =" + quantidade +
-                ", data ='" + data + '\'' ;
+                "produto = " + produto +
+                " - cliente = " + cliente +
+                " - preco = " + preco +
+                " - data = " + data +
+                " - quantidade = " + quantidade +
+                 '\'' ;
     }
 
-    public Pedido(String produto, String cliente, double preco, int quantidade, String data) {
+
+    public Pedido(String produto, String cliente, double preco, int quantidade, LocalDate data) {
 
         this.cliente = cliente;
         this.preco = preco;
@@ -65,7 +68,9 @@ public class Pedido {
     }
 
     public boolean isMaisBaratoQue(Pedido outroPedido) {
+//        if(quantidade * preco >= )
 
+        return false;
     }
 
     public boolean isMaisCaroQue(Pedido outroPedido) {
@@ -74,7 +79,8 @@ public class Pedido {
     }
 
     public BigDecimal getValorTotal() {
-
-        return null;
+        BigDecimal valortotal = BigDecimal.valueOf(quantidade * preco);
+        return valortotal;
+        }
     }
-}
+
