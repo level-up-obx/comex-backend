@@ -1,6 +1,6 @@
 package br.com.onebox.app.tests;
 
-import br.com.onebox.app.CategoriaInvalidaException;
+import br.com.onebox.app.exceptions.CategoriaInvalidaException;
 import br.com.onebox.app.domain.Categoria;
 
 

@@ -1,4 +1,4 @@
-package br.com.onebox.app;
+package br.com.onebox.app.exceptions;
 
 public class CategoriaInvalidaException extends RuntimeException {
    public CategoriaInvalidaException(String msg) {

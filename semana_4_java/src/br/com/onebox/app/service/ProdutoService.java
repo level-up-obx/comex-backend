@@ -1,6 +1,6 @@
 package br.com.onebox.app.service;
 
-import br.com.onebox.app.PrecoInvalidoException;
+import br.com.onebox.app.exceptions.PrecoInvalidoException;
 import br.com.onebox.app.domain.Produto;
 
 import java.math.BigDecimal;

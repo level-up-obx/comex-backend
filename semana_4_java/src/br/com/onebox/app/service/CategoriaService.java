@@ -1,5 +1,5 @@
 package br.com.onebox.app.service;
-import br.com.onebox.app.CategoriaInvalidaException;
+import br.com.onebox.app.exceptions.CategoriaInvalidaException;
 import br.com.onebox.app.domain.Categoria;
 import java.util.ArrayList;
 import java.util.List;

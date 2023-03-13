@@ -1,6 +1,5 @@
 package br.com.onebox.app.domain;
-import br.com.onebox.app.PrecoInvalidoException;
-import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.exceptions.PrecoInvalidoException;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

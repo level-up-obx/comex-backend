@@ -1,5 +1,5 @@
 package br.com.onebox.app.domain;
-import br.com.onebox.app.CategoriaInvalidaException;
+import br.com.onebox.app.exceptions.CategoriaInvalidaException;
 public class Categoria {
 
     private int id;
