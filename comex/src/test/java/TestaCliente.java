@@ -1,5 +1,3 @@
-package br.com.onebox.app.test;
-
 import br.com.onebox.app.domain.Cliente;
 
 public class TestaCliente {
