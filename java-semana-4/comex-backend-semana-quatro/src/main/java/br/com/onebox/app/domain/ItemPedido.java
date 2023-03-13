@@ -45,20 +45,20 @@ public class ItemPedido {
     }
 
     public BigDecimal getTotal(List<ItemPedido> itensComDesconto) {
-        BigDecimal total = BigDecimal.ZERO;
-        for (ItemPedido item : itensComDesconto) {
-            BigDecimal valorCompra = item.getTotal(itensComDesconto);
-            if (itensComDesconto.contains(item)) {
-                if (tipoDesconto == TipoDescontoProdutoEnum.QUANTIDADE) {
-                    valorCompra = valorCompra.subtract(desconto.multiply(BigDecimal.valueOf(quantidade)));
-                }
-                if (tipoDesconto == TipoDescontoProdutoEnum.PROMOCAO) {
-                    valorCompra = valorCompra.subtract(desconto);
-                }
-            }
-            total = total.add(valorCompra);
-        }
-        return total;
+        return itensComDesconto.stream()
+                .map(item -> {
+                    BigDecimal valorCompra = item.getTotal(itensComDesconto);
+                    if(itensComDesconto.contains(item)) {
+                        if (tipoDesconto == TipoDescontoProdutoEnum.QUANTIDADE) {
+                            valorCompra = valorCompra.subtract(desconto.multiply(BigDecimal.valueOf(quantidade)));
+                        }
+                        if (tipoDesconto == TipoDescontoProdutoEnum.PROMOCAO){
+                            valorCompra = valorCompra.subtract(desconto);
+                        }
+                    }
+                    return valorCompra;
+                })
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
       }
     }
 
