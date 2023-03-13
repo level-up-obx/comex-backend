@@ -1,4 +1,7 @@
-package br.com.onebox.app.domain;
+package br.com.onebox.app.service;
+
+import br.com.onebox.app.domain.Categoria;
+
 public class CategoriaService {
     public void cadastrar (Categoria novaCategoria) throws Exception {
         try{
@@ -11,6 +14,7 @@ public class CategoriaService {
             if (novaCategoria.getNome().isBlank()){
                 throw new Exception("O nome da categoria está vazio");
             }
+            //Aqui ficará o código para salvar no banco de dados
         } catch (Exception exception){
             System.out.println("O erro ocorrido foi: " + exception.getMessage());
             throw exception;
@@ -22,6 +26,7 @@ public class CategoriaService {
             if(id == null || id < 1){
                 throw new Exception("O id não é válido, está nulo ou negativo");
             }
+//            Aqui eu buscarei a categoria no banco de dados
             return null;
         } catch (Exception exception){
             System.out.println("O erro ocorrido foi: " + exception.getMessage());
