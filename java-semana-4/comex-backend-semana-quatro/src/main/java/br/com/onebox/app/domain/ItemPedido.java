@@ -44,21 +44,15 @@ public class ItemPedido {
         return tipoDesconto;
     }
 
-    public BigDecimal getTotal(List<ItemPedido> itensComDesconto) {
-        return itensComDesconto.stream()
-                .map(item -> {
-                    BigDecimal valorCompra = item.getTotal(itensComDesconto);
-                    if(itensComDesconto.contains(item)) {
-                        if (tipoDesconto == TipoDescontoProdutoEnum.QUANTIDADE) {
-                            valorCompra = valorCompra.subtract(desconto.multiply(BigDecimal.valueOf(quantidade)));
-                        }
-                        if (tipoDesconto == TipoDescontoProdutoEnum.PROMOCAO){
-                            valorCompra = valorCompra.subtract(desconto);
-                        }
-                    }
-                    return valorCompra;
-                })
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-      }
+    public BigDecimal getTotal() {
+        BigDecimal total = precoUnitario.multiply(BigDecimal.valueOf(quantidade));
+                if (tipoDesconto == TipoDescontoProdutoEnum.QUANTIDADE) {
+                    total = total.subtract(desconto.multiply(BigDecimal.valueOf(quantidade)));
+                }
+                if (tipoDesconto == TipoDescontoProdutoEnum.PROMOCAO) {
+                    total = total.subtract(desconto);
+                }
+        return total;
+    }
     }
 
