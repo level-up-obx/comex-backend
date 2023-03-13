@@ -17,6 +17,7 @@ public class ProdutoService {
           //Aqui ficará o código para salvar no banco de dados
       } catch (Exception exception){
           System.out.println("Ocorreu o seguinte erro: " + exception.getMessage());
+          throw exception;
       }
 
     }
@@ -30,6 +31,7 @@ public class ProdutoService {
             }
         } catch(Exception exception){
             System.out.println("Ocorreu o seguinte erro: " + exception.getMessage());
+            throw exception;
         }
         //Acima do retorno ficará a lógica de busca no banco de dados, retornei null para não estourar erro.
         return null;
