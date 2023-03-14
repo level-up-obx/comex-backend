@@ -15,9 +15,9 @@ public class CategoriaService {
                 throw new Exception("O nome da categoria está vazio");
             }
             //Aqui ficará o código para salvar no banco de dados
-        } catch (Exception exception){
-            System.out.println("O erro ocorrido foi: " + exception.getMessage());
-            throw exception;
+        } catch (Exception categoriaException){
+            System.out.println("O erro ocorrido foi: " + categoriaException.getMessage());
+            throw categoriaException;
         }
     }
 
@@ -28,9 +28,9 @@ public class CategoriaService {
             }
 //            Aqui eu buscarei a categoria no banco de dados
             return null;
-        } catch (Exception exception){
-            System.out.println("O erro ocorrido foi: " + exception.getMessage());
-            throw exception;
+        } catch (Exception categoriaException){
+            System.out.println("O erro ocorrido foi: " + categoriaException.getMessage());
+            throw categoriaException;
         }
     }
 }
