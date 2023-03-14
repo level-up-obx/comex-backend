@@ -17,7 +17,7 @@ public class CategoriaService {
             categorias.add(novaCategoria);
             System.out.println("Categoria cadastrada com sucesso");
         } catch (CategoriaInvalidaException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
     }
 
