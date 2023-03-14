@@ -26,11 +26,13 @@ public class ClienteService {
             if (cpf.equals(null) || cpf.length() > 11) {
                 throw new ClienteInvalidoException("Cpf nulo ou inválido");
             }
+            return clientes.stream()
+                    .filter(c -> c.getCpf() == cpf)
+                    .findFirst()
+                    .get();
         } catch (ClienteInvalidoException e) {
             System.out.println(e.getMessage());
-        } return clientes.stream()
-                .filter(c -> c.getCpf() == cpf)
-                .findAny()
-                .get();
+        }
+        return null;
     }
 }

@@ -26,11 +26,12 @@ public class ProdutoService {
             if (id.equals(null) || id < 0) {
                 throw new ProdutoInvalidoException("Produto inválido, id nulo ou menor que zero");
             }
+            return produtos.stream()
+                    .findFirst()
+                    .get();
         } catch (ProdutoInvalidoException e) {
             System.out.println(e.getMessage());
         }
-        return produtos.stream()
-                .findAny()
-                .get();
+        return null;
     }
 }

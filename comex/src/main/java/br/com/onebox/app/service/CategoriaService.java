@@ -26,11 +26,13 @@ public class CategoriaService {
             if (id.equals(null) || id < 0) {
                 throw new CategoriaInvalidaException("Categoria invalida, id nulo ou menor que zero");
             }
+            return categorias.stream()
+                    .filter(c -> c.getId().equals(id))
+                    .findFirst().get();
         } catch (CategoriaInvalidaException e) {
             System.out.println(e.getMessage());
         }
-        return categorias.stream()
-                .filter(c -> c.getId().equals(id))
-                .findAny().get();
+        return null;
+
     }
 }
