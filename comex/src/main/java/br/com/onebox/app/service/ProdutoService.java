@@ -10,17 +10,26 @@ public class ProdutoService {
     List<Produto> produtos = new ArrayList<Produto>();
 
     public void cadastrar(Produto novoproduto) throws ProdutoInvalidoException {
-        if(novoproduto.equals(null)){
-            throw new ProdutoInvalidoException("Produto inválido, produto nulo");
+        try {
+            if (novoproduto.equals(null)) {
+                throw new ProdutoInvalidoException("Produto inválido, produto nulo");
+            }
+            produtos.add(novoproduto);
+            System.out.println("Produto cadastrado com sucesso!");
+        } catch (ProdutoInvalidoException e) {
+            System.out.println(e.getMessage());
         }
-        produtos.add(novoproduto);
-        System.out.println("Produto cadastrado com sucesso!");
     }
 
     public Produto get(Long id) throws ProdutoInvalidoException {
-        if (id.equals(null) || id < 0){
-            throw new ProdutoInvalidoException("Produto inválido, id nulo ou menor que zero");
-        } return produtos.stream()
+        try {
+            if (id.equals(null) || id < 0) {
+                throw new ProdutoInvalidoException("Produto inválido, id nulo ou menor que zero");
+            }
+        } catch (ProdutoInvalidoException e) {
+            System.out.println(e.getMessage());
+        }
+        return produtos.stream()
                 .findAny()
                 .get();
     }

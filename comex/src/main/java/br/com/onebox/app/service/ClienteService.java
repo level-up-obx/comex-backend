@@ -10,16 +10,24 @@ public class ClienteService {
     List<Cliente> clientes = new ArrayList<Cliente>();
 
     public void cadastrar(Cliente novoCliente) throws ClienteInvalidoException {
-        if(novoCliente.equals(null)){
-            throw new ClienteInvalidoException("Cliente invalido, valor nulo");
+        try {
+            if (novoCliente.equals(null) || (novoCliente.getPrimeiroNome().equals(""))) {
+                throw new ClienteInvalidoException("Cliente invalido, valor nulo");
+            }
+            clientes.add(novoCliente);
+            System.out.println("Cliente cadastrado com sucesso!");
+        } catch (ClienteInvalidoException e) {
+            System.out.println(e.getMessage());
         }
-        clientes.add(novoCliente);
-        System.out.println("Cliente cadastrado com sucesso!");
     }
 
     public Cliente get(String cpf) throws ClienteInvalidoException {
-        if(cpf.equals(null) || cpf.length() > 11){
-            throw new ClienteInvalidoException("Cpf nulo ou inválido");
+        try {
+            if (cpf.equals(null) || cpf.length() > 11) {
+                throw new ClienteInvalidoException("Cpf nulo ou inválido");
+            }
+        } catch (ClienteInvalidoException e) {
+            System.out.println(e.getMessage());
         } return clientes.stream()
                 .filter(c -> c.getCpf() == cpf)
                 .findAny()
