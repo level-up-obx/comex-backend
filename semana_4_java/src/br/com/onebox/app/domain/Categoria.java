@@ -1,15 +1,26 @@
 package br.com.onebox.app.domain;
 import br.com.onebox.app.exceptions.CategoriaInvalidaException;
+import org.intellij.lang.annotations.Identifier;
+
+import javax.persistence.*;
+
+@Entity
 public class Categoria {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
     private String nome;
-    private Boolean status;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Status status = Status.ATIVA;
 
-    public Categoria(int id, String nome, Boolean status) throws CategoriaInvalidaException {
-        this.id = ++id;
+    public Categoria(int id, String nome, Status status) throws CategoriaInvalidaException {
         setNome(nome);
-        this.status = status;
+        setStatus(status);
+    }
+
+    public Categoria() {
     }
 
     public int getId() {
@@ -31,16 +42,15 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public Boolean getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return nome + " (" + id + " - " + (status ? "ATIVO" : "INATIVO") + ")";
+    public enum Status {
+        ATIVA, INATIVA
     }
 }
