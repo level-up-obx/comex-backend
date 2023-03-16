@@ -1,17 +1,45 @@
 package br.com.onebox.app.domain;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(nullable = false)
     private String primeiroNome;
+
+    @Column(nullable = false)
     private String sobrenome;
+
+    @Column(nullable = false, unique = true, length = 11)
     private String cpf;
+
+    @Column(nullable = false)
     private String telefone;
+
+    @Column(nullable = false)
     private String rua;
+
+    @Column(nullable = false)
     private String numero;
+
+    @Column
     private String complemento;
+
+    @Column(nullable = false)
     private String bairro;
+
+    @Column(nullable = false)
     private String cidade;
+
+    @Column(nullable = false)
     private String estado;
+
 
     public Cliente(int id,
                    String primeiroNome,
