@@ -1,5 +1,5 @@
 package br.com.onebox.app.domain;
 
-public enum StatusEnum {
+public enum StatusCategoriaEnum {
     ATIVA, INATIVA;
 }

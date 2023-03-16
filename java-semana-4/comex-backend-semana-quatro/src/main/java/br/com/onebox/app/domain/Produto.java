@@ -1,17 +1,27 @@
 package br.com.onebox.app.domain;
 
+import javax.persistence.*;
+import javax.validation.constraints.Max;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Produto {
 
     private static final BigDecimal VALOR_DO_IMPOSTO = new BigDecimal("0.40");
-    private static Long idAutoIncrementado = 0L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, length = 50)
     private String nome;
+    @Column(length = 255)
     private String descricao;
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precoUnitario = BigDecimal.ZERO;
+    @Max(1000)
+    @Column(nullable = false)
     private int quantidadeEmEstoque;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
 
     private void tratamentoDeErroPrecoUnitario(BigDecimal precoUnitario) throws Exception{
@@ -29,7 +39,6 @@ public class Produto {
     }
     public Produto(String nome, BigDecimal precoUnitario, int quantidadeEmEstoque, Categoria categoria) throws Exception {
         tratamentoDeErroPrecoUnitario(precoUnitario);
-        this.id = ++idAutoIncrementado;
         this.nome = nome;
         this.precoUnitario = precoUnitario;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
@@ -38,7 +47,6 @@ public class Produto {
 
     public Produto(String nome, BigDecimal precoUnitario) throws Exception {
         tratamentoDeErroPrecoUnitario(precoUnitario);
-        this.id = ++idAutoIncrementado;
         this.nome = nome;
         this.precoUnitario = precoUnitario;
     }

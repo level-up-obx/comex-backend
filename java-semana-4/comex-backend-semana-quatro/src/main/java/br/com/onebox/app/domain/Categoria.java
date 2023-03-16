@@ -1,11 +1,18 @@
 package br.com.onebox.app.domain;
 
-public class Categoria {
+import javax.persistence.*;
 
-    private static Long idAutoIncrementado = 0L;
+@Entity
+@Table(name = "Categoria")
+public class Categoria {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String nome;
-    private boolean status = true;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private StatusCategoriaEnum status = StatusCategoriaEnum.ATIVA;
 
     private void tratamentoDeErroNomeCategoria(String nome) throws Exception {
             try {
@@ -20,18 +27,16 @@ public class Categoria {
                 throw e;
             }
         }
-
+    public Categoria(){}
     public Categoria(String nome) throws Exception{
         tratamentoDeErroNomeCategoria(nome);
         this.nome = nome;
-        this.id = ++idAutoIncrementado;
     }
 
-    public Categoria(String nome, boolean status) throws Exception {
+    public Categoria(String nome, StatusCategoriaEnum status) throws Exception {
         tratamentoDeErroNomeCategoria(nome);
         this.nome = nome;
         this.status = status;
-        this.id = ++idAutoIncrementado;
     }
 
     public Long getId() {
@@ -42,7 +47,7 @@ public class Categoria {
         return nome;
     }
 
-    public boolean getStatus() {
+    public StatusCategoriaEnum getStatus() {
         return status;
     }
 
@@ -51,12 +56,8 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(StatusCategoriaEnum status) {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return  nome + " (" + id + " - " + (status ? "ATIVO" : "INATIVO") + ")";
-    }
 }
