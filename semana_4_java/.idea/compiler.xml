@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="semana_4_java" target="17" />
+      <module name="semana_4_java" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>

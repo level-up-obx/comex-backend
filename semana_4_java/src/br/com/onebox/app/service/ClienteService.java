@@ -16,7 +16,7 @@ public class ClienteService {
         }
         clientes.add(clienteNovo);
     }
-
+  //duplicado
     private boolean validarCPF(String cpf) {
         if (cpf == null || cpf.length() != 11) {
             return false;

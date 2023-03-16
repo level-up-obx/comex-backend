@@ -9,7 +9,7 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
+    @Column(nullable = false)
     private String nome;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

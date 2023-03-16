@@ -1,15 +1,25 @@
 package br.com.onebox.app.domain;
+
 import br.com.onebox.app.exceptions.PrecoInvalidoException;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+@Entity
 public class Produto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false, length = 120)
     private String nome;
+    @Column(length = 240)
     private String descricao;
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precoUnitario;
+    @Column(nullable = false, length = 100)
     private int quantidadeEstoque;
+    @ManyToOne
     private Categoria categoria;
 
     public Produto(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, Categoria categoria) {
@@ -19,6 +29,9 @@ public class Produto {
         setPrecoUnitario(precoUnitario);
         this.quantidadeEstoque = quantidadeEstoque;
         this.categoria = categoria;
+    }
+
+    public Produto() {
     }
 
     public int getId() {
@@ -84,12 +97,12 @@ public class Produto {
     @Override
     public String toString() {
         return "Produto" +
-                "\n" +"Id:" + id +
-                "\n" +" Nome:'" + nome  +
-                "\n" +" Descricao='" + descricao  +
-                "\n" +" Preco Unitario=" + precoUnitario +
-                "\n" +" Quantidade em Estoque=" + quantidadeEstoque +
-                "\n" +" Categoria=" + categoria;
+                "\n" + "Id:" + id +
+                "\n" + " Nome:'" + nome +
+                "\n" + " Descricao='" + descricao +
+                "\n" + " Preco Unitario=" + precoUnitario +
+                "\n" + " Quantidade em Estoque=" + quantidadeEstoque +
+                "\n" + " Categoria=" + categoria;
 
     }
 }
