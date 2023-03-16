@@ -1,26 +1,36 @@
 package br.com.onebox.app.domain;
 
-public class Cliente {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    private static Long idAutoIncrementado = 0L;
+public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, length = 50)
     private String primeiroNome;
+    @Column(nullable = false, length = 50)
     private String sobrenome;
+    @Column(nullable = false, length = 15)
     private String cpf;
+    @Column(nullable = false, length = 15)
     private String telefone;
+    @Column(nullable = false, length = 100)
     private String rua;
+    @Column(nullable = false, length = 10)
     private String numero;
+    @Column(length = 100)
     private String complemento;
+    @Column(nullable = false, length = 255)
     private String bairro;
+    @Column(nullable = false, length = 50)
     private String cidade;
+    @Column(nullable = false, length = 2)
     private String estado;
 
-    public Cliente() {
-        this.id = ++idAutoIncrementado;
-    }
-
     public Cliente(String primeiroNome, String sobrenome) {
-        this.id = ++idAutoIncrementado;
         this.primeiroNome = primeiroNome;
         this.sobrenome = sobrenome;
     }
