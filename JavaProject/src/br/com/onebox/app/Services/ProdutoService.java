@@ -9,7 +9,7 @@ public class ProdutoService {
 
         try {
 
-            if (novoProduto.equals(null)) {
+            if (novoProduto.equals(null) ) {
 
                 throw new Exception("Não pode ser nulo");
             }
