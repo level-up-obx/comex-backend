@@ -1,5 +1,5 @@
 package br.com.onebox.app.domain;
 
-public enum TipoDescontoProdutoEnum {
+public enum TipoDescontoItemPedidoEnum {
     QUANTIDADE, PROMOCAO, NENHUM;
 }

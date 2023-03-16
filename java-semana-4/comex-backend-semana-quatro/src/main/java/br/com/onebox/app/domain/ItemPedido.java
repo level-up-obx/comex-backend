@@ -1,7 +1,6 @@
 package br.com.onebox.app.domain;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 public class ItemPedido {
     private Produto produto;
@@ -9,15 +8,15 @@ public class ItemPedido {
     private BigDecimal precoUnitario = BigDecimal.ZERO;
     private int quantidade;
     private BigDecimal desconto;
-    private TipoDescontoProdutoEnum tipoDesconto;
+    private TipoDescontoItemPedidoEnum tipoDescontoItemPedido;
 
-    public ItemPedido(Produto produto, Pedido pedido, BigDecimal precoUnitario, int quantidade, BigDecimal desconto, TipoDescontoProdutoEnum tipoDesconto) {
+    public ItemPedido(Produto produto, Pedido pedido, BigDecimal precoUnitario, int quantidade, BigDecimal desconto, TipoDescontoItemPedidoEnum tipoDesconto) {
         this.produto = produto;
         this.pedido = pedido;
         this.precoUnitario = precoUnitario;
         this.quantidade = quantidade;
         this.desconto = desconto;
-        this.tipoDesconto = tipoDesconto;
+        this.tipoDescontoItemPedido = tipoDesconto;
     }
 
     public Produto getProduto() {
@@ -40,16 +39,16 @@ public class ItemPedido {
         return desconto;
     }
 
-    public TipoDescontoProdutoEnum getTipoDesconto() {
-        return tipoDesconto;
+    public TipoDescontoItemPedidoEnum getTipoDescontoItemPedido() {
+        return tipoDescontoItemPedido;
     }
 
     public BigDecimal getTotal() {
         BigDecimal total = precoUnitario.multiply(BigDecimal.valueOf(quantidade));
-                if (tipoDesconto == TipoDescontoProdutoEnum.QUANTIDADE) {
+                if (tipoDescontoItemPedido == TipoDescontoItemPedidoEnum.QUANTIDADE) {
                     total = total.subtract(desconto.multiply(BigDecimal.valueOf(quantidade)));
                 }
-                if (tipoDesconto == TipoDescontoProdutoEnum.PROMOCAO) {
+                if (tipoDescontoItemPedido == TipoDescontoItemPedidoEnum.PROMOCAO) {
                     total = total.subtract(desconto);
                 }
         return total;

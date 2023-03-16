@@ -13,7 +13,7 @@ public class Cliente {
     private String primeiroNome;
     @Column(nullable = false, length = 50)
     private String sobrenome;
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false, length = 11)
     private String cpf;
     @Column(nullable = false, length = 15)
     private String telefone;
@@ -23,7 +23,7 @@ public class Cliente {
     private String numero;
     @Column(length = 100)
     private String complemento;
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false, length = 100)
     private String bairro;
     @Column(nullable = false, length = 50)
     private String cidade;
@@ -123,7 +123,6 @@ public class Cliente {
     }
 
     public Cliente(String primeiroNome, String sobrenome, String cpf, String telefone, String rua, String numero, String complemento, String bairro, String cidade, String estado) {
-        this();
         this.primeiroNome = primeiroNome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
