@@ -2,6 +2,7 @@ package br.com.onebox.app.domain;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Pedido {
     @Id
@@ -12,8 +13,11 @@ public class Pedido {
     private Cliente cliente;
     @Column(nullable = false)
     private LocalDate data;
+    @OneToMany
+    @JoinColumn(name = "itemPedido_id", nullable = false)
+    private List<ItemPedido> itemPedido;
     @Column(nullable = false)
-    private ItemPedido itemPedido;
+    private BigDecimal desconto;
     @Column(nullable = false)
     private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
 
