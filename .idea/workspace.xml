@@ -4,58 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc9c5bf5-0b14-4020-a1e0-90149f16ffd2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/ItemPedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/TipoDescontoProdutoEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/Categoria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/CategoriaValidacaoNomeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/Cliente.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/Estoque.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/Produto.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/ProdutoIsento.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/TestaCategoria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/TestaCategoriaValidacaoNome.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/TestaCliente.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/TestaEntradaDeProdutoNoEstoque.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/TestaProduto.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/TestaProdutoIsento.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/TestaProdutoValidacaoPrecoUnitario.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/TestaSaidaDeProdutoNoEstoque.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/ValidacaoPrecoUnitarioException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/Categoria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/CategoriaValidacaoNomeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/Cliente.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/Estoque.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/ItemPedido.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/Pedido.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/Produto.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/ProdutoIsento.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/domain/TipoDescontoProdutoEnum.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/interfaces/ValidacaoPrecoUnitarioException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/CategoriaValidacaoNomeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaCategoria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaCategoriaValidacaoNome.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaCliente.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaEntradaDeProdutoNoEstoque.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaPedido.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaPedidoOrdenado.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaProduto.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaProdutoIsento.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaProdutoValidacaoPrecoUnitario.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JavaProject/br/com/onebox/app/tests/TestaSaidaDeProdutoNoEstoque.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/tests/TestaPedidoOrdenado.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/tests/TestaPedidoOrdenado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank-herdado/bytebank-herdado.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank-herdados-conta/src/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank-herdados-conta/src/Conta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-pilha/java-pilha.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="cc9c5bf5-0b14-4020-a1e0-90149f16ffd2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

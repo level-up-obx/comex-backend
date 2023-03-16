@@ -39,6 +39,7 @@ public class Categoria {
 
         }
 
+
         public boolean isStatus () {
             return status;
         }
@@ -57,7 +58,8 @@ public class Categoria {
         }
 
 
-        public static int categoriaid () {
+        public int categoriaid () {
+
             id = ++id;
             return ++id;
 

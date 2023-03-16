@@ -3,26 +3,31 @@ package br.com.onebox.app.Services;
 import br.com.onebox.app.domain.Categoria;
 
 
-public class CategoriaService extends RuntimeException {
+public class CategoriaService {
 
-    public void cadastrar(Categoria novaCategoria) {
+    public void cadastrar(Categoria novaCategoria) throws Exception {
 
+        if (novaCategoria.equals(null)){
 
-    }
-
-    public Categoria get(Long id) {
-
-        if (get(Long id) > 0 || null) {
-
-            throw new CategoriaService() {
-
-            }else{
-                return get(Long id);
-            }
-
+            throw new Exception("Não pode ser nulo");
         }
 
 
     }
 
+    public Categoria get(Long id) throws Exception {
+
+        try {
+
+           if(id > 0 || id.equals(null){
+            throw new Exception("Não pode ser negativo ou nulo");
+        }
+
+
+
+        return null;
+    } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
