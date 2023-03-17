@@ -3,13 +3,13 @@ package br.com.comex.entidades;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Pedidos {
+public class Pedido {
 	private Cliente cliente;
 	private BigDecimal preco;
 	private Long quantidade;
 	private LocalDateTime data;
 	
-	public Pedidos(
+	public Pedido(
 			Cliente cliente,
 			BigDecimal preco,
 			Long quantidade,
@@ -19,6 +19,26 @@ public class Pedidos {
 		this.setPreco(preco);
 		this.setQuantidade(quantidade);
 		this.setData(data);
+	}
+	
+	
+	
+	
+	
+	
+	public Boolean isMaisBaratoQue(Pedido outroPedido) {
+		return this.getValorTotal().compareTo(outroPedido.getPreco()) == -1 ;
+	}
+
+	public boolean isMaisCaroQue(Pedido outroPedido) {
+		return !this.isMaisBaratoQue(outroPedido);
+
+	}
+
+	public BigDecimal getValorTotal() {
+		
+		return preco.multiply(new BigDecimal(this.getQuantidade()));
+
 	}
 	
 	public Cliente getCliente() {

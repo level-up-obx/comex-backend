@@ -6,11 +6,11 @@ import java.time.format.DateTimeFormatter;
 
 import br.com.comex.entidades.Categoria;
 import br.com.comex.entidades.Cliente;
-import br.com.comex.entidades.Pedidos;
+import br.com.comex.entidades.Pedido;
 import br.com.comex.entidades.Produto;
 import br.com.comex.util.Utils;
 
-public class TestePedidos {
+public class TestePedido {
 
 	public static void main(String[] args) {
 
@@ -26,12 +26,18 @@ public class TestePedidos {
 			Produto cleanArchitecture = new Produto("Clean Architecture", new BigDecimal(102.90), 2L, livros);
 			Produto monitorDell = new Produto("Monitor Dell 27", new BigDecimal(1889.00), 3L, informatica);
 
-			Pedidos pedidoUm = new Pedidos(jose, notebookSamsung.getPrecoUnitario(), 1L,LocalDateTime.now());
+			Pedido pedidoUm = new Pedido(jose, notebookSamsung.getPrecoUnitario(), 3L,LocalDateTime.now());
 			exibePedidos(pedidoUm, notebookSamsung);
-			Pedidos pedidoDois = new Pedidos(jose, cleanArchitecture.getPrecoUnitario(), 3L,LocalDateTime.now());
+			
+			Pedido pedidoDois = new Pedido(jose, cleanArchitecture.getPrecoUnitario(), 6L,LocalDateTime.now());
 			exibePedidos(pedidoDois, cleanArchitecture);
-			Pedidos pedidoTre = new Pedidos(jose, monitorDell.getPrecoUnitario(), 2L,LocalDateTime.now());
+			
+			Pedido pedidoTre = new Pedido(jose, monitorDell.getPrecoUnitario(), 8L,LocalDateTime.now());
 			exibePedidos(pedidoDois, monitorDell);
+			
+			
+			System.out.println("Pedido um isMaisBaratoQue dois:: " + pedidoUm.isMaisBaratoQue(pedidoDois) + " :: " + notebookSamsung.getPrecoUnitario());
+			System.out.println("Pedido um isMaisCaroQue dois:: " + pedidoUm.isMaisCaroQue(pedidoDois) + " :: " + cleanArchitecture.getPrecoUnitario());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -40,7 +46,7 @@ public class TestePedidos {
 
 	}
 	
-	public static void exibePedidos(Pedidos pedidos, Produto produto) {
+	public static void exibePedidos(Pedido pedidos, Produto produto) {
 		System.out.println(produto.getNome() + ", " + pedidos.getCliente().getPrimeiroNome() + ", " + pedidos.getPreco() + ", " + pedidos.getData().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm")) );
 	}
 
