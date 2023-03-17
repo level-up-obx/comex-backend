@@ -1,19 +1,19 @@
 package br.com.comex.entidades;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Pedidos {
 	private Cliente cliente;
 	private BigDecimal preco;
-	private Integer quantidade;
-	private LocalDate data;
+	private Long quantidade;
+	private LocalDateTime data;
 	
 	public Pedidos(
 			Cliente cliente,
 			BigDecimal preco,
-			Integer quantidade,
-			LocalDate data
+			Long quantidade,
+			LocalDateTime data
 			) {
 		this.setCliente(cliente);
 		this.setPreco(preco);
@@ -33,16 +33,16 @@ public class Pedidos {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
-	public Integer getQuantidade() {
+	public Long getQuantidade() {
 		return quantidade;
 	}
-	public void setQuantidade(Integer quantidade) {
+	public void setQuantidade(Long quantidade) {
 		this.quantidade = quantidade;
 	}
-	public LocalDate getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
-	public void setData(LocalDate data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
 
