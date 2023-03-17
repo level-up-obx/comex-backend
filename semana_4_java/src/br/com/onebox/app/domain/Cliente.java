@@ -4,39 +4,40 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "clientes")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
+    @Column( name = "primeiroNome_clientes", nullable = false)
     private String primeiroNome;
 
-    @Column(nullable = false)
+    @Column(name= "sobrenome_clientes" , nullable = false)
     private String sobrenome;
 
-    @Column(nullable = false, unique = true, length = 11)
+    @Column(name= "cpf_clientes" ,nullable = false, unique = true, length = 11)
     private String cpf;
 
-    @Column(nullable = false)
+    @Column(name= "telefone_clientes" ,nullable = false)
     private String telefone;
 
-    @Column(nullable = false)
+    @Column(name= "rua_clientes" ,nullable = false)
     private String rua;
 
-    @Column(nullable = false)
+    @Column(name= "numero_clientes" ,nullable = false)
     private String numero;
 
-    @Column
+    @Column(name = "complemento_clientes")
     private String complemento;
 
-    @Column(nullable = false)
+    @Column(name ="bairro_clientes" , nullable = false)
     private String bairro;
 
-    @Column(nullable = false)
+    @Column(name = "cidade_clientes",nullable = false)
     private String cidade;
 
-    @Column(nullable = false)
+    @Column(name= "estado_clientes", nullable = false)
     private String estado;
 
     @OneToMany(mappedBy = "cliente")
@@ -117,26 +118,25 @@ public class Cliente {
         return estado;
     }
 
-    public String mostraNomeCompleto(){
+    public String mostraNomeCompleto() {
         return "NOME COMPLETO: " + primeiroNome + " " + sobrenome;
     }
-
 
 
     @Override
     public String toString() {
         return "Cliente{" +
-                "\n" +"Id:" + id +
-                "\n" +" PrimeiroNome='" + primeiroNome + '\'' +
-                "\n" +" Sobrenome:'" + sobrenome + '\'' +
-                "\n" +" Cpf:'" + cpf + '\'' +
-                "\n" +" Telefone:'" + telefone + '\'' +
-                "\n" +" Rua:'" + rua + '\'' +
-                "\n" +" Numero:'" + numero + '\'' +
-                "\n" +" Complemento:'" + complemento + '\'' +
-                "\n" +" Bairro:'" + bairro + '\'' +
-                "\n" +" Cidade:'" + cidade + '\'' +
-                "\n" +" Estado:'" + estado;
+                "\n" + "Id:" + id +
+                "\n" + " PrimeiroNome='" + primeiroNome + '\'' +
+                "\n" + " Sobrenome:'" + sobrenome + '\'' +
+                "\n" + " Cpf:'" + cpf + '\'' +
+                "\n" + " Telefone:'" + telefone + '\'' +
+                "\n" + " Rua:'" + rua + '\'' +
+                "\n" + " Numero:'" + numero + '\'' +
+                "\n" + " Complemento:'" + complemento + '\'' +
+                "\n" + " Bairro:'" + bairro + '\'' +
+                "\n" + " Cidade:'" + cidade + '\'' +
+                "\n" + " Estado:'" + estado;
     }
 
 }
