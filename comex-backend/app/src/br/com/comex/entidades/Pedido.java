@@ -30,7 +30,7 @@ public class Pedido {
 		return this.getValorTotal().compareTo(outroPedido.getPreco()) == -1 ;
 	}
 
-	public boolean isMaisCaroQue(Pedido outroPedido) {
+	public Boolean isMaisCaroQue(Pedido outroPedido) {
 		return !this.isMaisBaratoQue(outroPedido);
 
 	}
