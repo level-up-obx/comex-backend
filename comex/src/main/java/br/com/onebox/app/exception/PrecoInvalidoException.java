@@ -1,4 +1,4 @@
-package br.com.onebox.app.exceptions;
+package br.com.onebox.app.exception;
 
 public class PrecoInvalidoException extends RuntimeException{
 

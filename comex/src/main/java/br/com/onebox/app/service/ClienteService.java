@@ -1,7 +1,7 @@
 package br.com.onebox.app.service;
 
 import br.com.onebox.app.domain.Cliente;
-import br.com.onebox.app.exceptions.ClienteInvalidoException;
+import br.com.onebox.app.exception.ClienteInvalidoException;
 
 import java.util.ArrayList;
 import java.util.List;

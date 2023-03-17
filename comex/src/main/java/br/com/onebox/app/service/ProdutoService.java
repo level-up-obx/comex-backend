@@ -1,7 +1,7 @@
 package br.com.onebox.app.service;
 
 import br.com.onebox.app.domain.Produto;
-import br.com.onebox.app.exceptions.ProdutoInvalidoException;
+import br.com.onebox.app.exception.ProdutoInvalidoException;
 
 import java.util.ArrayList;
 import java.util.List;

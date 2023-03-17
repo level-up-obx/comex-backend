@@ -1,10 +1,20 @@
 package br.com.onebox.app.domain;
 
-import br.com.onebox.app.exceptions.NomeInvalidoException;
+import br.com.onebox.app.exception.NomeInvalidoException;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "categoria")
 public class Categoria {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false)
     private Boolean status = Boolean.TRUE;
 
     public Long getId() {
