@@ -1,30 +1,37 @@
 package br.com.onebox.app.domain;
 
-public class Cliente {
-    private Long id;
-    private String primeiroNome;
-    private String sobrenome;
-    private String cpf;
-    private String telefone;
-    private String rua;
-    private String numero;
-    private String complemento;
-    private String bairro;
-    private String cidade;
-    private String estado;
+import jakarta.persistence.*;
 
-    public Cliente(Long id, String primeiroNome, String sobrenome, String cpf, String telefone, String rua, String numero, String complemento, String bairro, String cidade, String estado) {
+@Entity
+@Table(name = "cliente")
+public class Cliente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "primeiro_nome", length = 20, nullable = false)
+    private String primeiroNome;
+
+    @Column(length = 50, nullable = false)
+    private String sobrenome;
+
+    @Column(length = 16, nullable = false)
+    private String cpf;
+
+    @Column(length = 15, nullable = false)
+    private String telefone;
+
+    @Embedded
+    private Endereco endereco;
+
+    public Cliente(Long id, String primeiroNome, String sobrenome, String cpf, String telefone, Endereco endereco) {
         this.id = GeradorDeId.proximoId();
         this.primeiroNome = primeiroNome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.telefone = telefone;
-        this.rua = rua;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
+        this.endereco = endereco;
     }
 
     public Cliente() {
@@ -55,36 +62,12 @@ public class Cliente {
         return telefone;
     }
 
-    public String getRua() {
-        return rua;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public String getEstado() {
-        return estado;
+    public Endereco getEndereco(){
+        return endereco;
     }
 
     public String nomeCompleto() {
         return primeiroNome + " " + sobrenome;
-    }
-
-    public String enderecoCompleto() {
-        return rua + ", " + numero + ", " + complemento + " - " + bairro + " - " + cidade + " - " + estado;
     }
 
     @Override
@@ -94,22 +77,7 @@ public class Cliente {
                 ", primeiroNome='" + primeiroNome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
                 ", cpf='" + cpf + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", rua='" + rua + '\'' +
-                ", numero='" + numero + '\'' +
-                ", complemento='" + complemento + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", estado='" + estado + '\'' +
+                ", telefone='" + telefone + '\'' + endereco +
                 '}';
-    }
-
-    public String toStringComEnderecoConcatenado() {
-        return "Cliente " + id + ": " +
-                "id = " + id +
-                ", Nome Completo = '" + nomeCompleto() + '\'' +
-                ", cpf = '" + cpf + '\'' +
-                ", telefone = '" + telefone + '\'' +
-                ", endereco = '" + enderecoCompleto() + '\'';
     }
 }
