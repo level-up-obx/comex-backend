@@ -1,16 +1,32 @@
 package br.com.onebox.app.domain;
 
 import br.com.onebox.app.exception.PrecoInvalidoException;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+@Entity
+@Table(name = "produto")
 public class Produto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(length = 80, nullable = false)
     private String nome;
+
+    @Column(length = 220)
     private String descricao;
+
+    @Column(name = "preco_unitario", length = 7, nullable = false)
     private BigDecimal precoUnitario;
+
+    @Column(name = "quantidade_em_estoque", length = 7, nullable = false)
     private Integer quantidadeEmEstoque;
+
+    @Column(length = 25, nullable = false)
     private Categoria categoria;
 
     public Long getId() {
