@@ -5,22 +5,24 @@ import org.intellij.lang.annotations.Identifier;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "categorias")
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false)
+    @Column( name = "nome_categorias", nullable = false)
     private String nome;
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Status status = Status.ATIVA;
+    @Column(name = "status_categorias",nullable = false)
+    private Boolean status;
 
-    public Categoria(int id, String nome, Status status) throws CategoriaInvalidaException {
+    public Categoria(int id, String nome, Boolean status) throws CategoriaInvalidaException {
+        this.id = ++id;
         setNome(nome);
-        setStatus(status);
+        this.status = status;
     }
 
     public Categoria() {
+
     }
 
     public int getId() {
@@ -42,15 +44,16 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public Status getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
-    public enum Status {
-        ATIVA, INATIVA
+    @Override
+    public String toString() {
+        return nome + " (" + id + " - " + (status ? "ATIVO" : "INATIVO") + ")";
     }
 }
