@@ -23,11 +23,12 @@ public class ProdutoService {
     public Produto get(Long id) {
 
         try {
-            if(id > 0 || id.equals(null){
+            if(id > 0 || id.equals(null)){
                 throw new Exception("Não pode ser negativo ou nulo");}
 } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        return null;
     }
 }
 

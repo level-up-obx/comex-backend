@@ -19,7 +19,7 @@ public class CategoriaService {
 
         try {
 
-           if(id > 0 || id.equals(null){
+           if(id > 0 || id.equals(null)){
             throw new Exception("Não pode ser negativo ou nulo");
         }
 

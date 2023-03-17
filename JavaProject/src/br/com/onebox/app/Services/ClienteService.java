@@ -23,9 +23,9 @@ public class ClienteService {
     public Cliente get(String cpf) {
         try {
 
-            if (cpf.length() < 11 || cpf.equals() {
+            if (cpf.length() < 11 || cpf.equals(null)){
 
-                throw new Exception("Não pode ser nulo")
+                throw new Exception("Não pode ser nulo");
 
             }
 
