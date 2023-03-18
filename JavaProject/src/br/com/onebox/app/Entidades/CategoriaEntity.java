@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 
 public class CategoriaEntity {
 
-    private String nome;
+    private String Nome;
     private Boolean status = true;
 
     public Boolean getStatus() {
