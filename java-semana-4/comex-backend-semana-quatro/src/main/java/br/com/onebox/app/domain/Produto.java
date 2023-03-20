@@ -5,6 +5,8 @@ import javax.validation.constraints.Max;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+@Entity
+@Table(name = "produto")
 public class Produto {
 
     private static final BigDecimal VALOR_DO_IMPOSTO = new BigDecimal("0.40");
@@ -16,7 +18,7 @@ public class Produto {
     @Column(length = 255)
     private String descricao;
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal precoUnitario = BigDecimal.ZERO;
+    private BigDecimal precoUnitario;
     @Max(1000)
     @Column(nullable = false)
     private int quantidadeEmEstoque;

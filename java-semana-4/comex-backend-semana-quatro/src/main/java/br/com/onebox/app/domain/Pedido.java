@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+@Entity
+@Table(name = "pedido")
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +18,7 @@ public class Pedido {
     @OneToMany
     @JoinColumn(name = "itemPedido_id", nullable = false)
     private List<ItemPedido> itemPedido;
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal desconto;
     @Column(nullable = false)
     private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;

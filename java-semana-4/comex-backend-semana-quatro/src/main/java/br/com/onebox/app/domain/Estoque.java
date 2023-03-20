@@ -1,7 +1,10 @@
 package br.com.onebox.app.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
-
+@Entity
+@Table(name = "estoque")
 public class Estoque {
     private int capacidade = 1000;
     private int ocupacao;
