@@ -1,57 +1,83 @@
 package br.com.onebox.app.domain;
-    import java.math.BigDecimal;
 
-    public class ItemPedido {
-        private Produto produto;
-        private Pedido pedido;
-        private BigDecimal precoUnitario;
-        private int quantidade;
-        private BigDecimal desconto;
-        private TipoDescontoProdutoEnum tipoDesconto;
+import javax.persistence.*;
+import java.math.BigDecimal;
 
-        public ItemPedido(Produto produto, Pedido pedido, BigDecimal precoUnitario, int quantidade, BigDecimal desconto, TipoDescontoProdutoEnum tipoDesconto) {
-            this.produto = produto;
-            this.pedido = pedido;
-            this.precoUnitario = precoUnitario;
-            this.quantidade = quantidade;
-            this.desconto = desconto;
-            this.tipoDesconto = tipoDesconto;
-        }
+@Entity
+@Table(name = "itens_pedidos")
+public class ItemPedido {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        public Produto getProduto() {
-            return produto;
-        }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "produtos_id", nullable = false)
+    private Produto produto;
 
-        public Pedido getPedido() {
-            return pedido;
-        }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pedidos_id", nullable = false)
+    private Pedido pedido;
 
-        public BigDecimal getPrecoUnitario() {
-            return precoUnitario;
-        }
+    @Column(name = "precoUnitario_itenspedido", precision = 10, scale = 2, nullable = false)
+    private BigDecimal precoUnitario;
 
-        public int getQuantidade() {
-            return quantidade;
-        }
+    @Column(name = "quantidade_itenspedido", nullable = false)
+    private int quantidade;
 
-        public BigDecimal getDesconto() {
-            return desconto;
-        }
+    @Column(name = "desconto", precision = 10, scale = 2, nullable = false)
+    private BigDecimal desconto;
 
-        public TipoDescontoProdutoEnum getTipoDesconto() {
-            return tipoDesconto;
-        }
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_desconto", nullable = false)
+    private TipoDescontoProdutoEnum tipoDesconto;
 
-        public BigDecimal getTotal() {
-            BigDecimal total = precoUnitario.multiply(BigDecimal.valueOf(quantidade));
-            if (desconto != null && tipoDesconto != null) {
-                if (tipoDesconto.equals(TipoDescontoProdutoEnum.QUANTIDADE)) {
-                    total = total.subtract(desconto.multiply(BigDecimal.valueOf(quantidade)));
-
-                } else if (tipoDesconto.equals(TipoDescontoProdutoEnum.PROMOCAO)) {
-                    total = total.subtract(desconto);
-                }
-            }
-            return total;
-        }
+    public ItemPedido(Produto produto, Pedido pedido, BigDecimal precoUnitario, int quantidade, BigDecimal desconto, TipoDescontoProdutoEnum tipoDesconto) {
+        this.produto = produto;
+        this.pedido = pedido;
+        this.precoUnitario = precoUnitario;
+        this.quantidade = quantidade;
+        this.desconto = desconto;
+        this.tipoDesconto = tipoDesconto;
     }
+
+    public ItemPedido() {
+
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public BigDecimal getPrecoUnitario() {
+        return precoUnitario;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public BigDecimal getDesconto() {
+        return desconto;
+    }
+
+    public TipoDescontoProdutoEnum getTipoDesconto() {
+        return tipoDesconto;
+    }
+
+    public BigDecimal getTotal() {
+        BigDecimal total = precoUnitario.multiply(BigDecimal.valueOf(quantidade));
+        if (desconto != null && tipoDesconto != null) {
+            if (tipoDesconto.equals(TipoDescontoProdutoEnum.QUANTIDADE)) {
+                total = total.subtract(desconto.multiply(BigDecimal.valueOf(quantidade)));
+
+            } else if (tipoDesconto.equals(TipoDescontoProdutoEnum.PROMOCAO)) {
+                total = total.subtract(desconto);
+            }
+        }
+        return total;
+    }
+}
