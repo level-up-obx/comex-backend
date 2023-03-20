@@ -34,7 +34,7 @@ public class ClienteDao {
     }
 
     public List<Cliente> listaPorNome(String nome) {
-        String jpql = "SELECT c FROM Cliente c WHERE c.nome = :nome";
+        String jpql = "SELECT CONCAT(c.primeiroNome, ' ', c.sobrenome) FROM Cliente c WHERE c.primeiroNome = :nome";
         return em.createQuery(jpql, Cliente.class)
                 .setParameter("nome", nome)
                 .getResultList();
