@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,8 +15,8 @@ public class Pedido {
     @Column(length = 9, nullable = false)
     private LocalDateTime data;
 
-    @Column(length = 1000, nullable = false)
-    private List<ItemPedido> itens;
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itens = new ArrayList<>();
 
     @Column(length = 3, nullable = false)
     private BigDecimal desconto;
@@ -99,5 +100,10 @@ public class Pedido {
 
     public boolean isMaisCaroQue(Pedido outroPedido){
         return this.getValorTotal().compareTo(outroPedido.getValorTotal()) > 0;
+    }
+
+    public void adicionarItem(ItemPedido item){
+        item.setPedido(this);
+        this.itens.add(item);
     }
 }

@@ -26,6 +26,58 @@ public class ItemPedido {
     @Enumerated(EnumType.STRING)
     private TipoDescontoProdutoEnum tipoDesconto;
 
+    public ItemPedido() {
+    }
+
+    public ItemPedido(int quantidade, Produto produto, Pedido pedido, BigDecimal desconto, TipoDescontoProdutoEnum tipoDesconto) {
+        this.quantidade = quantidade;
+        this.produto = produto;
+        this.precoUnitario = produto.getPrecoUnitario();
+        this.pedido = pedido;
+        this.desconto = desconto;
+        this.tipoDesconto = tipoDesconto;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    public void setTipoDesconto(TipoDescontoProdutoEnum tipoDesconto) {
+        this.tipoDesconto = tipoDesconto;
+    }
+
+    public BigDecimal getPrecoUnitario() {
+        return precoUnitario;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public BigDecimal getDesconto() {
+        return desconto;
+    }
+
+    public TipoDescontoProdutoEnum getTipoDesconto() {
+        return tipoDesconto;
+    }
+
     public BigDecimal getTotal(){
         return this.precoUnitario.multiply(new BigDecimal(quantidade)).multiply(desconto);
     }
