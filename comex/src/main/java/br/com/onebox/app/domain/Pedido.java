@@ -20,7 +20,7 @@ public class Pedido {
     @Column(length = 3, nullable = false)
     private BigDecimal desconto;
 
-    @Column(name = "tipo_desconto_pedido", length = 15, nullable = false)
+    @Enumerated(EnumType.STRING)
     private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
 
     @ManyToOne(fetch = FetchType.LAZY)

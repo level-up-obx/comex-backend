@@ -26,7 +26,7 @@ public class Produto {
     @Column(name = "quantidade_em_estoque", length = 7, nullable = false)
     private Integer quantidadeEmEstoque;
 
-    @Column(length = 25, nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Categoria categoria;
 
     public Long getId() {
