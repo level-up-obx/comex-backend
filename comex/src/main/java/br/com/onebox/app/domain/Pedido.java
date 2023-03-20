@@ -1,21 +1,39 @@
 package br.com.onebox.app.domain;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
+import java.util.List;
 
+@Entity
+@Table(name = "pedido")
 public class Pedido {
-    private Cliente cliente;
-    private BigDecimal preco;
-    private Integer quantidade;
+
+    @Column(length = 9, nullable = false)
     private LocalDateTime data;
 
-    public Pedido(Cliente cliente, BigDecimal preco, Integer quantidade, LocalDateTime data) {
-        this.cliente = cliente;
-        this.preco = preco;
-        this.quantidade = quantidade;
+    @Column(length = 1000, nullable = false)
+    private List<ItemPedido> itens;
+
+    @Column(length = 3, nullable = false)
+    private BigDecimal desconto;
+
+    @Column(name = "tipo_desconto_pedido", length = 15, nullable = false)
+    private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Cliente cliente;
+
+    public Pedido(LocalDateTime data, List<ItemPedido> itens, BigDecimal desconto, TipoDescontoPedidoEnum tipoDescontoPedidoEnum, Cliente cliente) {
         this.data = data;
+        this.itens = itens;
+        this.desconto = desconto;
+        this.tipoDescontoPedidoEnum = tipoDescontoPedidoEnum;
+        this.cliente = cliente;
     }
+
     public Pedido(){
 
     }
@@ -28,20 +46,28 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public BigDecimal getPreco() {
-        return preco;
+    public List<ItemPedido> getItens() {
+        return itens;
     }
 
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
+    public void setItens(List<ItemPedido> itens) {
+        this.itens = itens;
     }
 
-    public Integer getQuantidade() {
-        return quantidade;
+    public BigDecimal getDesconto() {
+        return desconto;
     }
 
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
+    public void setDesconto(BigDecimal desconto) {
+        this.desconto = desconto;
+    }
+
+    public TipoDescontoPedidoEnum getTipoDescontoPedidoEnum() {
+        return tipoDescontoPedidoEnum;
+    }
+
+    public void setTipoDescontoPedidoEnum(TipoDescontoPedidoEnum tipoDescontoPedidoEnum) {
+        this.tipoDescontoPedidoEnum = tipoDescontoPedidoEnum;
     }
 
     public LocalDateTime getData() {
@@ -53,12 +79,16 @@ public class Pedido {
     }
 
     public BigDecimal getValorTotal(){
-        return this.preco.multiply(new BigDecimal(this.quantidade)).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal valorTotal = BigDecimal.ZERO;
+        for(ItemPedido item : this.itens){
+            valorTotal = valorTotal.add(item.getTotal());
+        }
+        return valorTotal;
     }
 
     @Override
     public String toString() {
-        return "Cliente = " + cliente.getPrimeiroNome() +
+        return "Cliente = " + cliente.nomeCompleto() +
                 ", Preco = " + getValorTotal() +
                 ", Data = " + data;
     }
