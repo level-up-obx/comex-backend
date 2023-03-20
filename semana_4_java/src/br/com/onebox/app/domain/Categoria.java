@@ -1,6 +1,5 @@
 package br.com.onebox.app.domain;
 import br.com.onebox.app.exceptions.CategoriaInvalidaException;
-import org.intellij.lang.annotations.Identifier;
 
 import javax.persistence.*;
 
