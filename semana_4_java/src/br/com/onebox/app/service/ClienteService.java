@@ -16,7 +16,7 @@ public class ClienteService {
         }
         clientes.add(clienteNovo);
     }
-  //duplicado
+
     private boolean validarCPF(String cpf) {
         if (cpf == null || cpf.length() != 11) {
             return false;
@@ -25,7 +25,7 @@ public class ClienteService {
     }
 
     public Optional<Cliente> get(String cpf) throws CPFInvalidoException {
-        if (cpf == null || cpf.length() < 11) {
+        if (!validarCPF(cpf)) {
             throw new CPFInvalidoException("CPF INVÁLIDO");
         }
         return clientes.stream()

@@ -18,7 +18,7 @@ public class Pedido {
     @Column(name = "data_pedidos", nullable = false)
     private LocalDate data;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clientes_id", nullable = false)
     private Cliente cliente;
 
@@ -37,20 +37,21 @@ public class Pedido {
     @Column(name = "tipoDesconto_pedidos", nullable = false, length = 20)
     private TipoDescontoPedido tipoDescontoPedido;
 
-    @OneToMany
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     @JoinColumn(name = "pedido_id")
-    private List<ItemPedido> itens;
+    private List<ItemPedido> itens = new ArrayList<>();
 
-
-    public Pedido() {
-        this.itens = new ArrayList<>();
-    }
 
     public Pedido(Cliente cliente, BigDecimal preco, int quantidade, LocalDate data) {
         this.cliente = cliente;
         this.preco = preco;
         this.quantidade = quantidade;
         this.data = data;
+    }
+
+    public void adicionarItem(ItemPedido item) {
+        item.setPedido(this);
+        this.itens.add(item);
     }
 
     public void setId(Long id) {

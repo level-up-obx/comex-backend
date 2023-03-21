@@ -52,6 +52,10 @@ public class ItemPedido {
         return pedido;
     }
 
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
     public BigDecimal getPrecoUnitario() {
         return precoUnitario;
     }
@@ -80,4 +84,5 @@ public class ItemPedido {
         }
         return total;
     }
+
 }

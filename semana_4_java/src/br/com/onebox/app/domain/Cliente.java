@@ -40,7 +40,7 @@ public class Cliente {
     @Column(name= "estado_clientes", nullable = false)
     private String estado;
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Pedido> pedidos;
 
 

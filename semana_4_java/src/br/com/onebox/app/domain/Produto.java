@@ -3,6 +3,7 @@ package br.com.onebox.app.domain;
 import br.com.onebox.app.exceptions.PrecoInvalidoException;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -17,7 +18,8 @@ public class Produto {
     private String descricao;
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precoUnitario;
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
+    @Max(value = 1000)
     private int quantidadeEstoque;
     @ManyToOne
     private Categoria categoria;
