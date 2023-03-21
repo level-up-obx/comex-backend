@@ -18,7 +18,6 @@ public class Cliente {
     @Column(nullable = false, length = 15)
     private String telefone;
     @OneToMany(mappedBy = "cliente")
-    @JoinColumn(name = "pedido_id", nullable = false)
     private List<Pedido> pedido;
     @Embedded
     private Endereco endereco;

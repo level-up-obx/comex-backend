@@ -15,7 +15,6 @@ public class Categoria {
     private StatusCategoriaEnum status = StatusCategoriaEnum.ATIVA;
 
     @OneToMany(mappedBy = "categoria")
-    @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
 
     private void tratamentoDeErroNomeCategoria(String nome) throws Exception {
