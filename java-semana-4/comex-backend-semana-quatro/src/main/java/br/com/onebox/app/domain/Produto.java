@@ -112,11 +112,4 @@ public class Produto {
         return imposto;
     }
 
-    @Override
-    public String toString() {
-        return  "br.com.onebox.app.domain.Produto " + id + " - " + nome + ", Preço unitário: " + precoUnitario +
-                ", quantidade em estoque: " + quantidadeEmEstoque +
-                ", valor total em estoque: " + calculaValorEstoque() +
-                ", valor do imposto: " + calculaImposto();
-    }
 }
