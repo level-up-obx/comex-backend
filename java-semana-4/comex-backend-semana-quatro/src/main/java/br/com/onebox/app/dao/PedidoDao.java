@@ -3,6 +3,7 @@ package br.com.onebox.app.dao;
 import br.com.onebox.app.domain.Pedido;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.List;
 
 public class PedidoDao {
@@ -22,5 +23,12 @@ public class PedidoDao {
     public List<Pedido> listaTodos() {
         String query = "SELECT p FROM Pedido p";
         return entityManager.createQuery(query, Pedido.class).getResultList();
+    }
+
+    public List<Pedido> buscaPorData(LocalDate data){
+        String query = "SELECT p FROM Pedido p WHERE p.data = :data";
+        return entityManager.createQuery(query, Pedido.class)
+                .setParameter("data", data)
+                .getResultList();
     }
 }
