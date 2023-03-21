@@ -16,6 +16,9 @@ public class Cliente {
     private String cpf;
     @Column(nullable = false, length = 15)
     private String telefone;
+    @OneToMany
+    @JoinColumn(name = "pedido_id", nullable = false)
+    private Pedido pedido;
     @Embedded
     private Endereco endereco;
 
