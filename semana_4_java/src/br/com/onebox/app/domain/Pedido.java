@@ -42,6 +42,7 @@ public class Pedido {
     private List<ItemPedido> itens = new ArrayList<>();
 
 
+
     public Pedido(Cliente cliente, BigDecimal preco, int quantidade, LocalDate data) {
         this.cliente = cliente;
         this.preco = preco;
