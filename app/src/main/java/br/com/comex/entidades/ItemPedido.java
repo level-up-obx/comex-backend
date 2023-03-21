@@ -1,8 +1,8 @@
-package main.java.br.com.comex.entidades;
+package br.com.comex.entidades;
 
 import java.math.BigDecimal;
 
-import main.java.br.com.comex.enums.TipoDescontoProdutoEnum;
+import br.com.comex.enums.TipoDescontoProdutoEnum;
 
 public class ItemPedido {
 

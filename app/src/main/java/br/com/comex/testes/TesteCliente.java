@@ -1,7 +1,7 @@
-package main.java.br.com.comex.testes;
+package br.com.comex.testes;
 
-import main.java.br.com.comex.entidades.Cliente;
-import main.java.br.com.comex.util.*;
+import br.com.comex.entidades.Cliente;
+import br.com.comex.util.*;
 public class TesteCliente {
 	
 	public static void main(String[] args) {

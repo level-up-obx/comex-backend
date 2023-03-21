@@ -1,6 +1,6 @@
-package main.java.br.com.comex.testes;
+package br.com.comex.testes;
 
-import main.java.br.com.comex.entidades.Categoria;
+import br.com.comex.entidades.Categoria;
 
 public class TesteCategoria {
 

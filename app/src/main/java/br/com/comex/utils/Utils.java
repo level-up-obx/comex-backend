@@ -1,8 +1,8 @@
-package main.java.br.com.comex.util;
+package br.com.comex.util;
 
-import main.java.br.com.comex.entidades.Cliente;
-import main.java.br.com.comex.entidades.Estoque;
-import main.java.br.com.comex.entidades.Produto;
+import br.com.comex.entidades.Cliente;
+import br.com.comex.entidades.Estoque;
+import br.com.comex.entidades.Produto;
 
 public class Utils {
 

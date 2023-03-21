@@ -1,7 +1,7 @@
-package main.java.br.com.comex.testes;
+package br.com.comex.testes;
 
-import main.java.br.com.comex.entidades.Categoria;
-import main.java.br.com.comex.exceptions.CampoObrigatorioException;
+import br.com.comex.entidades.Categoria;
+import br.com.comex.exceptions.CampoObrigatorioException;
 
 public class TestaCategoriaValidacaoNome {
 

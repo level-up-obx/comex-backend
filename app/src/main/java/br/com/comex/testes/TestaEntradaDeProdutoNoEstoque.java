@@ -1,12 +1,12 @@
-package main.java.br.com.comex.testes;
+package br.com.comex.testes;
 import java.math.BigDecimal;
-import main.java.br.com.comex.util.*;
+import br.com.comex.util.*;
 
 
-import main.java.br.com.comex.entidades.Categoria;
-import main.java.br.com.comex.entidades.Estoque;
-import main.java.br.com.comex.entidades.Produto;
-import main.java.br.com.comex.entidades.ProdutoIsento;
+import br.com.comex.entidades.Categoria;
+import br.com.comex.entidades.Estoque;
+import br.com.comex.entidades.Produto;
+import br.com.comex.entidades.ProdutoIsento;
 
 public class TestaEntradaDeProdutoNoEstoque {
 

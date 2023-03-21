@@ -1,5 +1,5 @@
-package main.java.br.com.comex.entidades;
-import main.java.br.com.comex.exceptions.CampoObrigatorioException;
+package br.com.comex.entidades;
+import br.com.comex.exceptions.CampoObrigatorioException;
 
 public class Categoria {
 

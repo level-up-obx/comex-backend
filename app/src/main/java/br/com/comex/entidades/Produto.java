@@ -1,4 +1,4 @@
-package main.java.br.com.comex.entidades;
+package br.com.comex.entidades;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

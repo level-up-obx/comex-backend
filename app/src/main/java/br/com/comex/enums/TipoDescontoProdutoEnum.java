@@ -1,4 +1,4 @@
-package main.java.br.com.comex.enums;
+package br.com.comex.enums;
 
 public enum TipoDescontoProdutoEnum {
 

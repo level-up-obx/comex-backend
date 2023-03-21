@@ -1,7 +1,7 @@
-package main.java.br.com.comex.services;
+package br.com.comex.services;
 
-import main.java.br.com.comex.entidades.Categoria;
-import main.java.br.com.comex.entidades.Produto;
+import br.com.comex.entidades.Categoria;
+import br.com.comex.entidades.Produto;
 
 public class CategoriaService {
 

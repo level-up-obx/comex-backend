@@ -1,6 +1,6 @@
-package main.java.br.com.comex.services;
+package br.com.comex.services;
 
-import main.java.br.com.comex.entidades.Cliente;
+import br.com.comex.entidades.Cliente;
 
 public class ClienteService {
 

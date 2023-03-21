@@ -1,4 +1,4 @@
-package main.java.br.com.comex.entidades;
+package br.com.comex.entidades;
 
 public class Programa {
 	public static void main(String[] args) {

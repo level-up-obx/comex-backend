@@ -1,4 +1,4 @@
-package main.java.br.com.comex.testes;
+package br.com.comex.testes;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -6,10 +6,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import main.java.br.com.comex.entidades.Categoria;
-import main.java.br.com.comex.entidades.Cliente;
-import main.java.br.com.comex.entidades.Pedido;
-import main.java.br.com.comex.entidades.Produto;
+import br.com.comex.entidades.Categoria;
+import br.com.comex.entidades.Cliente;
+import br.com.comex.entidades.Pedido;
+import br.com.comex.entidades.Produto;
 
 public class TestaPedidoOrdenado {
 
