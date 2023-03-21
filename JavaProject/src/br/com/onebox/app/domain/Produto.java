@@ -2,14 +2,26 @@ package br.com.onebox.app.domain;
 
 import br.com.onebox.app.interfaces.ValidacaoPrecoUnitarioException;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "categoria")
 public class Produto implements ValidacaoPrecoUnitarioException {
 
-    static int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private static int id;
     private String nome;
     private String descricao;
+
+    @Column(name="preco_unitario")
     private double precoUnitario;
+
+    @Column(name="quantidade_estoque")
     private int quantidadeEstoque;
-    private String categotia;
+
+    @OneToMany
+    private String categoria;
 
 
 
@@ -66,13 +78,13 @@ public class Produto implements ValidacaoPrecoUnitarioException {
 
     }
 
-    public String getCategotia() {
-        return categotia;
+    public String getcategoria() {
+        return categoria;
 
     }
 
-    public void setCategotia(String categotia)  {
-        this.categotia = categotia;
+    public void setCategotia(String categoria)  {
+        this.categoria = categoria;
 
     }
 
@@ -91,7 +103,7 @@ public class Produto implements ValidacaoPrecoUnitarioException {
         erroPreco();
         this.quantidadeEstoque = quantidadeEstoque;
         erroPreco();
-        this.categotia = categotia;
+        this.categoria = categotia;
         erroPreco();
 
     }
@@ -102,7 +114,7 @@ public class Produto implements ValidacaoPrecoUnitarioException {
                     ", descricao ='" + descricao + '\'' +
                     ", precoUnitario =" + precoUnitario +
                     ", quantidadeEstoque =" + quantidadeEstoque +
-                    ", categotia ='" + categotia + '\'' +"\n"+ "Valor total em estoque = " + getQuantidadeEstoque() +"\n" +"Valor do imposto = "
+                    ", categotia ='" + categoria + '\'' +"\n"+ "Valor total em estoque = " + getQuantidadeEstoque() +"\n" +"Valor do imposto = "
                     +getPrecoUnitario() ;
 
     }
@@ -113,7 +125,7 @@ public class Produto implements ValidacaoPrecoUnitarioException {
         if(this.precoUnitario == 0)  throw new Exception("Não pode ser 0");
         if(this.quantidadeEstoque == 0)  new Exception("Não pode ser nulo");
         if(this.descricao == null)  new Exception("Não pode ser nulo");
-        if(this.categotia == null)  new Exception("Não pode ser nulo");
+        if(this.categoria == null)  new Exception("Não pode ser nulo");
     }
 }
 

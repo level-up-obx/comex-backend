@@ -1,5 +1,11 @@
 package br.com.onebox.app.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="cliente")
+
 public class Cliente {
 
     static int id ;

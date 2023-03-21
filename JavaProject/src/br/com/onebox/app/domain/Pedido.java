@@ -1,29 +1,41 @@
 package br.com.onebox.app.domain;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+
+@Entity
+@Table(name = "pedido")
 
 public class Pedido {
-
-    private static int id ;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private static int id;
 
     private String produto;
 
+    @ManyToOne
     private String cliente;
     private double preco;
     private int quantidade;
-   private LocalDate data;
+    private LocalDate data ;
+    private List<ItemPedido> itens;
+
+    private BigDecimal Desconto;
+    private TipoDeDescontoPedidoEnum TipoDeDesconto;
+
 
     public int getId() {
         return id;
     }
 
 
-    public String getProduto() {
+    public Produto getProduto() {
         return produto;
     }
 
-    public String getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
@@ -41,13 +53,13 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return " ---------- Pedido------------- "+ "\n" + ++id + " - " +
+        return " ---------- Pedido------------- " + "\n" + ++id + " - " +
                 "produto = " + produto +
                 " - cliente = " + cliente +
                 " - preco = " + preco +
                 " - data = " + data +
                 " - quantidade = " + quantidade +
-                 '\'' ;
+                '\'';
     }
 
 
@@ -61,7 +73,8 @@ public class Pedido {
 
 
     }
-    public static int pedidoid () {
+
+    public static int pedidoid() {
         id = ++id;
         return ++id;
 
@@ -81,6 +94,6 @@ public class Pedido {
     public BigDecimal getValorTotal() {
         BigDecimal valortotal = BigDecimal.valueOf(quantidade * preco);
         return valortotal;
-        }
     }
+}
 

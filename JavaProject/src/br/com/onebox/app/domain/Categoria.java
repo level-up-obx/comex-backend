@@ -2,10 +2,15 @@ package br.com.onebox.app.domain;
 
 import br.com.onebox.app.tests.CategoriaValidacaoNomeException;
 
-public class Categoria {
+import javax.persistence.*;
 
-    static int id;
-    String nome;
+@Entity
+@Table(name = "categoria")
+public class Categoria {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private static int id;
+    private String nome;
     boolean status = true;
 
     public Categoria(String nome, boolean status) throws CategoriaValidacaoNomeException {

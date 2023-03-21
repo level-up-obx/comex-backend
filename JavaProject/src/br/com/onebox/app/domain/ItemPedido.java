@@ -1,14 +1,26 @@
 package br.com.onebox.app.domain;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
+
+@Entity
+@Table(name = "item_pedido")
 
 public class ItemPedido {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @OneToOne
     private Produto produto;
+    @ManyToOne
     private Pedido pedido;
+    @Column(name = "preco_unitario")
     private BigDecimal precoUnitario;
-    private int quantidade;
-    private BigDecimal desconto;
+    @Column(name = "quantidade")
+    private int Quantidade;
+    @Column(name = "desconto")
+    private BigDecimal Desconto;
     private TipoDescontoProdutoEnum tipoDesconto;
 
     public Produto getProduto() {
@@ -24,11 +36,11 @@ public class ItemPedido {
     }
 
     public int getQuantidade() {
-        return quantidade;
+        return Quantidade;
     }
 
     public BigDecimal getDesconto() {
-        return desconto;
+        return Desconto;
     }
 
     public TipoDescontoProdutoEnum getTipoDesconto() {
@@ -36,7 +48,7 @@ public class ItemPedido {
     }
 
     public BigDecimal getTotal() {
-        return this.precoUnitario.multiply(new BigDecimal(this.quantidade)).subtract(this.desconto);
+        return this.precoUnitario.multiply(new BigDecimal(this.Quantidade)).subtract(this.Desconto);
     }
 
 
@@ -44,8 +56,8 @@ public class ItemPedido {
         this.produto = produto;
         this.pedido = pedido;
         this.precoUnitario = precoUnitario;
-        this.quantidade = quantidade;
-        this.desconto = desconto;
+        this.Quantidade = quantidade;
+        this.Desconto = desconto;
         this.tipoDesconto = tipoDesconto;
     }
 
@@ -55,8 +67,8 @@ public class ItemPedido {
                 "produto=" + produto +
                 ", pedido=" + pedido +
                 ", precoUnitario=" + precoUnitario +
-                ", quantidade=" + quantidade +
-                ", desconto=" + desconto +
+                ", quantidade=" + Quantidade +
+                ", desconto=" + Desconto +
                 ", tipoDesconto=" + tipoDesconto +
                 '}';
     }
