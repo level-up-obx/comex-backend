@@ -8,19 +8,19 @@ import java.math.BigDecimal;
 @Table(name = "item_pedido")
 public class ItemPedido {
 
-    @Column(name = "preco_unitario", length = 7, nullable = false)
+    @Column(name = "preco_unitario", precision = 15, scale = 2, nullable = false)
     private BigDecimal precoUnitario;
 
     @Column(length = 7, nullable = false)
     private int quantidade;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private Produto produto;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Pedido pedido;
 
-    @Column(length = 3, nullable = false)
+    @Column(precision = 15, scale = 2, nullable = false)
     private BigDecimal desconto;
 
     @Enumerated(EnumType.STRING)

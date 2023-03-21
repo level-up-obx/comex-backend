@@ -18,7 +18,7 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens = new ArrayList<>();
 
-    @Column(length = 3, nullable = false)
+    @Column(precision = 15, scale = 2, nullable = false)
     private BigDecimal desconto;
 
     @Enumerated(EnumType.STRING)
