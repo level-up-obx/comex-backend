@@ -142,9 +142,4 @@ public class Cliente {
         return rua + " " + numero + " " + bairro + " " + complemento + " " + cidade + " " + estado;
     }
 
-    @Override
-    public String toString() {
-        return  "Nome completo: " + nomeCompleto() + ", CPF: " + cpf + ", telefone: " + telefone +
-                " e endereço completo: " + enderecoCompleto() + id;
-    }
 }
