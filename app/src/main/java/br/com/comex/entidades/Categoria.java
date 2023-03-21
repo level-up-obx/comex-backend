@@ -1,17 +1,27 @@
 package br.com.comex.entidades;
 import br.com.comex.exceptions.CampoObrigatorioException;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Categoria")
 public class Categoria {
 
+	@Id
 	private Long id;
 	private String nome;
 	private Boolean status = Boolean.TRUE;
+
 
 	public Categoria(Long id,
 					String nome) throws CampoObrigatorioException{
 		setId(id);
 		setNome(nome);
 	}
+
+	public Categoria() {}
 
 
 	public Long getId() {

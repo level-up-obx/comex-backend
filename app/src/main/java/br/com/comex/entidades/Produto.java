@@ -1,12 +1,21 @@
 package br.com.comex.entidades;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+@Entity
+@Table(name = "Produto")
 public class Produto {
 
+	@Id
 	private static Long produtoId = 0L;
 	private Long id = produtoId++;
+	@NotNull
 	private String nome;
 	private String descricao;
 	private BigDecimal precoUnitario;
@@ -26,6 +35,10 @@ public class Produto {
 		setPrecoUnitario(precoUnitario);
 		setQuantidadeEstoque(quantidadeEstoque);
 		setCategoria(categoria);
+
+	}
+
+	public Produto() {
 
 	}
 
