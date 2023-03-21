@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Categoria")
-public class Categoria {
+public class old_Categoria {
 
 	@Id
 	private Long id;
@@ -15,13 +15,13 @@ public class Categoria {
 	private Boolean status = Boolean.TRUE;
 
 
-	public Categoria(Long id,
-					String nome) throws CampoObrigatorioException{
+	public old_Categoria(Long id,
+						 String nome) throws CampoObrigatorioException{
 		setId(id);
 		setNome(nome);
 	}
 
-	public Categoria() {}
+	public old_Categoria() {}
 
 
 	public Long getId() {

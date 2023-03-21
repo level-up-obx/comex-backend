@@ -1,5 +1,6 @@
 package br.com.comex.entidades;
 
+import br.com.comex.entity.Categoria;
 import com.sun.istack.NotNull;
 
 import javax.persistence.Entity;
@@ -28,13 +29,13 @@ public class Produto {
 			String nome,
 			BigDecimal precoUnitario,
 			Long quantidadeEstoque,
-			Categoria categoria) throws Exception {
+			Categoria Categoria) throws Exception {
 
 		setId();
 		setNome(nome);
 		setPrecoUnitario(precoUnitario);
 		setQuantidadeEstoque(quantidadeEstoque);
-		setCategoria(categoria);
+		setCategoria(Categoria);
 
 	}
 
@@ -61,7 +62,7 @@ public class Produto {
 		}
 
 	public Long setQuantidadeEstoque(Long quantidadeEstoque) { return this.quantidadeEstoque = quantidadeEstoque;}
-	public Categoria setCategoria(Categoria categoria) { return this.categoria = categoria;}
+	public br.com.comex.entity.Categoria setCategoria(Categoria Categoria) { return this.categoria = Categoria;}
 
 
 

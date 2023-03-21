@@ -1,7 +1,6 @@
 package br.com.comex.entidades;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class ProdutoIsento extends Produto {
 
@@ -10,14 +9,14 @@ public class ProdutoIsento extends Produto {
 			String nome,
 			BigDecimal precoUnitario,
 			Long quantidadeEstoque,
-			Categoria categoria) throws Exception {
+			br.com.comex.entity.Categoria Categoria) throws Exception {
 
 
 		super(
 				nome,
 				precoUnitario,
 				quantidadeEstoque,
-				categoria);
+				Categoria);
 		super.setIsento(Boolean.TRUE);
 	}
 

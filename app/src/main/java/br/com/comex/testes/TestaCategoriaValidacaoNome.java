@@ -1,6 +1,6 @@
 package br.com.comex.testes;
 
-import br.com.comex.entidades.Categoria;
+import br.com.comex.entity.Categoria;
 import br.com.comex.exceptions.CampoObrigatorioException;
 
 public class TestaCategoriaValidacaoNome {

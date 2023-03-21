@@ -4,11 +4,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import br.com.comex.entidades.Categoria;
+import br.com.comex.entity.Categoria;
 import br.com.comex.entidades.Cliente;
 import br.com.comex.entidades.Pedido;
 import br.com.comex.entidades.Produto;
-import br.com.comex.util.Utils;
 
 public class TestePedido {
 

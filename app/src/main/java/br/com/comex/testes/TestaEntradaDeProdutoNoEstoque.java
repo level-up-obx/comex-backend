@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 import br.com.comex.util.*;
 
 
-import br.com.comex.entidades.Categoria;
+import br.com.comex.entity.Categoria;
 import br.com.comex.entidades.Estoque;
 import br.com.comex.entidades.Produto;
 import br.com.comex.entidades.ProdutoIsento;

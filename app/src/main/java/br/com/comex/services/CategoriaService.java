@@ -1,7 +1,6 @@
 package br.com.comex.services;
 
-import br.com.comex.entidades.Categoria;
-import br.com.comex.entidades.Produto;
+import br.com.comex.entity.Categoria;
 
 public class CategoriaService {
 
