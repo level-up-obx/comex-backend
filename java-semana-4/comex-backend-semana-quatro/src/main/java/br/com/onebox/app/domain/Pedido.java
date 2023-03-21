@@ -15,7 +15,7 @@ public class Pedido {
     private Cliente cliente;
     @Column(nullable = false)
     private LocalDate data;
-    @OneToMany
+    @OneToMany(mappedBy = "pedido")
     @JoinColumn(name = "itemPedido_id", nullable = false)
     private List<ItemPedido> itemPedido;
     @Column(nullable = false, precision = 10, scale = 2)

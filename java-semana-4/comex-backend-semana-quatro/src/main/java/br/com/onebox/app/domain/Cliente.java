@@ -1,6 +1,7 @@
 package br.com.onebox.app.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "cliente")
@@ -16,9 +17,9 @@ public class Cliente {
     private String cpf;
     @Column(nullable = false, length = 15)
     private String telefone;
-    @OneToMany
+    @OneToMany(mappedBy = "cliente")
     @JoinColumn(name = "pedido_id", nullable = false)
-    private Pedido pedido;
+    private List<Pedido> pedido;
     @Embedded
     private Endereco endereco;
 
