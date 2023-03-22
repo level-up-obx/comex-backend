@@ -50,10 +50,19 @@ public class Pedido {
         this.data = data;
     }
 
+    public Pedido() {
+        
+    }
+
     public void adicionarItem(ItemPedido item) {
         item.setPedido(this);
         this.itens.add(item);
     }
+
+    public boolean isIndisponivel() {
+        return quantidade == 0;
+    }
+
 
     public void setId(Long id) {
         this.id = id;
