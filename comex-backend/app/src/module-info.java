@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author OSupremo
+ *
+ */
+module app {
+}
