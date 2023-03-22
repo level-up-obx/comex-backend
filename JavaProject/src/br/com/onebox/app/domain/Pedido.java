@@ -19,10 +19,16 @@ public class Pedido {
     private String cliente;
     private double preco;
     private int quantidade;
-    private LocalDate data ;
-    private List<ItemPedido> itens;
 
+    @Column(length = 9, nullable = false)
+    private LocalDate data ;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itens;
+@Column(name="desconto",length = 3,nullable = false)
     private BigDecimal Desconto;
+
+@Enumerated(EnumType.STRING)
     private TipoDeDescontoPedidoEnum TipoDeDesconto;
 
 
@@ -31,11 +37,11 @@ public class Pedido {
     }
 
 
-    public Produto getProduto() {
+    public String getProduto() {
         return produto;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
@@ -83,17 +89,26 @@ public class Pedido {
     public boolean isMaisBaratoQue(Pedido outroPedido) {
 
 
-        return false;
+        return this.getValorTotal().compareTo(outroPedido.getValorTotal()) < 0;
     }
 
     public boolean isMaisCaroQue(Pedido outroPedido) {
 
-        return false;
+        return this.getValorTotal().compareTo(outroPedido.getValorTotal()) > 0;
     }
 
-    public BigDecimal getValorTotal() {
-        BigDecimal valortotal = BigDecimal.valueOf(quantidade * preco);
-        return valortotal;
+    public BigDecimal getValorTotal(){
+        BigDecimal valorTotal = BigDecimal.ZERO;
+        for(ItemPedido item : this.itens){
+            valorTotal = valorTotal.add(item.getTotal());
+        }
+        return valorTotal;
+    }
+
+
+    public void adicionarItem(ItemPedido item){
+        item.setPedido(this);
+        this.itens.add(item);
     }
 }
 

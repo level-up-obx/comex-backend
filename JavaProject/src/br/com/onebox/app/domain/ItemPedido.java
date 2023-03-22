@@ -11,16 +11,19 @@ public class ItemPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Produto produto;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Pedido pedido;
-    @Column(name = "preco_unitario")
+    @Column(name = "preco_unitario", length = 7, nullable = false,precision = 15, scale = 2)
     private BigDecimal precoUnitario;
-    @Column(name = "quantidade")
+    @Column(name = "quantidade", length = 7, nullable = false)
     private int Quantidade;
-    @Column(name = "desconto")
+    @Column(name = "desconto", length = 3, nullable = false,precision = 15,scale = 2)
     private BigDecimal Desconto;
+
+    @Enumerated(EnumType.STRING)
     private TipoDescontoProdutoEnum tipoDesconto;
 
     public Produto getProduto() {
@@ -55,7 +58,7 @@ public class ItemPedido {
     public ItemPedido(Produto produto, Pedido pedido, BigDecimal precoUnitario, int quantidade, BigDecimal desconto, TipoDescontoProdutoEnum tipoDesconto) {
         this.produto = produto;
         this.pedido = pedido;
-        this.precoUnitario = precoUnitario;
+        this.precoUnitario = BigDecimal.valueOf(produto.getPrecoUnitario());
         this.Quantidade = quantidade;
         this.Desconto = desconto;
         this.tipoDesconto = tipoDesconto;
@@ -74,4 +77,6 @@ public class ItemPedido {
     }
 
 
+    public void setPedido(Pedido pedido) {
+    }
 }

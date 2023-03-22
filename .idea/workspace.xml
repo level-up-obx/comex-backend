@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cc9c5bf5-0b14-4020-a1e0-90149f16ffd2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/Entidades/CategoriaEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/Entidades/ClienteEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/Entidades/ProdutoEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/ItemPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/ItemPedido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaProject/src/br/com/onebox/app/domain/Produto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
