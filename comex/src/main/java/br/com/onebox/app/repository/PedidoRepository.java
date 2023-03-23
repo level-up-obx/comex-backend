@@ -7,5 +7,5 @@ import java.time.LocalDate;
 
 public interface PedidoRepository extends CrudRepository<Pedido, Long> {
 
-    public Iterable<Pedido> findByDate(LocalDate data);
+    public Iterable<Pedido> findAllByDate(LocalDate data);
 }
