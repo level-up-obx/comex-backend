@@ -2,6 +2,7 @@ package br.com.onebox.app.domain;
 import br.com.onebox.app.exceptions.CategoriaInvalidaException;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "categorias")
@@ -10,6 +11,7 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column( name = "nome_categorias", nullable = false)
+    @Size(min = 2, message = "O nome deve possuir pelo menos 2 caracteres.")
     private String nome;
     @Column(name = "status_categorias",nullable = false)
     private Boolean status;
@@ -47,7 +49,7 @@ public class Categoria {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Boolean  status) {
         this.status = status;
     }
 
