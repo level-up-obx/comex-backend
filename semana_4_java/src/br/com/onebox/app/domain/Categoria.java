@@ -8,13 +8,13 @@ import javax.persistence.*;
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column( name = "nome_categorias", nullable = false)
     private String nome;
     @Column(name = "status_categorias",nullable = false)
     private Boolean status;
 
-    public Categoria(int id, String nome, Boolean status) throws CategoriaInvalidaException {
+    public Categoria(Long id, String nome, Boolean status) throws CategoriaInvalidaException {
         this.id = ++id;
         setNome(nome);
         this.status = status;
@@ -24,11 +24,11 @@ public class Categoria {
 
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
