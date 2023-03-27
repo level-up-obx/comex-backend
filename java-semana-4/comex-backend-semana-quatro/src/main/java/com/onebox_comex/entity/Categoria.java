@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "categoria")
@@ -24,14 +25,6 @@ public class Categoria {
     @Enumerated(EnumType.STRING)
     private StatusCategoriaEnum status = StatusCategoriaEnum.ATIVA;
     @OneToMany(mappedBy = "categoria")
-    private Produto produto;
-    public Categoria(String nome) {
-        this.nome = nome;
-    }
-
-    public Categoria(String nome, StatusCategoriaEnum status) {
-        this.nome = nome;
-        this.status = status;
-    }
+    private List<Produto> produtos;
 
 }

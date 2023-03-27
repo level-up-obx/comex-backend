@@ -1,6 +1,9 @@
 package com.onebox_comex.entity;
 
 import com.onebox_comex.enums.TipoDescontoItemPedidoEnum;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -8,6 +11,9 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "itemPedido")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ItemPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

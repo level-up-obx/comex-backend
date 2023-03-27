@@ -5,6 +5,8 @@ import com.onebox_comex.repository.CategoriaRepository;
 import com.onebox_comex.entity.Categoria;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
 
@@ -17,6 +19,7 @@ public class CategoriaService {
         this.categoriaRepository = categoriaRepository;
     }
 
+    @PostMapping
     public Categoria cadastrar (CategoriaNomeDTO categoriaNomeDTO) throws Exception {
         Optional<Categoria> categoriaOptional = categoriaRepository.findByNome(categoriaNomeDTO.getNome());
         try{
@@ -39,6 +42,7 @@ public class CategoriaService {
         }
     }
 
+    @GetMapping
     public CategoriaNomeDTO getById(Long id) throws Exception {
         try {
             if (id == null || id < 1) {
