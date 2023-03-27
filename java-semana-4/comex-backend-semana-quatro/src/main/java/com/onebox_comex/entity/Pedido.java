@@ -30,17 +30,4 @@ public class Pedido {
     @Column(nullable = false)
     private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
 
-    public Pedido(Cliente cliente, LocalDate data) {
-        this.cliente = cliente;
-        this.data = data;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public LocalDate getData() {
-        return data;
-    }
-
 }

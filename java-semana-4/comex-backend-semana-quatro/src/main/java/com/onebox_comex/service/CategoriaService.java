@@ -19,7 +19,6 @@ public class CategoriaService {
         this.categoriaRepository = categoriaRepository;
     }
 
-    @PostMapping
     public Categoria cadastrar (CategoriaNomeDTO categoriaNomeDTO) throws Exception {
         Optional<Categoria> categoriaOptional = categoriaRepository.findByNome(categoriaNomeDTO.getNome());
         try{
@@ -42,7 +41,6 @@ public class CategoriaService {
         }
     }
 
-    @GetMapping
     public CategoriaNomeDTO getById(Long id) throws Exception {
         try {
             if (id == null || id < 1) {
@@ -61,6 +59,5 @@ public class CategoriaService {
             throw categoriaException;
         }
     }
-
 
 }
