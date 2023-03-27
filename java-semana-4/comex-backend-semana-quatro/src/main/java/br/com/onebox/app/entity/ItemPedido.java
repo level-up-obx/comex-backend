@@ -1,4 +1,6 @@
-package br.com.onebox.app.domain;
+package br.com.onebox.app.entity;
+
+import br.com.onebox.app.enums.TipoDescontoItemPedidoEnum;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;

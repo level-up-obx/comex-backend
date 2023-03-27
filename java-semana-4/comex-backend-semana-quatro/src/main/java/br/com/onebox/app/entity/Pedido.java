@@ -1,4 +1,6 @@
-package br.com.onebox.app.domain;
+package br.com.onebox.app.entity;
+import br.com.onebox.app.enums.TipoDescontoPedidoEnum;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;

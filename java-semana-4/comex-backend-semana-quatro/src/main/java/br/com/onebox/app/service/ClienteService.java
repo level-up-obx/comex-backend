@@ -1,10 +1,11 @@
 package br.com.onebox.app.service;
 
-import br.com.onebox.app.domain.Cliente;
+import br.com.onebox.app.entity.Cliente;
+import org.springframework.stereotype.Service;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+@Service
 public class ClienteService {
     private static final String REGEX_CPF = "^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$";
     private static final Pattern PATTERN_CPF = Pattern.compile(REGEX_CPF);

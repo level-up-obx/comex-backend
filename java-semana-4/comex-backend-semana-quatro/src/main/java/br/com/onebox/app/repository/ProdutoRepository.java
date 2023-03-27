@@ -1,6 +1,6 @@
 package br.com.onebox.app.repository;
 
-import br.com.onebox.app.domain.Produto;
+import br.com.onebox.app.entity.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,7 +1,9 @@
 package br.com.onebox.app.service;
 
-import br.com.onebox.app.domain.Produto;
+import br.com.onebox.app.entity.Produto;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProdutoService {
     public void cadastrar(Produto novoProduto) throws Exception {
       try{

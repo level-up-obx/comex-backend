@@ -1,4 +1,4 @@
-package br.com.onebox.app.domain;
+package br.com.onebox.app.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

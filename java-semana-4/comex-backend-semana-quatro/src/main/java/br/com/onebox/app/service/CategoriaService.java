@@ -1,36 +1,62 @@
 package br.com.onebox.app.service;
 
-import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.dtos.CategoriaNomeDTO;
+import br.com.onebox.app.entity.Categoria;
+import br.com.onebox.app.repository.CategoriaRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
+@Service
 public class CategoriaService {
-    public void cadastrar (Categoria novaCategoria) throws Exception {
+    private final CategoriaRepository categoriaRepository;
+    private ModelMapper modelMapper;
+
+    public CategoriaService(CategoriaRepository categoriaRepository) {
+        this.categoriaRepository = categoriaRepository;
+    }
+
+    public Categoria cadastrar (CategoriaNomeDTO categoriaNomeDTO) throws Exception {
+        Optional<Categoria> categoriaOptional = categoriaRepository.findByNome(categoriaNomeDTO.getNome());
         try{
-            if (novaCategoria == null){
+            if (categoriaOptional == null){
                 throw new Exception("Esta categoria é nula");
             }
-            if (novaCategoria.getNome() == null){
-                throw new Exception("O nome desta categoria é nulo");
+            if (categoriaOptional.isEmpty()){
+                throw new Exception("Esta categoria está vazia");
             }
-            if (novaCategoria.getNome().isBlank()){
-                throw new Exception("O nome da categoria está vazio");
+            if (categoriaOptional.isPresent()) {
+                throw new Exception("Já existe uma categoria com este nome");
             }
-            //Aqui ficará o código para salvar no banco de dados
+
+            Categoria categoria = modelMapper.map(categoriaNomeDTO, Categoria.class);
+            return categoriaRepository.save(categoria);
+
         } catch (Exception categoriaException){
             System.out.println("O erro ocorrido foi: " + categoriaException.getMessage());
             throw categoriaException;
         }
     }
 
-    public Categoria get(Long id) throws Exception{
+    public CategoriaNomeDTO getById(Long id) throws Exception {
         try {
-            if(id == null || id < 1){
+            if (id == null || id < 1) {
                 throw new Exception("O id não é válido, está nulo ou negativo");
             }
-//            Aqui eu buscarei a categoria no banco de dados
-            return null;
-        } catch (Exception categoriaException){
+
+            Optional<Categoria> categoriaOptional = categoriaRepository.findById(id);
+            if (categoriaOptional.isPresent()) {
+                Categoria categoria = categoriaOptional.get();
+                return modelMapper.map(categoria, CategoriaNomeDTO.class);
+            } else {
+                throw new Exception("Não foi possível encontrar a categoria com o id informado");
+            }
+        } catch (Exception categoriaException) {
             System.out.println("O erro ocorrido foi: " + categoriaException.getMessage());
             throw categoriaException;
         }
     }
+
+
 }

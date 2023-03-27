@@ -1,4 +1,4 @@
-package br.com.onebox.app.domain;
+package br.com.onebox.app.entity;
 
 import javax.persistence.*;
 import java.util.List;
