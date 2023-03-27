@@ -1,12 +1,15 @@
 package com.onebox_comex.controller;
 
 import com.onebox_comex.dtos.CategoriaNomeDTO;
+import com.onebox_comex.dtos.VendasCategoriaDTO;
 import com.onebox_comex.entity.Categoria;
 import com.onebox_comex.service.CategoriaService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/categorias")
@@ -37,6 +40,11 @@ public class CategoriaController {
         } catch (Exception getByIdException) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+    }
+
+    @GetMapping("/vendas")
+    public List<VendasCategoriaDTO> obterVendasPorCategoria() {
+        return categoriaService.obterVendasPorCategoria();
     }
 
 }
