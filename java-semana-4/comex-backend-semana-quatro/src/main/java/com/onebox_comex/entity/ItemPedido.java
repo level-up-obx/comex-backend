@@ -27,7 +27,6 @@ public class ItemPedido {
     private Pedido pedido;
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precoUnitario;
-    @Max(1000)
     @Column(nullable = false)
     private int quantidade;
     @Column(nullable = false, precision = 10, scale = 2)

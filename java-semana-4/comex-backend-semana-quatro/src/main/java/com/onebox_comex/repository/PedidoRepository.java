@@ -14,4 +14,7 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     @Query("SELECT p FROM Pedido p WHERE p.data = :data")
     List<Pedido> buscaPorData(@Param("data") LocalDate data);
 
+    @Query("SELECT COUNT(p) FROM Pedido p WHERE p.cliente.id = :clienteId")
+    long countByClienteId(@Param("clienteId") Long clienteId);
+
 }
