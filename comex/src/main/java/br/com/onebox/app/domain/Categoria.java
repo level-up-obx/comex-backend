@@ -73,6 +73,7 @@ public class Categoria {
             throw new NomeInvalidoException("O nome não pode ser vazio ou nulo");
         }
         this.nome = nome;
+        this.status = Boolean.TRUE;
     }
 
     @Override
