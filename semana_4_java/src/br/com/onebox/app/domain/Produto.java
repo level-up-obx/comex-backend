@@ -3,7 +3,7 @@ package br.com.onebox.app.domain;
 import br.com.onebox.app.exceptions.PrecoInvalidoException;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -11,20 +11,29 @@ import java.math.RoundingMode;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
+
     @Column(nullable = false, length = 120)
+    @Size(min = 2, message = "O nome deve possuir pelo menos 2 caracteres.")
     private String nome;
+
     @Column(length = 240)
     private String descricao;
+
     @Column(nullable = false, precision = 10, scale = 2)
+    @NotNull(message = "O preço é obrigatório.")
+    @DecimalMin(value = "0.01", message = "O preço deve ser positivo.")
     private BigDecimal precoUnitario;
+
     @Column(nullable = false)
     @Max(value = 1000)
+    @PositiveOrZero
     private int quantidadeEstoque;
+
     @ManyToOne
     private Categoria categoria;
 
-    public Produto(int id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, Categoria categoria) {
+    public Produto(Long id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, Categoria categoria) {
         this.id = ++id;
         this.nome = nome;
         this.descricao = descricao;
@@ -36,11 +45,11 @@ public class Produto {
     public Produto() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -108,3 +117,4 @@ public class Produto {
 
     }
 }
+

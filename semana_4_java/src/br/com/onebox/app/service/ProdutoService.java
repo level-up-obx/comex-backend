@@ -2,14 +2,26 @@ package br.com.onebox.app.service;
 
 import br.com.onebox.app.exceptions.PrecoInvalidoException;
 import br.com.onebox.app.domain.Produto;
+import br.com.onebox.app.repositories.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProdutoService {
-    List<Produto> produtos = new ArrayList<>();
+
+    @Autowired
+    private final ProdutoRepository produtoRepository;
+
+    @Autowired
+    public ProdutoService(ProdutoRepository produtoRepository) {
+        this.produtoRepository = produtoRepository;
+    }
+
     public void cadastrar(Produto novoProduto) throws PrecoInvalidoException {
         if (novoProduto == null) {
             throw new PrecoInvalidoException("Produto não pode ser NULO.");
@@ -20,13 +32,6 @@ public class ProdutoService {
         if (novoProduto.getPrecoUnitario() == null || novoProduto.getPrecoUnitario().compareTo(BigDecimal.ZERO) <= 0) {
             throw new PrecoInvalidoException("Preço inválido! O Preço deve ser maior que zero.");
         }
-        produtos.add(novoProduto);
-    }
-
-    public Optional<Produto> get(int id) throws PrecoInvalidoException {
-        if (id <= 0) throw new PrecoInvalidoException("ID não pode ser NEGATIVO ou NULO");
-        return produtos.stream()
-                .filter(p -> p.getId() == id)
-                .findFirst();
+        produtoRepository.save(novoProduto);
     }
 }
