@@ -1,4 +1,4 @@
-package br.com.onebox.app.dao;
+package br.com.onebox.app.repository;
 
 import br.com.onebox.app.domain.Produto;
 

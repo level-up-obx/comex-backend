@@ -1,10 +1,9 @@
-package br.com.onebox.app.dao;
+package br.com.onebox.app.repository;
 
 import br.com.onebox.app.domain.Cliente;
 import br.com.onebox.app.util.JpaManager;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class ClienteDao {
