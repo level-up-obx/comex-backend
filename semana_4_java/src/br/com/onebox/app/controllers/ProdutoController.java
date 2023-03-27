@@ -6,11 +6,14 @@ import br.com.onebox.app.dtos.ProdutoDTO;
 import br.com.onebox.app.repositories.CategoriaRepository;
 import br.com.onebox.app.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/produtos")
@@ -37,5 +40,26 @@ public class ProdutoController {
 
         return produtoRepository.save(produto);
     }
+
+    @GetMapping
+    public Page<ProdutoDTO> listarProdutos(@RequestParam(defaultValue = "0") int pagina) {
+        Pageable pageable = PageRequest.of(pagina, 5, Sort.by("nome"));
+        Page<Produto> produtos = produtoRepository.findAll(pageable);
+
+        List<ProdutoDTO> produtosDTO = new ArrayList<>();
+        for (Produto produto : produtos) {
+            ProdutoDTO produtoDTO = new ProdutoDTO();
+            produtoDTO.setNome(produto.getNome());
+            produtoDTO.setPrecoUnitario(produto.getPrecoUnitario());
+            produtoDTO.setDescricao(produto.getDescricao());
+            produtoDTO.setQuantidadeEstoque(produto.getQuantidadeEstoque());
+            produtoDTO.setIdCategoria(produto.getCategoria().getId());
+            produtoDTO.setCategoriaNome(produto.getCategoria().getNome());
+            produtosDTO.add(produtoDTO);
+        }
+
+        return new PageImpl<>(produtosDTO, pageable, produtos.getTotalElements());
+    }
+
 
 }

@@ -21,6 +21,11 @@ public class ProdutoDTO {
     @NotNull
     private Long idCategoria;
 
+    @NotNull
+    private String categoriaNome;
+
+
+
     public String getNome() {
         return nome;
     }
@@ -33,14 +38,20 @@ public class ProdutoDTO {
         return precoUnitario;
     }
 
-    public void setPrecoUnitario(Double preco) {
+    public void setPrecoUnitario(BigDecimal precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
 
     public String getDescricao() {
         return descricao;
     }
+    public String getCategoriaNome() {
+        return categoriaNome;
+    }
 
+    public void setCategoriaNome(String categoriaNome) {
+        this.categoriaNome = categoriaNome;
+    }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
