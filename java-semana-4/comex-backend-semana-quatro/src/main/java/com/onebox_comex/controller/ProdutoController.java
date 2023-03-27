@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
@@ -40,4 +42,14 @@ public class ProdutoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+    @GetMapping
+    public ResponseEntity<List<ProdutoDTO>> listarTodos(@RequestParam(defaultValue = "1") int pagina) {
+        try {
+            List<ProdutoDTO> produtosDTO = produtoService.listarTodos(pagina);
+            return ResponseEntity.ok(produtosDTO);
+        } catch (Exception listarTodosProdutos) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
 }

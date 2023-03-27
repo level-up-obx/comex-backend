@@ -6,12 +6,17 @@ import com.onebox_comex.entity.Categoria;
 import com.onebox_comex.entity.Produto;
 import com.onebox_comex.repository.ProdutoRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProdutoService {
@@ -73,4 +78,16 @@ public class ProdutoService {
             throw produtoException;
         }
     }
+    public List<ProdutoDTO> listarTodos(int pagina) {
+        int itensPorPagina = 5;
+        PageRequest pageRequest = PageRequest.of(pagina - 1, itensPorPagina, Sort.by("nome"));
+
+        Page<Produto> produtos = produtoRepository.findAll(pageRequest);
+        List<ProdutoDTO> produtosDTO = produtos.getContent().stream()
+                .map(produto -> modelMapper.map(produto, ProdutoDTO.class))
+                .collect(Collectors.toList());
+
+        return produtosDTO;
+    }
+
 }
