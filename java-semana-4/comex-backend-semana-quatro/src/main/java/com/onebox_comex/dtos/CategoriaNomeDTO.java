@@ -14,5 +14,6 @@ public class CategoriaNomeDTO {
     private String nome;
     @NotBlank
     @Enumerated(EnumType.STRING)
-    private StatusCategoriaEnum status;
+    private StatusCategoriaEnum status = StatusCategoriaEnum.ATIVA;
+
 }

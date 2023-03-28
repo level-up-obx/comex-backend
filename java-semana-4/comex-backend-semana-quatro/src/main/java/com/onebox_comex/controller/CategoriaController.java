@@ -4,7 +4,6 @@ import com.onebox_comex.dtos.CategoriaNomeDTO;
 import com.onebox_comex.dtos.VendasCategoriaDTO;
 import com.onebox_comex.entity.Categoria;
 import com.onebox_comex.service.CategoriaService;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +14,17 @@ import java.util.List;
 @RequestMapping("/api/categorias")
 public class CategoriaController {
     private final CategoriaService categoriaService;
-    private ModelMapper modelMapper;
 
     public CategoriaController(CategoriaService categoriaService) {
         this.categoriaService = categoriaService;
     }
 
-    @PostMapping("/categoria")
+    @PostMapping
     public ResponseEntity<CategoriaNomeDTO> cadastrarCategoria(@RequestBody CategoriaNomeDTO categoriaNomeDTO) {
         try {
             Categoria categoria = categoriaService.cadastrar(categoriaNomeDTO);
-            CategoriaNomeDTO categoriaNomePostDTO = modelMapper.map(categoria, CategoriaNomeDTO.class);
+            CategoriaNomeDTO categoriaNomePostDTO = new CategoriaNomeDTO();
+            categoriaNomePostDTO.setNome(categoria.getNome());
             return ResponseEntity.ok(categoriaNomePostDTO);
         } catch (Exception postCategoriaException) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -46,5 +45,5 @@ public class CategoriaController {
     public List<VendasCategoriaDTO> obterVendasPorCategoria() {
         return categoriaService.obterVendasPorCategoria();
     }
-
 }
+

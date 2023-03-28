@@ -18,9 +18,6 @@ import java.util.Optional;
 public class CategoriaService {
     private final CategoriaRepository categoriaRepository;
     private final ItemPedidoRepository itemPedidoRepository;
-
-    private ModelMapper modelMapper;
-
     public CategoriaService(CategoriaRepository categoriaRepository, ItemPedidoRepository itemPedidoRepository) {
         this.categoriaRepository = categoriaRepository;
         this.itemPedidoRepository = itemPedidoRepository;
@@ -28,26 +25,20 @@ public class CategoriaService {
 
     public Categoria cadastrar(CategoriaNomeDTO categoriaNomeDTO) throws Exception {
         Optional<Categoria> categoriaOptional = categoriaRepository.findByNome(categoriaNomeDTO.getNome());
+
         try {
-            if (categoriaOptional == null) {
-                throw new Exception("Esta categoria é nula");
-            }
-            if (categoriaOptional.isEmpty()) {
-                throw new Exception("Esta categoria está vazia");
-            }
             if (categoriaOptional.isPresent()) {
                 throw new Exception("Já existe uma categoria com este nome");
             }
 
-            Categoria categoria = modelMapper.map(categoriaNomeDTO, Categoria.class);
-            categoria.setStatus(StatusCategoriaEnum.ATIVA);
+            Categoria categoria = new Categoria(categoriaNomeDTO.getNome());
             return categoriaRepository.save(categoria);
-
         } catch (Exception categoriaException) {
             System.out.println("O erro ocorrido foi: " + categoriaException.getMessage());
             throw categoriaException;
         }
     }
+
 
     public CategoriaNomeDTO getById(Long id) throws Exception {
         try {
@@ -58,7 +49,9 @@ public class CategoriaService {
             Optional<Categoria> categoriaOptional = categoriaRepository.findById(id);
             if (categoriaOptional.isPresent()) {
                 Categoria categoria = categoriaOptional.get();
-                return modelMapper.map(categoria, CategoriaNomeDTO.class);
+                CategoriaNomeDTO categoriaNomeDTO = new CategoriaNomeDTO();
+                categoriaNomeDTO.setNome(categoria.getNome());
+                return categoriaNomeDTO;
             } else {
                 throw new Exception("Não foi possível encontrar a categoria com o id informado");
             }
@@ -85,6 +78,5 @@ public class CategoriaService {
         }
 
         return vendasCategoriaDTOList;
-
     }
 }
