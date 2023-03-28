@@ -83,4 +83,19 @@ public class Cliente {
                 "\n" + " Endereço:" + endereco.toString();
     }
 
+    public void addPedido(Pedido pedido) {
+        pedidos.add(pedido);
+    }
+    public List<Pedido> getPedidos() {
+        return this.pedidos;
+    }
+
+    public TipoDescontoPedidoEnum getTipoDescontoPedido() {
+        if (this.getPedidos().size() >= 5) {
+            return TipoDescontoPedidoEnum.FIDELIDADE;
+        } else {
+            return TipoDescontoPedidoEnum.NENHUM;
+        }
+    }
+
 }

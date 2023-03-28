@@ -2,11 +2,13 @@ package br.com.onebox.app.service;
 
 import br.com.onebox.app.domain.Cliente;
 import br.com.onebox.app.exceptions.CPFInvalidoException;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ClienteService {
     private List<Cliente> clientes = new ArrayList<>();
 

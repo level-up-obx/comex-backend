@@ -1,9 +1,11 @@
 package br.com.onebox.app.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -15,31 +17,37 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "data_pedidos", nullable = false)
     private LocalDate data;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clientes_id", nullable = false)
     private Cliente cliente;
 
-
+    @NotNull
     @Column(name = "desconto_pedidos", nullable = false, precision = 10, scale = 2)
     private BigDecimal desconto;
 
-
+    @NotNull
     @Column(name = "preco_pedidos", nullable = false, precision = 10, scale = 2)
     private BigDecimal preco;
 
+    @NotNull
     @Column(name = "quantidade_pedidos", nullable = false, length = 100)
     private int quantidade;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "tipoDesconto_pedidos", nullable = false, length = 20)
-    private TipoDescontoPedido tipoDescontoPedido;
+    private TipoDescontoPedidoEnum tipoDescontoPedido;
 
+    @NotNull
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     @JoinColumn(name = "pedido_id")
     private List<ItemPedido> itens = new ArrayList<>();
+
 
 
 
@@ -48,6 +56,9 @@ public class Pedido {
         this.preco = preco;
         this.quantidade = quantidade;
         this.data = data;
+    }
+
+    public Pedido(Cliente cliente, List<ItemPedido> itens, Date date, BigDecimal valorTotal) {
     }
 
     public void adicionarItem(ItemPedido item) {
