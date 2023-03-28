@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class ProdutoIsento extends Produto {
 
-    public ProdutoIsento(int id,
+    public ProdutoIsento(Long id,
                          String nome,
                          String descricao,
                          BigDecimal precoUnitario,

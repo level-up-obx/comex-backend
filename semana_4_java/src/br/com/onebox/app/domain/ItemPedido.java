@@ -27,6 +27,37 @@ public class ItemPedido {
     @Column(name = "desconto", precision = 10, scale = 2, nullable = false)
     private BigDecimal desconto;
 
+    public ItemPedido(Produto produto, int quantidade) {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public void setPrecoUnitario(BigDecimal precoUnitario) {
+        this.precoUnitario = precoUnitario;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setDesconto(BigDecimal desconto) {
+        this.desconto = desconto;
+    }
+
+    public void setTipoDesconto(TipoDescontoProdutoEnum tipoDesconto) {
+        this.tipoDesconto = tipoDesconto;
+    }
+
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_desconto", nullable = false)
     private TipoDescontoProdutoEnum tipoDesconto;
