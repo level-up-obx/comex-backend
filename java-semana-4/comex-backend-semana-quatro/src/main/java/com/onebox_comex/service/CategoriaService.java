@@ -2,6 +2,7 @@ package com.onebox_comex.service;
 
 import com.onebox_comex.dtos.CategoriaNomeDTO;
 import com.onebox_comex.dtos.VendasCategoriaDTO;
+import com.onebox_comex.enums.StatusCategoriaEnum;
 import com.onebox_comex.repository.CategoriaRepository;
 import com.onebox_comex.entity.Categoria;
 import com.onebox_comex.repository.ItemPedidoRepository;
@@ -39,6 +40,7 @@ public class CategoriaService {
             }
 
             Categoria categoria = modelMapper.map(categoriaNomeDTO, Categoria.class);
+            categoria.setStatus(StatusCategoriaEnum.ATIVA);
             return categoriaRepository.save(categoria);
 
         } catch (Exception categoriaException) {

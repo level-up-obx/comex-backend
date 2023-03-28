@@ -13,7 +13,7 @@ public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Long> {
     @Query("SELECT SUM(ip.quantidade) FROM ItemPedido ip WHERE ip.produto.categoria.id = :categoriaId")
     Long countQuantidadeProdutosPorCategoria(@Param("categoriaId") Long categoriaId);
 
-    @Query("SELECT SUM(ip.quantidade * ip.preco) FROM ItemPedido ip WHERE ip.produto.categoria.id = :categoriaId")
+    @Query("SELECT SUM(ip.quantidade * ip.precoUnitario) FROM ItemPedido ip WHERE ip.produto.categoria.id = :categoriaId")
     BigDecimal sumMontanteVendidoPorCategoria(@Param("categoriaId") Long categoriaId);
 }
 

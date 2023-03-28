@@ -21,7 +21,7 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
-    @PostMapping
+    @PostMapping("/pedido")
     public Pedido criarPedido(@RequestBody @Valid NovoPedidoDTO novoPedidoDTO) {
         return pedidoService.criarPedido(novoPedidoDTO);
     }
