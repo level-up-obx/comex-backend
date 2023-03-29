@@ -2,6 +2,9 @@ package br.com.onebox.app.domain;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "cliente")
 public class Cliente {
@@ -22,11 +25,14 @@ public class Cliente {
     @Column(length = 15, nullable = false)
     private String telefone;
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos = new ArrayList<>();
+
     @Embedded
     private Endereco endereco;
 
     public Cliente(Long id, String primeiroNome, String sobrenome, String cpf, String telefone, Endereco endereco) {
-        this.id = GeradorDeId.proximoId();
+        this.id = id;
         this.primeiroNome = primeiroNome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -35,13 +41,38 @@ public class Cliente {
     }
 
     public Cliente() {
-        this.id = GeradorDeId.proximoId();
 
     }
 
     public Cliente(String nome){
         this.primeiroNome = nome;
     }
+
+    public Cliente(Long id, String primeiroNome, String sobrenome, String cpf, String telefone, List<Pedido> pedidos, Endereco endereco) {
+        this.id = id;
+        this.primeiroNome = primeiroNome;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.pedidos = pedidos;
+        this.endereco = endereco;
+    }
+
+    public Cliente(Long id, String primeiroNome, String cpf, String telefone, Endereco endereco) {
+        this.id = id;
+        this.primeiroNome = primeiroNome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.endereco = endereco;
+    }
+
+    public Cliente(String nome, String cpf, String telefone, Endereco endereco) {
+        this.primeiroNome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.endereco = endereco;
+    }
+
     public Long getId() {
         return id;
     }

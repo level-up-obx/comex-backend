@@ -3,7 +3,6 @@ package br.com.onebox.app.domain;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +11,10 @@ import java.util.List;
 @Table(name = "pedido")
 public class Pedido {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(length = 9, nullable = false)
     private LocalDateTime data;
 
@@ -19,7 +22,7 @@ public class Pedido {
     private List<ItemPedido> itens = new ArrayList<>();
 
     @Column(precision = 15, scale = 2, nullable = false)
-    private BigDecimal desconto;
+    private BigDecimal desconto = BigDecimal.ZERO;
 
     @Enumerated(EnumType.STRING)
     private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
@@ -37,6 +40,19 @@ public class Pedido {
 
     public Pedido(){
 
+    }
+
+    public Pedido(List<ItemPedido> itens, Cliente cliente) {
+        adicionarItens(itens);
+        this.cliente = cliente;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Cliente getCliente() {
@@ -105,5 +121,11 @@ public class Pedido {
     public void adicionarItem(ItemPedido item){
         item.setPedido(this);
         this.itens.add(item);
+    }
+    public void adicionarItens(List<ItemPedido> itens){
+        itens.forEach(item ->{
+            item.setPedido(this);
+            this.itens.add(item);
+        });
     }
 }

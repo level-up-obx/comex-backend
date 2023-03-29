@@ -21,7 +21,7 @@ public class Produto {
     private String descricao;
 
     @Column(name = "preco_unitario", length = 7, nullable = false)
-    private BigDecimal precoUnitario;
+    private BigDecimal precoUnitario = BigDecimal.ZERO;
 
     @Column(name = "quantidade_em_estoque", length = 7, nullable = false)
     private Integer quantidadeEmEstoque;
@@ -105,7 +105,7 @@ public class Produto {
     }
 
     public Produto(Long id, String nome, String descricao, BigDecimal precoUnitario, Integer quantidadeEmEstoque, Categoria categoria) {
-        this.id = GeradorDeId.proximoId();
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         if (precoUnitario.compareTo(BigDecimal.ZERO) <= 0){
@@ -128,9 +128,6 @@ public class Produto {
     }
 
     public Produto(){
-        this.id = GeradorDeId.proximoId();
-        if (precoUnitario.compareTo(BigDecimal.ZERO) <= 0){
-            throw new PrecoInvalidoException("O preço do produto não pode ser menor ou igual a zero");
-        }
+
     }
 }

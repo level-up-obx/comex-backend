@@ -1,9 +1,11 @@
 package br.com.onebox.app.repository;
 
 import br.com.onebox.app.domain.Cliente;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClienteRepository extends CrudRepository<Cliente, Long> {
+import java.util.List;
 
-    public Iterable<Cliente> findAllByName(String nome);
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+
+    public List<Cliente> findAllByPrimeiroNome(String nome);
 }

@@ -1,15 +1,21 @@
 package br.com.onebox.app.domain;
 
+import br.com.onebox.app.api.pedido.ProdutoDoPedidoForm;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @Entity
 @Table(name = "item_pedido")
 public class ItemPedido {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "preco_unitario", precision = 15, scale = 2, nullable = false)
-    private BigDecimal precoUnitario;
+    private BigDecimal precoUnitario = BigDecimal.ZERO;
 
     @Column(length = 7, nullable = false)
     private int quantidade;
@@ -21,12 +27,12 @@ public class ItemPedido {
     private Pedido pedido;
 
     @Column(precision = 15, scale = 2, nullable = false)
-    private BigDecimal desconto;
+    private BigDecimal desconto = BigDecimal.ZERO;
 
     @Enumerated(EnumType.STRING)
     private TipoDescontoProdutoEnum tipoDesconto;
 
-    public ItemPedido() {
+    public ItemPedido(Optional<Produto> produto, ProdutoDoPedidoForm listaProdutos) {
     }
 
     public ItemPedido(int quantidade, Produto produto, Pedido pedido, BigDecimal desconto, TipoDescontoProdutoEnum tipoDesconto) {
@@ -36,6 +42,10 @@ public class ItemPedido {
         this.pedido = pedido;
         this.desconto = desconto;
         this.tipoDesconto = tipoDesconto;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setQuantidade(int quantidade) {
