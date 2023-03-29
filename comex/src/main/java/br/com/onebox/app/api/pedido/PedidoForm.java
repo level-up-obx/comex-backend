@@ -1,9 +1,6 @@
 package br.com.onebox.app.api.pedido;
 
-import br.com.onebox.app.domain.Cliente;
-import br.com.onebox.app.domain.ItemPedido;
-import br.com.onebox.app.domain.Pedido;
-import br.com.onebox.app.domain.Produto;
+import br.com.onebox.app.domain.*;
 import br.com.onebox.app.repository.ClienteRepository;
 import br.com.onebox.app.repository.ProdutoRepository;
 
@@ -13,6 +10,7 @@ import java.util.Optional;
 
 public class PedidoForm {
     private Long clienteId;
+    private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
     private List<ProdutoDoPedidoForm> itens;
 
     public Pedido toEntity(ClienteRepository clienteRepository, ProdutoRepository produtoRepository){
@@ -41,5 +39,13 @@ public class PedidoForm {
 
     public void setItens(List<ProdutoDoPedidoForm> itens) {
         this.itens = itens;
+    }
+
+    public TipoDescontoPedidoEnum getTipoDescontoPedidoEnum() {
+        return tipoDescontoPedidoEnum;
+    }
+
+    public void setTipoDescontoPedidoEnum(TipoDescontoPedidoEnum tipoDescontoPedidoEnum) {
+        this.tipoDescontoPedidoEnum = tipoDescontoPedidoEnum;
     }
 }

@@ -31,14 +31,7 @@ public class PedidoController {
     @PostMapping
     @Transactional
     public ResponseEntity<PedidoDto> cadastrar(@RequestBody @Valid PedidoForm form, UriComponentsBuilder uriComponentsBuilder){
-        form.getItens().stream().forEach(p ->{
-            Integer quantidadeItens = p.getQuantidadeDeItens();
-            if(quantidadeItens >= 10){
-                form.
-            }
-        });
         Pedido pedido = form.toEntity(clienteRepository, produtoRepository);
-        pedido.setData(LocalDateTime.now());
         pedidoRepository.save(pedido);
         URI uri = uriComponentsBuilder.path("/api/pedidos/{id}").buildAndExpand(pedido.getId()).toUri();
         return ResponseEntity.created(uri).body(new PedidoDto(pedido));

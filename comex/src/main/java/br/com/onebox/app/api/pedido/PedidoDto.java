@@ -32,4 +32,57 @@ public class PedidoDto {
         this.totalPedido = pedido.getValorTotal();
         this.itens = new ItemPedidoDto().converter(pedido.getItens());
     }
+    public static List<PedidoDto> converter(List<Pedido> objs) {
+        List<PedidoDto> retorno = new ArrayList<>();
+        objs.forEach(obj -> retorno.add(new PedidoDto(obj)));
+        return retorno;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ClienteDto getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClienteDto cliente) {
+        this.cliente = cliente;
+    }
+
+    public BigDecimal getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(BigDecimal desconto) {
+        this.desconto = desconto;
+    }
+
+    public TipoDescontoPedidoEnum getTipoDescontoPedido() {
+        return tipoDescontoPedido;
+    }
+
+    public void setTipoDescontoPedido(TipoDescontoPedidoEnum tipoDescontoPedido) {
+        this.tipoDescontoPedido = tipoDescontoPedido;
+    }
+
+    public BigDecimal getTotalPedido() {
+        return totalPedido;
+    }
+
+    public void setTotalPedido(BigDecimal totalPedido) {
+        this.totalPedido = totalPedido;
+    }
+
+    public List<ItemPedidoDto> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemPedidoDto> itens) {
+        this.itens = itens;
+    }
 }

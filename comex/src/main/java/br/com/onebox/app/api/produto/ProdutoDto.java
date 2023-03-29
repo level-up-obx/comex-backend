@@ -27,7 +27,7 @@ public class ProdutoDto {
 
     private CategoriaDto categoria;
 
-    public ProdutoDto(Optional<Produto> produto){
+    public ProdutoDto(Produto produto){
         this.id = produto.getId();
         this.nome = produto.getNome();
         this.preco = produto.getPrecoUnitario();
