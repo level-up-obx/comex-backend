@@ -4,90 +4,90 @@ import com.onebox_comex.dtos.CategoriaNomeDTO;
 import com.onebox_comex.dtos.ProdutoDTO;
 import com.onebox_comex.entity.Categoria;
 import com.onebox_comex.entity.Produto;
+import com.onebox_comex.repository.CategoriaRepository;
 import com.onebox_comex.repository.ProdutoRepository;
-import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import java.math.BigDecimal;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
+@Log4j2
 @Service
 public class ProdutoService {
 
     private final ProdutoRepository produtoRepository;
 
-    private ModelMapper modelMapper;
-    public ProdutoService(ProdutoRepository produtoRepository) {
+    private final CategoriaRepository categoriaRepository;
+
+    public ProdutoService(ProdutoRepository produtoRepository, CategoriaRepository categoriaRepository) {
         this.produtoRepository = produtoRepository;
+        this.categoriaRepository = categoriaRepository;
     }
-    public Produto cadastrar (ProdutoDTO produtoDTO) throws Exception {
+
+    public Produto cadastrar(ProdutoDTO produtoDTO) throws Exception {
+        Produto produto = new Produto();
+        produto.setNome(produtoDTO.getNome());
+        produto.setPrecoUnitario(produtoDTO.getPrecoUnitario());
+        produto.setDescricao(produtoDTO.getDescricao());
+        produto.setQuantidadeEmEstoque(produtoDTO.getQuantidadeEmEstoque());
+
+        Categoria categoria = categoriaRepository.findById(produtoDTO.getCategoriaId())
+                .orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
+
+        produto.setCategoria(categoria);
+
+        Optional<Produto> produtoOptional = produtoRepository.findByNome(produtoDTO.getNome());
 
         try{
-          if(produtoDTO.getCategoria() == null){
-              throw new Exception("Produto não pode ser cadastrado pois a categoria indicada é nula");
-          }
-          if(produtoDTO.getCategoria().getId() < 1){
-              throw new Exception("Produto não pode ser cadastrado pois a categoria indicada é negativa");
-          }
-          if(produtoDTO.getCategoria().getNome().isBlank()){
-              throw new Exception("Produto não pode ser cadastrado pois a categoria indicada é vazia");
-          }
-          if(produtoDTO.getNome() == null || produtoDTO.getNome().isBlank()){
-              throw new Exception("O nome deste produto é inválido");
-          }
-          if (produtoDTO.getPrecoUnitario().compareTo(BigDecimal.ZERO) == 0){
-                throw new Exception("O produto está com valor zerado.");
-            }
-          if(produtoDTO.getPrecoUnitario().compareTo(BigDecimal.ZERO) < 0){
-                throw new Exception("O produto está com valor negativo.");
-            }
-
-          Produto produto = modelMapper.map(produtoDTO, Produto.class);
-          return produtoRepository.save(produto);
-
-      } catch (Exception produtoException){
-          System.out.println("Ocorreu o seguinte erro: " + produtoException.getMessage());
-          throw produtoException;
-      }
-
-    }
-    public ProdutoDTO getById(Long id) throws Exception {
-        try{
-            if(id == null){
-                throw new Exception("Este id é nulo");
-            }
-            if(id < 1){
-                throw new Exception("Este id é negativo");
-            }
-            Optional<Produto> produtoOptional = produtoRepository.findById(id);
             if (produtoOptional.isPresent()) {
-                Produto produto = produtoOptional.get();
-                return modelMapper.map(produto, ProdutoDTO.class);
-            } else {
-                throw new Exception("Não foi possível encontrar a categoria com o id informado");
+                throw new Exception("Já existe um produto com este nome");
             }
-        } catch(Exception produtoException){
-            System.out.println("Ocorreu o seguinte erro: " + produtoException.getMessage());
+            return produtoRepository.save(produto);
+        } catch (Exception produtoException) {
+            System.out.println("O erro ocorrido foi: " + produtoException.getMessage());
             throw produtoException;
         }
-    }
-    public List<ProdutoDTO> listarTodos(int pagina) {
-        int itensPorPagina = 5;
-        PageRequest pageRequest = PageRequest.of(pagina - 1, itensPorPagina, Sort.by("nome"));
 
-        Page<Produto> produtos = produtoRepository.findAll(pageRequest);
-        List<ProdutoDTO> produtosDTO = produtos.getContent().stream()
-                .map(produto -> modelMapper.map(produto, ProdutoDTO.class))
-                .collect(Collectors.toList());
-
-        return produtosDTO;
     }
+
+//    public ProdutoDTO getById(Long id) throws Exception {
+//        try {
+//            if (id == null || id < 1) {
+//                throw new Exception("O id do produto é inválido");
+//            }
+//            Optional<Produto> produtoOptional = produtoRepository.findById(id);
+//            if (produtoOptional.isPresent()) {
+//                Produto produto = produtoOptional.get();
+//                return new ProdutoDTO(
+//                );
+//            } else {
+//                throw new Exception("Produto não encontrado");
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Ocorreu o seguinte erro: " + e.getMessage());
+//            throw e;
+//        }
+//    }
+//
+//
+//    public List<ProdutoDTO> listarTodos(int pagina) {
+//    int itensPorPagina = 5;
+//    PageRequest pageRequest = PageRequest.of(pagina - 1, itensPorPagina, Sort.by("nome"));
+//
+//    Page<Produto> produtos = produtoRepository.findAll(pageRequest);
+//    List<ProdutoDTO> produtosDTO = new ArrayList<>();
+//    for (Produto produto : produtos) {
+//        ProdutoDTO produtoDTO = new ProdutoDTO();
+//        produtoDTO.setNome(produto.getNome());
+//        produtoDTO.setDescricao(produto.getDescricao());
+//        produtoDTO.setPrecoUnitario(produto.getPrecoUnitario());
+//        produtoDTO.setQuantidadeEmEstoque(produto.getQuantidadeEmEstoque());
+//        produtoDTO.setCategoriaId(produto.getCategoria().getId());
+//        produtosDTO.add(produtoDTO);
+//    }
+//
+//    return produtosDTO;
+//}
+
 
 }

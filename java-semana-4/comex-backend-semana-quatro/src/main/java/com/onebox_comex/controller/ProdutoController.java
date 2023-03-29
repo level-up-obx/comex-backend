@@ -16,40 +16,40 @@ import java.util.List;
 @RequestMapping("/api/produtos")
 public class ProdutoController {
     private final ProdutoService produtoService;
-    private ModelMapper modelMapper;
 
     public ProdutoController(ProdutoService produtoService) {
         this.produtoService = produtoService;
     }
 
-    @PostMapping("/produto")
+    @PostMapping
     public ResponseEntity<ProdutoDTO> cadastrarProduto(@RequestBody ProdutoDTO produtoDTO) {
         try {
             Produto produto = produtoService.cadastrar(produtoDTO);
-            ProdutoDTO produtoPostDTO = modelMapper.map(produto, ProdutoDTO.class);
+            ProdutoDTO produtoPostDTO = new ProdutoDTO(produto.getNome(), produto.getDescricao(), produto.getPrecoUnitario(), produto.getQuantidadeEmEstoque(), produto.getCategoria().getId());
             return ResponseEntity.ok(produtoPostDTO);
         } catch (Exception postProdutoException) {
+            postProdutoException.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ProdutoDTO> getById(@PathVariable Long id) {
-        try {
-            ProdutoDTO produto = produtoService.getById(id);
-            return ResponseEntity.ok(produto);
-        } catch (Exception getByIdException) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-    }
-    @GetMapping
-    public ResponseEntity<List<ProdutoDTO>> listarTodos(@RequestParam(defaultValue = "1") int pagina) {
-        try {
-            List<ProdutoDTO> produtosDTO = produtoService.listarTodos(pagina);
-            return ResponseEntity.ok(produtosDTO);
-        } catch (Exception listarTodosProdutos) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-    }
+//    @GetMapping("/{id}")
+//    public ResponseEntity<ProdutoDTO> getById(@PathVariable Long id) {
+//        try {
+//            ProdutoDTO produto = produtoService.getById(id);
+//            return ResponseEntity.ok(produto);
+//        } catch (Exception getByIdException) {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//        }
+//    }
+//    @GetMapping
+//    public ResponseEntity<List<ProdutoDTO>> listarTodos(@RequestParam(defaultValue = "1") int pagina) {
+//        try {
+//            List<ProdutoDTO> produtosDTO = produtoService.listarTodos(pagina);
+//            return ResponseEntity.ok(produtosDTO);
+//        } catch (Exception listarTodosProdutos) {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//        }
+//    }
 
 }

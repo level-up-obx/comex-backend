@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -25,6 +26,7 @@ public class Produto {
     @Column(length = 255)
     private String descricao;
     @Column(nullable = false, precision = 10, scale = 2)
+    @Positive
     private BigDecimal precoUnitario;
     @Max(1000)
     @Column(nullable = false)
@@ -33,4 +35,17 @@ public class Produto {
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
 
+    public Produto(String nome, BigDecimal precoUnitario, String descricao, int quantidadeEmEstoque) {
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", precoUnitario=" + precoUnitario +
+                ", quantidadeEmEstoque=" + quantidadeEmEstoque +
+                '}';
+    }
 }

@@ -27,6 +27,7 @@ public class CategoriaController {
             categoriaNomePostDTO.setNome(categoria.getNome());
             return ResponseEntity.ok(categoriaNomePostDTO);
         } catch (Exception postCategoriaException) {
+            postCategoriaException.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
