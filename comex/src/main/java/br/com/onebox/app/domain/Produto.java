@@ -1,5 +1,6 @@
 package br.com.onebox.app.domain;
 
+import br.com.onebox.app.api.produto.ProdutoDto;
 import br.com.onebox.app.exception.PrecoInvalidoException;
 import jakarta.persistence.*;
 
@@ -129,5 +130,9 @@ public class Produto {
 
     public Produto(){
 
+    }
+
+    public ProdutoDto converter(){
+        return new ProdutoDto(this);
     }
 }

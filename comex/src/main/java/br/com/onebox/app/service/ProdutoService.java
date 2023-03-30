@@ -27,6 +27,6 @@ public class ProdutoService {
     }
 
     public ProdutoDto buscarPorId(Long id) {
-        return new ProdutoDto(produtoRepository.findById(id));
+        return new ProdutoDto(produtoRepository.findById(id).orElseThrow());
     }
 }
