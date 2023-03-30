@@ -2,11 +2,9 @@ package com.onebox_comex.service;
 
 import com.onebox_comex.dtos.CategoriaNomeDTO;
 import com.onebox_comex.dtos.VendasCategoriaDTO;
-import com.onebox_comex.enums.StatusCategoriaEnum;
 import com.onebox_comex.repository.CategoriaRepository;
 import com.onebox_comex.entity.Categoria;
 import com.onebox_comex.repository.ItemPedidoRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

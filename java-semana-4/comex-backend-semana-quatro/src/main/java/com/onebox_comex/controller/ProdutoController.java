@@ -33,15 +33,15 @@ public class ProdutoController {
         }
     }
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity<ProdutoDTO> getById(@PathVariable Long id) {
-//        try {
-//            ProdutoDTO produto = produtoService.getById(id);
-//            return ResponseEntity.ok(produto);
-//        } catch (Exception getByIdException) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-//        }
-//    }
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoDTO> getById(@PathVariable Long id) {
+        try {
+            ProdutoDTO produto = produtoService.getById(id);
+            return ResponseEntity.ok(produto);
+        } catch (Exception getByIdException) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
 //    @GetMapping
 //    public ResponseEntity<List<ProdutoDTO>> listarTodos(@RequestParam(defaultValue = "1") int pagina) {
 //        try {
