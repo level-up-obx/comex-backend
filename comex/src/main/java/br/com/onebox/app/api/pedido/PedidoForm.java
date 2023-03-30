@@ -48,4 +48,5 @@ public class PedidoForm {
     public void setTipoDescontoPedidoEnum(TipoDescontoPedidoEnum tipoDescontoPedidoEnum) {
         this.tipoDescontoPedidoEnum = tipoDescontoPedidoEnum;
     }
+
 }

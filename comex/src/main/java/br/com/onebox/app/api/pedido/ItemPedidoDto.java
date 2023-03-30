@@ -62,4 +62,12 @@ public class ItemPedidoDto {
         itens.forEach(item -> lista.add(new ItemPedidoDto(item)));
         return lista;
     }
+    public void converter(ItemPedido itemPedido){
+        this.id = itemPedido.getId();
+        this.produto = itemPedido.getProduto().converter();
+        this.precoUnitario = itemPedido.getPrecoUnitario();
+        this.quantidade = itemPedido.getQuantidade();
+        this.desconto = itemPedido.getDesconto();
+        this.tipoDesconto = itemPedido.getTipoDesconto();
+    }
 }

@@ -1,5 +1,6 @@
 package br.com.onebox.app.domain;
 
+import br.com.onebox.app.api.pedido.ItemPedidoDto;
 import br.com.onebox.app.api.pedido.ProdutoDoPedidoForm;
 import jakarta.persistence.*;
 
@@ -31,6 +32,9 @@ public class ItemPedido {
 
     @Enumerated(EnumType.STRING)
     private TipoDescontoProdutoEnum tipoDesconto;
+
+    public ItemPedido() {
+    }
 
     public ItemPedido(Optional<Produto> produto, ProdutoDoPedidoForm listaProdutos) {
     }
@@ -91,4 +95,18 @@ public class ItemPedido {
     public BigDecimal getTotal(){
         return this.precoUnitario.multiply(new BigDecimal(quantidade)).multiply(desconto);
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setPrecoUnitario(BigDecimal precoUnitario) {
+        this.precoUnitario = precoUnitario;
+    }
+
+    public void setDesconto(BigDecimal desconto) {
+        this.desconto = desconto;
+    }
+
+
 }

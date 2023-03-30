@@ -35,4 +35,12 @@ public class ProdutoDto {
         this.quantidadeEmEstoque = produto.getQuantidadeEmEstoque();
         this.categoria = new CategoriaDto(produto.getCategoria());
     }
+    public void toEntity(Produto produto){
+        this.id = produto.getId();
+        this.nome = produto.getNome();
+        this.preco = produto.getPrecoUnitario();
+        this.descricao = produto.getDescricao();
+        this.quantidadeEmEstoque = produto.getQuantidadeEmEstoque();
+        this.categoria = new CategoriaDto(produto.getCategoria());
+    }
 }

@@ -1,9 +1,11 @@
 package br.com.onebox.app.api.pedido;
 
 import br.com.onebox.app.domain.Pedido;
+import br.com.onebox.app.exception.ProdutoInvalidoException;
 import br.com.onebox.app.repository.ClienteRepository;
 import br.com.onebox.app.repository.PedidoRepository;
 import br.com.onebox.app.repository.ProdutoRepository;
+import br.com.onebox.app.service.PedidoService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +29,15 @@ public class PedidoController {
     ClienteRepository clienteRepository;
     @Autowired
     ProdutoRepository produtoRepository;
+    @Autowired
+    PedidoService pedidoService;
 
     @PostMapping
     @Transactional
-    public ResponseEntity<PedidoDto> cadastrar(@RequestBody @Valid PedidoForm form, UriComponentsBuilder uriComponentsBuilder){
-        Pedido pedido = form.toEntity(clienteRepository, produtoRepository);
-        pedidoRepository.save(pedido);
-        URI uri = uriComponentsBuilder.path("/api/pedidos/{id}").buildAndExpand(pedido.getId()).toUri();
+    public ResponseEntity<PedidoDto> cadastrar(@RequestBody @Valid PedidoForm form, UriComponentsBuilder uriComponentsBuilder) throws ProdutoInvalidoException {
+        pedidoService.cadastrar(form);
+        URI uri = uriComponentsBuilder.path("/api/pedidos/{id}").buildAndExpand(form.getClienteId()).toUri();
+        Pedido pedido = form.toEntity(clienteRepository,produtoRepository);
         return ResponseEntity.created(uri).body(new PedidoDto(pedido));
     }
 }
