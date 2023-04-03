@@ -25,7 +25,7 @@ public class Produto {
     @Column(nullable = false, precision = 10, scale = 2)
     @NotNull(message = "O preço é obrigatório.")
     @DecimalMin(value = "0.01", message = "O preço deve ser positivo.")
-    private BigDecimal precoUnitario;
+    private BigDecimal precoUnitario = BigDecimal.ZERO;
 
     @Column(nullable = false)
     @Max(value = 1000)
@@ -36,7 +36,7 @@ public class Produto {
     private Categoria categoria;
 
     public Produto(Long id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, Categoria categoria) {
-        this.id = ++id;
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         setPrecoUnitario(precoUnitario);

@@ -17,10 +17,10 @@ public class ItemPedido {
     private Produto produto;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pedidos_id", nullable = false)
+
     private Pedido pedido;
 
-    @Column(name = "precoUnitario_itenspedido", precision = 10, scale = 2, nullable = false)
+    @Column(name = "preco_unitario_itenspedido", precision = 10, scale = 2, nullable = false)
     private BigDecimal precoUnitario;
 
     @Column(name = "quantidade_itenspedido", nullable = false)
@@ -117,5 +117,4 @@ public class ItemPedido {
         }
         return total;
     }
-
 }
