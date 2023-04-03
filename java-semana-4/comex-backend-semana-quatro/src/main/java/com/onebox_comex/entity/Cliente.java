@@ -24,8 +24,8 @@ public class Cliente {
     private String cpf;
     @Column(nullable = false, length = 15)
     private String telefone;
-    @OneToMany(mappedBy = "cliente")
-    private List<Pedido> pedido;
+//    @OneToMany(mappedBy = "cliente")
+//    private List<Pedido> pedido;
     @Embedded
     private Endereco endereco;
 

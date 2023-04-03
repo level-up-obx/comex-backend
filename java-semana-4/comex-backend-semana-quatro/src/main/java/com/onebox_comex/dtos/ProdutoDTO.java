@@ -1,15 +1,8 @@
 package com.onebox_comex.dtos;
-
-import com.onebox_comex.entity.Categoria;
-import com.onebox_comex.entity.Produto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
@@ -35,12 +28,5 @@ public class ProdutoDTO {
     private int quantidadeEmEstoque;
 
     private Long categoriaId;
-
-//    public ProdutoDTO(Long id, String nome, BigDecimal precoUnitario) {
-//    }
-
-//    public Produto toEntity() {
-//        return new Produto(nome, precoUnitario, descricao, quantidadeEmEstoque, categoria);
-//    }
 
 }

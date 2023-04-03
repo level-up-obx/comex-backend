@@ -1,16 +1,14 @@
 package com.onebox_comex.controller;
-
-import com.onebox_comex.dtos.CategoriaNomeDTO;
 import com.onebox_comex.dtos.ProdutoDTO;
-import com.onebox_comex.entity.Categoria;
 import com.onebox_comex.entity.Produto;
 import com.onebox_comex.service.ProdutoService;
-import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.data.domain.Pageable;
 
 @RestController
 @RequestMapping("/api/produtos")
@@ -42,14 +40,11 @@ public class ProdutoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
-//    @GetMapping
-//    public ResponseEntity<List<ProdutoDTO>> listarTodos(@RequestParam(defaultValue = "1") int pagina) {
-//        try {
-//            List<ProdutoDTO> produtosDTO = produtoService.listarTodos(pagina);
-//            return ResponseEntity.ok(produtosDTO);
-//        } catch (Exception listarTodosProdutos) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-//        }
-//    }
+
+@GetMapping("/all")
+public Page<ProdutoDTO> listarTodos(@RequestParam(defaultValue = "0") int pagina, @RequestParam(defaultValue = "nome") String ordenacao){
+    Pageable pageable = PageRequest.of(pagina, 5, Sort.by(ordenacao));
+    return produtoService.listarTodos(pageable);
+}
 
 }

@@ -21,9 +21,9 @@ public class ItemPedido {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pedido_id", nullable = false)
-    private Pedido pedido;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "pedido_id", nullable = false)
+//    private Pedido pedido;
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precoUnitario;
     @Column(nullable = false)

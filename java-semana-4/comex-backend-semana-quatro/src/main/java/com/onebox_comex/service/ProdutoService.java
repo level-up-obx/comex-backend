@@ -4,8 +4,9 @@ import com.onebox_comex.entity.Categoria;
 import com.onebox_comex.entity.Produto;
 import com.onebox_comex.repository.CategoriaRepository;
 import com.onebox_comex.repository.ProdutoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -70,25 +71,22 @@ public class ProdutoService {
         }
     }
 
+public Page<ProdutoDTO> listarTodos(Pageable pageable) {
+    Page<Produto> produtos = produtoRepository.findAll(pageable);
 
-//    public List<ProdutoDTO> listarTodos(int pagina) {
-//    int itensPorPagina = 5;
-//    PageRequest pageRequest = PageRequest.of(pagina - 1, itensPorPagina, Sort.by("nome"));
-//
-//    Page<Produto> produtos = produtoRepository.findAll(pageRequest);
-//    List<ProdutoDTO> produtosDTO = new ArrayList<>();
-//    for (Produto produto : produtos) {
-//        ProdutoDTO produtoDTO = new ProdutoDTO();
-//        produtoDTO.setNome(produto.getNome());
-//        produtoDTO.setDescricao(produto.getDescricao());
-//        produtoDTO.setPrecoUnitario(produto.getPrecoUnitario());
-//        produtoDTO.setQuantidadeEmEstoque(produto.getQuantidadeEmEstoque());
-//        produtoDTO.setCategoriaId(produto.getCategoria().getId());
-//        produtosDTO.add(produtoDTO);
-//    }
-//
-//    return produtosDTO;
-//}
+    return produtos.map(produto -> {
+        ProdutoDTO produtoDTO = new ProdutoDTO();
+        produtoDTO.setNome(produto.getNome());
+        produtoDTO.setDescricao(produto.getDescricao());
+        produtoDTO.setPrecoUnitario(produto.getPrecoUnitario());
+        produtoDTO.setQuantidadeEmEstoque(produto.getQuantidadeEmEstoque());
+        produtoDTO.setCategoriaId(produto.getCategoria().getId());
+        return produtoDTO;
+    });
+}
+
+
+
 
 
 }
