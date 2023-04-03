@@ -1,9 +1,9 @@
 package br.com.onebox.app.entity;
 
 import br.com.onebox.app.enums.TipoDescontoPedidoEnum;
-import javax.validation.constraints.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -26,7 +26,6 @@ public class Pedido {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "clientes_id", nullable = false)
     private Cliente cliente;
 
     @NotNull
@@ -43,7 +42,7 @@ public class Pedido {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "tipoDesconto_pedidos", nullable = false, length = 20)
+    @Column(name = "tipo_desconto_pedidos", nullable = false, length = 20)
     private TipoDescontoPedidoEnum tipoDescontoPedido;
 
     @NotNull
@@ -61,6 +60,10 @@ public class Pedido {
     }
 
     public Pedido(Cliente cliente, List<ItemPedido> itens, Date date, BigDecimal valorTotal) {
+    }
+
+    public Pedido() {
+
     }
 
     public void adicionarItem(ItemPedido item) {

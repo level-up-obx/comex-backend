@@ -42,8 +42,25 @@ public class Endereco {
     }
 
     public Endereco() {
-
     }
+
+    public Endereco(String endereco) {
+        String[] partes = endereco.split(",");
+        if (partes.length == 6) {
+            this.rua = partes[0];
+            this.numero = partes[1];
+            this.complemento = partes[2];
+            this.bairro = partes[3];
+            this.cidade = partes[4];
+            this.estado = partes[5];
+        } else {
+            // handle the case where the input string is not in the expected format
+        }
+    }
+
+    public Endereco(Endereco endereco) {
+    }
+
 
     public String getRua() {
         return rua;
