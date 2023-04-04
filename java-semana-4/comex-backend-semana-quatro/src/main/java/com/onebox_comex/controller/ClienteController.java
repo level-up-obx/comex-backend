@@ -3,6 +3,8 @@ package com.onebox_comex.controller;
 import com.onebox_comex.dtos.ClienteDTO;
 import com.onebox_comex.entity.Cliente;
 import com.onebox_comex.service.ClienteService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,8 +17,15 @@ public class ClienteController {
     }
 
     @PostMapping
-    public Cliente cadastrarCliente(@RequestBody ClienteDTO clienteDTO) throws Exception {
-        return clienteService.cadastrarCliente(clienteDTO);
+    public ResponseEntity<ClienteDTO> cadastrarCliente(@RequestBody ClienteDTO clienteDTO)  {
+        try {
+            Cliente cliente = clienteService.cadastrarCliente(clienteDTO);
+            ClienteDTO clientePostDTO = new ClienteDTO(cliente.getPrimeiroNome(), cliente.getSobrenome(), cliente.getCpf(), cliente.getTelefone(), cliente.getRua(), cliente.getNumero(), cliente.getComplemento(), cliente.getBairro(), cliente.getCidade(), cliente.getEstado());
+            return ResponseEntity.ok(clientePostDTO);
+        } catch (Exception postClienteException) {
+            postClienteException.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
 
     @GetMapping("/{id}")

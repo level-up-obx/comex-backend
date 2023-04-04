@@ -20,14 +20,24 @@ public class Cliente {
     private String primeiroNome;
     @Column(nullable = false, length = 50)
     private String sobrenome;
-    @Column(nullable = false, length = 11)
+    @Column(length = 14)
     private String cpf;
     @Column(nullable = false, length = 15)
     private String telefone;
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedido;
-    @Embedded
-    private Endereco endereco;
+    @Column(nullable = false, length = 100)
+    private String rua;
+    @Column(nullable = false, length = 10)
+    private String numero;
+    @Column(length = 100)
+    private String complemento;
+    @Column(nullable = false, length = 100)
+    private String bairro;
+    @Column(nullable = false, length = 50)
+    private String cidade;
+    @Column(nullable = false, length = 2)
+    private String estado;
     public Cliente(String cpf) {
         this.cpf = cpf;
     }

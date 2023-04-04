@@ -1,9 +1,9 @@
 package com.onebox_comex.service;
 
 import com.onebox_comex.dtos.ClienteDTO;
-import com.onebox_comex.dtos.EnderecoDTO;
 import com.onebox_comex.entity.Cliente;
 import com.onebox_comex.repository.ClienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.regex.Matcher;
@@ -11,8 +11,8 @@ import java.util.regex.Pattern;
 @Service
 public class ClienteService {
 
+    @Autowired
     private ClienteRepository clienteRepository;
-
     private static final String REGEX_CPF = "^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$";
     private static final Pattern PATTERN_CPF = Pattern.compile(REGEX_CPF);
 
@@ -31,21 +31,33 @@ public class ClienteService {
         }
 
     }
-        public Cliente cadastrarCliente(ClienteDTO clienteDTO) throws Exception  {
-            Optional<Cliente> clienteOptional = clienteRepository.findByCpf(clienteDTO.getCpf());
-        try{
+    public Cliente cadastrarCliente(ClienteDTO clienteDTO) throws Exception {
+        Cliente cliente = new Cliente();
+        cliente.setPrimeiroNome(clienteDTO.getPrimeiroNome());
+        cliente.setSobrenome(clienteDTO.getSobrenome());
+        cliente.setCpf(clienteDTO.getCpf());
+        cliente.setTelefone(clienteDTO.getTelefone());
+        cliente.setRua(clienteDTO.getRua());
+        cliente.setNumero(clienteDTO.getNumero());
+        cliente.setComplemento(clienteDTO.getComplemento());
+        cliente.setBairro(clienteDTO.getBairro());
+        cliente.setCidade(clienteDTO.getCidade());
+        cliente.setEstado(clienteDTO.getEstado());
+
+        Optional<Cliente> clienteOptional = clienteRepository.findByCpf(clienteDTO.getCpf());
+        try {
             validarCpf(clienteDTO.getCpf());
-            if(clienteOptional.isPresent()) {
+            if (clienteOptional.isPresent()) {
                 throw new Exception("Já existe um CPF com este número");
             }
-            Cliente cliente = new Cliente(clienteDTO.getCpf());
+
             return clienteRepository.save(cliente);
-        } catch (Exception cadastroClienteException){
+        } catch (Exception cadastroClienteException) {
             System.out.println("O erro ocorrido foi: " + cadastroClienteException.getMessage());
             throw cadastroClienteException;
         }
+    }
 
-        }
 
     public ClienteDTO getById(Long id) throws Exception {
         try {
@@ -60,16 +72,13 @@ public class ClienteService {
                 clienteDTO.setSobrenome(cliente.getSobrenome());
                 clienteDTO.setCpf(cliente.getCpf());
                 clienteDTO.setTelefone(cliente.getTelefone());
+                clienteDTO.setRua(cliente.getRua());
+                clienteDTO.setNumero(cliente.getNumero());
+                clienteDTO.setComplemento(cliente.getComplemento());
+                clienteDTO.setBairro(cliente.getBairro());
+                clienteDTO.setCidade(cliente.getCidade());
+                clienteDTO.setEstado(cliente.getEstado());
 
-                EnderecoDTO enderecoDTO = new EnderecoDTO();
-                enderecoDTO.setRua(cliente.getEndereco().getRua());
-                enderecoDTO.setNumero(cliente.getEndereco().getNumero());
-                enderecoDTO.setComplemento(cliente.getEndereco().getComplemento());
-                enderecoDTO.setBairro(cliente.getEndereco().getBairro());
-                enderecoDTO.setCidade(cliente.getEndereco().getCidade());
-                enderecoDTO.setEstado(cliente.getEndereco().getEstado());
-
-                clienteDTO.setEndereco(enderecoDTO);
                 return clienteDTO;
             } else {
                 throw new Exception("Cliente não encontrado");
