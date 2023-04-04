@@ -6,6 +6,15 @@ public class ClienteDTO {
     private String primeiroNome;
     private String sobrenome;
     private String cpf;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     private String telefone;
     private Endereco endereco;
 
@@ -19,9 +28,6 @@ public class ClienteDTO {
     public ClienteDTO() {
     }
 
-    public ClienteDTO(Long id) {
-        this.id = id;
-    }
     public String getSobrenome() {
         return sobrenome;
     }
