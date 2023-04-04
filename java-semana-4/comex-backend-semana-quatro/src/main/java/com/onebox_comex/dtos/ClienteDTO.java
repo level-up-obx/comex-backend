@@ -1,21 +1,13 @@
-package com.onebox_comex.entity;
-
+package com.onebox_comex.dtos;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import javax.persistence.Column;
 
-import javax.persistence.*;
-import java.util.List;
-
-@Entity
-@Table(name = "cliente")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cliente {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class ClienteDTO {
     @Column(nullable = false, length = 50)
     private String primeiroNome;
     @Column(nullable = false, length = 50)
@@ -24,12 +16,5 @@ public class Cliente {
     private String cpf;
     @Column(nullable = false, length = 15)
     private String telefone;
-    @OneToMany(mappedBy = "cliente")
-    private List<Pedido> pedido;
-    @Embedded
-    private Endereco endereco;
-    public Cliente(String cpf) {
-        this.cpf = cpf;
-    }
-
+    private EnderecoDTO endereco;
 }

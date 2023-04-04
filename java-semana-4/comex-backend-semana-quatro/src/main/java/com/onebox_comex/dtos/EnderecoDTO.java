@@ -1,17 +1,15 @@
-package com.onebox_comex.entity;
+package com.onebox_comex.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 
-@Embeddable
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Endereco {
+public class EnderecoDTO {
     @Column(nullable = false, length = 100)
     private String rua;
     @Column(nullable = false, length = 10)
@@ -24,5 +22,4 @@ public class Endereco {
     private String cidade;
     @Column(nullable = false, length = 2)
     private String estado;
-
 }
