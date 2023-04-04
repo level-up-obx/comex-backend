@@ -3,7 +3,6 @@ package com.onebox_comex.service;
 import com.onebox_comex.dtos.ClienteDTO;
 import com.onebox_comex.dtos.EnderecoDTO;
 import com.onebox_comex.entity.Cliente;
-import com.onebox_comex.entity.Produto;
 import com.onebox_comex.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
