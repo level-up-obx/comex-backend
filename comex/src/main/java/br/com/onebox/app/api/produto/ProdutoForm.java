@@ -2,6 +2,7 @@ package br.com.onebox.app.api.produto;
 
 import br.com.onebox.app.api.categoria.CategoriaDto;
 import br.com.onebox.app.domain.Produto;
+import br.com.onebox.app.repository.CategoriaRepository;
 
 import java.math.BigDecimal;
 
@@ -14,8 +15,8 @@ public class ProdutoForm {
     private Integer quantidadeEmEstoque;
     private CategoriaDto categoria;
 
-    public Produto toEntity(){
-        return new Produto(id, nome, preco ,quantidadeEmEstoque, categoria.converter());
+    public Produto toEntity(CategoriaRepository categoriaRepository){
+        return new Produto(id, nome, preco ,quantidadeEmEstoque, categoria.converter(categoriaRepository));
     }
 
     public Long getId() {

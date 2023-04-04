@@ -1,6 +1,7 @@
 package br.com.onebox.app.api.categoria;
 
 import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.repository.CategoriaRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,12 +29,12 @@ import java.util.List;
             this.status = status;
         }
 
-        public static Categoria converter(CategoriaDto categoriaDto) {
+        public Categoria toEntity(CategoriaDto categoriaDto) {
             return new Categoria(categoriaDto.getId(), categoriaDto.getNome(), categoriaDto.getStatus());
         }
 
-        public Categoria converter() {
-            return new Categoria(id, nome, status);
+        public Categoria converter(CategoriaRepository categoriaRepository) {
+            return categoriaRepository.findById(this.id).get();
         }
 
         public static CategoriaDto converter(Categoria obj) {

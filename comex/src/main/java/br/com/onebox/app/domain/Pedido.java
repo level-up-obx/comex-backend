@@ -45,6 +45,7 @@ public class Pedido {
     public Pedido(List<ItemPedido> itens, Cliente cliente) {
         adicionarItens(itens);
         this.cliente = cliente;
+        this.data = LocalDateTime.now();
     }
 
     public Long getId() {

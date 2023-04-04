@@ -70,4 +70,28 @@ public class ItemPedidoDto {
         this.desconto = itemPedido.getDesconto();
         this.tipoDesconto = itemPedido.getTipoDesconto();
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setProduto(ProdutoDto produto) {
+        this.produto = produto;
+    }
+
+    public void setPrecoUnitario(BigDecimal precoUnitario) {
+        this.precoUnitario = precoUnitario;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setDesconto(BigDecimal desconto) {
+        this.desconto = desconto;
+    }
+
+    public void setTipoDesconto(TipoDescontoProdutoEnum tipoDesconto) {
+        this.tipoDesconto = tipoDesconto;
+    }
 }

@@ -36,7 +36,9 @@ public class ItemPedido {
     public ItemPedido() {
     }
 
-    public ItemPedido(Optional<Produto> produto, ProdutoDoPedidoForm listaProdutos) {
+    public ItemPedido(Produto produto, Integer quantidade) {
+        this.produto = produto;
+        this.quantidade = quantidade;
     }
 
     public ItemPedido(int quantidade, Produto produto, Pedido pedido, BigDecimal desconto, TipoDescontoProdutoEnum tipoDesconto) {

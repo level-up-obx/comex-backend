@@ -15,14 +15,14 @@ public class PedidoForm {
 
     public Pedido toEntity(ClienteRepository clienteRepository, ProdutoRepository produtoRepository){
 
-        Optional<Cliente> cliente = clienteRepository.findById(clienteId);
+        Cliente cliente = clienteRepository.findById(clienteId).get();
         List<ItemPedido> itensPedido = new ArrayList<>();
 
         itens.forEach(listaProdutos -> {
-            Optional<Produto> produto = produtoRepository.findById(listaProdutos.getId());
-            itensPedido.add(new ItemPedido(produto, listaProdutos));
+            Produto produto = produtoRepository.findById(listaProdutos.getId()).get();
+            itensPedido.add(new ItemPedido(produto, listaProdutos.getQuantidadeDeItens()));
         });
-        return new Pedido(itensPedido, cliente.get());
+        return new Pedido(itensPedido, cliente);
     }
 
     public Long getClienteId() {
