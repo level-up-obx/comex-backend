@@ -29,7 +29,30 @@ public class ItemPedido {
     @Column(name = "desconto", precision = 10, scale = 2, nullable = false)
     private BigDecimal desconto;
 
-    public ItemPedido(Produto produto, int quantidade) {
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_desconto", nullable = false)
+    private TipoDescontoProdutoEnum tipoDesconto;
+
+    public ItemPedido() {
+    }
+
+    public ItemPedido(Produto produto, int quantidade, BigDecimal precoUnitario, TipoDescontoProdutoEnum tipoDesconto) {
+        this.produto = produto;
+        this.quantidade = quantidade;
+        this.precoUnitario = precoUnitario;
+        this.tipoDesconto = tipoDesconto;
+        this.desconto = calcularDesconto();
+    }
+
+    private BigDecimal calcularDesconto() {
+        switch (tipoDesconto) {
+            case PROMOCAO:
+                return produto.getPrecoUnitario().multiply(BigDecimal.valueOf(0.1));
+            case QUANTIDADE:
+                return produto.getPrecoUnitario().multiply(BigDecimal.valueOf(0.2));
+            default:
+                return BigDecimal.ZERO;
+        }
     }
 
     public Long getId() {
@@ -40,45 +63,12 @@ public class ItemPedido {
         this.id = id;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
-
-    public void setPrecoUnitario(BigDecimal precoUnitario) {
-        this.precoUnitario = precoUnitario;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public void setDesconto(BigDecimal desconto) {
-        this.desconto = desconto;
-    }
-
-    public void setTipoDesconto(TipoDescontoProdutoEnum tipoDesconto) {
-        this.tipoDesconto = tipoDesconto;
-    }
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_desconto", nullable = false)
-    private TipoDescontoProdutoEnum tipoDesconto;
-
-    public ItemPedido(Produto produto, Pedido pedido, BigDecimal precoUnitario, int quantidade, BigDecimal desconto, TipoDescontoProdutoEnum tipoDesconto) {
-        this.produto = produto;
-        this.pedido = pedido;
-        this.precoUnitario = precoUnitario;
-        this.quantidade = quantidade;
-        this.desconto = desconto;
-        this.tipoDesconto = tipoDesconto;
-    }
-
-    public ItemPedido() {
-
-    }
-
     public Produto getProduto() {
         return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     public Pedido getPedido() {
@@ -93,28 +83,43 @@ public class ItemPedido {
         return precoUnitario;
     }
 
+    public void setPrecoUnitario(BigDecimal precoUnitario) {
+        this.precoUnitario = precoUnitario;
+    }
+
     public int getQuantidade() {
         return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public BigDecimal getDesconto() {
         return desconto;
     }
 
+    public void setDesconto(BigDecimal desconto) {
+        this.desconto = desconto;
+    }
+
     public TipoDescontoProdutoEnum getTipoDesconto() {
         return tipoDesconto;
     }
 
-    public BigDecimal getTotal() {
-        BigDecimal total = precoUnitario.multiply(BigDecimal.valueOf(quantidade));
-        if (desconto != null && tipoDesconto != null) {
-            if (tipoDesconto.equals(TipoDescontoProdutoEnum.QUANTIDADE)) {
-                total = total.subtract(desconto.multiply(BigDecimal.valueOf(quantidade)));
+    public void setTipoDesconto(TipoDescontoProdutoEnum tipoDesconto) {
+        this.tipoDesconto = tipoDesconto;
+    }
 
-            } else if (tipoDesconto.equals(TipoDescontoProdutoEnum.PROMOCAO)) {
-                total = total.subtract(desconto);
-            }
-        }
-        return total;
+    @Override
+    public String toString() {
+        return "ItemPedido{" +
+                "id=" + id +
+                ", produto=" + produto +
+                ", precoUnitario=" + precoUnitario +
+                ", quantidade=" + quantidade +
+                ", desconto=" + desconto +
+                ", tipoDesconto=" + tipoDesconto +
+                '}';
     }
 }

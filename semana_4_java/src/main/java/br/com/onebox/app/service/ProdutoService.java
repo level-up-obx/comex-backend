@@ -1,13 +1,21 @@
 package br.com.onebox.app.service;
 
+import br.com.onebox.app.dtos.ProdutoDTO;
+import br.com.onebox.app.entity.Categoria;
 import br.com.onebox.app.exceptions.PrecoInvalidoException;
 import br.com.onebox.app.entity.Produto;
+import br.com.onebox.app.repositories.CategoriaRepository;
 import br.com.onebox.app.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ProdutoService {
@@ -16,20 +24,71 @@ public class ProdutoService {
     private final ProdutoRepository produtoRepository;
 
     @Autowired
+    private CategoriaRepository categoriaRepository;
+
+    @Autowired
     public ProdutoService(ProdutoRepository produtoRepository) {
         this.produtoRepository = produtoRepository;
     }
 
-    public void cadastrar(Produto novoProduto) throws PrecoInvalidoException {
-        if (novoProduto == null) {
-            throw new PrecoInvalidoException("Produto não pode ser NULO.");
-        }
-        if (novoProduto.getNome() == null || novoProduto.getNome().trim().isEmpty()) {
-            throw new PrecoInvalidoException("Nome não pode ser VAZIO ou NULO.");
-        }
-        if (novoProduto.getPrecoUnitario() == null || novoProduto.getPrecoUnitario().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new PrecoInvalidoException("Preço inválido! O Preço deve ser maior que zero.");
-        }
-        produtoRepository.save(novoProduto);
+    public ProdutoDTO cadastrarProduto(ProdutoDTO produtoDTO) {
+        Categoria categoria = categoriaRepository.findById(produtoDTO.getIdCategoria())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria Inválida"));
+
+        Produto produto = new Produto();
+        produto.setNome(produtoDTO.getNome());
+        produto.setPrecoUnitario(produtoDTO.getPrecoUnitario());
+        produto.setDescricao(produtoDTO.getDescricao());
+        produto.setQuantidadeEstoque(produtoDTO.getQuantidadeEstoque());
+        produto.setCategoria(categoria);
+
+        produtoRepository.save(produto);
+
+        ProdutoDTO novoProdutoDTO = new ProdutoDTO();
+        novoProdutoDTO.setNome(produto.getNome());
+        novoProdutoDTO.setPrecoUnitario(produto.getPrecoUnitario());
+        novoProdutoDTO.setDescricao(produto.getDescricao());
+        novoProdutoDTO.setQuantidadeEstoque(produto.getQuantidadeEstoque());
+        novoProdutoDTO.setIdCategoria(produto.getCategoria().getId());
+        novoProdutoDTO.setCategoriaNome(produto.getCategoria().getNome());
+
+        return novoProdutoDTO;
     }
+
+
+    public Page<ProdutoDTO> listarProdutos(int pagina) {
+        Pageable pageable = PageRequest.of(pagina, 5, Sort.by("nome"));
+        Page<Produto> produtos = produtoRepository.findAll(pageable);
+
+        List<ProdutoDTO> produtosDTO = new ArrayList<>();
+        for (Produto produto : produtos) {
+            ProdutoDTO produtoDTO = new ProdutoDTO();
+            produtoDTO.setNome(produto.getNome());
+            produtoDTO.setPrecoUnitario(produto.getPrecoUnitario());
+            produtoDTO.setDescricao(produto.getDescricao());
+            produtoDTO.setQuantidadeEstoque(produto.getQuantidadeEstoque());
+            produtoDTO.setIdCategoria(produto.getCategoria().getId());
+            produtoDTO.setCategoriaNome(produto.getCategoria().getNome());
+            produtosDTO.add(produtoDTO);
+        }
+
+        return new PageImpl<>(produtosDTO, pageable, produtos.getTotalElements());
+    }
+
+    public ProdutoDTO buscarProdutoPorId(Long id) {
+        Produto produto = produtoRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto não encontrado"));
+
+        ProdutoDTO produtoDTO = new ProdutoDTO();
+        produtoDTO.setNome(produto.getNome());
+        produtoDTO.setPrecoUnitario(produto.getPrecoUnitario());
+        produtoDTO.setDescricao(produto.getDescricao());
+        produtoDTO.setQuantidadeEstoque(produto.getQuantidadeEstoque());
+        produtoDTO.setIdCategoria(produto.getCategoria().getId());
+        produtoDTO.setCategoriaNome(produto.getCategoria().getNome());
+
+        return produtoDTO;
+    }
+
 }
+

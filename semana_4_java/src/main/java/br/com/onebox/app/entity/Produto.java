@@ -35,7 +35,7 @@ public class Produto {
     @ManyToOne
     private Categoria categoria;
 
-    public Produto(Long id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, Categoria categoria) {
+    public Produto(Long id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEstoque, Categoria categoria) throws PrecoInvalidoException {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -76,7 +76,7 @@ public class Produto {
     }
 
     public void setPrecoUnitario(BigDecimal precoUnitario) throws PrecoInvalidoException {
-        if (precoUnitario.compareTo(BigDecimal.ZERO) <= 0) {
+        if (precoUnitario == null || precoUnitario.compareTo(BigDecimal.ZERO) <= 0) {
             throw new PrecoInvalidoException("Preço inválido! O Preço deve ser maior que zero.");
         }
         this.precoUnitario = precoUnitario;
@@ -109,14 +109,13 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto" +
-                "\n" + "Id:" + id +
-                "\n" + " Nome:'" + nome +
-                "\n" + " Descricao='" + descricao +
-                "\n" + " Preco Unitario=" + precoUnitario +
-                "\n" + " Quantidade em Estoque=" + quantidadeEstoque +
-                "\n" + " Categoria=" + categoria;
-
+        return "Produto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", precoUnitario=" + precoUnitario +
+                ", quantidadeEstoque=" + quantidadeEstoque +
+                ", categoria=" + categoria +
+                '}';
     }
 }
-

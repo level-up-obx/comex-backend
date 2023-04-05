@@ -18,12 +18,12 @@ public class PedidoDTO {
     public PedidoDTO() {
     }
 
-    public PedidoDTO(LocalDate dataPedido, List<ItemPedidoDTO> itens, ClienteDTO cliente, BigDecimal preco, TipoDescontoPedidoEnum descontoPedidoEnum) {
+    public PedidoDTO(LocalDate dataPedido, List<ItemPedidoDTO> itens, ClienteDTO cliente, BigDecimal preco, TipoDescontoPedidoEnum tipoDescontoPedido) {
         this.dataPedido = dataPedido;
         this.itens = itens;
         this.cliente = cliente;
         this.preco = preco;
-        this.tipoDescontoPedido = descontoPedidoEnum;
+        this.tipoDescontoPedido = tipoDescontoPedido;
     }
 
     public LocalDate getDataPedido() {
