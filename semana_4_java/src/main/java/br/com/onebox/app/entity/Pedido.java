@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 @Entity
 @Table(name = "pedidos")
 public class Pedido {
@@ -20,63 +19,43 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Column(name = "data_pedidos", nullable = false)
-    private LocalDate data;
 
-    @NotNull
+    @Column(name = "data_pedidos", nullable = false)
+    private LocalDate dataPedidos;
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
 
-    @NotNull
-    @Column(name = "desconto_pedidos", nullable = false, precision = 10, scale = 2)
-    private BigDecimal desconto;
 
-    @NotNull
     @Column(name = "preco_pedidos", nullable = false, precision = 10, scale = 2)
     private BigDecimal preco;
 
-    @NotNull
+
     @Column(name = "quantidade_pedidos", nullable = false, length = 100)
     private int quantidade;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_desconto_pedidos", nullable = false, length = 20)
+    @Column(name = "tipo_desconto_pedidos",  length = 20)
     private TipoDescontoPedidoEnum tipoDescontoPedido;
 
-    @NotNull
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens = new ArrayList<>();
 
-
-
-
-    public Pedido(Cliente cliente, BigDecimal preco, int quantidade, LocalDate data) {
-        this.cliente = cliente;
-        this.preco = preco;
-        this.quantidade = quantidade;
-        this.data = data;
-    }
-
-    public Pedido(Cliente cliente, List<ItemPedido> itens, Date date, BigDecimal valorTotal) {
-    }
-
-    public Pedido() {
-
-    }
-
-    public void adicionarItem(ItemPedido item) {
-        item.setPedido(this);
-        this.itens.add(item);
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getId() {
-        return id;
+    public LocalDate getDataPedidos() {
+        return dataPedidos;
+    }
+
+    public void setDataPedidos(LocalDate dataPedidos) {
+        this.dataPedidos = dataPedidos;
     }
 
     public Cliente getCliente() {
@@ -103,12 +82,36 @@ public class Pedido {
         this.quantidade = quantidade;
     }
 
-    public LocalDate getData() {
-        return data;
+    public TipoDescontoPedidoEnum getTipoDescontoPedido() {
+        return tipoDescontoPedido;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setTipoDescontoPedido(TipoDescontoPedidoEnum tipoDescontoPedido) {
+        this.tipoDescontoPedido = tipoDescontoPedido;
+    }
+
+    public List<ItemPedido> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemPedido> itens) {
+        this.itens = itens;
+    }
+
+    public Pedido(Cliente cliente, BigDecimal preco, int quantidade, LocalDate data) {
+        this.cliente = cliente;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.dataPedidos = data;
+    }
+
+
+    public Pedido() {
+        this.itens = new ArrayList<>();
+    }
+    public void adicionarItem(ItemPedido item) {
+        item.setPedido(this);
+        this.itens.add(item);
     }
 
 
@@ -130,7 +133,7 @@ public class Pedido {
                 "\n" + " Cliente:" + cliente.getPrimeiroNome() +
                 "\n" + " Preco:" + preco +
                 "\n" + " Valor Total:" + getValorTotal() +
-                "\n" + " Data:" + data + "\n";
+                "\n" + " Data:" + dataPedidos + "\n";
     }
 
 }

@@ -7,6 +7,7 @@ import br.com.onebox.app.entity.ItemPedido;
 import br.com.onebox.app.entity.Pedido;
 import br.com.onebox.app.entity.Produto;
 
+import br.com.onebox.app.exceptions.CPFInvalidoException;
 import br.com.onebox.app.exceptions.IdNaoEncontradoException;
 
 import br.com.onebox.app.repositories.ClienteRepository;
@@ -22,6 +23,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,24 +39,28 @@ public class PedidoService {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    @Autowired
+    private ClienteService clienteService;
+
+
     @Transactional
     public Pedido criarPedido(PedidoDTO pedidoDTO) {
-        //Cria um Cliente e salva no banco de dados
-        Cliente cliente = new Cliente(pedidoDTO.getCliente());
-        clienteRepository.save(cliente);
+        // Busca o cliente no banco de dados ou cria um novo
+        Cliente cliente = clienteRepository.findById(pedidoDTO.getCliente().getId()).orElse(null);
+        if (cliente == null) {
+            ClienteService clienteService = new ClienteService();
+            clienteService.cadastrar(new Cliente());
+        }
+        Pedido novoPedido = new Pedido();
+        novoPedido.setCliente(cliente);
 
-        Pedido pedido = new Pedido();
-        pedido.setCliente(cliente);
-        pedido.setData(pedidoDTO.getDataPedido());
-
+        novoPedido.setDataPedidos(pedidoDTO.getDataPedido());
         List<ItemPedido> itens = new ArrayList<>();
-
         if (pedidoDTO.getItens() == null || pedidoDTO.getItens().isEmpty()) {
             throw new IllegalArgumentException("O pedido deve ter pelo menos um item");
         }
-
         for (ItemPedidoDTO itemDTO : pedidoDTO.getItens()) {
-            Produto produto = produtoRepository.findById(itemDTO.getProdutoId())
+            Produto produto = produtoRepository.findById(itemDTO.getIdProduto())
                     .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
 
             ItemPedido itemPedido = new ItemPedido();
@@ -62,19 +69,18 @@ public class PedidoService {
             itemPedido.setPrecoUnitario(produto.getPrecoUnitario());
 
             itens.add(itemPedido);
-            pedido.adicionarItem(itemPedido);
+            novoPedido.setPreco(pedidoDTO.getPreco());
+            novoPedido.adicionarItem(itemPedido);
         }
 
-        pedidoDTO.setItens(ItemPedidoDTO.converter(itens));
-        itens.forEach(pedido::adicionarItem);
+        itens.forEach(novoPedido::adicionarItem);
 
-        Pedido pedidoFinal = new Pedido();
-        BeanUtils.copyProperties(pedido, pedidoFinal);
+        pedidoRepository.save(novoPedido);
 
-        pedidoRepository.save(pedidoFinal);
-
-        return pedidoFinal;
+        return novoPedido;
     }
+
+
 
     public List<Pedido> listarPedidos() {
         return pedidoRepository.findAll();

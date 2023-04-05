@@ -62,6 +62,21 @@ public class ProdutoController {
 
         return new PageImpl<>(produtosDTO, pageable, produtos.getTotalElements());
     }
+    @GetMapping("/{id}")
+    public ProdutoDTO buscarProdutoPorId(@PathVariable Long id) {
+        Produto produto = produtoRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto não encontrado"));
+
+        ProdutoDTO produtoDTO = new ProdutoDTO();
+        produtoDTO.setNome(produto.getNome());
+        produtoDTO.setPrecoUnitario(produto.getPrecoUnitario());
+        produtoDTO.setDescricao(produto.getDescricao());
+        produtoDTO.setQuantidadeEstoque(produto.getQuantidadeEstoque());
+        produtoDTO.setIdCategoria(produto.getCategoria().getId());
+        produtoDTO.setCategoriaNome(produto.getCategoria().getNome());
+
+        return produtoDTO;
+    }
 
 
 }

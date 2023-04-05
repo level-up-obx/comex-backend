@@ -15,22 +15,18 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("api/clientes")
 public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<ClienteDTO> cadastrar(@RequestBody ClienteDTO clienteDTO) {
-        try {
-            Cliente cliente = new Cliente(clienteDTO);
-            clienteService.cadastrar(cliente);
-            return ResponseEntity.status(HttpStatus.CREATED).body(clienteDTO);
-        } catch (CPFInvalidoException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+    public ResponseEntity<Cliente> cadastrar(@RequestBody Cliente cliente) {
+        clienteService.cadastrar(cliente);
+        return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
     }
+
 
     @GetMapping("/todos")
     public ResponseEntity<List<Cliente>> listarClientes() {

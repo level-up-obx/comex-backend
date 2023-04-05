@@ -21,12 +21,17 @@ public class ClienteService {
 
     private List<Cliente> clientes = new ArrayList<>();
 
-    public void cadastrar(Cliente clienteNovo) throws CPFInvalidoException {
-        if (!validarCPF(clienteNovo.getCpf())) {
+    public void cadastrar(Cliente novoCliente) throws CPFInvalidoException {
+        if (!validarCPF(novoCliente.getCpf())) {
             throw new CPFInvalidoException("CPF INVALIDO!");
         }
-        clientes.add(clienteNovo);
+        if (novoCliente.getPedidos() == null) {
+            int quantidadePedidos = 0;
+        }
+        clienteRepository.save(novoCliente);
     }
+
+
     private boolean validarCPF(String cpf) {
         if (cpf == null || cpf.length() != 11) {
             return false;

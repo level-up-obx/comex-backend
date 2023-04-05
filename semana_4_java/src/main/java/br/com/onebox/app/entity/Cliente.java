@@ -4,6 +4,7 @@ import br.com.onebox.app.dtos.ClienteDTO;
 import br.com.onebox.app.enums.TipoDescontoPedidoEnum;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,9 +27,7 @@ public class Cliente {
     private String telefone;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private List<Pedido> pedidos;
-
-
+    private List<Pedido> pedidos = new ArrayList<>();
 
     @Embedded
     public Endereco endereco;
@@ -44,6 +43,7 @@ public class Cliente {
         this.cpf = clienteDTO.getCpf();
         this.telefone = clienteDTO.getTelefone();
         this.endereco = clienteDTO.getEndereco();
+        this.id = clienteDTO.getId();
     }
 
     public Cliente(String primeiroNome) {
@@ -89,9 +89,6 @@ public class Cliente {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 
     public String getTelefone() {
         return telefone;
@@ -101,9 +98,6 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
 
     public Endereco getEndereco() {
         return endereco;
@@ -113,9 +107,7 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public void addPedido(Pedido pedido) {
-        pedidos.add(pedido);
-    }
+
     public List<Pedido> getPedidos() {
         return this.pedidos;
     }

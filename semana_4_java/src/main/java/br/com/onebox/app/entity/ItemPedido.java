@@ -16,8 +16,8 @@ public class ItemPedido {
     @JoinColumn(name = "produtos_id", nullable = false)
     private Produto produto;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-
+    @ManyToOne
+    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
     @Column(name = "preco_unitario_itenspedido", precision = 10, scale = 2, nullable = false)

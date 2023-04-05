@@ -19,15 +19,31 @@ public class ItemPedidoDTO {
     private Integer quantidade;
     private Produto produto;
 
-    public static List<ItemPedidoDTO> converter(List<ItemPedido> itens) {
-        return itens.stream().map(ItemPedidoDTO::new).collect(Collectors.toList());
-    }
-    public ItemPedidoDTO(ItemPedido itemPedido) {
-        this.idProduto = itemPedido.getProduto().getId();
-        this.quantidade = itemPedido.getQuantidade();
+    public ItemPedidoDTO(Pedido pedido, Long idProduto, Integer quantidade, Produto produto) {
+        this.pedido = pedido;
+        this.idProduto = idProduto;
+        this.quantidade = quantidade;
+        this.produto = produto;
     }
 
+    public ItemPedidoDTO() {
+    }
 
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    public Long getIdProduto() {
+        return idProduto;
+    }
+
+    public void setIdProduto(Long idProduto) {
+        this.idProduto = idProduto;
+    }
 
     public Integer getQuantidade() {
         return quantidade;
@@ -44,8 +60,5 @@ public class ItemPedidoDTO {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-
-    public Long getProdutoId() {
-        return idProduto;
-    }
 }
+

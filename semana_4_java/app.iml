@@ -13,7 +13,7 @@
         <datasource-mapping>
           <factory-entry name="App" />
           <factory-entry name="app" value="1e56b023-35cd-4abd-ad48-54a3424f6c56" />
-          <factory-entry name="entityManagerFactory" value="1e56b023-35cd-4abd-ad48-54a3424f6c56" />
+          <factory-entry name="entityManagerFactory" value="5e8d189c-636b-4328-8161-651952db9867" />
           <factory-entry name="loja" />
           <factory-entry name="semana_4_java" />
           <factory-entry name="vendas" />
