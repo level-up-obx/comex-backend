@@ -1,4 +1,5 @@
 package com.onebox_comex.dtos;
+import com.onebox_comex.entity.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,24 +9,43 @@ import javax.persistence.Column;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClienteDTO {
-    @Column(nullable = false, length = 50)
+    private Long id;
     private String primeiroNome;
-    @Column(nullable = false, length = 50)
     private String sobrenome;
-    @Column(length = 14)
     private String cpf;
-    @Column(nullable = false, length = 15)
     private String telefone;
-    @Column(nullable = false, length = 100)
     private String rua;
-    @Column(nullable = false, length = 10)
     private String numero;
-    @Column(length = 100)
     private String complemento;
-    @Column(nullable = false, length = 100)
     private String bairro;
-    @Column(nullable = false, length = 50)
     private String cidade;
-    @Column(nullable = false, length = 2)
     private String estado;
+
+    public ClienteDTO(Cliente cliente){
+        this.id = cliente.getId();
+        this.primeiroNome = cliente.getPrimeiroNome();
+        this.sobrenome = cliente.getSobrenome();
+        this.cpf = cliente.getCpf();
+        this.telefone = cliente.getCpf();
+        this.rua = cliente.getRua();
+        this.numero = cliente.getNumero();
+        this.complemento = cliente.getComplemento();
+        this.bairro = cliente.getBairro();
+        this.cidade = cliente.getCidade();
+        this.estado = cliente.getEstado();
+
+    }
+
+    public ClienteDTO(String primeiroNome, String sobrenome, String cpf, String telefone, String rua, String numero, String complemento, String bairro, String cidade, String estado) {
+        this.primeiroNome = primeiroNome;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
 }

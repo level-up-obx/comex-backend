@@ -23,7 +23,7 @@ public class ProdutoController {
     public ResponseEntity<ProdutoDTO> cadastrarProduto(@RequestBody ProdutoDTO produtoDTO) {
         try {
             Produto produto = produtoService.cadastrar(produtoDTO);
-            ProdutoDTO produtoPostDTO = new ProdutoDTO(produto.getNome(), produto.getDescricao(), produto.getPrecoUnitario(), produto.getQuantidadeEmEstoque(), produto.getCategoria().getId());
+            ProdutoDTO produtoPostDTO = new ProdutoDTO(produto.getId(), produto.getNome(), produto.getDescricao(), produto.getPrecoUnitario(), produto.getQuantidadeEmEstoque(), produto.getCategoria().getId());
             return ResponseEntity.ok(produtoPostDTO);
         } catch (Exception postProdutoException) {
             postProdutoException.printStackTrace();

@@ -1,5 +1,6 @@
 package com.onebox_comex.entity;
 
+import com.onebox_comex.dtos.ProdutoDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,6 +34,10 @@ public class Produto {
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
 
+    public Produto(String nome) {
+        this.nome = nome;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
@@ -42,5 +47,9 @@ public class Produto {
                 ", precoUnitario=" + precoUnitario +
                 ", quantidadeEmEstoque=" + quantidadeEmEstoque +
                 '}';
+    }
+
+    public ProdutoDTO converter(){
+        return new ProdutoDTO(this);
     }
 }

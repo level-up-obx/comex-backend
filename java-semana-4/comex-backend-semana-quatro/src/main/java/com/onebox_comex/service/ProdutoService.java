@@ -1,4 +1,5 @@
 package com.onebox_comex.service;
+import com.onebox_comex.dtos.CategoriaNomeDTO;
 import com.onebox_comex.dtos.ProdutoDTO;
 import com.onebox_comex.entity.Categoria;
 import com.onebox_comex.entity.Produto;
@@ -23,6 +24,7 @@ public class ProdutoService {
 
     public Produto cadastrar(ProdutoDTO produtoDTO) throws Exception {
         Produto produto = new Produto();
+        produto.setId(produtoDTO.getId());
         produto.setNome(produtoDTO.getNome());
         produto.setPrecoUnitario(produtoDTO.getPrecoUnitario());
         produto.setDescricao(produtoDTO.getDescricao());
@@ -56,11 +58,13 @@ public class ProdutoService {
             if (produtoOptional.isPresent()) {
                 Produto produto = produtoOptional.get();
                 ProdutoDTO produtoDTO = new ProdutoDTO();
+                produtoDTO.setId(produto.getId());
                 produtoDTO.setNome(produto.getNome());
                 produtoDTO.setDescricao(produto.getDescricao());
                 produtoDTO.setPrecoUnitario(produto.getPrecoUnitario());
                 produtoDTO.setQuantidadeEmEstoque(produto.getQuantidadeEmEstoque());
                 produtoDTO.setCategoriaId(produto.getCategoria().getId());
+                produtoDTO.setCategoriaNome(produto.getCategoria().getNome());
                 return produtoDTO;
             } else {
                 throw new Exception("Produto não encontrado");
