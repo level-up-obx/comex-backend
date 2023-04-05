@@ -2,10 +2,7 @@ package br.com.onebox.app.service;
 
 import br.com.onebox.app.dtos.ItemPedidoDTO;
 import br.com.onebox.app.dtos.PedidoDTO;
-import br.com.onebox.app.entity.Cliente;
-import br.com.onebox.app.entity.ItemPedido;
-import br.com.onebox.app.entity.Pedido;
-import br.com.onebox.app.entity.Produto;
+import br.com.onebox.app.entity.*;
 
 import br.com.onebox.app.exceptions.CPFInvalidoException;
 import br.com.onebox.app.exceptions.IdNaoEncontradoException;
@@ -48,12 +45,24 @@ public class PedidoService {
         // Busca o cliente no banco de dados ou cria um novo
         Cliente cliente = clienteRepository.findById(pedidoDTO.getCliente().getId()).orElse(null);
         if (cliente == null) {
-            ClienteService clienteService = new ClienteService();
-            clienteService.cadastrar(new Cliente());
+            cliente = new Cliente();
+            cliente.setPrimeiroNome(pedidoDTO.getCliente().getPrimeiroNome());
+            cliente.setSobrenome(pedidoDTO.getCliente().getSobrenome());
+            cliente.setCpf(pedidoDTO.getCliente().getCpf());
+            cliente.setTelefone(pedidoDTO.getCliente().getTelefone());
+            Endereco endereco = new Endereco();
+            endereco.setRua(pedidoDTO.getCliente().getEndereco().getRua());
+            endereco.setNumero(pedidoDTO.getCliente().getEndereco().getNumero());
+            endereco.setComplemento(pedidoDTO.getCliente().getEndereco().getComplemento());
+            endereco.setBairro(pedidoDTO.getCliente().getEndereco().getBairro());
+            endereco.setCidade(pedidoDTO.getCliente().getEndereco().getCidade());
+            endereco.setEstado(pedidoDTO.getCliente().getEndereco().getEstado());
+            cliente.setEndereco(endereco);
+            clienteRepository.save(cliente);
         }
+
         Pedido novoPedido = new Pedido();
         novoPedido.setCliente(cliente);
-
         novoPedido.setDataPedidos(pedidoDTO.getDataPedido());
         List<ItemPedido> itens = new ArrayList<>();
         if (pedidoDTO.getItens() == null || pedidoDTO.getItens().isEmpty()) {
@@ -79,6 +88,7 @@ public class PedidoService {
 
         return novoPedido;
     }
+
 
 
 

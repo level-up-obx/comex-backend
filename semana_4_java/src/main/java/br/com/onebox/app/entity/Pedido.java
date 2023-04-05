@@ -1,6 +1,8 @@
 package br.com.onebox.app.entity;
 
 import br.com.onebox.app.enums.TipoDescontoPedidoEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,7 +25,7 @@ public class Pedido {
     @Column(name = "data_pedidos", nullable = false)
     private LocalDate dataPedidos;
 
-
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
 
@@ -40,6 +42,7 @@ public class Pedido {
     private TipoDescontoPedidoEnum tipoDescontoPedido;
 
     @OneToMany(mappedBy = "pedido")
+    @JsonIgnoreProperties("pedido")
     private List<ItemPedido> itens = new ArrayList<>();
 
     public Long getId() {

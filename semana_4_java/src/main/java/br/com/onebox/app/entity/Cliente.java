@@ -2,6 +2,7 @@ package br.com.onebox.app.entity;
 
 import br.com.onebox.app.dtos.ClienteDTO;
 import br.com.onebox.app.enums.TipoDescontoPedidoEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import java.util.List;
 @Entity
 @Table(name = "clientes")
 public class Cliente {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,6 +30,7 @@ public class Cliente {
     private String telefone;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Pedido> pedidos = new ArrayList<>();
 
     @Embedded
@@ -112,6 +116,17 @@ public class Cliente {
         return this.pedidos;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
     public TipoDescontoPedidoEnum getTipoDescontoPedido() {
         if (this.getPedidos().size() >= 5) {
             return TipoDescontoPedidoEnum.FIDELIDADE;
