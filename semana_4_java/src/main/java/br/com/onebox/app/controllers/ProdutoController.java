@@ -1,6 +1,9 @@
 package br.com.onebox.app.controllers;
 
 import br.com.onebox.app.dtos.ProdutoDTO;
+import br.com.onebox.app.entity.Produto;
+import br.com.onebox.app.exceptions.CategoriaInvalidaException;
+import br.com.onebox.app.exceptions.IdNaoEncontradoException;
 import br.com.onebox.app.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,5 +36,16 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoDTO);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Produto> atualizarProduto(@PathVariable Long id, @RequestBody ProdutoDTO produtoDto) {
+        try {
+            Produto produtoAtualizado = produtoService.atualizarProduto(id, produtoDto);
+            return ResponseEntity.ok(produtoAtualizado);
+        } catch (IdNaoEncontradoException e) {
+            return ResponseEntity.notFound().build();
+        } catch (CategoriaInvalidaException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }
 

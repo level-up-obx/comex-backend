@@ -3,6 +3,7 @@ package br.com.onebox.app.service;
 import br.com.onebox.app.dtos.ProdutoDTO;
 import br.com.onebox.app.entity.Categoria;
 import br.com.onebox.app.entity.Produto;
+import br.com.onebox.app.exceptions.IdNaoEncontradoException;
 import br.com.onebox.app.repositories.CategoriaRepository;
 import br.com.onebox.app.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -86,6 +88,23 @@ public class ProdutoService {
         produtoDTO.setCategoriaNome(produto.getCategoria().getNome());
 
         return produtoDTO;
+    }
+
+    public Produto atualizarProduto(Long id, ProdutoDTO produtoAtualizado) {
+        Optional<Produto> produtoOptional = produtoRepository.findById(id);
+        if (!produtoOptional.isPresent()) {
+            throw new IdNaoEncontradoException("Produto não encontrado");
+        }
+        Produto produtoExistente = produtoOptional.get();
+        produtoExistente.setNome(produtoAtualizado.getNome());
+        produtoExistente.setPrecoUnitario(produtoAtualizado.getPrecoUnitario());
+        produtoExistente.setDescricao(produtoAtualizado.getDescricao());
+        produtoExistente.setQuantidadeEstoque(produtoAtualizado.getQuantidadeEstoque());
+
+        Categoria categoria = categoriaRepository.findById(produtoAtualizado.getIdCategoria())
+                .orElseThrow(() -> new IdNaoEncontradoException("Categoria não encontrada"));
+        produtoExistente.setCategoria(categoria);
+        return produtoRepository.save(produtoExistente);
     }
 
 }
