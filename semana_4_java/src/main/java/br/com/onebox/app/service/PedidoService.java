@@ -86,6 +86,8 @@ public class PedidoService {
             itemPedido.setDesconto(itemDTO.getDesconto());
             itemPedido.setTipoDesconto(itemDTO.getTipoDesconto());
             itemPedido.setPedido(itemDTO.getPedido());
+            produto.setQuantidadeEstoque(produto.getQuantidadeEstoque() - itemDTO.getQuantidade());
+            produtoRepository.save(produto);
 
             itens.add(itemPedido);
             novoPedido.setPreco(pedidoDTO.getPreco());
