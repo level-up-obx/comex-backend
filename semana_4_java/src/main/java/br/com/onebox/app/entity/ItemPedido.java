@@ -16,8 +16,8 @@ public class ItemPedido {
     @JoinColumn(name = "produtos_id", nullable = false)
     private Produto produto;
 
-    @ManyToOne
-    @JoinColumn(name = "pedido_id")
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Pedido pedido;
 
     @Column(name = "preco_unitario_itenspedido", precision = 10, scale = 2, nullable = false)
@@ -90,6 +90,7 @@ public class ItemPedido {
     public int getQuantidade() {
         return quantidade;
     }
+
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;

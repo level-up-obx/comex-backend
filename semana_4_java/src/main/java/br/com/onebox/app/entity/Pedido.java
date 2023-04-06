@@ -5,12 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -112,9 +110,10 @@ public class Pedido {
     public Pedido() {
         this.itens = new ArrayList<>();
     }
-    public void adicionarItem(ItemPedido item) {
+    public Long adicionarItem(ItemPedido item) {
         item.setPedido(this);
         this.itens.add(item);
+        return item.getId();
     }
 
 
@@ -130,6 +129,13 @@ public class Pedido {
         return itens.stream()
                 .map(ItemPedido::getPrecoUnitario)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+    public int getQuantidadeTotalItens() {
+        int quantidadeTotal = 0;
+        for (ItemPedido item : itens) {
+            quantidadeTotal += item.getQuantidade();
+        }
+        return quantidadeTotal;
     }
 
     @Override

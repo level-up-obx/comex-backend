@@ -8,6 +8,7 @@ import br.com.onebox.app.exceptions.CPFInvalidoException;
 import br.com.onebox.app.exceptions.IdNaoEncontradoException;
 
 import br.com.onebox.app.repositories.ClienteRepository;
+import br.com.onebox.app.repositories.ItemPedidoRepository;
 import br.com.onebox.app.repositories.PedidoRepository;
 import br.com.onebox.app.repositories.ProdutoRepository;
 import org.springframework.beans.BeanUtils;
@@ -38,6 +39,9 @@ public class PedidoService {
 
     @Autowired
     private ClienteService clienteService;
+
+    @Autowired
+    private ItemPedidoRepository itemPedidoRepository;
 
 
     @Transactional
@@ -75,18 +79,22 @@ public class PedidoService {
                     .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
 
             ItemPedido itemPedido = new ItemPedido();
-            itemPedido.setId(itemPedido.getId());
+//            itemPedido.setId(itemPedido.getId());
             itemPedido.setProduto(produto);
             itemPedido.setQuantidade(itemDTO.getQuantidade());
             itemPedido.setPrecoUnitario(produto.getPrecoUnitario());
+            itemPedido.setDesconto(itemDTO.getDesconto());
+            itemPedido.setTipoDesconto(itemDTO.getTipoDesconto());
+            itemPedido.setPedido(itemDTO.getPedido());
 
             itens.add(itemPedido);
             novoPedido.setPreco(pedidoDTO.getPreco());
             novoPedido.adicionarItem(itemPedido);
+
+            itemPedidoRepository.save(itemPedido);
         }
 
 //        itens.forEach(novoPedido::adicionarItem);
-
         pedidoRepository.save(novoPedido);
 
         return novoPedido;
