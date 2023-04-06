@@ -65,6 +65,7 @@ public class PedidoService {
         novoPedido.setCliente(cliente);
         novoPedido.setDataPedidos(pedidoDTO.getDataPedido());
         novoPedido.setQuantidade(pedidoDTO.getQuantidade());
+        novoPedido.setTipoDescontoPedido(pedidoDTO.getTipoDescontoPedido());
         List<ItemPedido> itens = new ArrayList<>();
         if (pedidoDTO.getItens() == null || pedidoDTO.getItens().isEmpty()) {
             throw new IllegalArgumentException("O pedido deve ter pelo menos um item");
@@ -74,6 +75,7 @@ public class PedidoService {
                     .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
 
             ItemPedido itemPedido = new ItemPedido();
+            itemPedido.setId(itemPedido.getId());
             itemPedido.setProduto(produto);
             itemPedido.setQuantidade(itemDTO.getQuantidade());
             itemPedido.setPrecoUnitario(produto.getPrecoUnitario());

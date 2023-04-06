@@ -127,7 +127,9 @@ public class Pedido {
     }
 
     public BigDecimal getValorTotal() {
-        return preco.multiply(BigDecimal.valueOf(quantidade));
+        return itens.stream()
+                .map(ItemPedido::getPrecoUnitario)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     @Override
