@@ -64,6 +64,7 @@ public class PedidoService {
         Pedido novoPedido = new Pedido();
         novoPedido.setCliente(cliente);
         novoPedido.setDataPedidos(pedidoDTO.getDataPedido());
+        novoPedido.setQuantidade(pedidoDTO.getQuantidade());
         List<ItemPedido> itens = new ArrayList<>();
         if (pedidoDTO.getItens() == null || pedidoDTO.getItens().isEmpty()) {
             throw new IllegalArgumentException("O pedido deve ter pelo menos um item");
@@ -82,7 +83,7 @@ public class PedidoService {
             novoPedido.adicionarItem(itemPedido);
         }
 
-        itens.forEach(novoPedido::adicionarItem);
+//        itens.forEach(novoPedido::adicionarItem);
 
         pedidoRepository.save(novoPedido);
 

@@ -14,6 +14,7 @@ public class PedidoDTO {
     private ClienteDTO cliente;
     private BigDecimal preco;
     private TipoDescontoPedidoEnum tipoDescontoPedido;
+    private int quantidade;
 
     public PedidoDTO() {
     }
@@ -65,6 +66,13 @@ public class PedidoDTO {
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
 
+    }
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 }

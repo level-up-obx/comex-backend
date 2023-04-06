@@ -78,7 +78,7 @@ public class Pedido {
     }
 
     public int getQuantidade() {
-        return quantidade;
+        return cliente != null ? cliente.getPedidos().size() : 0;
     }
 
     public void setQuantidade(int quantidade) {
