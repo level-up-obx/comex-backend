@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/categorias")
 public class CategoriaController {
@@ -35,4 +38,9 @@ public class CategoriaController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+    @GetMapping("/vendas")
+    public List<Map<String, Object>> relatorioVendasPorCategoria() {
+        return categoriaService.relatorioVendasPorCategoria();
+    }
+
 }

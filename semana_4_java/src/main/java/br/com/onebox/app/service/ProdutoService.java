@@ -2,7 +2,6 @@ package br.com.onebox.app.service;
 
 import br.com.onebox.app.dtos.ProdutoDTO;
 import br.com.onebox.app.entity.Categoria;
-import br.com.onebox.app.exceptions.PrecoInvalidoException;
 import br.com.onebox.app.entity.Produto;
 import br.com.onebox.app.repositories.CategoriaRepository;
 import br.com.onebox.app.repositories.ProdutoRepository;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
