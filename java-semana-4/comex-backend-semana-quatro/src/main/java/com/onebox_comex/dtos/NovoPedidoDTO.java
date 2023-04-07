@@ -19,9 +19,12 @@ public class NovoPedidoDTO {
     private Long id;
     private Long clienteId;
     private List<ItemPedidoDTO> itensPedidos;
-    private Cliente cliente;
+    private ClienteDTO cliente;
     private LocalDate data;
     private Long produtoId;
     private BigDecimal desconto;
     private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
+    private LocalDate dataDoPedido;
+    private int quantidadeDePedidos;
+    private BigDecimal precoPedido;
 }

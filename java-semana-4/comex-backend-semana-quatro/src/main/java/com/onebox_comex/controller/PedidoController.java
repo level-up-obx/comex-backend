@@ -23,24 +23,16 @@ import java.net.URI;
 public class PedidoController {
 
     private final PedidoService pedidoService;
-    private final PedidoRepository pedidoRepository;
-    private final ClienteRepository clienteRepository;
-    private final ProdutoRepository produtoRepository;
 
-    public PedidoController(PedidoService pedidoService, PedidoRepository pedidoRepository, ClienteRepository clienteRepository, ProdutoRepository produtoRepository) {
+    public PedidoController(PedidoService pedidoService) {
         this.pedidoService = pedidoService;
-        this.pedidoRepository = pedidoRepository;
-        this.clienteRepository = clienteRepository;
-        this.produtoRepository = produtoRepository;
     }
 
     @PostMapping
-    public ResponseEntity<PedidoDTO> criarPedido(@RequestBody @Valid NovoPedidoDTO novoPedidoDTO, UriComponentsBuilder uriBuilder) {
-          Pedido pedido = pedidoService.popularPedido(clienteRepository, produtoRepository, novoPedidoDTO);
-//        Pedido pedido = pedidoService.criarPedido(novoPedidoDTO);
-          pedidoRepository.save(pedido);
-        URI uri = uriBuilder.path("/pedidos/{id}").buildAndExpand(pedido.getId()).toUri();
-        return ResponseEntity.created(uri).body(new PedidoDTO(pedido));
+    public ResponseEntity<Pedido> criarPedido(@RequestBody @Valid NovoPedidoDTO novoPedidoDTO) throws Exception {
+
+        Pedido pedido = pedidoService.criarPedido(novoPedidoDTO);
+        return ResponseEntity.ok(pedido);
     }
 
 }

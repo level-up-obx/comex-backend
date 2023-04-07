@@ -1,6 +1,7 @@
 package com.onebox_comex.dtos;
 
 import com.onebox_comex.entity.ItemPedido;
+import com.onebox_comex.entity.Pedido;
 import com.onebox_comex.entity.Produto;
 import com.onebox_comex.enums.TipoDescontoItemPedidoEnum;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ public class ItemPedidoDTO {
     private BigDecimal precoUnitario;
     private BigDecimal desconto;
     private TipoDescontoItemPedidoEnum tipoDescontoItemPedido;
+    private Pedido pedido;
 
     public List<ItemPedidoDTO> converter(List<ItemPedido> itens){
         List<ItemPedidoDTO> lista = new ArrayList<>();

@@ -32,6 +32,12 @@ public class Pedido {
     @Column
     private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
 
+    @Column(nullable = false, length = 200)
+    private int quantidadeDePedidos;
+
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal precoPedido;
+
     public BigDecimal getValorTotal(){
         BigDecimal valorTotal = BigDecimal.ZERO;
         for(ItemPedido item : this.itensPedidos){
