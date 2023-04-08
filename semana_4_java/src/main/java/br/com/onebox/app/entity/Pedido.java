@@ -126,10 +126,17 @@ public class Pedido {
     }
 
     public BigDecimal getValorTotal() {
-        return itens.stream()
+        BigDecimal valorTotal = itens.stream()
                 .map(ItemPedido::getPrecoUnitario)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        if (tipoDescontoPedido == TipoDescontoPedidoEnum.FIDELIDADE) {
+            valorTotal = valorTotal.multiply(BigDecimal.valueOf(0.9)); // 10% de desconto para CLIENTES FIEIS
+        }
+
+        return valorTotal;
     }
+
     public int getQuantidadeTotalItens() {
         int quantidadeTotal = 0;
         for (ItemPedido item : itens) {

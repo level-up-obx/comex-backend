@@ -1,10 +1,10 @@
 package br.com.onebox.app.controllers;
 
-import br.com.onebox.app.entity.Cliente;
+
 import br.com.onebox.app.entity.Pedido;
 import br.com.onebox.app.service.PedidoService;
 
-import org.jetbrains.annotations.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
