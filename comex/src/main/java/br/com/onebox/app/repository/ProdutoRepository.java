@@ -15,4 +15,7 @@ public interface ProdutoRepository extends PagingAndSortingRepository<Produto, L
 
     @Query("SELECT p FROM Produto p WHERE p.quantidadeEmEstoque = 0")
     public List<Produto> findUnavailableProducts();
+
+    @Query("SELECT p.categoria AS categoria, SUM(i.quantidade) AS quantidade_vendida, SUM(i.quantidade * i.precoUnitario) AS montante_vendido FROM Pedido pe JOIN pe.itens i JOIN i.produto p GROUP BY p.categoria")
+    public List<Object> relatorioDeVendasPorCategoria();
 }
