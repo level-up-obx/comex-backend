@@ -31,6 +31,9 @@ public class Cliente {
     @Embedded
     private Endereco endereco;
 
+    @OneToOne
+    private Usuario usuario;
+
     public Cliente(Long id, String primeiroNome, String sobrenome, String cpf, String telefone, Endereco endereco) {
         this.id = id;
         this.primeiroNome = primeiroNome;
