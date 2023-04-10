@@ -35,9 +35,8 @@ public class PedidoController {
     @PostMapping
     @Transactional
     public ResponseEntity<PedidoDto> cadastrar(@RequestBody @Valid PedidoForm form, UriComponentsBuilder uriComponentsBuilder) throws ProdutoInvalidoException {
-        Pedido pedido = form.toEntity(clienteRepository,produtoRepository);
-        pedidoRepository.save(pedido);
+        pedidoService.toEntityAndSave(form, clienteRepository, produtoRepository);
         URI uri = uriComponentsBuilder.path("/api/pedidos/{id}").buildAndExpand(form.getClienteId()).toUri();
-        return ResponseEntity.created(uri).body(new PedidoDto(pedido));
+        return ResponseEntity.created(uri).body(pedidoService.get(form.getClienteId()));
     }
 }

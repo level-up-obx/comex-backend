@@ -101,6 +101,10 @@ public class Cliente {
         return primeiroNome + " " + sobrenome;
     }
 
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
     @Override
     public String toString() {
         return "Cliente{" +

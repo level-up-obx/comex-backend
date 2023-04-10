@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6fbf49ca-3e49-4888-b9b2-090fe694d2a8" name="Changes" comment="" />
+    <list default="true" id="6fbf49ca-3e49-4888-b9b2-090fe694d2a8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/ItemPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/ItemPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/TipoDescontoPedidoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/TipoDescontoPedidoEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/TipoDescontoProdutoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/TipoDescontoProdutoEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/service/PedidoService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +29,14 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/gustavo/Desktop/Entregas/comex-backend"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/gustavo/Desktop/Entregas/comex-backend/comex",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -33,7 +47,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675872234266</updated>
+      <workItem from="1680809950785" duration="192000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

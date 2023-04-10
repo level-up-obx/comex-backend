@@ -21,7 +21,7 @@ public class ItemPedido {
     @Column(length = 7, nullable = false)
     private int quantidade;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Produto produto;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -110,5 +110,13 @@ public class ItemPedido {
         this.desconto = desconto;
     }
 
+
+    public void getDescontoDoItemPedido(){
+        if(this.tipoDesconto.equals(TipoDescontoProdutoEnum.QUANTIDADE)){
+            this.desconto = new BigDecimal("0.9");
+        } else if(this.tipoDesconto.equals(TipoDescontoProdutoEnum.PROMOCAO)){
+            this.desconto = new BigDecimal("0.8");
+        } this.desconto = new BigDecimal("1.0");
+    }
 
 }

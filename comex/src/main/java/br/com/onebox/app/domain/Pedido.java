@@ -103,6 +103,18 @@ public class Pedido {
         }
         return valorTotal;
     }
+    public int getTotalItens(){
+        int quantidadeTotalDeItens = 0;
+        for(ItemPedido item : this.itens){
+            quantidadeTotalDeItens = item.getQuantidade() + quantidadeTotalDeItens;
+        }
+        return quantidadeTotalDeItens;
+    }
+    public void getDescontoDoPedido(){
+        if(this.tipoDescontoPedidoEnum.equals(TipoDescontoPedidoEnum.NENHUM)){
+            this.desconto = new BigDecimal("1.0");
+        } this.desconto = new BigDecimal("0.9");
+    }
 
     @Override
     public String toString() {
