@@ -12,6 +12,7 @@ import com.onebox_comex.repository.PedidoRepository;
 import com.onebox_comex.repository.ProdutoRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class PedidoService {
         this.itemPedidoRepository = itemPedidoRepository;
     }
 
+    @Transactional
     public Pedido criarPedido(NovoPedidoDTO novoPedidoDTO) throws Exception {
         Cliente cliente = clienteRepository.findById(novoPedidoDTO.getCliente().getId()).orElse(null);
         if (cliente == null) {
@@ -83,6 +85,11 @@ public class PedidoService {
         pedidoRepository.save(pedido);
 
         return pedido;
+    }
+
+    public Pedido getById(Long id) {
+        return pedidoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Pedido não encontrado"));
     }
 
 //    public Pedido popularPedido(ClienteRepository clienteRepository, ProdutoRepository produtoRepository, NovoPedidoDTO novoPedidoDTO){
