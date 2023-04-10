@@ -2,6 +2,7 @@ package br.com.onebox.app.api.categoria;
 
 import br.com.onebox.app.domain.Categoria;
 import br.com.onebox.app.repository.CategoriaRepository;
+import br.com.onebox.app.repository.ProdutoRepository;
 import br.com.onebox.app.service.CategoriaService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -21,6 +22,8 @@ public class CategoriaController {
     CategoriaRepository categoriaRepository;
     @Autowired
     private CategoriaService categoriaService;
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
     @GetMapping("/{id}")
     @ResponseBody
@@ -37,9 +40,9 @@ public class CategoriaController {
         return ResponseEntity.created(uri).body(new CategoriaDto(categoria));
     }
 
-    @GetMapping
+    @GetMapping("/vendas")
     @ResponseBody
-    public List<CategoriaDto> lista() {
-        return categoriaService.getCategorias();
+    public List<Object> lista() {
+        return produtoRepository.relatorioDeVendasPorCategoria();
     }
 }
