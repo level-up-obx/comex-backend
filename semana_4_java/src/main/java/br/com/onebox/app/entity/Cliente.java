@@ -2,6 +2,7 @@ package br.com.onebox.app.entity;
 
 import br.com.onebox.app.dtos.ClienteDTO;
 import br.com.onebox.app.enums.TipoDescontoPedidoEnum;
+import br.com.onebox.app.users.Usuario;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -32,6 +33,10 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Pedido> pedidos = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private Usuario usuario;
 
     @Embedded
     public Endereco endereco;
