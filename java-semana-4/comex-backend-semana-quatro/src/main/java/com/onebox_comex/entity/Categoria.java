@@ -1,5 +1,6 @@
 package com.onebox_comex.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.onebox_comex.enums.StatusCategoriaEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,8 +26,6 @@ public class Categoria {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private StatusCategoriaEnum status = StatusCategoriaEnum.ATIVA;
-    @OneToMany(mappedBy = "categoria")
-    private List<Produto> produtos;
 
     public Categoria(String nome) {
         this.nome = nome;

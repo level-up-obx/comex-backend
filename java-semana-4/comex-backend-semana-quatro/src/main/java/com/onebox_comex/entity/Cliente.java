@@ -1,11 +1,13 @@
 package com.onebox_comex.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,8 +28,8 @@ public class Cliente {
     @Column(nullable = false, length = 15)
     private String telefone;
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JsonIgnore
-    private List<Pedido> pedido;
+    @JsonIgnoreProperties("cliente")
+    private List<Pedido> pedido = new ArrayList<>();
     @Column(nullable = false, length = 100)
     private String rua;
     @Column(nullable = false, length = 10)

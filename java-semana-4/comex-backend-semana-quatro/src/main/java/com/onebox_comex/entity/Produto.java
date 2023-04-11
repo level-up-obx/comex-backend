@@ -1,5 +1,6 @@
 package com.onebox_comex.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.onebox_comex.dtos.ProdutoDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,8 +31,7 @@ public class Produto {
     @Max(1000)
     @Column(nullable = false)
     private int quantidadeEmEstoque;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_id", nullable = false)
+    @ManyToOne
     private Categoria categoria;
 
     public Produto(String nome) {

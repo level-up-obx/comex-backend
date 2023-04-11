@@ -1,5 +1,6 @@
 package com.onebox_comex.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.onebox_comex.enums.TipoDescontoItemPedidoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +11,7 @@ import javax.validation.constraints.Max;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "itemPedido")
+@Table(name = "item_pedido")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,7 +23,6 @@ public class ItemPedido {
     @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pedido_id", nullable = false)
     private Pedido pedido;
     @Column(precision = 10, scale = 2)
     private BigDecimal precoUnitario;

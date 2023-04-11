@@ -75,7 +75,7 @@ public class PedidoService {
             pedido.setPrecoPedido(novoPedidoDTO.getPreco());
             pedido.adicionarItem(itemPedido);
 
-//            itemPedidoRepository.save(itemPedido);
+           itemPedidoRepository.save(itemPedido);
         }
 
         pedidoRepository.save(pedido);
