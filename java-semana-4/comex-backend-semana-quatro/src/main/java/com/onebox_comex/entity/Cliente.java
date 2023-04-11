@@ -42,6 +42,9 @@ public class Cliente {
     private String cidade;
     @Column(nullable = false, length = 2)
     private String estado;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private Usuario usuario;
     public Cliente(String cpf) {
         this.cpf = cpf;
     }

@@ -20,6 +20,7 @@ public class NovoPedidoDTO {
     private List<ItemPedidoDTO> itens;
     private ClienteDTO cliente;
     private BigDecimal preco;
+    private BigDecimal desconto;
     private TipoDescontoPedidoEnum tipoDescontoPedido;
     private int quantidade;
 

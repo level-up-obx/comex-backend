@@ -52,6 +52,7 @@ public class PedidoService {
         Pedido pedido = new Pedido();
         pedido.setCliente(cliente);
         pedido.setData(novoPedidoDTO.getDataDoPedido());
+        pedido.setDesconto(novoPedidoDTO.getDesconto());
         pedido.setQuantidadeDePedidos(novoPedidoDTO.getQuantidade());
         pedido.setTipoDescontoPedidoEnum(novoPedidoDTO.getTipoDescontoPedido());
 
