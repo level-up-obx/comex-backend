@@ -16,16 +16,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NovoPedidoDTO {
-    private Long id;
-    private Long clienteId;
-    private List<ItemPedidoDTO> itensPedidos;
-    private ClienteDTO cliente;
-    private LocalDate data;
-    private Long produtoId;
-    private BigDecimal desconto;
-    private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
     private LocalDate dataDoPedido;
-    private int quantidadeDePedidos;
-    private BigDecimal precoPedido;
+    private List<ItemPedidoDTO> itens;
+    private ClienteDTO cliente;
+    private BigDecimal preco;
+    private TipoDescontoPedidoEnum tipoDescontoPedido;
+    private int quantidade;
 
 }

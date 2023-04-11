@@ -48,44 +48,41 @@ public class PedidoService {
             cliente.setEstado(novoPedidoDTO.getCliente().getEstado());
             clienteRepository.save(cliente);
         }
+
         Pedido pedido = new Pedido();
         pedido.setCliente(cliente);
         pedido.setData(novoPedidoDTO.getDataDoPedido());
-        pedido.setQuantidadeDePedidos(novoPedidoDTO.getQuantidadeDePedidos());
-        pedido.setTipoDescontoPedidoEnum(novoPedidoDTO.getTipoDescontoPedidoEnum());
-        List<ItemPedido> itensPedidos = new ArrayList<>();
-        try{
-            if (novoPedidoDTO.getItensPedidos() == null || novoPedidoDTO.getItensPedidos().isEmpty()) {
-                throw new Exception("O pedido é inválido");
-            }
-        } catch (Exception novoPedidoException){
-            throw novoPedidoException;
-        }
+        pedido.setQuantidadeDePedidos(novoPedidoDTO.getQuantidade());
+        pedido.setTipoDescontoPedidoEnum(novoPedidoDTO.getTipoDescontoPedido());
 
-        for (ItemPedidoDTO itemPedidoDTO : novoPedidoDTO.getItensPedidos()) {
+        List<ItemPedido> itensPedidos = new ArrayList<>();
+
+        for (ItemPedidoDTO itemPedidoDTO : novoPedidoDTO.getItens()) {
             Produto produto = produtoRepository.findById(itemPedidoDTO.getProdutoId())
                     .orElseThrow(() -> new Exception("Produto inexistente"));
 
-        ItemPedido itemPedido = new ItemPedido();
-        itemPedido.setProduto(produto);
-        itemPedido.setQuantidade(itemPedidoDTO.getQuantidade());
-        itemPedido.setPrecoUnitario(produto.getPrecoUnitario());
-        itemPedido.setDesconto(itemPedidoDTO.getDesconto());
-        itemPedido.setTipoDescontoItemPedido(itemPedidoDTO.getTipoDescontoItemPedido());
-        itemPedido.setPedido(itemPedidoDTO.getPedido());
-        produto.setQuantidadeEmEstoque(produto.getQuantidadeEmEstoque() - itemPedidoDTO.getQuantidade());
-        produtoRepository.save(produto);
+            ItemPedido itemPedido = new ItemPedido();
+            itemPedido.setProduto(produto);
+            itemPedido.setQuantidade(itemPedidoDTO.getQuantidade());
+            itemPedido.setPrecoUnitario(produto.getPrecoUnitario());
+            itemPedido.setDesconto(itemPedidoDTO.getDesconto());
+            itemPedido.setTipoDescontoItemPedido(itemPedidoDTO.getTipoDescontoItemPedido());
+            itemPedido.setPedido(itemPedidoDTO.getPedido());
+            produto.setQuantidadeEmEstoque(produto.getQuantidadeEmEstoque() - itemPedidoDTO.getQuantidade());
+            produtoRepository.save(produto);
 
-        itensPedidos.add(itemPedido);
-        pedido.setPrecoPedido(novoPedidoDTO.getPrecoPedido());
-        pedido.adicionarItem(itemPedido);
+            itensPedidos.add(itemPedido);
+            pedido.setPrecoPedido(novoPedidoDTO.getPreco());
+            pedido.adicionarItem(itemPedido);
 
-        itemPedidoRepository.save(itemPedido);
-    }
+//            itemPedidoRepository.save(itemPedido);
+        }
+
         pedidoRepository.save(pedido);
 
         return pedido;
     }
+
 
     public Pedido getById(Long id) {
         return pedidoRepository.findById(id)

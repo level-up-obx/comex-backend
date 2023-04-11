@@ -1,4 +1,6 @@
 package com.onebox_comex.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.onebox_comex.enums.TipoDescontoPedidoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,21 +23,22 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cliente_id", nullable = false)
+    @JsonIgnore
     private Cliente cliente;
-    @Column(nullable = false)
+    @Column
     private LocalDate data;
     @OneToMany(mappedBy = "pedido")
+    @JsonIgnoreProperties("pedido")
     private List<ItemPedido> itensPedidos = new ArrayList<>();
     @Column(precision = 10, scale = 2)
     private BigDecimal desconto;
     @Column
     private TipoDescontoPedidoEnum tipoDescontoPedidoEnum;
 
-    @Column(nullable = false, length = 200)
+    @Column(length = 200)
     private int quantidadeDePedidos;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(precision = 10, scale = 2)
     private BigDecimal precoPedido;
 
     public BigDecimal getValorTotal(){
@@ -67,9 +70,10 @@ public class Pedido {
                 ", data=" + data +
                 '}';
     }
-    public void adicionarItem(ItemPedido item){
+    public Long adicionarItem(ItemPedido item){
         item.setPedido(this);
         this.itensPedidos.add(item);
+        return item.getId();
     }
     public void adicionaItens(List<ItemPedido> itens) {
         itens.forEach(item -> {

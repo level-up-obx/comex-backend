@@ -24,13 +24,13 @@ public class ItemPedido {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pedido_id", nullable = false)
     private Pedido pedido;
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(precision = 10, scale = 2)
     private BigDecimal precoUnitario;
-    @Column(nullable = false)
+    @Column
     private int quantidade;
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(precision = 10, scale = 2)
     private BigDecimal desconto;
-    @Column(nullable = false)
+    @Column
     @Enumerated(EnumType.STRING)
     private TipoDescontoItemPedidoEnum tipoDescontoItemPedido;
 

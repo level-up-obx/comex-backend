@@ -1,5 +1,6 @@
 package com.onebox_comex.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,8 @@ public class Cliente {
     private String cpf;
     @Column(nullable = false, length = 15)
     private String telefone;
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Pedido> pedido;
     @Column(nullable = false, length = 100)
     private String rua;
