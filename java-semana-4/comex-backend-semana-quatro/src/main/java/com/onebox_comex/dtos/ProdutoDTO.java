@@ -33,8 +33,6 @@ public class ProdutoDTO {
 
     private Long categoriaId;
 
-    private String categoriaNome;
-
     public ProdutoDTO(Produto produto){
         this.id = produto.getId();
         this.nome = produto.getNome();
@@ -42,15 +40,6 @@ public class ProdutoDTO {
         this.descricao = produto.getDescricao();
         this.quantidadeEmEstoque = produto.getQuantidadeEmEstoque();
 //        this.categoria = new CategoriaNomeDTO(produto.getCategoria().getNome());
-    }
-
-    public ProdutoDTO(Long id, String nome, String descricao, BigDecimal precoUnitario, int quantidadeEmEstoque, Long categoriaId) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.precoUnitario = precoUnitario;
-        this.quantidadeEmEstoque = quantidadeEmEstoque;
-        this.categoriaId =  categoriaId;
     }
 
 }

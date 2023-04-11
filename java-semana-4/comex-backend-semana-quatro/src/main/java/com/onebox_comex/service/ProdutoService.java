@@ -64,7 +64,6 @@ public class ProdutoService {
                 produtoDTO.setPrecoUnitario(produto.getPrecoUnitario());
                 produtoDTO.setQuantidadeEmEstoque(produto.getQuantidadeEmEstoque());
                 produtoDTO.setCategoriaId(produto.getCategoria().getId());
-                produtoDTO.setCategoriaNome(produto.getCategoria().getNome());
                 return produtoDTO;
             } else {
                 throw new Exception("Produto não encontrado");

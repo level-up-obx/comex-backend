@@ -14,8 +14,6 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoriaNomeDTO {
-
-    private Long categoriaId;
     @NotBlank(message = "O nome da categoria é obrigatório")
     @Size(min = 2, message = "O nome da categoria deve ter pelo menos 2 caracteres")
     private String nome;

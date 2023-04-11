@@ -20,7 +20,7 @@ public class ClienteController {
     public ResponseEntity<ClienteDTO> cadastrarCliente(@RequestBody ClienteDTO clienteDTO)  {
         try {
             Cliente cliente = clienteService.cadastrarCliente(clienteDTO);
-            ClienteDTO clientePostDTO = new ClienteDTO(cliente.getPrimeiroNome(), cliente.getSobrenome(), cliente.getCpf(), cliente.getTelefone(), cliente.getRua(), cliente.getNumero(), cliente.getComplemento(), cliente.getBairro(), cliente.getCidade(), cliente.getEstado());
+            ClienteDTO clientePostDTO = new ClienteDTO(cliente.getId(), cliente.getPrimeiroNome(), cliente.getSobrenome(), cliente.getCpf(), cliente.getTelefone(), cliente.getRua(), cliente.getNumero(), cliente.getComplemento(), cliente.getBairro(), cliente.getCidade(), cliente.getEstado());
             return ResponseEntity.ok(clientePostDTO);
         } catch (Exception postClienteException) {
             postClienteException.printStackTrace();

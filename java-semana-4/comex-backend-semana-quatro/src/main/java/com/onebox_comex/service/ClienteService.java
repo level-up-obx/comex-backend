@@ -33,6 +33,7 @@ public class ClienteService {
     }
     public Cliente cadastrarCliente(ClienteDTO clienteDTO) throws Exception {
         Cliente cliente = new Cliente();
+        cliente.setId(clienteDTO.getId());
         cliente.setPrimeiroNome(clienteDTO.getPrimeiroNome());
         cliente.setSobrenome(clienteDTO.getSobrenome());
         cliente.setCpf(clienteDTO.getCpf());
