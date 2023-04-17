@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fbf49ca-3e49-4888-b9b2-090fe694d2a8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/ItemPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/ItemPedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/TipoDescontoPedidoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/TipoDescontoPedidoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/TipoDescontoProdutoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/TipoDescontoProdutoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/service/PedidoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aedb2dea-74ef-473f-8466-53d5830b216e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aedb2dea-74ef-473f-8466-53d5830b216e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/comex/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/ComexApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/ComexApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/java/br/com/onebox/app/domain/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/comex/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/comex/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comex/target/classes/br/com/onebox/app/domain/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/comex/target/classes/br/com/onebox/app/domain/Cliente.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,20 +26,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/gustavo/Desktop/Entregas/comex-backend/comex",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gustavo/Desktop/Entregas/comex-backend/comex&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,6 +49,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675872234266</updated>
       <workItem from="1680809950785" duration="192000" />
+      <workItem from="1681404326822" duration="139000" />
     </task>
     <servers />
   </component>

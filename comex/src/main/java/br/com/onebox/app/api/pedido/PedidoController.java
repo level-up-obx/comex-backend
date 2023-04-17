@@ -1,6 +1,5 @@
 package br.com.onebox.app.api.pedido;
 
-import br.com.onebox.app.domain.Pedido;
 import br.com.onebox.app.exception.ProdutoInvalidoException;
 import br.com.onebox.app.repository.ClienteRepository;
 import br.com.onebox.app.repository.PedidoRepository;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/pedidos")

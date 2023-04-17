@@ -1,3 +1,9 @@
 
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Á¬ì€8‰›úÏò0
+r
+java:S36553"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Èò—îıÿÿÿÿ8ù­²ø0
+>
+java:S21119"!Use "BigDecimal.valueOf" instead.(’©©…8™®²ø0
+>
+java:S2111@"!Use "BigDecimal.valueOf" instead.(ˆ¹«Ê8¥®²ø0
+n
+java:S1128	"QRemove this unused import 'br.com.onebox.app.exception.ProdutoInvalidoException'.(ì¸»‹8®®²ø0
