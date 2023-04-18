@@ -22,8 +22,6 @@ import java.net.URI;
 public class PedidoController {
 
     @Autowired
-    private PedidoRepository pedidoRepository;
-    @Autowired
     ClienteRepository clienteRepository;
     @Autowired
     ProdutoRepository produtoRepository;

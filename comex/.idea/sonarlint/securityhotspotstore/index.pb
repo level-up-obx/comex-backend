@@ -8,10 +8,6 @@ Csrc/main/java/br/com/onebox/app/domain/TipoDescontoProdutoEnum.java,d/e/de0fba
 r
 Bsrc/main/java/br/com/onebox/app/domain/TipoDescontoPedidoEnum.java,f/d/fd6200375449eeeeb513487123f345c6a126b90c
 k
-;src/main/java/br/com/onebox/app/service/ProdutoService.java,6/8/6874e095d2065381db709819bc8baabbdaf7147c
-m
-=src/main/java/br/com/onebox/app/service/CategoriaService.java,0/5/059043c36eceb72f1fe5fa82cb63f15e38c3a25c
-k
 ;src/main/java/br/com/onebox/app/service/ClienteService.java,1/1/11d1be5da0e61eed147eee7b6199d51d5b71c19d
 c
 3src/main/java/br/com/onebox/app/domain/Estoque.java,b/2/b2913a2dd79f0c73ad0a22be781de0521e96aedf
@@ -25,8 +21,6 @@ f
 6src/main/java/br/com/onebox/app/domain/ItemPedido.java,1/e/1ec357c9a5731e8a8ba5722d10dd6c2c9f718cef
 i
 9src/main/java/br/com/onebox/app/api/pedido/PedidoDto.java,c/b/cb92e2307e5d21cf439fd4788d2566d271470a25
-j
-:src/main/java/br/com/onebox/app/service/PedidoService.java,a/d/adef419a56aec7c0b3d037792eb5150c4bd93879
 b
 2src/main/java/br/com/onebox/app/domain/Pedido.java,9/9/995c4463c04d264d2fd1feb14bbbdb35fcda3dc5
 c

@@ -1,6 +1,7 @@
 package br.com.onebox.app.service;
 
 import br.com.onebox.app.api.categoria.CategoriaDto;
+import br.com.onebox.app.api.categoria.CategoriaForm;
 import br.com.onebox.app.domain.Categoria;
 import br.com.onebox.app.exception.CategoriaInvalidaException;
 import br.com.onebox.app.repository.CategoriaRepository;
@@ -16,16 +17,16 @@ public class CategoriaService {
 
     @Autowired
     CategoriaRepository categoriaRepository;
-    public void cadastrar(Categoria novaCategoria) throws CategoriaInvalidaException {
+    public Categoria cadastrar(CategoriaForm categoriaForm) throws CategoriaInvalidaException {
         try {
-            if (novaCategoria.equals(null)) {
+            if (categoriaForm.equals(null)) {
                 throw new CategoriaInvalidaException("Categoria Inválida, valores nulos encontrados!");
             }
-            categoriaRepository.save(novaCategoria);
-            System.out.println("Categoria cadastrada com sucesso");
         } catch (CategoriaInvalidaException e) {
             System.out.println(e.getMessage());
         }
+        Categoria categoria = categoriaForm.toEntity();
+        return categoriaRepository.save(categoria);
     }
     public List<CategoriaDto> getCategorias() {
 

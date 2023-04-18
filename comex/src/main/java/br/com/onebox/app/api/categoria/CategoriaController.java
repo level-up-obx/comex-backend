@@ -1,6 +1,7 @@
 package br.com.onebox.app.api.categoria;
 
 import br.com.onebox.app.domain.Categoria;
+import br.com.onebox.app.exception.CategoriaInvalidaException;
 import br.com.onebox.app.repository.CategoriaRepository;
 import br.com.onebox.app.repository.ProdutoRepository;
 import br.com.onebox.app.service.CategoriaService;
@@ -19,8 +20,6 @@ import java.util.List;
 public class CategoriaController {
 
     @Autowired
-    CategoriaRepository categoriaRepository;
-    @Autowired
     private CategoriaService categoriaService;
     @Autowired
     private ProdutoRepository produtoRepository;
@@ -33,9 +32,8 @@ public class CategoriaController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<CategoriaDto> cadastrar(@RequestBody @Valid CategoriaForm form, UriComponentsBuilder uriComponentsBuilder){
-        Categoria categoria = form.toEntity();
-        categoriaRepository.save(categoria);
+    public ResponseEntity<CategoriaDto> cadastrar(@RequestBody @Valid CategoriaForm form, UriComponentsBuilder uriComponentsBuilder) throws CategoriaInvalidaException {
+        Categoria categoria = categoriaService.cadastrar(form);
         URI uri = uriComponentsBuilder.path("/api/categorias/{id}").buildAndExpand(categoria.getId()).toUri();
         return ResponseEntity.created(uri).body(new CategoriaDto(categoria));
     }
